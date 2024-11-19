@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description" content="Portfolio of Oleg Yakushin, a Swift developer specialized in iOS applications.">
+<meta name="keywords" content="Oleg Yakushin, Swift, iOS developer, portfolio">
+<meta name="author" content="Oleg Yakushin">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oleg Yakushin - Swift Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+      body {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
             color: white;
             background: linear-gradient(120deg, #1a1a1a, #000000);
-            background-size: 400% 400%;
-            animation: gradient 10s infinite;
+           
+            position: relative;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
         }
 
         header {
@@ -187,6 +203,71 @@
     <footer id="contact">
         <p>Contact me at <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
         <p>GitHub: <a href="https://github.com/OlegYakushin">OlegYakushin</a></p>
+       
+</section>
+
+<style>
+    #subscribe {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        max-width: 500px;
+        margin: 30px auto;
+    }
+
+    #subscribe input {
+        padding: 10px;
+        width: 70%;
+        margin-right: 10px;
+    }
+
+    #subscribe button {
+        padding: 10px;
+        background: #00aaff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
     </footer>
+    <script>
+        // Количество звезд
+        const numberOfStars = 100;
+
+        // Функция генерации случайного числа в диапазоне
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Создаем звезды
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Задаем случайный размер звезды
+            const size = random(2, 4); // Размер звезд от 2 до 4 пикселей
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            
+            // Случайное положение
+            star.style.left = `${random(0, 100)}vw`;
+            star.style.top = `${random(0, 100)}vh`;
+            
+            // Случайная задержка анимации
+            star.style.animationDelay = `${random(0, 5)}s`;
+
+            document.body.appendChild(star);
+        }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-75T821TKQY');
+    </script>
 </body>
 </html>
