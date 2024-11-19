@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oleg Yakushin</title>
+    <!-- Подключение шрифта Poppins с Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* Общий стиль страницы */
         body {
             margin: 0;
             padding: 0;
-            background-color: black; /* Черный фон */
+            background: linear-gradient(120deg, #000000, #1a1a1a, #333333, #000000); /* Градиент */
+            background-size: 400% 400%; /* Размер для анимации */
+            animation: gradientAnimation 10s infinite; /* Анимация */
             color: white; /* Белый текст */
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Новый шрифт */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh; /* Высота экрана */
+            overflow: hidden; /* Убираем скроллинг */
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%; /* Начало */
+            }
+            50% {
+                background-position: 100% 50%; /* Середина */
+            }
+            100% {
+                background-position: 0% 50%; /* Конец */
+            }
         }
 
         h1 {
             font-size: 3rem; /* Размер имени */
             margin: 0;
+            font-weight: 600; /* Полужирный */
         }
 
         h2 {
             font-size: 1.5rem; /* Размер подписи */
             margin: 10px 0;
+            font-weight: 300; /* Тонкий */
         }
 
         .contact {
@@ -38,6 +57,7 @@
             color: white;
             text-decoration: none; /* Убираем подчеркивание */
             border-bottom: 1px solid white; /* Линия под ссылкой */
+            font-weight: 400; /* Стандартная толщина */
         }
 
         .contact a:hover {
