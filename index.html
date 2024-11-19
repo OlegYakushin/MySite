@@ -132,14 +132,57 @@
         <div class="skills">
             <div class="card">
                 <h3>Languages</h3>
-                <p>Swift, Objective-C, JavaScript</p>
+                <p>Swift, HTML, Objective-C, JavaScript</p>
             </div>
             <div class="card">
                 <h3>Tools</h3>
-                <p>Xcode, Git, Figma</p>
+                <p>Xcode, Git, Figma, VSCode</p>
             </div>
         </div>
     </section>
+    <style>
+        /* Стили для секции проектов */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    
+        .card {
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Начальная тень */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация */
+        }
+    
+        .card:hover {
+            transform: translateY(-10px) scale(1.05); /* Поднимаем карточку и увеличиваем */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Увеличиваем тень */
+        }
+    
+        .card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    
+        .card p {
+            font-size: 1rem;
+            color: #ddd;
+            margin-top: 10px;
+        }
+    
+        .card a {
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
     <footer id="contact">
         <p>Contact me at <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
