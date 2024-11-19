@@ -1,9 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Мой сайт</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleg Yakushin</title>
+    <style>
+        /* Общий стиль страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Черный фон */
+            color: white; /* Белый текст */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Высота экрана */
+        }
+
+        h1 {
+            font-size: 3rem; /* Размер имени */
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Размер подписи */
+            margin: 10px 0;
+        }
+
+        .contact {
+            margin-top: 20px; /* Отступ сверху */
+            font-size: 1rem;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none; /* Убираем подчеркивание */
+            border-bottom: 1px solid white; /* Линия под ссылкой */
+        }
+
+        .contact a:hover {
+            color: #00aaff; /* Подсветка при наведении */
+            border-bottom: 1px solid #00aaff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <!-- Имя -->
+    <h1>Oleg Yakushin</h1>
+    <!-- Подпись -->
+    <h2>Swift Developer</h2>
+    <!-- Контакты -->
+    <div class="contact">
+        <p>Contact me: <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
+    </div>
 </body>
 </html>
