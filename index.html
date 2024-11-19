@@ -3,77 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleg Yakushin</title>
-    <!-- Подключение шрифта Poppins с Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Oleg Yakushin - Swift Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Общий стиль страницы */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #000000, #1a1a1a, #333333, #000000); /* Градиент */
-            background-size: 400% 400%; /* Размер для анимации */
-            animation: gradientAnimation 10s infinite; /* Анимация */
-            color: white; /* Белый текст */
-            font-family: 'Poppins', sans-serif; /* Новый шрифт */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Высота экрана */
-            overflow: hidden; /* Убираем скроллинг */
+            font-family: 'Inter', sans-serif;
+            color: white;
+            background: linear-gradient(120deg, #1a1a1a, #000000);
+            background-size: 400% 400%;
+            animation: gradient 10s infinite;
         }
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%; /* Начало */
-            }
-            50% {
-                background-position: 100% 50%; /* Середина */
-            }
-            100% {
-                background-position: 0% 50%; /* Конец */
-            }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        h1 {
-            font-size: 3rem; /* Размер имени */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
             margin: 0;
-            font-weight: 600; /* Полужирный */
         }
 
-        h2 {
-            font-size: 1.5rem; /* Размер подписи */
-            margin: 10px 0;
-            font-weight: 300; /* Тонкий */
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 30px;
         }
 
-        .contact {
-            margin-top: 20px; /* Отступ сверху */
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #00aaff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid #00aaff;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .projects, .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin: 10px 0 0;
             font-size: 1rem;
         }
 
-        .contact a {
-            color: white;
-            text-decoration: none; /* Убираем подчеркивание */
-            border-bottom: 1px solid white; /* Линия под ссылкой */
-            font-weight: 400; /* Стандартная толщина */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            margin-top: 50px;
         }
 
-        .contact a:hover {
-            color: #00aaff; /* Подсветка при наведении */
-            border-bottom: 1px solid #00aaff;
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <!-- Имя -->
-    <h1>Oleg Yakushin</h1>
-    <!-- Подпись -->
-    <h2>Swift Developer</h2>
-    <!-- Контакты -->
-    <div class="contact">
-        <p>Contact me: <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
-    </div>
+    <header>
+        <h1>Oleg Yakushin</h1>
+        <p>Swift Developer | iOS Applications | Passionate Coder</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Oleg Yakushin, a passionate Swift Developer with experience in building iOS applications. I enjoy creating high-quality, user-friendly apps that solve real-world problems.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>DAY´S</h3>
+                <p>An iOS app that helps users track your travels. <a href="https://github.com/OlegYakushin/Days">View on GitHub</a></p>
+            </div>
+            <div class="card">
+                <h3>MathApp</h3>
+                <p>Application, designed to streamline communication between teachers and students. <a href="https://github.com/OlegYakushin/MathApp">View on GitHub</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="card">
+                <h3>Languages</h3>
+                <p>Swift, Objective-C, JavaScript</p>
+            </div>
+            <div class="card">
+                <h3>Tools</h3>
+                <p>Xcode, Git, Figma</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Contact me at <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
+        <p>GitHub: <a href="https://github.com/OlegYakushin">OlegYakushin</a></p>
+    </footer>
 </body>
 </html>
