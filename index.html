@@ -1,300 +1,251 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
-    <meta name="description" content="Portfolio of Oleg Yakushin, a Swift developer specialized in iOS applications.">
-<meta name="keywords" content="Oleg Yakushin, Swift, iOS developer, portfolio">
-<meta name="author" content="Oleg Yakushin">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleg Yakushin - Swift Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-      body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            color: white;
-            background: linear-gradient(120deg, #1a1a1a, #000000);
-           
-            position: relative;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 5s infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.5;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.5);
-            }
-        }
-
-        header {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin: 10px 0 30px;
-        }
-
-        nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        nav a {
-            color: #00aaff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1rem;
-            border-bottom: 1px solid transparent;
-        }
-
-        nav a:hover {
-            border-bottom: 1px solid #00aaff;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .projects, .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #222;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h3 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            margin: 10px 0 0;
-            font-size: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            margin-top: 50px;
-        }
-
-        footer a {
-            color: #00aaff;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oleg Yakushin – iOS Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-light: #f8f9fb;
+      --text-light: #000;
+      --bg-dark: #121212;
+      --text-dark: #fff;
+      --card-light: #ececec;
+      --card-dark: #1e1e1e;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: 0.3s ease all;
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .language-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+    }
+    .language-switcher button {
+      border: 1px solid #ccc;
+      background: transparent;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-button {
+      padding: 0.6rem 1.4rem;
+      border: 2px solid #000;
+      border-radius: 999px;
+      font-weight: 500;
+      cursor: pointer;
+      background: transparent;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .services, .projects, .contact {
+      margin-bottom: 3rem;
+    }
+    .grid {
+      justify-content: center;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .card {
+      flex: 0 0 200px;
+      background: var(--card-light);
+      padding: 1rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    body.dark .card {
+      background: var(--card-dark);
+    }
+    .card img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.5rem;
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+    }
+    .project-card {
+      min-width: 260px;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact input, .contact textarea {
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .contact button {
+      align-self: flex-start;
+      padding: 0.6rem 1.4rem;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact form {
+      flex: 1;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <div class="language-switcher">
+      <button onclick="changeLang('en')">EN</button>
+      <button onclick="changeLang('es')">ES</button>
+      <button onclick="changeLang('ru')">RU</button>
+    </div>
     <header>
-        <h1>Oleg Yakushin</h1>
-        <p>Swift Developer | iOS Applications | Passionate Coder</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
+      <h1>Oleg Yakushin — iOS Developer</h1>
+      <p class="hero-subtitle">Creating native iOS apps for startups and businesses</p>
+      <button class="cta-button">Let’s Talk</button>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I'm Oleg Yakushin, a passionate Swift Developer with experience in building iOS applications. I enjoy creating high-quality, user-friendly apps that solve real-world problems.</p>
+    <section class="services">
+      <h2 class="section-title">How I Can Help</h2>
+      <div class="grid">
+        <div class="card"><img src="assets/icons/mvp.png" alt="MVP" /><div>MVP</div></div>
+        <div class="card"><img src="assets/icons/ux.png" alt="UX" /><div>Prototyping & UX</div></div>
+        <div class="card"><img src="assets/icons/native.png" alt="Native" /><div>Native iOS Apps</div></div>
+        <div class="card"><img src="assets/icons/maintain.png" alt="Maintenance" /><div>Maintenance</div></div>
+        <div class="card"><img src="assets/icons/store.png" alt="Launch" /><div>App Store Launch</div></div>
+      </div>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <!-- macOS Projects -->
-            <div class="card">
-                <h3>macOS</h3>
-                <p>Applications tailored for the macOS platform.</p>
-                <ul>
-                    <li><strong>FocusTimer</strong>: A productivity timer for macOS. <a href="https://github.com/OlegYakushin/FocusTimer">View on GitHub</a></li>
-                    <li><strong>NoteKeeper</strong>: An intuitive note-taking app. <a href="https://github.com/OlegYakushin/NoteKeeper">View on GitHub</a></li>
-                </ul>
-            </div>
-    
-            <!-- iOS Projects -->
-            <div class="card">
-                <h3>iOS</h3>
-                <p>Applications designed for iPhone and iPad users.</p>
-                <ul>
-                    <li><strong>DAY´S</strong>: A travel tracking app. <a href="https://apps.apple.com/tr/app/days/id6464660094">View on AppStore</a></li>
-                    <li><strong>MathApp</strong>: Communication tool for teachers and students. <a href="https://github.com/OlegYakushin/MathApp">View on GitHub</a></li>
-                    <li><strong>DuckVPN</strong>: A secure and user-friendly VPN client for iOS, designed to ensure privacy and fast connections. <a href="https://github.com/OlegYakushin/DuckVPN">View on GitHub</a></li>
-<li><strong>Weather</strong>: A sleek weather application that provides real-time forecasts and a clean, minimalistic design. <a href="https://github.com/OlegYakushin/Weather">View on GitHub</a></li>
-<li><strong>StoryGenerator</strong>: An AI-powered storytelling app that generates personalized stories based on user input. <a href="https://github.com/OlegYakushin/StoryGenerator">View on GitHub</a></li>
-                </ul>
-            </div>
-    
-            <!-- tvOS Projects -->
-            <div class="card">
-                <h3>tvOS</h3>
-                <p>Apps for the big screen with tvOS.</p>
-                <ul>
-                    <li><strong>QuizShow</strong>: An interactive trivia game. <a href="https://github.com/OlegYakushin/QuizShow">View on GitHub</a></li>
-                    <li><strong>StreamGuide</strong>: A media streaming navigator. <a href="https://github.com/OlegYakushin/StreamGuide">View on GitHub</a></li>
-                </ul>
-            </div>
+    <section class="projects">
+      <h2 class="section-title">My Work</h2>
+      <div class="grid">
+        <div class="card project-card">
+          <img src="assets/projects/project1.png" alt="Mypoof" />
+          <strong>Mypoof</strong><br />
+          <button>GitHub</button>
         </div>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="card">
-                <h3>Languages</h3>
-                <p>Swift, HTML, Objective-C, JavaScript</p>
-            </div>
-            <div class="card">
-                <h3>Tools</h3>
-                <p>Xcode, Git, Figma, VSCode</p>
-            </div>
+        <div class="card project-card">
+          <img src="assets/projects/project2.png" alt="Prostatup" />
+          <strong>Prostatup</strong><br />
+          <button>GitHub</button>
         </div>
+        <div class="card project-card">
+          <img src="assets/projects/project3.png" alt="App Store Launch" />
+          <strong>App Store Launch</strong><br />
+          <button>App Store</button>
+        </div>
+      </div>
     </section>
-    <style>
-        /* Стили для секции проектов */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-    
-        .card {
-            background: #222;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Начальная тень */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация */
-        }
-    
-        .card:hover {
-            transform: translateY(-10px) scale(1.05); /* Поднимаем карточку и увеличиваем */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Увеличиваем тень */
-        }
-    
-        .card h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #fff;
-        }
-    
-        .card p {
-            font-size: 1rem;
-            color: #ddd;
-            margin-top: 10px;
-        }
-    
-        .card a {
-            color: #00aaff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    
-        .card a:hover {
-            text-decoration: underline;
-        }
-    </style>
 
-    <footer id="contact">
-        <p>Contact me at <a href="mailto:oleg@olegotka.es">oleg@olegotka.es</a></p>
-        <p>GitHub: <a href="https://github.com/OlegYakushin">OlegYakushin</a></p>
-        <p>Fiverr: <a href="https://www.fiverr.com/oleg_yakushin">OlegYakushin</a></p>
-       
-</section>
+    <section class="contact">
+      <h2 class="section-title">Have a project in mind?</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <strong>Oleg Yakushin</strong><br />
+          <a href="#">GitHub</a> · <a href="#">Fiverr</a>
+        </div>
+        <form action="https://formspree.io/f/xnnpweyd" method="POST">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea name="message" rows="4" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
 
-<style>
-    #subscribe {
-        text-align: center;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        max-width: 500px;
-        margin: 30px auto;
-    }
-
-    #subscribe input {
-        padding: 10px;
-        width: 70%;
-        margin-right: 10px;
-    }
-
-    #subscribe button {
-        padding: 10px;
-        background: #00aaff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-</style>
+    <footer>
+      © Oleg Yakushin 2025 · <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
     </footer>
-    <script>
-        // Количество звезд
-        const numberOfStars = 100;
-
-        // Функция генерации случайного числа в диапазоне
-        function random(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        // Создаем звезды
-        for (let i = 0; i < numberOfStars; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            
-            // Задаем случайный размер звезды
-            const size = random(2, 4); // Размер звезд от 2 до 4 пикселей
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            
-            // Случайное положение
-            star.style.left = `${random(0, 100)}vw`;
-            star.style.top = `${random(0, 100)}vh`;
-            
-            // Случайная задержка анимации
-            star.style.animationDelay = `${random(0, 5)}s`;
-
-            document.body.appendChild(star);
-        }
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-75T821TKQY');
-    </script>
+  </div>
 </body>
 </html>
+
+<script>
+  const translations = {
+    en: {
+      subtitle: "Creating native iOS apps for startups and businesses",
+      services: "How I Can Help",
+      work: "My Work",
+      contact: "Have a project in mind?",
+      send: "Send"
+    },
+    ru: {
+      subtitle: "Создаю нативные приложения для стартапов и бизнеса",
+      services: "Как я могу помочь",
+      work: "Мои проекты",
+      contact: "Есть идея проекта?",
+      send: "Отправить"
+    },
+    es: {
+      subtitle: "Creo apps nativas para startups y empresas",
+      services: "Cómo puedo ayudarte",
+      work: "Mi trabajo",
+      contact: "¿Tienes un proyecto en mente?",
+      send: "Enviar"
+    }
+  };
+  function changeLang(lang) {
+    const t = translations[lang];
+    document.querySelector(".hero-subtitle").textContent = t.subtitle;
+    document.querySelector(".services .section-title").textContent = t.services;
+    document.querySelector(".projects .section-title").textContent = t.work;
+    document.querySelector(".contact .section-title").textContent = t.contact;
+    document.querySelector(".contact button").textContent = t.send;
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-75T821TKQY');
+</script>
