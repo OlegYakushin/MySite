@@ -224,11 +224,11 @@
     <section class="services">
       <h2 class="section-title" data-i18n="services">How I Can Help</h2>
       <div class="grid">
-        <div class="card"><img src="assets/icons/mvp.png" alt="MVP" /><div>MVP</div></div>
-        <div class="card"><img src="assets/icons/ux.png" alt="UX" /><div>Prototyping & UX</div></div>
-        <div class="card"><img src="assets/icons/native.png" alt="Native" /><div>Native iOS Apps</div></div>
-        <div class="card"><img src="assets/icons/maintain.png" alt="Maintenance" /><div>Maintenance</div></div>
-        <div class="card"><img src="assets/icons/store.png" alt="Launch" /><div>App Store Launch</div></div>
+        <div class="card"><img src="assets/icons/mvp.png" alt="MVP" /><div data-i18n="mvp">MVP</div></div>
+        <div class="card"><img src="assets/icons/ux.png" alt="UX" /><div data-i18n="ux">Prototyping & UX</div></div>
+        <div class="card"><img src="assets/icons/native.png" alt="Native" /><div data-i18n="native">Native iOS Apps</div></div>
+        <div class="card"><img src="assets/icons/maintain.png" alt="Maintenance" /><div data-i18n="maintain">Maintenance</div></div>
+        <div class="card"><img src="assets/icons/store.png" alt="Launch" /><div data-i18n="launch">App Store Launch</div></div>
       </div>
     </section>
 
@@ -239,7 +239,7 @@
             <img src="assets/projects/koinly_preview.png" alt="Koinly" />
             <div class="project-info">
               <h3>Koinly</h3>
-              <p>Crypto tax reporting app</p>
+              <p data-i18n="koinly_desc">Crypto tax reporting app</p>
             </div>
           </div>
       
@@ -247,7 +247,7 @@
             <img src="assets/projects/days_preview.png" alt="Day's" />
             <div class="project-info">
               <h3>Day's</h3>
-              <p>Visa and travel tracker</p>
+              <p data-i18n="days_desc">Visa and travel tracker</p>
             </div>
           </div>
       
@@ -255,7 +255,7 @@
             <img src="assets/projects/taskhive_preview.png" alt="Taskhive" />
             <div class="project-info">
               <h3>Taskhive</h3>
-              <p>Task manager for teams</p>
+              <p data-i18n="taskhive_desc">Task manager for teams</p>
             </div>
           </div>
         </div>
@@ -273,16 +273,16 @@
           </div>
         </div>
         <form action="https://formspree.io/f/xnnpweyd" method="POST">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea name="message" rows="4" placeholder="Message" required></textarea>
-          <button type="submit" data-i18n="send">Send</button>
+          <input type="text" name="name" data-i18n-placeholder="name_placeholder" placeholder="Name" required />
+          <input type="email" name="email" data-i18n-placeholder="email_placeholder" placeholder="Email" required />
+          <textarea name="message" rows="4" data-i18n-placeholder="message_placeholder" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
         </form>
       </div>
     </section>
 
     <footer>
-      © Oleg Yakushin 2025 · <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
+      © Oleg Yakushin 2025 · <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
     </footer>
   </div>
 </body>
@@ -291,28 +291,58 @@
 <script>
   const translations = {
     en: {
-      title: "Oleg Yakushin – iOS Developer",
       subtitle: "Creating native iOS apps for startups and businesses",
       services: "How I Can Help",
       work: "My Work",
       contact: "Have a project in mind?",
-      send: "Send"
+      send: "Send",
+      mvp: "MVP",
+      ux: "Prototyping & UX",
+      native: "Native iOS Apps",
+      maintain: "Maintenance",
+      launch: "App Store Launch",
+      koinly_desc: "Crypto tax reporting app",
+      days_desc: "Visa and travel tracker",
+      taskhive_desc: "Task manager for teams",
+      name_placeholder: "Name",
+      email_placeholder: "Email",
+      message_placeholder: "Message",
     },
     ru: {
-      title: "Олег Якушин – iOS-разработчик",
       subtitle: "Создаю нативные приложения для стартапов и бизнеса",
       services: "Как я могу помочь",
       work: "Мои проекты",
       contact: "Есть идея проекта?",
-      send: "Отправить"
+      send: "Отправить",
+      mvp: "MVP",
+      ux: "Прототипирование и UX",
+      native: "Нативные iOS приложения",
+      maintain: "Поддержка и улучшения",
+      launch: "Публикация в App Store",
+      koinly_desc: "Приложение для отчётов по налогам на крипту",
+      days_desc: "Трекер виз и путешествий",
+      taskhive_desc: "Планировщик задач для команд",
+      name_placeholder: "Имя",
+      email_placeholder: "Электронная почта",
+      message_placeholder: "Сообщение",
     },
     es: {
-      title: "Oleg Yakushin – Desarrollador iOS",
       subtitle: "Creo apps nativas para startups y empresas",
       services: "Cómo puedo ayudarte",
       work: "Mi trabajo",
       contact: "¿Tienes un proyecto en mente?",
-      send: "Enviar"
+      send: "Enviar",
+      mvp: "MVP",
+      ux: "Prototipado y UX",
+      native: "Apps nativas iOS",
+      maintain: "Mantenimiento",
+      launch: "Publicación en App Store",
+      koinly_desc: "App para reportes fiscales cripto",
+      days_desc: "Rastreador de visados y viajes",
+      taskhive_desc: "Gestor de tareas para equipos",
+      name_placeholder: "Nombre",
+      email_placeholder: "Correo electrónico",
+      message_placeholder: "Mensaje",
     }
   };
   function changeLang(lang) {
@@ -323,6 +353,10 @@
         el.textContent = t[key];
       }
     });
+    document.querySelector('input[name="name"]').placeholder = t.name_placeholder;
+    document.querySelector('input[name="email"]').placeholder = t.email_placeholder;
+    document.querySelector('textarea[name="message"]').placeholder = t.message_placeholder;
+    document.querySelector('button[type="submit"]').textContent = t.send;
   }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
