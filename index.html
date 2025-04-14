@@ -185,6 +185,20 @@
 .project-thumb:hover img {
   filter: brightness(0.6);
 }
+
+.contact-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.contact-info-links a {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: inherit;
+  font-weight: 500;
+}
   </style>
 </head>
 <body>
@@ -243,11 +257,14 @@
     <section class="contact">
       <h2 class="section-title">Have a project in mind?</h2>
       <div class="contact-container">
-        <div class="contact-info">
-            <strong>Oleg Yakushin</strong><br />
+        <div class="contact-info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <img src="assets/profile.jpg" alt="Oleg Yakushin" />
+          <strong style="margin-bottom: 0.5rem;">Oleg Yakushin</strong>
+          <div class="contact-info-links">
             <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> ·
             <a href="https://www.fiverr.com/oleg_yakushin" target="_blank" rel="noopener">Fiverr</a>
           </div>
+        </div>
         <form action="https://formspree.io/f/xnnpweyd" method="POST">
           <input type="text" name="name" placeholder="Name" required />
           <input type="email" name="email" placeholder="Email" required />
