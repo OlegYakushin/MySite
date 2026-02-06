@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — Day's Case</title>
+  <title>olegotka — Support & Iteration</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -79,6 +79,15 @@
     body.dark .subtitle {
       color: #cbd5f5;
     }
+    .lead {
+      max-width: 720px;
+      margin: 0.75rem auto 0;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+    body.dark .lead {
+      color: #cbd5f5;
+    }
     .cta-button {
       margin-top: 1.25rem;
       padding: 0.6rem 1.4rem;
@@ -135,25 +144,36 @@
     </div>
 
     <header>
-      <h1 data-i18n="title">Day's</h1>
-      <div class="subtitle" data-i18n="subtitle">Visa and travel tracker for frequent travelers.</div>
+      <h1 data-i18n="title">Support & Iteration</h1>
+      <div class="subtitle" data-i18n="subtitle">Keep your product healthy, fast, and evolving.</div>
+      <p class="lead" data-i18n="lead">We keep the product stable, improve UX, and ship updates regularly.</p>
       <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
     </header>
 
     <div class="section">
-      <h2 data-i18n="section1">Problem</h2>
+      <h2 data-i18n="section1">What we cover</h2>
       <ul class="list">
-        <li data-i18n="point1">Users needed an easy way to calculate visa days.</li>
-        <li data-i18n="point2">Manual tracking caused costly overstays.</li>
+        <li data-i18n="point1">Bug fixes and stability improvements</li>
+        <li data-i18n="point2">Performance optimization and analytics</li>
+        <li data-i18n="point3">Feature iterations and new releases</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2 data-i18n="section2">Solution</h2>
+      <h2 data-i18n="section2">How we work</h2>
       <ul class="list">
-        <li data-i18n="point3">Automated timeline and alerts by region.</li>
-        <li data-i18n="point4">Clear dashboard and calendar view.</li>
-        <li data-i18n="point5">Fast onboarding and recurring reminders.</li>
+        <li data-i18n="point4">Monthly support windows</li>
+        <li data-i18n="point5">Transparent backlog and priorities</li>
+        <li data-i18n="point6">Release cadence aligned with goals</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section3">Examples</h2>
+      <ul class="list">
+        <li data-i18n="point7">Koinly: stability and reporting performance</li>
+        <li data-i18n="point8">Day's: reminder accuracy and edge cases</li>
+        <li data-i18n="point9">Taskhive: iterative UX improvements</li>
       </ul>
     </div>
 
@@ -163,46 +183,70 @@
   <script>
     const translations = {
       en: {
-        title: "Day's",
-        subtitle: "Visa and travel tracker for frequent travelers.",
+
+
+        title: "Support & Iteration",
+        subtitle: "Keep your product healthy, fast, and evolving.",
+        lead: "We keep the product stable, improve UX, and ship updates regularly.",
         cta: "Book a Call",
         theme: "Toggle theme",
-        section1: "Problem",
-        section2: "Solution",
-        point1: "Users needed an easy way to calculate visa days.",
-        point2: "Manual tracking caused costly overstays.",
-        point3: "Automated timeline and alerts by region.",
-        point4: "Clear dashboard and calendar view.",
-        point5: "Fast onboarding and recurring reminders.",
+        section1: "What we cover",
+        section2: "How we work",
+        section3: "Examples",
+        point1: "Bug fixes and stability improvements",
+        point2: "Performance optimization and analytics",
+        point3: "Feature iterations and new releases",
+        point4: "Monthly support windows",
+        point5: "Transparent backlog and priorities",
+        point6: "Release cadence aligned with goals",
         back: "← Back to home"
+        point7: "Koinly: stability and reporting performance",
+        point8: "Day's: reminder accuracy and edge cases",
+        point9: "Taskhive: iterative UX improvements"
       },
       ru: {
-        title: "Day's",
-        subtitle: "Трекер виз и поездок для частых путешествий.",
+
+
+        title: "Поддержка и развитие",
+        subtitle: "Поддерживаем стабильность и развитие продукта.",
+        lead: "Поддерживаем стабильность, улучшаем UX и выпускаем обновления.",
         cta: "Запросить консультацию",
         theme: "Сменить тему",
-        section1: "Проблема",
-        section2: "Решение",
-        point1: "Нужен быстрый расчёт дней по визовым правилам.",
-        point2: "Ручной учёт приводил к ошибкам и штрафам.",
-        point3: "Автоматическая шкала и уведомления по регионам.",
-        point4: "Понятный дашборд и календарь.",
-        point5: "Быстрый онбординг и регулярные напоминания.",
+        section1: "Что входит",
+        section2: "Как работаем",
+        section3: "Примеры",
+        point1: "Исправления и стабильность",
+        point2: "Оптимизация производительности",
+        point3: "Итерации и новые релизы",
+        point4: "Поддержка по месяцам",
+        point5: "Прозрачный бэклог и приоритеты",
+        point6: "Ритм релизов под цели",
         back: "← На главную"
+        point7: "Koinly: стабильность и скорость отчётов",
+        point8: "Day's: точность напоминаний и крайние случаи",
+        point9: "Taskhive: итерации UX"
       },
       es: {
-        title: "Day's",
-        subtitle: "Rastreador de visados y viajes para viajeros frecuentes.",
+
+
+        title: "Soporte y evolución",
+        subtitle: "Mantén tu producto estable, rápido y en evolución.",
+        lead: "Mantenemos estabilidad, mejoramos UX y lanzamos updates.",
         cta: "Agendar una llamada",
         theme: "Cambiar tema",
-        section1: "Problema",
-        section2: "Solución",
-        point1: "Necesitaban calcular días de visado fácilmente.",
-        point2: "El seguimiento manual generaba errores.",
-        point3: "Timeline automática y alertas por región.",
-        point4: "Dashboard claro y vista calendario.",
-        point5: "Onboarding rápido y recordatorios recurrentes.",
+        section1: "Qué cubrimos",
+        section2: "Cómo trabajamos",
+        section3: "Ejemplos",
+        point1: "Correcciones y mejoras de estabilidad",
+        point2: "Optimización de rendimiento y analítica",
+        point3: "Iteraciones y nuevas versiones",
+        point4: "Soporte mensual",
+        point5: "Backlog transparente y prioridades",
+        point6: "Cadencia de releases alineada",
         back: "← Volver al inicio"
+        point7: "Koinly: estabilidad y performance de reportes",
+        point8: "Day's: precisión de recordatorios",
+        point9: "Taskhive: iteraciones de UX"
       }
     };
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oleg Yakushin – iOS Developer</title>
+  <title>olegotka — iOS Studio by Oleg Yakushin</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
        :root {
@@ -11,19 +11,27 @@
       --text-light: #000;
       --bg-dark: #121212;
       --text-dark: #fff;
-      --card-light: #ececec;
+      --card-light: #ffffff;
       --card-dark: #1e1e1e;
+      --shadow-light: 0 10px 30px rgba(20, 36, 73, 0.08);
+      --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.45);
+      --accent: #2563eb;
+      --accent-2: #4f46e5;
+      --border-light: #e5e7eb;
     }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: var(--bg-light);
+      background: linear-gradient(180deg, #f8f9fb 0%, #eef2f8 100%);
       color: var(--text-light);
       transition: 0.3s ease all;
     }
     body.dark {
-      background: var(--bg-dark);
+      background: radial-gradient(circle at top, #1b1f2a 0%, #0f1115 60%);
       color: var(--text-dark);
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
     .container {
       max-width: 960px;
@@ -34,9 +42,19 @@
       text-align: center;
       margin-bottom: 2rem;
     }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      position: sticky;
+      top: 0;
+      padding: 0.5rem 0;
+      backdrop-filter: blur(6px);
+    }
     .language-switcher {
       display: flex;
-      justify-content: flex-end;
       gap: 0.5rem;
     }
     .language-switcher button {
@@ -46,9 +64,24 @@
       border-radius: 999px;
       cursor: pointer;
     }
+    body.dark .language-switcher button {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #e5e7eb;
+    }
     h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+    }
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-subtitle {
+      font-weight: 500;
+      color: #4b5563;
+    }
+    body.dark .brand-subtitle {
+      color: #cbd5f5;
     }
     .hero-subtitle {
       font-size: 1.2rem;
@@ -60,14 +93,15 @@
       border-radius: 999px;
       font-weight: 500;
       cursor: pointer;
-      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      background: linear-gradient(to right, var(--accent-2), var(--accent));
       color: white;
       text-decoration: none;
       display: inline-block;
       transition: 0.3s ease background;
+      box-shadow: var(--shadow-light);
     }
     .cta-button:hover {
-      background: linear-gradient(to right, #4338ca, #2563eb);
+      background: linear-gradient(to right, #4338ca, #1d4ed8);
     }
     .section-title {
       font-size: 1.8rem;
@@ -78,27 +112,81 @@
       margin-bottom: 3rem;
     }
     .grid {
-      display: flex;
-      flex-wrap: nowrap;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 180px);
+      grid-auto-rows: 190px;
       gap: 1rem;
       justify-content: center;
     }
     .card {
-      flex: 0 0 200px;
+      width: 180px;
+      height: 190px;
       background: var(--card-light);
       padding: 1rem;
       border-radius: 20px;
       text-align: center;
       transition: background 0.3s;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .about-card {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left;
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-light);
+    }
+    body.dark .about-card {
+      background: var(--card-dark);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-dark);
+    }
+    .card-link {
+      width: 180px;
+      height: 190px;
+      display: block;
+    }
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .card-link:focus-visible .card,
+    .card-link:hover .card {
+      transform: translateY(-4px);
+      transition: transform 0.2s ease;
     }
     body.dark .card {
       background: var(--card-dark);
+      box-shadow: var(--shadow-dark);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .card img {
+    .icon {
       width: 48px;
       height: 48px;
-      margin-bottom: 0.5rem;
+      border-radius: 50%;
+      border: 1px solid #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #1e3a8a;
+      background: linear-gradient(145deg, #eef2ff 0%, #dbeafe 100%);
+      margin: 0 auto 0.5rem auto;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
+    }
+    body.dark .icon {
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #bfdbfe;
+      background: linear-gradient(145deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.08));
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
     }
     .project-card img {
       width: 100%;
@@ -118,11 +206,18 @@
       border-radius: 10px;
       border: 1px solid #ccc;
       font-size: 1rem;
+      background: #fff;
+      color: #111827;
+    }
+    body.dark .contact input, body.dark .contact textarea {
+      background: #0f172a;
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #e5e7eb;
     }
     .contact button {
       align-self: flex-start;
       padding: 0.6rem 1.4rem;
-      background: #000;
+      background: #111827;
       color: #fff;
       border: none;
       border-radius: 999px;
@@ -146,21 +241,25 @@
     }
   
 .project-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .project-thumb {
   position: relative;
   width: 100%;
-  max-width: 32%;
   aspect-ratio: 3/4;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: var(--shadow-light);
 }
+    .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
 
 .project-thumb img {
   width: 100%;
@@ -206,58 +305,110 @@
   color: inherit;
   font-weight: 500;
 }
+    .contact-meta {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+    .contact-meta a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-meta a:hover {
+      text-decoration: underline;
+    }
+    body.dark .contact-meta {
+      color: #cbd5f5;
+    }
+    @media (max-width: 860px) {
+      .topbar {
+        align-items: flex-end;
+      }
+      .project-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 600px) {
+      .project-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="language-switcher">
-      <button onclick="changeLang('en')">EN</button>
-      <button onclick="changeLang('es')">ES</button>
-      <button onclick="changeLang('ru')">RU</button>
+    <div class="topbar">
+      <div class="language-switcher">
+        <button onclick="changeLang('en')">EN</button>
+        <button onclick="changeLang('es')">ES</button>
+        <button onclick="changeLang('ru')">RU</button>
+      </div>
     </div>
     <header>
-      <h1><span style="font-weight: 300;">Oleg Yakushin</span> <br /><span style="font-weight: 700;">iOS Developer</span></h1>
-      <p class="hero-subtitle" data-i18n="subtitle">Creating native iOS apps for startups and businesses</p>
-      <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener">Book a Call</a>
+      <h1><span class="brand-name">olegotka</span><br /><span class="brand-subtitle" data-i18n="studio">iOS Studio</span></h1>
+      <p class="hero-subtitle" data-i18n="subtitle">We build MVPs, design, and native iOS products with backend for startups</p>
+      <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
     </header>
 
     <section class="services">
-      <h2 class="section-title" data-i18n="services">How I Can Help</h2>
+      <h2 class="section-title" data-i18n="about_title">About the Studio</h2>
+      <div class="about-card">
+        <p data-i18n="about_p1">We are a compact iOS studio led by Oleg Yakushin. We work as a small team of iOS engineers, designers, and backend specialists to ship production‑ready apps.</p>
+        <p data-i18n="about_p2">We cover discovery, design, development, and launch — and stay for support and growth iterations.</p>
+        <ul style="margin: 0; padding-left: 1.2rem;">
+          <li data-i18n="about_li1">Senior iOS team with startup velocity</li>
+          <li data-i18n="about_li2">Clear scope, transparent process, weekly updates</li>
+          <li data-i18n="about_li3">Full cycle: MVP → App Store → growth</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="services">
+      <h2 class="section-title" data-i18n="services">How We Can Help</h2>
       <div class="grid">
-        <div class="card"><img src="assets/icons/mvp.png" alt="MVP" /><div data-i18n="mvp">MVP</div></div>
-        <div class="card"><img src="assets/icons/ux.png" alt="UX" /><div data-i18n="ux">Prototyping & UX</div></div>
-        <div class="card"><img src="assets/icons/native.png" alt="Native" /><div data-i18n="native">Native iOS Apps</div></div>
-        <div class="card"><img src="assets/icons/maintain.png" alt="Maintenance" /><div data-i18n="maintain">Maintenance</div></div>
-        <div class="card"><img src="assets/icons/store.png" alt="Launch" /><div data-i18n="launch">App Store Launch</div></div>
+        <a class="card-link" href="mvp.html"><div class="card"><span class="icon">MVP</span><div data-i18n="mvp">MVP Development</div></div></a>
+        <a class="card-link" href="ux.html"><div class="card"><span class="icon">UX</span><div data-i18n="ux">UX / Design</div></div></a>
+        <a class="card-link" href="native.html"><div class="card"><span class="icon">iOS</span><div data-i18n="native">Native iOS + Backend</div></div></a>
+        <a class="card-link" href="support.html"><div class="card"><span class="icon">SUP</span><div data-i18n="maintain">Support & Iteration</div></div></a>
+        <a class="card-link" href="appstore.html"><div class="card"><span class="icon">APP</span><div data-i18n="launch">App Store Launch</div></div></a>
+        <a class="card-link" href="monetization.html"><div class="card"><span class="icon">REV</span><div data-i18n="monetization">Monetization & RevenueCat</div></div></a>
+        <a class="card-link" href="analytics.html"><div class="card"><span class="icon">DATA</span><div data-i18n="analytics">Analytics & Attribution</div></div></a>
+        <a class="card-link" href="integrations.html"><div class="card"><span class="icon">API</span><div data-i18n="integrations">Third‑party Integrations</div></div></a>
       </div>
     </section>
 
     <section class="projects">
-        <h2 class="section-title" data-i18n="work">My Work</h2>
+        <h2 class="section-title" data-i18n="work">Selected Work</h2>
         <div class="project-row">
-          <div class="project-thumb">
-            <img src="assets/projects/koinly_preview.png" alt="Koinly" />
-            <div class="project-info">
-              <h3>Koinly</h3>
-              <p data-i18n="koinly_desc">Crypto tax reporting app</p>
+          <a class="project-link" href="koinly.html">
+            <div class="project-thumb">
+              <img src="assets/projects/koinly_preview.png" alt="Koinly" />
+              <div class="project-info">
+                <h3>Koinly</h3>
+                <p data-i18n="koinly_desc">Crypto tax reporting app</p>
+              </div>
             </div>
-          </div>
+          </a>
       
-          <div class="project-thumb">
-            <img src="assets/projects/days_preview.png" alt="Day's" />
-            <div class="project-info">
-              <h3>Day's</h3>
-              <p data-i18n="days_desc">Visa and travel tracker</p>
+          <a class="project-link" href="days.html">
+            <div class="project-thumb">
+              <img src="assets/projects/days_preview.png" alt="Day's" />
+              <div class="project-info">
+                <h3>Day's</h3>
+                <p data-i18n="days_desc">Visa and travel tracker</p>
+              </div>
             </div>
-          </div>
+          </a>
       
-          <div class="project-thumb">
-            <img src="assets/projects/taskhive_preview.png" alt="Taskhive" />
-            <div class="project-info">
-              <h3>Taskhive</h3>
-              <p data-i18n="taskhive_desc">Task manager for teams</p>
+          <a class="project-link" href="taskhive.html">
+            <div class="project-thumb">
+              <img src="assets/projects/taskhive_preview.png" alt="Taskhive" />
+              <div class="project-info">
+                <h3>Taskhive</h3>
+                <p data-i18n="taskhive_desc">Task manager for teams</p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -267,9 +418,11 @@
         <div class="contact-info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
           <img src="assets/profile.jpg" alt="Oleg Yakushin" />
           <strong style="margin-bottom: 0.5rem;">Oleg Yakushin</strong>
+          <div class="contact-meta" data-i18n="contact_meta">Founder, iOS Studio</div>
           <div class="contact-info-links">
             <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> ·
             <a href="https://www.fiverr.com/oleg_yakushin" target="_blank" rel="noopener">Fiverr</a>
+            · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
         <form action="https://formspree.io/f/xnnpweyd" method="POST">
@@ -282,7 +435,7 @@
     </section>
 
     <footer>
-      © Oleg Yakushin 2025 · <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
+      © olegotka 2023–2026 · <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
     </footer>
   </div>
 </body>
@@ -291,55 +444,91 @@
 <script>
   const translations = {
     en: {
-      subtitle: "Creating native iOS apps for startups and businesses",
-      services: "How I Can Help",
-      work: "My Work",
+      studio: "iOS Studio",
+      subtitle: "We build MVPs, design, and native iOS products with backend for startups",
+      services: "How We Can Help",
+      about_title: "About the Studio",
+      about_p1: "We are a compact iOS studio. We work as a small team of iOS engineers, designers, and backend specialists to ship production‑ready apps.",
+      about_p2: "We cover discovery, design, development, and launch — and stay for support and growth iterations.",
+      about_li1: "Senior iOS team with startup velocity",
+      about_li2: "Clear scope, transparent process, weekly updates",
+      about_li3: "Full cycle: MVP → App Store → growth",
+      work: "Selected Work",
       contact: "Have a project in mind?",
+      cta: "Book a Call",
       send: "Send",
-      mvp: "MVP",
-      ux: "Prototyping & UX",
-      native: "Native iOS Apps",
-      maintain: "Maintenance",
+      contact_meta: "Founder, iOS Studio",
+      mvp: "MVP Development",
+      ux: "UX / Design",
+      native: "Native iOS + Backend",
+      maintain: "Support & Iteration",
       launch: "App Store Launch",
-      koinly_desc: "Crypto tax reporting app",
+      monetization: "Monetization & RevenueCat",
+      analytics: "Analytics & Attribution",
+      integrations: "Third‑party Integrations",
+      koinly_desc: "Crypto tax app",
       days_desc: "Visa and travel tracker",
-      taskhive_desc: "Task manager for teams",
+      taskhive_desc: "Task manager",
       name_placeholder: "Name",
       email_placeholder: "Email",
       message_placeholder: "Message",
     },
     ru: {
-      subtitle: "Создаю нативные приложения для стартапов и бизнеса",
-      services: "Как я могу помочь",
-      work: "Мои проекты",
-      contact: "Есть идея проекта?",
+      studio: "iOS Studio",
+      subtitle: "Разрабатываем MVP, дизайн и нативные iOS‑продукты с бэкендом для стартапов",
+      services: "Как мы можем помочь",
+      about_title: "О студии",
+      about_p1: "Мы — компактная iOS‑студия. Работаем небольшой командой iOS‑разработчиков, дизайнеров и бэкенд‑инженеров, чтобы выпускать продакшен‑продукты.",
+      about_p2: "Берём на себя discovery, дизайн, разработку и запуск — и остаёмся на поддержку и развитие.",
+      about_li1: "Сильная iOS‑команда и скорость стартапа",
+      about_li2: "Чёткий объём работ, прозрачный процесс, еженедельные апдейты",
+      about_li3: "Полный цикл: MVP → App Store → рост",
+      work: "Избранные проекты",
+      contact: "Запросить оценку проекта",
+      cta: "Запросить консультацию",
       send: "Отправить",
-      mvp: "MVP",
-      ux: "Прототипирование и UX",
-      native: "Нативные iOS приложения",
-      maintain: "Поддержка и улучшения",
+      contact_meta: "Основатель, iOS Studio",
+      mvp: "MVP разработка",
+      ux: "UX / дизайн",
+      native: "Нативные iOS + бэкенд",
+      maintain: "Поддержка и развитие",
       launch: "Публикация в App Store",
-      koinly_desc: "Приложение для отчётов по налогам на крипту",
+      monetization: "Монетизация и RevenueCat",
+      analytics: "Аналитика и атрибуция",
+      integrations: "Интеграции сервисов",
+      koinly_desc: "Приложение для налогов на крипту",
       days_desc: "Трекер виз и путешествий",
-      taskhive_desc: "Планировщик задач для команд",
+      taskhive_desc: "Планировщик задач",
       name_placeholder: "Имя",
       email_placeholder: "Электронная почта",
       message_placeholder: "Сообщение",
     },
     es: {
-      subtitle: "Creo apps nativas para startups y empresas",
-      services: "Cómo puedo ayudarte",
-      work: "Mi trabajo",
+      studio: "iOS Studio",
+      subtitle: "Creamos MVP, diseño y productos iOS nativos con backend para startups",
+      services: "Cómo podemos ayudarte",
+      about_title: "Sobre el estudio",
+      about_p1: "Somos un estudio iOS compacto. Trabajamos con un equipo pequeño de ingenieros iOS, diseñadores y backend para lanzar apps en producción.",
+      about_p2: "Cubrimos discovery, diseño, desarrollo y lanzamiento, y seguimos con soporte y crecimiento.",
+      about_li1: "Equipo senior iOS con velocidad startup",
+      about_li2: "Alcance claro, proceso transparente, updates semanales",
+      about_li3: "Ciclo completo: MVP → App Store → crecimiento",
+      work: "Trabajo seleccionado",
       contact: "¿Tienes un proyecto en mente?",
+      cta: "Agendar una llamada",
       send: "Enviar",
-      mvp: "MVP",
-      ux: "Prototipado y UX",
-      native: "Apps nativas iOS",
-      maintain: "Mantenimiento",
+      contact_meta: "Fundador, iOS Studio",
+      mvp: "Desarrollo MVP",
+      ux: "UX / Diseño",
+      native: "iOS nativo + backend",
+      maintain: "Soporte y evolución",
       launch: "Publicación en App Store",
-      koinly_desc: "App para reportes fiscales cripto",
+      monetization: "Monetización y RevenueCat",
+      analytics: "Analítica y atribución",
+      integrations: "Integraciones externas",
+      koinly_desc: "App de impuestos cripto",
       days_desc: "Rastreador de visados y viajes",
-      taskhive_desc: "Gestor de tareas para equipos",
+      taskhive_desc: "Gestor de tareas",
       name_placeholder: "Nombre",
       email_placeholder: "Correo electrónico",
       message_placeholder: "Mensaje",
@@ -357,7 +546,17 @@
     document.querySelector('input[name="email"]').placeholder = t.email_placeholder;
     document.querySelector('textarea[name="message"]').placeholder = t.message_placeholder;
     document.querySelector('button[type="submit"]').textContent = t.send;
+    document.documentElement.lang = lang;
+    localStorage.setItem("lang", lang);
   }
+  const savedLang = localStorage.getItem("lang") || "en";
+  changeLang(savedLang);
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  function applySystemTheme() {
+    document.body.classList.toggle("dark", mediaQuery.matches);
+  }
+  applySystemTheme();
+  mediaQuery.addEventListener("change", applySystemTheme);
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
 <script>

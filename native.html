@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — Day's Case</title>
+  <title>olegotka — Native iOS + Backend</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -79,6 +79,15 @@
     body.dark .subtitle {
       color: #cbd5f5;
     }
+    .lead {
+      max-width: 720px;
+      margin: 0.75rem auto 0;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+    body.dark .lead {
+      color: #cbd5f5;
+    }
     .cta-button {
       margin-top: 1.25rem;
       padding: 0.6rem 1.4rem;
@@ -135,25 +144,36 @@
     </div>
 
     <header>
-      <h1 data-i18n="title">Day's</h1>
-      <div class="subtitle" data-i18n="subtitle">Visa and travel tracker for frequent travelers.</div>
+      <h1 data-i18n="title">Native iOS + Backend</h1>
+      <div class="subtitle" data-i18n="subtitle">Full-cycle iOS development with a scalable backend layer.</div>
+      <p class="lead" data-i18n="lead">We build native iOS apps with a reliable backend and production ops.</p>
       <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
     </header>
 
     <div class="section">
-      <h2 data-i18n="section1">Problem</h2>
+      <h2 data-i18n="section1">What we deliver</h2>
       <ul class="list">
-        <li data-i18n="point1">Users needed an easy way to calculate visa days.</li>
-        <li data-i18n="point2">Manual tracking caused costly overstays.</li>
+        <li data-i18n="point1">SwiftUI or UIKit with native patterns</li>
+        <li data-i18n="point2">Backend APIs, auth, and data storage</li>
+        <li data-i18n="point3">Analytics, crash reporting, and monitoring</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2 data-i18n="section2">Solution</h2>
+      <h2 data-i18n="section2">Focus areas</h2>
       <ul class="list">
-        <li data-i18n="point3">Automated timeline and alerts by region.</li>
-        <li data-i18n="point4">Clear dashboard and calendar view.</li>
-        <li data-i18n="point5">Fast onboarding and recurring reminders.</li>
+        <li data-i18n="point4">Performance and smooth UX</li>
+        <li data-i18n="point5">Security and scalability</li>
+        <li data-i18n="point6">Long-term maintainability</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section3">Examples</h2>
+      <ul class="list">
+        <li data-i18n="point7">Koinly: native reporting flows with backend sync</li>
+        <li data-i18n="point8">Day's: offline‑friendly calendar logic</li>
+        <li data-i18n="point9">Taskhive: realtime team updates</li>
       </ul>
     </div>
 
@@ -163,46 +183,70 @@
   <script>
     const translations = {
       en: {
-        title: "Day's",
-        subtitle: "Visa and travel tracker for frequent travelers.",
+
+
+        title: "Native iOS + Backend",
+        subtitle: "Full-cycle iOS development with a scalable backend layer.",
+        lead: "We build native iOS apps with a reliable backend and production ops.",
         cta: "Book a Call",
         theme: "Toggle theme",
-        section1: "Problem",
-        section2: "Solution",
-        point1: "Users needed an easy way to calculate visa days.",
-        point2: "Manual tracking caused costly overstays.",
-        point3: "Automated timeline and alerts by region.",
-        point4: "Clear dashboard and calendar view.",
-        point5: "Fast onboarding and recurring reminders.",
+        section1: "What we deliver",
+        section2: "Focus areas",
+        section3: "Examples",
+        point1: "SwiftUI or UIKit with native patterns",
+        point2: "Backend APIs, auth, and data storage",
+        point3: "Analytics, crash reporting, and monitoring",
+        point4: "Performance and smooth UX",
+        point5: "Security and scalability",
+        point6: "Long-term maintainability",
         back: "← Back to home"
+        point7: "Koinly: native reporting flows with backend sync",
+        point8: "Day's: offline‑friendly calendar logic",
+        point9: "Taskhive: realtime team updates"
       },
       ru: {
-        title: "Day's",
-        subtitle: "Трекер виз и поездок для частых путешествий.",
+
+
+        title: "Нативные iOS + бэкенд",
+        subtitle: "Полный цикл разработки iOS с устойчивым бэкендом.",
+        lead: "Делаем нативные iOS‑приложения с надёжным бэкендом и поддержкой.",
         cta: "Запросить консультацию",
         theme: "Сменить тему",
-        section1: "Проблема",
-        section2: "Решение",
-        point1: "Нужен быстрый расчёт дней по визовым правилам.",
-        point2: "Ручной учёт приводил к ошибкам и штрафам.",
-        point3: "Автоматическая шкала и уведомления по регионам.",
-        point4: "Понятный дашборд и календарь.",
-        point5: "Быстрый онбординг и регулярные напоминания.",
+        section1: "Что мы делаем",
+        section2: "Фокус",
+        section3: "Примеры",
+        point1: "SwiftUI или UIKit с нативными паттернами",
+        point2: "API, авторизация и хранение данных",
+        point3: "Аналитика, краши и мониторинг",
+        point4: "Производительность и плавный UX",
+        point5: "Безопасность и масштабируемость",
+        point6: "Поддерживаемость в долгую",
         back: "← На главную"
+        point7: "Koinly: нативные отчёты и синхронизация",
+        point8: "Day's: офлайн‑логика календаря",
+        point9: "Taskhive: realtime‑обновления команды"
       },
       es: {
-        title: "Day's",
-        subtitle: "Rastreador de visados y viajes para viajeros frecuentes.",
+
+
+        title: "iOS nativo + backend",
+        subtitle: "Desarrollo iOS completo con backend escalable.",
+        lead: "Construimos apps iOS nativas con backend estable.",
         cta: "Agendar una llamada",
         theme: "Cambiar tema",
-        section1: "Problema",
-        section2: "Solución",
-        point1: "Necesitaban calcular días de visado fácilmente.",
-        point2: "El seguimiento manual generaba errores.",
-        point3: "Timeline automática y alertas por región.",
-        point4: "Dashboard claro y vista calendario.",
-        point5: "Onboarding rápido y recordatorios recurrentes.",
+        section1: "Qué entregamos",
+        section2: "Enfoque",
+        section3: "Ejemplos",
+        point1: "SwiftUI o UIKit con patrones nativos",
+        point2: "APIs, autenticación y almacenamiento",
+        point3: "Analítica, reportes de crash y monitoreo",
+        point4: "Rendimiento y UX fluida",
+        point5: "Seguridad y escalabilidad",
+        point6: "Mantenibilidad a largo plazo",
         back: "← Volver al inicio"
+        point7: "Koinly: flujos nativos con sync backend",
+        point8: "Day's: lógica de calendario offline",
+        point9: "Taskhive: actualizaciones realtime del equipo"
       }
     };
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — Day's Case</title>
+  <title>olegotka — App Store Launch</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -79,6 +79,15 @@
     body.dark .subtitle {
       color: #cbd5f5;
     }
+    .lead {
+      max-width: 720px;
+      margin: 0.75rem auto 0;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+    body.dark .lead {
+      color: #cbd5f5;
+    }
     .cta-button {
       margin-top: 1.25rem;
       padding: 0.6rem 1.4rem;
@@ -135,25 +144,36 @@
     </div>
 
     <header>
-      <h1 data-i18n="title">Day's</h1>
-      <div class="subtitle" data-i18n="subtitle">Visa and travel tracker for frequent travelers.</div>
+      <h1 data-i18n="title">App Store Launch</h1>
+      <div class="subtitle" data-i18n="subtitle">Guidance and execution for a clean, approved release.</div>
+      <p class="lead" data-i18n="lead">We handle App Store readiness, metadata, and review requirements.</p>
       <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
     </header>
 
     <div class="section">
-      <h2 data-i18n="section1">Problem</h2>
+      <h2 data-i18n="section1">Launch scope</h2>
       <ul class="list">
-        <li data-i18n="point1">Users needed an easy way to calculate visa days.</li>
-        <li data-i18n="point2">Manual tracking caused costly overstays.</li>
+        <li data-i18n="point1">App Store listing, screenshots, and metadata</li>
+        <li data-i18n="point2">App review readiness and compliance checks</li>
+        <li data-i18n="point3">Versioning and release planning</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2 data-i18n="section2">Solution</h2>
+      <h2 data-i18n="section2">After launch</h2>
       <ul class="list">
-        <li data-i18n="point3">Automated timeline and alerts by region.</li>
-        <li data-i18n="point4">Clear dashboard and calendar view.</li>
-        <li data-i18n="point5">Fast onboarding and recurring reminders.</li>
+        <li data-i18n="point4">Analytics dashboards and KPI tracking</li>
+        <li data-i18n="point5">Crash monitoring and quick hotfixes</li>
+        <li data-i18n="point6">User feedback loops for v1.1+</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 data-i18n="section3">Examples</h2>
+      <ul class="list">
+        <li data-i18n="point7">Day's: App Store metadata and screenshots</li>
+        <li data-i18n="point8">Koinly: compliance and review readiness</li>
+        <li data-i18n="point9">Taskhive: phased release strategy</li>
       </ul>
     </div>
 
@@ -163,46 +183,70 @@
   <script>
     const translations = {
       en: {
-        title: "Day's",
-        subtitle: "Visa and travel tracker for frequent travelers.",
+
+
+        title: "App Store Launch",
+        subtitle: "Guidance and execution for a clean, approved release.",
+        lead: "We handle App Store readiness, metadata, and review requirements.",
         cta: "Book a Call",
         theme: "Toggle theme",
-        section1: "Problem",
-        section2: "Solution",
-        point1: "Users needed an easy way to calculate visa days.",
-        point2: "Manual tracking caused costly overstays.",
-        point3: "Automated timeline and alerts by region.",
-        point4: "Clear dashboard and calendar view.",
-        point5: "Fast onboarding and recurring reminders.",
+        section1: "Launch scope",
+        section2: "After launch",
+        section3: "Examples",
+        point1: "App Store listing, screenshots, and metadata",
+        point2: "App review readiness and compliance checks",
+        point3: "Versioning and release planning",
+        point4: "Analytics dashboards and KPI tracking",
+        point5: "Crash monitoring and quick hotfixes",
+        point6: "User feedback loops for v1.1+",
         back: "← Back to home"
+        point7: "Day's: App Store metadata and screenshots",
+        point8: "Koinly: compliance and review readiness",
+        point9: "Taskhive: phased release strategy"
       },
       ru: {
-        title: "Day's",
-        subtitle: "Трекер виз и поездок для частых путешествий.",
+
+
+        title: "Публикация в App Store",
+        subtitle: "Подготовка и запуск без сюрпризов.",
+        lead: "Берём на себя подготовку, метаданные и требования ревью.",
         cta: "Запросить консультацию",
         theme: "Сменить тему",
-        section1: "Проблема",
-        section2: "Решение",
-        point1: "Нужен быстрый расчёт дней по визовым правилам.",
-        point2: "Ручной учёт приводил к ошибкам и штрафам.",
-        point3: "Автоматическая шкала и уведомления по регионам.",
-        point4: "Понятный дашборд и календарь.",
-        point5: "Быстрый онбординг и регулярные напоминания.",
+        section1: "Что входит",
+        section2: "После релиза",
+        section3: "Примеры",
+        point1: "Карточка приложения, скриншоты, метаданные",
+        point2: "Готовность к ревью и проверки",
+        point3: "Планирование релиза и версий",
+        point4: "Аналитика и метрики",
+        point5: "Мониторинг крашей и хотфиксы",
+        point6: "Цикл обратной связи для v1.1+",
         back: "← На главную"
+        point7: "Day's: метаданные и скриншоты App Store",
+        point8: "Koinly: готовность к ревью и соответствие",
+        point9: "Taskhive: поэтапный релиз"
       },
       es: {
-        title: "Day's",
-        subtitle: "Rastreador de visados y viajes para viajeros frecuentes.",
+
+
+        title: "Publicación en App Store",
+        subtitle: "Preparación y lanzamiento sin sorpresas.",
+        lead: "Nos encargamos de la preparación y revisión del App Store.",
         cta: "Agendar una llamada",
         theme: "Cambiar tema",
-        section1: "Problema",
-        section2: "Solución",
-        point1: "Necesitaban calcular días de visado fácilmente.",
-        point2: "El seguimiento manual generaba errores.",
-        point3: "Timeline automática y alertas por región.",
-        point4: "Dashboard claro y vista calendario.",
-        point5: "Onboarding rápido y recordatorios recurrentes.",
+        section1: "Alcance del lanzamiento",
+        section2: "Después del lanzamiento",
+        section3: "Ejemplos",
+        point1: "Ficha, capturas y metadata",
+        point2: "Revisión y cumplimiento",
+        point3: "Versionado y planificación",
+        point4: "Analítica y KPIs",
+        point5: "Monitoreo de crashes y hotfixes",
+        point6: "Feedback de usuarios para v1.1+",
         back: "← Volver al inicio"
+        point7: "Day's: metadata y capturas en App Store",
+        point8: "Koinly: compliance y preparación de review",
+        point9: "Taskhive: estrategia de lanzamiento gradual"
       }
     };
 
