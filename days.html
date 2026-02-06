@@ -3,231 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — Day's Case</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-light: #f8f9fb;
-      --text-light: #000;
-      --bg-dark: #121212;
-      --text-dark: #fff;
-      --card-light: #ffffff;
-      --card-dark: #1e1e1e;
-      --shadow-light: 0 10px 30px rgba(20, 36, 73, 0.08);
-      --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.45);
-      --accent: #2563eb;
-      --accent-2: #4f46e5;
-      --border-light: #e5e7eb;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: linear-gradient(180deg, #f8f9fb 0%, #eef2f8 100%);
-      color: var(--text-light);
-      transition: 0.3s ease all;
-    }
-    body.dark {
-      background: radial-gradient(circle at top, #1b1f2a 0%, #0f1115 60%);
-      color: var(--text-dark);
-    }
-    .container {
-      max-width: 920px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .language-switcher {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .language-switcher button {
-      border: 1px solid #ccc;
-      background: transparent;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-    body.dark .language-switcher button {
-      border-color: rgba(255, 255, 255, 0.2);
-      color: #e5e7eb;
-    }
-    .brand {
-      display: inline-block;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      color: inherit;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: 1.15rem;
-      color: #4b5563;
-    }
-    body.dark .subtitle {
-      color: #cbd5f5;
-    }
-    .cta-button {
-      margin-top: 1.25rem;
-      padding: 0.6rem 1.4rem;
-      border: none;
-      border-radius: 999px;
-      font-weight: 500;
-      cursor: pointer;
-      background: linear-gradient(to right, var(--accent-2), var(--accent));
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: var(--shadow-light);
-    }
-    .section {
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-      border-radius: 18px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow-light);
-      margin-bottom: 1.5rem;
-    }
-    body.dark .section {
-      background: var(--card-dark);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-dark);
-    }
-    .section h2 {
-      margin-top: 0;
-    }
-    .list {
-      padding-left: 1.2rem;
-      margin: 0.5rem 0 0;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 1rem;
-      text-decoration: none;
-      color: inherit;
-      font-weight: 500;
-    }
-  </style>
+  <title>olegotka — Day’s Case Study</title>
+  <meta name="description" content="Case study: Day’s — visa and travel tracker MVP." />
+  <meta property="og:title" content="olegotka — Day’s Case Study" />
+  <meta property="og:description" content="Case study: Day’s — visa and travel tracker MVP." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olegotka.es/days.html" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <link rel="icon" href="/assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="topbar">
-      <a class="brand" href="index.html">olegotka</a>
-      <div>
-        <span class="language-switcher">
-          <button onclick="changeLang('en')">EN</button>
-          <button onclick="changeLang('es')">ES</button>
-          <button onclick="changeLang('ru')">RU</button>
-        </span>
+  <header class="topbar" id="top">
+    <div class="nav-inner">
+      <a class="logo" href="/index.html">olegotka</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/index.html#services" data-i18n="nav_services">Services</a>
+        <a href="/index.html#work" data-i18n="nav_work">Work</a>
+        <a href="/index.html#process" data-i18n="nav_process">Process</a>
+        <a href="/index.html#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="/index.html#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="/index.html#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" data-i18n="toggle_theme">Dark mode</button>
+        <div class="lang-switch" aria-label="Language">
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
       </div>
     </div>
+  </header>
 
-    <header>
-      <h1 data-i18n="title">Day's</h1>
-      <div class="subtitle" data-i18n="subtitle">Visa and travel tracker for frequent travelers.</div>
-      <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
-    </header>
+  <main>
+    <section class="case-hero">
+      <div>
+        <p class="eyebrow" data-i18n="case_type">Case Study</p>
+        <h1 data-i18n="case_title">Day’s</h1>
+        <p class="hero-subtitle" data-i18n="case_tagline">Visa and travel tracker that helps users stay within limits.</p>
+        <div class="case-badges">
+          <span data-i18n="case_badge_1">MVP shipped</span>
+          <span data-i18n="case_badge_2">Calendar logic</span>
+          <span data-i18n="case_badge_3">Placeholder outcomes</span>
+        </div>
+      </div>
+      <div class="case-hero-card">
+        <img src="/assets/projects/days_preview.png" alt="Day’s" />
+        <div class="mockup-caption" data-i18n="case_mockup">Project visual placeholder</div>
+      </div>
+    </section>
 
-    <div class="section">
-      <h2 data-i18n="section1">Problem</h2>
-      <ul class="list">
-        <li data-i18n="point1">Users needed an easy way to calculate visa days.</li>
-        <li data-i18n="point2">Manual tracking caused costly overstays.</li>
+    <section class="section">
+      <div class="tldr">
+        <div>
+          <h3 data-i18n="case_problem_title">Problem</h3>
+          <p data-i18n="case_problem">Travelers struggled to track visa days across multiple trips.</p>
+        </div>
+        <div>
+          <h3 data-i18n="case_solution_title">Solution</h3>
+          <p data-i18n="case_solution">A calendar‑driven timeline with alerts and easy data entry.</p>
+        </div>
+        <div>
+          <h3 data-i18n="case_outcome_title">Outcome</h3>
+          <p data-i18n="case_outcome">Shipped MVP with clear rules and reminders (placeholder).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_what_title">What I did</h2>
+        <p data-i18n="case_what_subtitle">Scope of work and responsibilities.</p>
+      </div>
+      <ul class="case-list">
+        <li data-i18n="case_what_1">Defined MVP scope and core flows</li>
+        <li data-i18n="case_what_2">Designed onboarding and calendar UX</li>
+        <li data-i18n="case_what_3">Built iOS app with offline support</li>
+        <li data-i18n="case_what_4">Prepared for App Store release</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
-      <h2 data-i18n="section2">Solution</h2>
-      <ul class="list">
-        <li data-i18n="point3">Automated timeline and alerts by region.</li>
-        <li data-i18n="point4">Clear dashboard and calendar view.</li>
-        <li data-i18n="point5">Fast onboarding and recurring reminders.</li>
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_highlights_title">Highlights</h2>
+        <p data-i18n="case_highlights_subtitle">Key features or results.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card">
+          <h3 data-i18n="case_highlight_1">Timeline view</h3>
+          <p data-i18n="case_highlight_1_desc">Auto‑calculates days per region.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="case_highlight_2">Smart alerts</h3>
+          <p data-i18n="case_highlight_2_desc">Reminders before limits are reached.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="case_highlight_3">Simple data entry</h3>
+          <p data-i18n="case_highlight_3_desc">Quick trip input with minimal friction.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_stack_title">Stack</h2>
+        <p data-i18n="case_stack_subtitle">Technologies used for this project.</p>
+      </div>
+      <div class="badge-row">
+        <span>UIKit</span>
+        <span>Core Data</span>
+        <span>Notifications</span>
+        <span>CI/CD</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_screens_title">Screenshots</h2>
+        <p data-i18n="case_screens_subtitle">Placeholder images until final assets are ready.</p>
+      </div>
+      <div class="screens-grid">
+        <div class="screen-card">Screenshot 1</div>
+        <div class="screen-card">Screenshot 2</div>
+        <div class="screen-card">Screenshot 3</div>
+        <div class="screen-card">Screenshot 4</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_decisions_title">Key decisions</h2>
+        <p data-i18n="case_decisions_subtitle">Tradeoffs and process notes.</p>
+      </div>
+      <ul class="case-list">
+        <li data-i18n="case_decision_1">Prioritized calendar accuracy over complex analytics.</li>
+        <li data-i18n="case_decision_2">Designed for offline‑first usage.</li>
+        <li data-i18n="case_decision_3">Kept onboarding minimal to reduce drop‑off.</li>
       </ul>
-    </div>
+    </section>
 
-    <a class="back-link" href="index.html" data-i18n="back">← Back to home</a>
-  </div>
+    <section class="section">
+      <div class="section-header">
+        <h2 data-i18n="case_next_title">Next steps</h2>
+        <p data-i18n="case_next_subtitle">What’s planned or recommended next.</p>
+      </div>
+      <ul class="case-list">
+        <li data-i18n="case_next_1">Add premium features and pricing experiments (placeholder).</li>
+        <li data-i18n="case_next_2">Integrate additional regions and rulesets.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 data-i18n="case_cta_title">Want a similar result?</h2>
+        <p data-i18n="case_cta_subtitle">Let’s discuss your MVP and the fastest path to launch.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p data-i18n="case_cta_body">Share your idea and get a clear plan within days.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
+            <a class="btn btn-secondary" href="mailto:hello@olegotka.es" data-i18n="contact_email">Email Us</a>
+          </div>
+          <div class="contact-links">
+            <a class="btn btn-ghost" href="https://t.me/olegotka" target="_blank" rel="noopener" data-i18n="contact_telegram">Telegram</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener" data-i18n="contact_linkedin">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <p data-i18n="case_cta_note">Prefer async? Send a short message and we’ll follow up.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© olegotka 2023–2026</p>
+      <div class="footer-links">
+        <a href="/index.html#services" data-i18n="nav_services">Services</a>
+        <a href="/index.html#work" data-i18n="nav_work">Work</a>
+        <a href="/index.html#process" data-i18n="nav_process">Process</a>
+        <a href="/index.html#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.fiverr.com/oleg_yakushin" target="_blank" rel="noopener">Fiverr</a>
+        <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    const translations = {
+    window.pageTranslations = {
       en: {
-        title: "Day's",
-        subtitle: "Visa and travel tracker for frequent travelers.",
-        cta: "Book a Call",
-        theme: "Toggle theme",
-        section1: "Problem",
-        section2: "Solution",
-        point1: "Users needed an easy way to calculate visa days.",
-        point2: "Manual tracking caused costly overstays.",
-        point3: "Automated timeline and alerts by region.",
-        point4: "Clear dashboard and calendar view.",
-        point5: "Fast onboarding and recurring reminders.",
-        back: "← Back to home"
-      },
-      ru: {
-        title: "Day's",
-        subtitle: "Трекер виз и поездок для частых путешествий.",
-        cta: "Запросить консультацию",
-        theme: "Сменить тему",
-        section1: "Проблема",
-        section2: "Решение",
-        point1: "Нужен быстрый расчёт дней по визовым правилам.",
-        point2: "Ручной учёт приводил к ошибкам и штрафам.",
-        point3: "Автоматическая шкала и уведомления по регионам.",
-        point4: "Понятный дашборд и календарь.",
-        point5: "Быстрый онбординг и регулярные напоминания.",
-        back: "← На главную"
+        case_title: "Day’s",
+        case_tagline: "Visa and travel tracker that helps users stay within limits.",
+        case_badge_1: "MVP shipped",
+        case_badge_2: "Calendar logic",
+        case_badge_3: "Placeholder outcomes",
+        case_problem: "Travelers struggled to track visa days across multiple trips.",
+        case_solution: "A calendar‑driven timeline with alerts and easy data entry.",
+        case_outcome: "Shipped MVP with clear rules and reminders (placeholder).",
+        case_what_1: "Defined MVP scope and core flows",
+        case_what_2: "Designed onboarding and calendar UX",
+        case_what_3: "Built iOS app with offline support",
+        case_what_4: "Prepared for App Store release",
+        case_highlight_1: "Timeline view",
+        case_highlight_1_desc: "Auto‑calculates days per region.",
+        case_highlight_2: "Smart alerts",
+        case_highlight_2_desc: "Reminders before limits are reached.",
+        case_highlight_3: "Simple data entry",
+        case_highlight_3_desc: "Quick trip input with minimal friction.",
+        case_decision_1: "Prioritized calendar accuracy over complex analytics.",
+        case_decision_2: "Designed for offline‑first usage.",
+        case_decision_3: "Kept onboarding minimal to reduce drop‑off.",
+        case_next_1: "Add premium features and pricing experiments (placeholder).",
+        case_next_2: "Integrate additional regions and rulesets."
       },
       es: {
-        title: "Day's",
-        subtitle: "Rastreador de visados y viajes para viajeros frecuentes.",
-        cta: "Agendar una llamada",
-        theme: "Cambiar tema",
-        section1: "Problema",
-        section2: "Solución",
-        point1: "Necesitaban calcular días de visado fácilmente.",
-        point2: "El seguimiento manual generaba errores.",
-        point3: "Timeline automática y alertas por región.",
-        point4: "Dashboard claro y vista calendario.",
-        point5: "Onboarding rápido y recordatorios recurrentes.",
-        back: "← Volver al inicio"
+        case_title: "Day’s",
+        case_tagline: "Rastreador de visados y viajes para mantenerse dentro de límites.",
+        case_badge_1: "MVP lanzado",
+        case_badge_2: "Lógica de calendario",
+        case_badge_3: "Resultados placeholder",
+        case_problem: "Los viajeros tenían dificultad para seguir los días de visado en múltiples viajes.",
+        case_solution: "Timeline con alertas y entrada simple de viajes.",
+        case_outcome: "MVP lanzado con reglas claras y recordatorios (placeholder).",
+        case_what_1: "Definición de alcance y flujos clave",
+        case_what_2: "Diseño de onboarding y UX calendario",
+        case_what_3: "App iOS con soporte offline",
+        case_what_4: "Preparación para App Store",
+        case_highlight_1: "Vista timeline",
+        case_highlight_1_desc: "Cálculo automático por región.",
+        case_highlight_2: "Alertas inteligentes",
+        case_highlight_2_desc: "Avisos antes de llegar al límite.",
+        case_highlight_3: "Entrada rápida",
+        case_highlight_3_desc: "Añadir viajes sin fricción.",
+        case_decision_1: "Priorizar precisión del calendario sobre analítica compleja.",
+        case_decision_2: "Diseño offline‑first.",
+        case_decision_3: "Onboarding mínimo para reducir drop‑off.",
+        case_next_1: "Añadir features premium y tests de precios (placeholder).",
+        case_next_2: "Integrar más regiones y reglas."
+      },
+      ru: {
+        case_title: "Day’s",
+        case_tagline: "Трекер виз и поездок, чтобы соблюдать лимиты.",
+        case_badge_1: "MVP запущен",
+        case_badge_2: "Календарная логика",
+        case_badge_3: "Плейсхолдер результатов",
+        case_problem: "Путешественникам сложно отслеживать визовые дни между поездками.",
+        case_solution: "Календарная шкала с уведомлениями и простой ввод данных.",
+        case_outcome: "MVP запущен с понятными правилами и напоминаниями (плейсхолдер).",
+        case_what_1: "Определение MVP и ключевых сценариев",
+        case_what_2: "Дизайн онбординга и календарного UX",
+        case_what_3: "iOS‑разработка с офлайн‑поддержкой",
+        case_what_4: "Подготовка к релизу в App Store",
+        case_highlight_1: "Таймлайн",
+        case_highlight_1_desc: "Автоподсчёт дней по регионам.",
+        case_highlight_2: "Умные напоминания",
+        case_highlight_2_desc: "Уведомления до достижения лимитов.",
+        case_highlight_3: "Простой ввод",
+        case_highlight_3_desc: "Быстрое добавление поездок.",
+        case_decision_1: "Приоритет точности календаря, а не сложной аналитики.",
+        case_decision_2: "Дизайн offline‑first.",
+        case_decision_3: "Минимальный онбординг для снижения оттока.",
+        case_next_1: "Добавить премиум‑функции и тесты цены (плейсхолдер).",
+        case_next_2: "Подключить дополнительные регионы и правила."
       }
     };
-
-    function changeLang(lang) {
-      const t = translations[lang];
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (t[key]) {
-          el.textContent = t[key];
-        }
-      });
-      document.documentElement.lang = lang;
-      localStorage.setItem("lang", lang);
-    }
-
-
-    const savedLang = localStorage.getItem("lang") || "en";
-    changeLang(savedLang);
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    function applySystemTheme() {
-      document.body.classList.toggle("dark", mediaQuery.matches);
-    }
-    applySystemTheme();
-    mediaQuery.addEventListener("change", applySystemTheme);
   </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -107,7 +107,28 @@ const translations = {
     form_message_ph: "Briefly describe your product",
     form_submit: "Send request",
     form_note: "We’ll respond within 2–3 business days.",
-    form_error: "Please fill all fields."
+    form_error: "Please fill all fields.",
+    case_type: "Case Study",
+    case_mockup: "Project visual placeholder",
+    case_problem_title: "Problem",
+    case_solution_title: "Solution",
+    case_outcome_title: "Outcome",
+    case_what_title: "What I did",
+    case_what_subtitle: "Scope of work and responsibilities.",
+    case_highlights_title: "Highlights",
+    case_highlights_subtitle: "Key features or results.",
+    case_stack_title: "Stack",
+    case_stack_subtitle: "Technologies used for this project.",
+    case_screens_title: "Screenshots",
+    case_screens_subtitle: "Placeholder images until final assets are ready.",
+    case_decisions_title: "Key decisions",
+    case_decisions_subtitle: "Tradeoffs and process notes.",
+    case_next_title: "Next steps",
+    case_next_subtitle: "What’s planned or recommended next.",
+    case_cta_title: "Want a similar result?",
+    case_cta_subtitle: "Let’s discuss your MVP and the fastest path to launch.",
+    case_cta_body: "Share your idea and get a clear plan within days.",
+    case_cta_note: "Prefer async? Send a short message and we’ll follow up."
   },
   es: {
     nav_services: "Servicios",
@@ -217,7 +238,28 @@ const translations = {
     form_message_ph: "Describe tu producto",
     form_submit: "Enviar solicitud",
     form_note: "Respondemos en 2–3 días hábiles.",
-    form_error: "Por favor completa todos los campos."
+    form_error: "Por favor completa todos los campos.",
+    case_type: "Caso de estudio",
+    case_mockup: "Placeholder visual del proyecto",
+    case_problem_title: "Problema",
+    case_solution_title: "Solución",
+    case_outcome_title: "Resultado",
+    case_what_title: "Lo que hice",
+    case_what_subtitle: "Alcance y responsabilidades.",
+    case_highlights_title: "Highlights",
+    case_highlights_subtitle: "Funciones clave o resultados.",
+    case_stack_title: "Stack",
+    case_stack_subtitle: "Tecnologías usadas en este proyecto.",
+    case_screens_title: "Capturas",
+    case_screens_subtitle: "Imágenes placeholder hasta tener assets finales.",
+    case_decisions_title: "Decisiones clave",
+    case_decisions_subtitle: "Notas de proceso y tradeoffs.",
+    case_next_title: "Siguientes pasos",
+    case_next_subtitle: "Lo que sigue o se recomienda.",
+    case_cta_title: "¿Quieres un resultado similar?",
+    case_cta_subtitle: "Hablemos de tu MVP y el camino más rápido al lanzamiento.",
+    case_cta_body: "Comparte tu idea y recibe un plan en pocos días.",
+    case_cta_note: "¿Prefieres async? Envíanos un mensaje y respondemos."
   },
   ru: {
     nav_services: "Услуги",
@@ -327,7 +369,28 @@ const translations = {
     form_message_ph: "Кратко опишите продукт",
     form_submit: "Отправить запрос",
     form_note: "Ответим в течение 2–3 рабочих дней.",
-    form_error: "Пожалуйста, заполните все поля."
+    form_error: "Пожалуйста, заполните все поля.",
+    case_type: "Кейс",
+    case_mockup: "Плейсхолдер визуала проекта",
+    case_problem_title: "Проблема",
+    case_solution_title: "Решение",
+    case_outcome_title: "Результат",
+    case_what_title: "Что делал",
+    case_what_subtitle: "Объём работ и зоны ответственности.",
+    case_highlights_title: "Ключевые моменты",
+    case_highlights_subtitle: "Функции и результаты.",
+    case_stack_title: "Стек",
+    case_stack_subtitle: "Технологии проекта.",
+    case_screens_title: "Скриншоты",
+    case_screens_subtitle: "Плейсхолдеры до готовых ассетов.",
+    case_decisions_title: "Ключевые решения",
+    case_decisions_subtitle: "Трейд‑оффы и заметки по процессу.",
+    case_next_title: "Следующие шаги",
+    case_next_subtitle: "Что планируется дальше.",
+    case_cta_title: "Нужен похожий результат?",
+    case_cta_subtitle: "Обсудим MVP и самый быстрый путь к запуску.",
+    case_cta_body: "Расскажите идею — подготовим план за несколько дней.",
+    case_cta_note: "Предпочитаете асинхронно? Напишите, и мы ответим."
   }
 };
 
@@ -353,6 +416,20 @@ function applyTranslations(lang) {
   });
   localStorage.setItem("lang", lang);
 }
+
+function mergePageTranslations() {
+  if (!window.pageTranslations) {
+    return;
+  }
+  ["en", "es", "ru"].forEach((lang) => {
+    const page = window.pageTranslations[lang];
+    if (page) {
+      translations[lang] = { ...translations[lang], ...page };
+    }
+  });
+}
+
+mergePageTranslations();
 
 function setTheme(isDark) {
   document.body.classList.toggle("dark", isDark);
