@@ -3,566 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — iOS Studio by Oleg Yakushin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-       :root {
-      --bg-light: #f8f9fb;
-      --text-light: #000;
-      --bg-dark: #121212;
-      --text-dark: #fff;
-      --card-light: #ffffff;
-      --card-dark: #1e1e1e;
-      --shadow-light: 0 10px 30px rgba(20, 36, 73, 0.08);
-      --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.45);
-      --accent: #2563eb;
-      --accent-2: #4f46e5;
-      --border-light: #e5e7eb;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: linear-gradient(180deg, #f8f9fb 0%, #eef2f8 100%);
-      color: var(--text-light);
-      transition: 0.3s ease all;
-    }
-    body.dark {
-      background: radial-gradient(circle at top, #1b1f2a 0%, #0f1115 60%);
-      color: var(--text-dark);
-    }
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      position: sticky;
-      top: 0;
-      padding: 0.5rem 0;
-      backdrop-filter: blur(6px);
-    }
-    .language-switcher {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .language-switcher button {
-      border: 1px solid #ccc;
-      background: transparent;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-    body.dark .language-switcher button {
-      border-color: rgba(255, 255, 255, 0.2);
-      color: #e5e7eb;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .brand-name {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-    .brand-subtitle {
-      font-weight: 500;
-      color: #4b5563;
-    }
-    body.dark .brand-subtitle {
-      color: #cbd5f5;
-    }
-    .hero-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    .cta-button {
-      padding: 0.6rem 1.4rem;
-      border: none;
-      border-radius: 999px;
-      font-weight: 500;
-      cursor: pointer;
-      background: linear-gradient(to right, var(--accent-2), var(--accent));
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s ease background;
-      box-shadow: var(--shadow-light);
-    }
-    .cta-button:hover {
-      background: linear-gradient(to right, #4338ca, #1d4ed8);
-    }
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-    .services, .projects, .contact {
-      margin-bottom: 3rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, 180px);
-      grid-auto-rows: 190px;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .card {
-      width: 180px;
-      height: 190px;
-      background: var(--card-light);
-      padding: 1rem;
-      border-radius: 20px;
-      text-align: center;
-      transition: background 0.3s;
-      box-shadow: var(--shadow-light);
-      border: 1px solid var(--border-light);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .about-card {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: left;
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow-light);
-    }
-    body.dark .about-card {
-      background: var(--card-dark);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow-dark);
-    }
-    .card-link {
-      width: 180px;
-      height: 190px;
-      display: block;
-    }
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-    }
-    .card-link:focus-visible .card,
-    .card-link:hover .card {
-      transform: translateY(-4px);
-      transition: transform 0.2s ease;
-    }
-    body.dark .card {
-      background: var(--card-dark);
-      box-shadow: var(--shadow-dark);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid #cbd5e1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: #1e3a8a;
-      background: linear-gradient(145deg, #eef2ff 0%, #dbeafe 100%);
-      margin: 0 auto 0.5rem auto;
-      font-size: 0.9rem;
-      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
-    }
-    body.dark .icon {
-      border-color: rgba(255, 255, 255, 0.18);
-      color: #bfdbfe;
-      background: linear-gradient(145deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.08));
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
-    }
-    .project-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 0.5rem;
-    }
-    .project-card {
-      min-width: 260px;
-    }
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact input, .contact textarea {
-      padding: 0.6rem;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      background: #fff;
-      color: #111827;
-    }
-    body.dark .contact input, body.dark .contact textarea {
-      background: #0f172a;
-      border-color: rgba(255, 255, 255, 0.12);
-      color: #e5e7eb;
-    }
-    .contact button {
-      align-self: flex-start;
-      padding: 0.6rem 1.4rem;
-      background: #111827;
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-    .contact-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .contact-info {
-      flex: 1;
-    }
-    .contact form {
-      flex: 1;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-    }
-  
-.project-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
+  <title>olegotka — iOS MVPs for startups</title>
+  <meta name="description" content="olegotka is a premium micro‑studio shipping iOS MVPs fast with product thinking, design, and backend." />
 
-.project-thumb {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3/4;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: var(--shadow-light);
-}
-    .project-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
+  <meta property="og:title" content="olegotka — iOS MVPs for startups" />
+  <meta property="og:description" content="Premium micro‑studio for iOS MVPs: strategy, design, build, launch, and growth." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olegotka.es/" />
+  <meta property="og:image" content="/assets/og-image.png" />
 
-.project-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.3s ease;
-  display: block;
-}
-
-.project-info {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  text-align: center;
-  padding: 1rem;
-  transition: opacity 0.3s ease;
-}
-
-.project-thumb:hover .project-info {
-  opacity: 1;
-}
-
-.project-thumb:hover img {
-  filter: brightness(0.6);
-}
-
-.contact-info img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-.contact-info-links a {
-  display: inline-block;
-  margin-right: 0.5rem;
-  color: inherit;
-  font-weight: 500;
-}
-    .contact-meta {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-    .contact-meta a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .contact-meta a:hover {
-      text-decoration: underline;
-    }
-    body.dark .contact-meta {
-      color: #cbd5f5;
-    }
-    @media (max-width: 860px) {
-      .topbar {
-        align-items: flex-end;
-      }
-      .project-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 600px) {
-      .project-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="icon" href="/assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="topbar">
-      <div class="language-switcher">
-        <button onclick="changeLang('en')">EN</button>
-        <button onclick="changeLang('es')">ES</button>
-        <button onclick="changeLang('ru')">RU</button>
+  <header class="topbar" id="top">
+    <div class="nav-inner">
+      <a class="logo" href="#top">olegotka</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" data-i18n="toggle_theme">Dark mode</button>
+        <div class="lang-switch" aria-label="Language">
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
       </div>
     </div>
-    <header>
-      <h1><span class="brand-name">olegotka</span><br /><span class="brand-subtitle" data-i18n="studio">iOS Studio</span></h1>
-      <p class="hero-subtitle" data-i18n="subtitle">We build MVPs, design, and native iOS products with backend for startups</p>
-      <a class="cta-button" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta">Book a Call</a>
-    </header>
+  </header>
 
-    <section class="services">
-      <h2 class="section-title" data-i18n="about_title">About the Studio</h2>
-      <div class="about-card">
-        <p data-i18n="about_p1">We are a compact iOS studio led by Oleg Yakushin. We work as a small team of iOS engineers, designers, and backend specialists to ship production‑ready apps.</p>
-        <p data-i18n="about_p2">We cover discovery, design, development, and launch — and stay for support and growth iterations.</p>
-        <ul style="margin: 0; padding-left: 1.2rem;">
-          <li data-i18n="about_li1">Senior iOS team with startup velocity</li>
-          <li data-i18n="about_li2">Clear scope, transparent process, weekly updates</li>
-          <li data-i18n="about_li3">Full cycle: MVP → App Store → growth</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="services">
-      <h2 class="section-title" data-i18n="services">How We Can Help</h2>
-      <div class="grid">
-        <a class="card-link" href="mvp.html"><div class="card"><span class="icon">MVP</span><div data-i18n="mvp">MVP Development</div></div></a>
-        <a class="card-link" href="ux.html"><div class="card"><span class="icon">UX</span><div data-i18n="ux">UX / Design</div></div></a>
-        <a class="card-link" href="native.html"><div class="card"><span class="icon">iOS</span><div data-i18n="native">Native iOS + Backend</div></div></a>
-        <a class="card-link" href="support.html"><div class="card"><span class="icon">SUP</span><div data-i18n="maintain">Support & Iteration</div></div></a>
-        <a class="card-link" href="appstore.html"><div class="card"><span class="icon">APP</span><div data-i18n="launch">App Store Launch</div></div></a>
-        <a class="card-link" href="monetization.html"><div class="card"><span class="icon">REV</span><div data-i18n="monetization">Monetization & RevenueCat</div></div></a>
-        <a class="card-link" href="analytics.html"><div class="card"><span class="icon">DATA</span><div data-i18n="analytics">Analytics & Attribution</div></div></a>
-        <a class="card-link" href="integrations.html"><div class="card"><span class="icon">API</span><div data-i18n="integrations">Third‑party Integrations</div></div></a>
-      </div>
-    </section>
-
-    <section class="projects">
-        <h2 class="section-title" data-i18n="work">Selected Work</h2>
-        <div class="project-row">
-          <a class="project-link" href="koinly.html">
-            <div class="project-thumb">
-              <img src="assets/projects/koinly_preview.png" alt="Koinly" />
-              <div class="project-info">
-                <h3>Koinly</h3>
-                <p data-i18n="koinly_desc">Crypto tax reporting app</p>
-              </div>
-            </div>
-          </a>
-      
-          <a class="project-link" href="days.html">
-            <div class="project-thumb">
-              <img src="assets/projects/days_preview.png" alt="Day's" />
-              <div class="project-info">
-                <h3>Day's</h3>
-                <p data-i18n="days_desc">Visa and travel tracker</p>
-              </div>
-            </div>
-          </a>
-      
-          <a class="project-link" href="taskhive.html">
-            <div class="project-thumb">
-              <img src="assets/projects/taskhive_preview.png" alt="Taskhive" />
-              <div class="project-info">
-                <h3>Taskhive</h3>
-                <p data-i18n="taskhive_desc">Task manager for teams</p>
-              </div>
-            </div>
-          </a>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="hero_eyebrow">iOS Studio · MVP · Design · Backend</p>
+        <h1 id="hero-title" data-i18n="hero_title">iOS MVPs for startups — shipped fast, built right.</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">We turn ideas into investor‑ready products with clear scope, premium design, and reliable engineering.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
+          <a class="btn btn-secondary" href="#contact" data-i18n="cta_secondary">Get a Quote</a>
         </div>
-      </section>
+        <div class="hero-badges" aria-label="Key advantages">
+          <span data-i18n="hero_badge_1">Fast MVP delivery</span>
+          <span data-i18n="hero_badge_2">Product thinking</span>
+          <span data-i18n="hero_badge_3">Senior iOS team</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mockup-card">
+          <img src="/assets/hero-mockup.png" alt="" />
+          <div class="mockup-caption" data-i18n="hero_mockup">iPhone mockup placeholder</div>
+        </div>
+      </div>
+    </section>
 
-    <section class="contact">
-      <h2 class="section-title" data-i18n="contact">Have a project in mind?</h2>
-      <div class="contact-container">
-        <div class="contact-info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-          <img src="assets/profile.jpg" alt="Oleg Yakushin" />
-          <strong style="margin-bottom: 0.5rem;">Oleg Yakushin</strong>
-          <div class="contact-meta" data-i18n="contact_meta">Founder, iOS Studio</div>
-          <div class="contact-info-links">
-            <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> ·
-            <a href="https://www.fiverr.com/oleg_yakushin" target="_blank" rel="noopener">Fiverr</a>
-            · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
+    <section class="trust-strip" aria-label="Technology">
+      <div class="trust-inner">
+        <span>SwiftUI</span>
+        <span>UIKit</span>
+        <span>Firebase</span>
+        <span>RevenueCat</span>
+        <span>Core Data</span>
+        <span>CI/CD</span>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="section-header">
+        <h2 id="services-title" data-i18n="services_title">Productized Services</h2>
+        <p data-i18n="services_subtitle">Clear packages with deliverables, best‑fit, and starting budgets.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card">
+          <h3 data-i18n="service1_title">MVP Sprint (2–4 weeks)</h3>
+          <p class="price" data-i18n="service1_price">from €X</p>
+          <h4 data-i18n="service_what">What you get</h4>
+          <ul>
+            <li data-i18n="service1_get_1">Core flows + onboarding</li>
+            <li data-i18n="service1_get_2">Clickable prototype + backlog</li>
+            <li data-i18n="service1_get_3">TestFlight build</li>
+          </ul>
+          <h4 data-i18n="service_best">Best for</h4>
+          <p data-i18n="service1_best">Early startups validating product‑market fit.</p>
+          <p class="mini" data-i18n="service1_case">Case: Koinly — focused tax reporting MVP.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="service2_title">UI/UX + Prototype</h3>
+          <p class="price" data-i18n="service2_price">from €X</p>
+          <h4 data-i18n="service_what">What you get</h4>
+          <ul>
+            <li data-i18n="service2_get_1">User journeys + IA</li>
+            <li data-i18n="service2_get_2">Figma design system</li>
+            <li data-i18n="service2_get_3">Interactive prototype</li>
+          </ul>
+          <h4 data-i18n="service_best">Best for</h4>
+          <p data-i18n="service2_best">Founders who need a premium UX before dev.</p>
+          <p class="mini" data-i18n="service2_case">Case: Day’s — calendar‑driven travel UX.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="service3_title">Growth & Maintenance</h3>
+          <p class="price" data-i18n="service3_price">from €X / month</p>
+          <h4 data-i18n="service_what">What you get</h4>
+          <ul>
+            <li data-i18n="service3_get_1">Roadmap + releases</li>
+            <li data-i18n="service3_get_2">Analytics + experiments</li>
+            <li data-i18n="service3_get_3">Performance & stability</li>
+          </ul>
+          <h4 data-i18n="service_best">Best for</h4>
+          <p data-i18n="service3_best">Teams scaling after launch.</p>
+          <p class="mini" data-i18n="service3_case">Case: Taskhive — iterative team workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="section-header">
+        <h2 id="process-title" data-i18n="process_title">Process</h2>
+        <p data-i18n="process_subtitle">A lean, transparent flow that keeps speed and quality in balance.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3 data-i18n="process_1_title">Discovery call</h3>
+          <p data-i18n="process_1_desc">We align on goals, scope, and success metrics.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3 data-i18n="process_2_title">Prototype & plan</h3>
+          <p data-i18n="process_2_desc">UX flows, timeline, and a roadmap for delivery.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3 data-i18n="process_3_title">Build & ship</h3>
+          <p data-i18n="process_3_desc">Engineering, QA, and weekly updates.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">04</span>
+          <h3 data-i18n="process_4_title">Support & iterate</h3>
+          <p data-i18n="process_4_desc">Growth, improvements, and long‑term support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="section-header">
+        <h2 id="work-title" data-i18n="work_title">Selected Work</h2>
+        <p data-i18n="work_subtitle">Problem → Solution → Stack → Outcome.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card project">
+          <img src="/assets/projects/koinly_preview.png" alt="Koinly" />
+          <h3>Koinly</h3>
+          <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_koinly_problem">Complex crypto tax reporting for non‑experts.</span></p>
+          <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_koinly_solution">Simplified flows with guided import.</span></p>
+          <p><strong data-i18n="work_stack">Stack:</strong> SwiftUI, Firebase, RevenueCat</p>
+          <p><strong data-i18n="work_outcome">Outcome:</strong> <span data-i18n="work_koinly_outcome">+30% retention (placeholder)</span></p>
+          <div class="project-actions">
+            <a class="btn btn-secondary" href="koinly.html" data-i18n="work_view">View</a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="work_ask">Ask about similar</a>
+          </div>
+        </article>
+        <article class="card project">
+          <img src="/assets/projects/days_preview.png" alt="Day's" />
+          <h3>Day's</h3>
+          <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_days_problem">Visa limits are hard to track across trips.</span></p>
+          <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_days_solution">Calendar‑based timeline with alerts.</span></p>
+          <p><strong data-i18n="work_stack">Stack:</strong> UIKit, Core Data, Notifications</p>
+          <p><strong data-i18n="work_outcome">Outcome:</strong> <span data-i18n="work_days_outcome">+X% engagement (placeholder)</span></p>
+          <div class="project-actions">
+            <a class="btn btn-secondary" href="days.html" data-i18n="work_view">View</a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="work_ask">Ask about similar</a>
+          </div>
+        </article>
+        <article class="card project">
+          <img src="/assets/projects/taskhive_preview.png" alt="Taskhive" />
+          <h3>Taskhive</h3>
+          <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_taskhive_problem">Teams needed clarity without noisy tools.</span></p>
+          <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_taskhive_solution">Clean team board with smart filters.</span></p>
+          <p><strong data-i18n="work_stack">Stack:</strong> SwiftUI, CloudKit, CI/CD</p>
+          <p><strong data-i18n="work_outcome">Outcome:</strong> <span data-i18n="work_taskhive_outcome">+X% activation (placeholder)</span></p>
+          <div class="project-actions">
+            <a class="btn btn-secondary" href="taskhive.html" data-i18n="work_view">View</a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="work_ask">Ask about similar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="section-header">
+        <h2 id="testimonials-title" data-i18n="testimonials_title">Testimonials</h2>
+        <p data-i18n="testimonials_subtitle">Social proof placeholders — ready to replace with real quotes.</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card">
+          <p data-i18n="testimonial_1">“Testimonial placeholder about speed and quality.”</p>
+          <p class="mini" data-i18n="testimonial_1_meta">Founder, Client A</p>
+        </article>
+        <article class="card">
+          <p data-i18n="testimonial_2">“Testimonial placeholder about product thinking.”</p>
+          <p class="mini" data-i18n="testimonial_2_meta">CEO, Startup in X</p>
+        </article>
+        <article class="card">
+          <p data-i18n="testimonial_3">“Testimonial placeholder about long‑term support.”</p>
+          <p class="mini" data-i18n="testimonial_3_meta">Product Lead, Client B</p>
+        </article>
+      </div>
+      <div class="trusted">
+        <span data-i18n="trusted_title">Trusted by / Worked with</span>
+        <div class="trusted-logos">
+          <span class="placeholder">Client A</span>
+          <span class="placeholder">Client B</span>
+          <span class="placeholder">Startup in X</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section-header">
+        <h2 id="faq-title" data-i18n="faq_title">FAQ</h2>
+        <p data-i18n="faq_subtitle">Answers to common questions about timeline, pricing, and delivery.</p>
+      </div>
+      <div class="faq-grid">
+        <details>
+          <summary data-i18n="faq_q1">How long does an MVP take?</summary>
+          <p data-i18n="faq_a1">Most MVPs ship in 2–4 weeks depending on scope.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q2">How does pricing work?</summary>
+          <p data-i18n="faq_a2">Fixed‑scope packages or monthly retainers. We start with a brief and estimate.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q3">Do you sign NDAs?</summary>
+          <p data-i18n="faq_a3">Yes, NDAs are standard for all engagements.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q4">Who owns the code?</summary>
+          <p data-i18n="faq_a4">You own all IP and source code upon payment.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q5">Do you handle App Store submission?</summary>
+          <p data-i18n="faq_a5">Yes, we prepare metadata and guide the review process.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q6">What about post‑launch support?</summary>
+          <p data-i18n="faq_a6">We offer growth and maintenance retainers for ongoing work.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq_q7">How do we communicate?</summary>
+          <p data-i18n="faq_a7">Weekly updates, async check‑ins, and a shared project board.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section-header">
+        <h2 id="contact-title" data-i18n="contact_title">Let’s build your MVP</h2>
+        <p data-i18n="contact_subtitle">Share your idea and get a proposal within a few days.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p data-i18n="contact_pitch">We help founders ship fast without sacrificing quality. Send a short brief and we’ll reply with a plan.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
+            <a class="btn btn-secondary" href="mailto:hello@olegotka.es" data-i18n="contact_email">Email Us</a>
+          </div>
+          <div class="contact-links">
+            <a class="btn btn-ghost" href="https://t.me/olegotka" target="_blank" rel="noopener" data-i18n="contact_telegram">Telegram</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener" data-i18n="contact_linkedin">LinkedIn</a>
           </div>
         </div>
-        <form action="https://formspree.io/f/xnnpweyd" method="POST">
-          <input type="text" name="name" data-i18n-placeholder="name_placeholder" placeholder="Name" required />
-          <input type="email" name="email" data-i18n-placeholder="email_placeholder" placeholder="Email" required />
-          <textarea name="message" rows="4" data-i18n-placeholder="message_placeholder" placeholder="Message" required></textarea>
-          <button type="submit">Send</button>
+        <form class="contact-form" id="contactForm" action="mailto:hello@olegotka.es" method="POST" enctype="text/plain">
+          <label for="name" data-i18n="form_name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" data-i18n-placeholder="form_name_ph" required />
+
+          <label for="email" data-i18n="form_email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" data-i18n-placeholder="form_email_ph" required />
+
+          <label for="message" data-i18n="form_message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Briefly describe your product" data-i18n-placeholder="form_message_ph" required></textarea>
+
+          <button class="btn btn-primary" type="submit" data-i18n="form_submit">Send request</button>
+          <p class="form-note" data-i18n="form_note">We’ll respond within 2–3 business days.</p>
         </form>
       </div>
     </section>
+  </main>
 
-    <footer>
-      © olegotka 2023–2026 · <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
-    </footer>
-  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© olegotka 2023–2026</p>
+      <div class="footer-links">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.fiverr.com/oleg_yakushin" target="_blank" rel="noopener">Fiverr</a>
+        <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-<script>
-  const translations = {
-    en: {
-      studio: "iOS Studio",
-      subtitle: "We build MVPs, design, and native iOS products with backend for startups",
-      services: "How We Can Help",
-      about_title: "About the Studio",
-      about_p1: "We are a compact iOS studio. We work as a small team of iOS engineers, designers, and backend specialists to ship production‑ready apps.",
-      about_p2: "We cover discovery, design, development, and launch — and stay for support and growth iterations.",
-      about_li1: "Senior iOS team with startup velocity",
-      about_li2: "Clear scope, transparent process, weekly updates",
-      about_li3: "Full cycle: MVP → App Store → growth",
-      work: "Selected Work",
-      contact: "Have a project in mind?",
-      cta: "Book a Call",
-      send: "Send",
-      contact_meta: "Founder, iOS Studio",
-      mvp: "MVP Development",
-      ux: "UX / Design",
-      native: "Native iOS + Backend",
-      maintain: "Support & Iteration",
-      launch: "App Store Launch",
-      monetization: "Monetization & RevenueCat",
-      analytics: "Analytics & Attribution",
-      integrations: "Third‑party Integrations",
-      koinly_desc: "Crypto tax app",
-      days_desc: "Visa and travel tracker",
-      taskhive_desc: "Task manager",
-      name_placeholder: "Name",
-      email_placeholder: "Email",
-      message_placeholder: "Message",
-    },
-    ru: {
-      studio: "iOS Studio",
-      subtitle: "Разрабатываем MVP, дизайн и нативные iOS‑продукты с бэкендом для стартапов",
-      services: "Как мы можем помочь",
-      about_title: "О студии",
-      about_p1: "Мы — компактная iOS‑студия. Работаем небольшой командой iOS‑разработчиков, дизайнеров и бэкенд‑инженеров, чтобы выпускать продакшен‑продукты.",
-      about_p2: "Берём на себя discovery, дизайн, разработку и запуск — и остаёмся на поддержку и развитие.",
-      about_li1: "Сильная iOS‑команда и скорость стартапа",
-      about_li2: "Чёткий объём работ, прозрачный процесс, еженедельные апдейты",
-      about_li3: "Полный цикл: MVP → App Store → рост",
-      work: "Избранные проекты",
-      contact: "Запросить оценку проекта",
-      cta: "Запросить консультацию",
-      send: "Отправить",
-      contact_meta: "Основатель, iOS Studio",
-      mvp: "MVP разработка",
-      ux: "UX / дизайн",
-      native: "Нативные iOS + бэкенд",
-      maintain: "Поддержка и развитие",
-      launch: "Публикация в App Store",
-      monetization: "Монетизация и RevenueCat",
-      analytics: "Аналитика и атрибуция",
-      integrations: "Интеграции сервисов",
-      koinly_desc: "Приложение для налогов на крипту",
-      days_desc: "Трекер виз и путешествий",
-      taskhive_desc: "Планировщик задач",
-      name_placeholder: "Имя",
-      email_placeholder: "Электронная почта",
-      message_placeholder: "Сообщение",
-    },
-    es: {
-      studio: "iOS Studio",
-      subtitle: "Creamos MVP, diseño y productos iOS nativos con backend para startups",
-      services: "Cómo podemos ayudarte",
-      about_title: "Sobre el estudio",
-      about_p1: "Somos un estudio iOS compacto. Trabajamos con un equipo pequeño de ingenieros iOS, diseñadores y backend para lanzar apps en producción.",
-      about_p2: "Cubrimos discovery, diseño, desarrollo y lanzamiento, y seguimos con soporte y crecimiento.",
-      about_li1: "Equipo senior iOS con velocidad startup",
-      about_li2: "Alcance claro, proceso transparente, updates semanales",
-      about_li3: "Ciclo completo: MVP → App Store → crecimiento",
-      work: "Trabajo seleccionado",
-      contact: "¿Tienes un proyecto en mente?",
-      cta: "Agendar una llamada",
-      send: "Enviar",
-      contact_meta: "Fundador, iOS Studio",
-      mvp: "Desarrollo MVP",
-      ux: "UX / Diseño",
-      native: "iOS nativo + backend",
-      maintain: "Soporte y evolución",
-      launch: "Publicación en App Store",
-      monetization: "Monetización y RevenueCat",
-      analytics: "Analítica y atribución",
-      integrations: "Integraciones externas",
-      koinly_desc: "App de impuestos cripto",
-      days_desc: "Rastreador de visados y viajes",
-      taskhive_desc: "Gestor de tareas",
-      name_placeholder: "Nombre",
-      email_placeholder: "Correo electrónico",
-      message_placeholder: "Mensaje",
-    }
-  };
-  function changeLang(lang) {
-    const t = translations[lang];
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (t[key]) {
-        el.textContent = t[key];
-      }
-    });
-    document.querySelector('input[name="name"]').placeholder = t.name_placeholder;
-    document.querySelector('input[name="email"]').placeholder = t.email_placeholder;
-    document.querySelector('textarea[name="message"]').placeholder = t.message_placeholder;
-    document.querySelector('button[type="submit"]').textContent = t.send;
-    document.documentElement.lang = lang;
-    localStorage.setItem("lang", lang);
-  }
-  const savedLang = localStorage.getItem("lang") || "en";
-  changeLang(savedLang);
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  function applySystemTheme() {
-    document.body.classList.toggle("dark", mediaQuery.matches);
-  }
-  applySystemTheme();
-  mediaQuery.addEventListener("change", applySystemTheme);
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-75T821TKQY');
-</script>
