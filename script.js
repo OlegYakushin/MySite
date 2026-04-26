@@ -14,7 +14,12 @@ const translations = {
     hero_badge_1: "Clear scope & timeline (no surprises)",
     hero_badge_2: "Premium SwiftUI / UIKit quality",
     hero_badge_3: "Subscriptions, analytics, and scaling-ready architecture",
+    hero_proof: "Trusted by founders in Fitness, SaaS, Aviation · iOS since 2018",
     hero_mockup: "iPhone mockup",
+    work_inline_cta: "Discuss your project",
+    form_sending: "Sending…",
+    form_success: "Thanks! We'll be in touch within 24 hours.",
+    form_fail: "Couldn't send. Try again or email hello@olegotka.es.",
 
     cta_primary: "Book a Call",
     cta_secondary: "Get a Quote",
@@ -177,7 +182,12 @@ const translations = {
     hero_badge_1: "Alcance y plazos claros (sin sorpresas)",
     hero_badge_2: "Calidad premium SwiftUI / UIKit",
     hero_badge_3: "Suscripciones, analítica y arquitectura escalable",
+    hero_proof: "Confianza de founders en Fitness, SaaS, Aviación · iOS desde 2018",
     hero_mockup: "Mockup de iPhone",
+    work_inline_cta: "Hablemos de tu proyecto",
+    form_sending: "Enviando…",
+    form_success: "¡Gracias! Te contestaremos en 24 horas.",
+    form_fail: "No se pudo enviar. Inténtalo o escribe a hello@olegotka.es.",
 
     cta_primary: "Agendar una llamada",
     cta_secondary: "Solicitar presupuesto",
@@ -340,7 +350,12 @@ const translations = {
     hero_badge_1: "Чёткий объём и сроки (без сюрпризов)",
     hero_badge_2: "Премиальное качество SwiftUI / UIKit",
     hero_badge_3: "Подписки, аналитика и архитектура под масштабирование",
+    hero_proof: "Доверяют фаундеры в Fitness, SaaS, Авиации · iOS с 2018",
     hero_mockup: "Макет iPhone",
+    work_inline_cta: "Обсудить ваш проект",
+    form_sending: "Отправка…",
+    form_success: "Спасибо! Ответим в течение 24 часов.",
+    form_fail: "Не удалось отправить. Попробуйте ещё раз или напишите на hello@olegotka.es.",
 
     cta_primary: "Запланировать созвон",
     cta_secondary: "Получить смету",
@@ -518,8 +533,15 @@ function setTheme(isDark) {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
+function updateLangButtons(lang) {
+  langButtons.forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
+}
+
 langButtons.forEach((btn) => {
-  btn.addEventListener("click", () => applyTranslations(btn.dataset.lang));
+  btn.addEventListener("click", () => {
+    applyTranslations(btn.dataset.lang);
+    updateLangButtons(btn.dataset.lang);
+  });
 });
 
 function mergePageTranslations() {
@@ -538,6 +560,7 @@ mergePageTranslations();
 
 const savedLang = localStorage.getItem("lang") || "en";
 applyTranslations(savedLang);
+updateLangButtons(savedLang);
 
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 const savedTheme = localStorage.getItem("theme");
@@ -560,20 +583,85 @@ themeToggle.addEventListener("click", () => {
 
 const form = document.getElementById("contactForm");
 if (form) {
-  form.addEventListener("submit", (e) => {
+  const status = document.getElementById("formStatus");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const accessKeyInput = form.querySelector('input[name="access_key"]');
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const t = translations[currentLang] || translations.en;
     const name = form.querySelector("#name");
     const email = form.querySelector("#email");
     const message = form.querySelector("#message");
+
     if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-      const t = translations[currentLang] || translations.en;
-      alert(t.form_error || "Please fill all fields.");
+      if (status) {
+        status.className = "form-status error";
+        status.textContent = t.form_error || "Please fill all fields.";
+      }
       return;
     }
-    const subject = encodeURIComponent("Project inquiry");
-    const body = encodeURIComponent(
-      `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
-    );
-    window.location.href = `mailto:hello@olegotka.es?subject=${subject}&body=${body}`;
+
+    // Fallback: if Web3Forms key is not configured, use mailto.
+    const accessKey = accessKeyInput && accessKeyInput.value;
+    if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
+      const subject = encodeURIComponent("Project inquiry");
+      const body = encodeURIComponent(
+        `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
+      );
+      window.location.href = `mailto:hello@olegotka.es?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    if (status) {
+      status.className = "form-status";
+      status.textContent = t.form_sending || "Sending…";
+    }
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success !== false) {
+        form.reset();
+        if (status) {
+          status.className = "form-status success";
+          status.textContent = t.form_success || "Thanks! We'll be in touch within 24 hours.";
+        }
+      } else {
+        throw new Error(data.message || "Request failed");
+      }
+    } catch (err) {
+      if (status) {
+        status.className = "form-status error";
+        status.textContent = t.form_fail || "Couldn't send. Try again or email hello@olegotka.es.";
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
+}
+
+// Scroll-reveal animations
+const revealEls = document.querySelectorAll(".reveal");
+if (revealEls.length && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  // Graceful fallback
+  revealEls.forEach((el) => el.classList.add("visible"));
 }

@@ -12,9 +12,53 @@
   <meta property="og:url" content="https://olegotka.es/" />
   <meta property="og:image" content="/assets/og-image.png" />
 
+  <link rel="canonical" href="https://olegotka.es/" />
   <link rel="icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/assets/hero-mockup.png" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://olegotka.es/#org",
+        "name": "Olegotka Studio",
+        "url": "https://olegotka.es/",
+        "logo": "https://olegotka.es/assets/apple-touch-icon.png",
+        "sameAs": [
+          "https://github.com/OlegYakushin",
+          "https://www.linkedin.com/in/oleg-yakushin/"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "Olegotka — iOS MVP Studio",
+        "description": "Premium micro-studio shipping iOS MVPs fast: strategy, design, build, launch, and growth.",
+        "url": "https://olegotka.es/",
+        "image": "https://olegotka.es/assets/og-image.png",
+        "priceRange": "€€",
+        "areaServed": "Worldwide",
+        "serviceType": ["iOS Development", "Mobile UI/UX Design", "App MVP Development"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"How fast can you ship an MVP?","acceptedAnswer":{"@type":"Answer","text":"Typically 2–6 weeks depending on scope and readiness (design, content, backend)."}},
+          {"@type":"Question","name":"Do you do design or only development?","acceptedAnswer":{"@type":"Answer","text":"Both. We can work from your Figma, or help with UX flows + a buildable prototype."}},
+          {"@type":"Question","name":"Can you integrate subscriptions?","acceptedAnswer":{"@type":"Answer","text":"Yes — RevenueCat, App Store products, trials, paywalls, and entitlement logic."}},
+          {"@type":"Question","name":"Who owns the code?","acceptedAnswer":{"@type":"Answer","text":"You do. You get the repo, builds, and full handover."}}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar" id="top">
@@ -50,6 +94,10 @@
           <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
           <a class="btn btn-secondary" href="#quote" data-i18n="cta_secondary">Get a Quote</a>
         </div>
+        <div class="hero-proof" aria-label="Social proof">
+          <span class="proof-stars" aria-hidden="true">★★★★★</span>
+          <span data-i18n="hero_proof">Trusted by founders in Fitness, SaaS, Aviation · iOS since 2018</span>
+        </div>
         <div class="hero-badges" aria-label="Key advantages">
           <span data-i18n="hero_badge_1">Clear scope & timeline (no surprises)</span>
           <span data-i18n="hero_badge_2">Premium SwiftUI/UIKit quality</span>
@@ -58,7 +106,7 @@
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="mockup-card">
-          <img src="/assets/hero-mockup.png" alt="" />
+          <img src="/assets/hero-mockup.png" alt="" width="520" height="520" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -74,7 +122,7 @@
       </div>
     </section>
 
-    <section class="section" id="services" aria-labelledby="services-title">
+    <section class="section reveal" id="services" aria-labelledby="services-title">
       <div class="section-header">
         <h2 id="services-title" data-i18n="services_title">Productized services</h2>
         <p data-i18n="services_subtitle">Choose a package or ask for a custom scope — we’ll respond within 24 hours.</p>
@@ -120,9 +168,13 @@
           <p class="mini" data-i18n="service3_case">Keep shipping after launch.</p>
         </article>
       </div>
+      <div class="section-cta">
+        <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
+        <a class="btn btn-ghost" href="#quote" data-i18n="cta_secondary">Get a Quote</a>
+      </div>
     </section>
 
-    <section class="section" id="process" aria-labelledby="process-title">
+    <section class="section reveal" id="process" aria-labelledby="process-title">
       <div class="section-header">
         <h2 id="process-title" data-i18n="process_title">How we work</h2>
         <p data-i18n="process_subtitle">A clear, lean process built for speed and quality.</p>
@@ -151,7 +203,7 @@
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-title">
+    <section class="section reveal" id="work" aria-labelledby="work-title">
       <div class="section-header">
         <h2 id="work-title" data-i18n="work_title">Selected work</h2>
         <p data-i18n="work_subtitle">Problem → Solution → Stack → Outcome.</p>
@@ -159,7 +211,7 @@
       </div>
       <div class="cards-grid">
         <article class="card project">
-          <img src="/assets/projects/koinly_preview.png" alt="Koinly" />
+          <img src="/assets/projects/koinly_preview.png" alt="Koinly" loading="lazy" decoding="async" />
           <h3>Koinly</h3>
           <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_koinly_problem">Complex crypto tax reporting for non‑experts.</span></p>
           <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_koinly_solution">Simplified flows with guided import.</span></p>
@@ -171,7 +223,7 @@
           </div>
         </article>
         <article class="card project">
-          <img src="/assets/projects/days_preview.png" alt="Day's" />
+          <img src="/assets/projects/days_preview.png" alt="Day's" loading="lazy" decoding="async" />
           <h3>Day's</h3>
           <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_days_problem">Visa limits are hard to track across trips.</span></p>
           <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_days_solution">Calendar‑based timeline with alerts.</span></p>
@@ -183,7 +235,7 @@
           </div>
         </article>
         <article class="card project">
-          <img src="/assets/projects/taskhive_preview.png" alt="Taskhive" />
+          <img src="/assets/projects/taskhive_preview.png" alt="Taskhive" loading="lazy" decoding="async" />
           <h3>Taskhive</h3>
           <p><strong data-i18n="work_problem">Problem:</strong> <span data-i18n="work_taskhive_problem">Teams needed clarity without noisy tools.</span></p>
           <p><strong data-i18n="work_solution">Solution:</strong> <span data-i18n="work_taskhive_solution">Clean team board with smart filters.</span></p>
@@ -195,9 +247,13 @@
           </div>
         </article>
       </div>
+      <div class="section-cta">
+        <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
+        <a class="btn btn-secondary" href="#contact" data-i18n="work_inline_cta">Discuss your project</a>
+      </div>
     </section>
 
-    <section class="section" id="testimonials" aria-labelledby="testimonials-title">
+    <section class="section reveal" id="testimonials" aria-labelledby="testimonials-title">
       <div class="section-header">
         <h2 id="testimonials-title" data-i18n="testimonials_title">Testimonials</h2>
         <p data-i18n="testimonials_subtitle">Client feedback from recent projects.</p>
@@ -223,18 +279,6 @@ Highly recommended for iOS and tvOS projects.”</p>
           <p class="mini" data-i18n="testimonial_3_meta">Apple TV App Owner (USA)</p>
         </article>
       </div>
-      <div class="cards-grid" style="display:none">
-        <article class="card">
-          <p data-i18n="testimonial_4">“Working with the team on our mobile app was a fantastic experience.
-The code quality, clear documentation, and fast delivery showed a deep understanding of both the product and business needs.
-Truly impressive work.”</p>
-          <p class="mini" data-i18n="testimonial_4_meta">Product Manager, Regional Airline App (USA)</p>
-        </article>
-        <article class="card">
-          <p data-i18n="testimonial_5">“Very solid work and clear, professional communication throughout the project.”</p>
-          <p class="mini" data-i18n="testimonial_5_meta">Internal Corporate App (Greece)</p>
-        </article>
-      </div>
       <div class="trusted">
         <span data-i18n="trusted_title">Trusted by / Worked with</span>
       <div class="trusted-logos">
@@ -243,7 +287,7 @@ Truly impressive work.”</p>
       </div>
     </section>
 
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <section class="section reveal" id="faq" aria-labelledby="faq-title">
       <div class="section-header">
         <h2 id="faq-title" data-i18n="faq_title">FAQ</h2>
         <p data-i18n="faq_subtitle">Answers to common questions about timeline, pricing, and delivery.</p>
@@ -284,7 +328,7 @@ Truly impressive work.”</p>
       </div>
     </section>
 
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section reveal" id="contact" aria-labelledby="contact-title">
       <div class="section-header">
         <h2 id="contact-title" data-i18n="contact_title">Let’s talk</h2>
         <p id="quote" class="quote-title" data-i18n="quote_title">Get a Quote</p>
@@ -302,7 +346,12 @@ Truly impressive work.”</p>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener" data-i18n="contact_linkedin">LinkedIn</a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm" action="mailto:hello@olegotka.es" method="POST" enctype="text/plain">
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New project inquiry — olegotka.es" />
+          <input type="hidden" name="from_name" value="olegotka.es" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
           <label for="name" data-i18n="form_name">Name</label>
           <input id="name" name="name" type="text" placeholder="Your name" data-i18n-placeholder="form_name_ph" required />
 
@@ -313,6 +362,7 @@ Truly impressive work.”</p>
           <textarea id="message" name="message" rows="5" placeholder="Briefly describe your product" data-i18n-placeholder="form_message_ph" required></textarea>
 
           <button class="btn btn-primary" type="submit" data-i18n="form_submit">Send request</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           <p class="form-note" data-i18n="form_note">No spam. We reply within 24 hours.</p>
         </form>
       </div>
@@ -333,6 +383,8 @@ Truly impressive work.”</p>
       </div>
     </div>
   </footer>
+
+  <a class="sticky-cta" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
 
   <script src="script.js"></script>
 </body>
