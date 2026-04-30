@@ -291,11 +291,24 @@
     }
     @media(max-width:600px){
       .services-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+      nav{height:auto;min-height:0}
+      .nav-inner{display:grid;grid-template-columns:1fr auto;gap:.75rem;
+        padding:.8rem 1rem;width:100%}
+      .logo{align-self:center}
       .hero-metrics{width:100%}
       .metric+.metric{border-left:none;border-top:1px solid var(--border)}
       .nav-links{display:none}
-      .nav-right{gap:.4rem}
+      .nav-right{grid-column:1/-1;width:100%;display:flex;justify-content:space-between;gap:.75rem}
+      .nav-right .lang-sw{flex:0 0 auto}
+      .nav-right .btn{flex:1;justify-content:center;min-width:0;padding:.7rem 1rem;font-size:.875rem}
+      .lang-btn{min-width:44px;text-align:center}
+      #hero{padding-top:clamp(4rem,12vw,5rem)}
       .logos{gap:1.5rem}
+    }
+    @media(max-width:380px){
+      .nav-right{gap:.5rem}
+      .nav-right .btn{padding:.65rem .75rem;font-size:.82rem}
+      .lang-btn{min-width:40px;padding:3px 7px}
     }
   </style>
 </head>
