@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>404 — olegotka</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <style>
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{--font-d:'Cabinet Grotesk','Inter',sans-serif;--font-b:'Satoshi','Inter',sans-serif;--font-m:'SF Mono','Menlo',monospace;--bg:#06061a;--surface:#0d0d2b;--border:rgba(120,100,255,.14);--border-h:rgba(120,100,255,.32);--text:#f0efff;--text-m:#8b8aaa;--text-f:#3a3a5c;--grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);--r-md:12px;--r-full:9999px;--tr:200ms cubic-bezier(.16,1,.3,1)}
+    [data-theme="light"]{--bg:#f6f7fb;--surface:#fff;--border:rgba(50,64,120,.12);--border-h:rgba(80,74,200,.26);--text:#111428;--text-m:#5f647d;--text-f:#a3a7ba}
+    *{box-sizing:border-box;margin:0;padding:0}html{-webkit-font-smoothing:antialiased}body{min-height:100dvh;font-family:var(--font-b);color:var(--text);background:var(--bg);overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(120,100,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,100,255,.05) 1px,transparent 1px);background-size:48px 48px}
+    body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 24% 12%,rgba(37,99,255,.16),transparent 70%),radial-gradient(ellipse 60% 50% at 86% 80%,rgba(124,58,237,.13),transparent 70%)}
+    body.lang-loading main{opacity:.42;filter:blur(3px);transform:scale(.998)}a{color:inherit;text-decoration:none}button{font:inherit;background:none;border:none;cursor:pointer}
+    nav{position:relative;z-index:2;height:64px;display:flex;align-items:center;border-bottom:1px solid var(--border);background:rgba(6,6,26,.82);backdrop-filter:blur(16px)}[data-theme="light"] nav{background:rgba(246,247,251,.82)}
+    .nav-inner{width:min(1120px,100%);margin:auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}.logo{font-family:var(--font-d);font-weight:800}.logo span,.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-actions{display:flex;align-items:center;gap:.5rem}.lang-sw{display:flex;gap:3px}.lang-btn{font-family:var(--font-m);font-size:10px;color:var(--text-m);padding:3px 8px;border-radius:var(--r-full);border:1px solid var(--border);transition:all var(--tr)}.lang-btn.active{background:var(--grad);color:#fff;border-color:transparent}.theme-btn{width:32px;height:32px;border-radius:var(--r-full);border:1px solid var(--border);color:var(--text-m);display:grid;place-items:center}
+    main{position:relative;z-index:1;min-height:calc(100dvh - 64px);display:grid;place-items:center;padding:4rem 1.5rem;transition:opacity 240ms cubic-bezier(.16,1,.3,1),filter 240ms cubic-bezier(.16,1,.3,1),transform 240ms cubic-bezier(.16,1,.3,1)}
+    .wrap{width:min(920px,100%);display:grid;gap:2rem}.kicker{font-family:var(--font-m);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-f)}h1{font-family:var(--font-d);font-size:clamp(4rem,18vw,12rem);line-height:.85;letter-spacing:-.06em}.copy{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--text-m);max-width:52ch;line-height:1.6}
+    .panel{background:rgba(13,13,43,.72);border:1px solid var(--border);border-radius:24px;padding:clamp(1.25rem,4vw,2rem);box-shadow:0 20px 70px rgba(37,99,255,.14)}[data-theme="light"] .panel{background:rgba(255,255,255,.76)}
+    .actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.5rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.4rem;border-radius:var(--r-md);font-weight:700;transition:all var(--tr)}.btn-primary{background:var(--grad);color:#fff}.btn-ghost{border:1px solid var(--border);color:var(--text-m)}.btn:hover{transform:translateY(-2px);border-color:var(--border-h)}
+    .lang-loader{position:fixed;inset:0;z-index:5;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity 180ms cubic-bezier(.16,1,.3,1)}.lang-loader.active{opacity:1}.lang-loader-pill{display:inline-flex;align-items:center;gap:.7rem;color:#fff;background:rgba(6,6,26,.72);border:1px solid rgba(120,100,255,.24);border-radius:var(--r-full);padding:.7rem 1rem;backdrop-filter:blur(16px);font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}.lang-spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.28);border-top-color:#fff;animation:spin 760ms linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+<div class="lang-loader" aria-hidden="true"><div class="lang-loader-pill"><span class="lang-spinner"></span><span data-i18n="loading">Loading language</span></div></div>
+<nav><div class="nav-inner"><a href="/" class="logo">oleg<span>otka</span></a><div class="nav-actions"><div class="lang-sw"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="ru">RU</button></div><button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme"></button></div></div></nav>
+<main>
+  <div class="wrap">
+    <div class="panel">
+      <p class="kicker" data-i18n="kicker">// page not found</p>
+      <h1>404<span class="grad">.</span></h1>
+      <p class="copy" data-i18n="copy">This route did not ship. The app is fine; the link just missed its release window.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/" data-i18n="home">Back to home →</a>
+        <a class="btn btn-ghost" href="/#work" data-i18n="work">See projects ↓</a>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+const T={en:{loading:'Loading language',kicker:'// page not found',copy:'This route did not ship. The app is fine; the link just missed its release window.',home:'Back to home →',work:'See projects ↓'},es:{loading:'Cargando idioma',kicker:'// página no encontrada',copy:'Esta ruta no llegó a producción. La app está bien; el enlace solo perdió su ventana de lanzamiento.',home:'Volver al inicio →',work:'Ver proyectos ↓'},ru:{loading:'Загружаю язык',kicker:'// страница не найдена',copy:'Этот маршрут не вышел в релиз. С сайтом всё нормально; ссылка просто промахнулась мимо сборки.',home:'На главную →',work:'Смотреть проекты ↓'}};
+let lang='en';function render(l){lang=l;document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(el=>{const v=T[l][el.dataset.i18n];if(v)el.textContent=v});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));try{localStorage.setItem('concept-lang',l)}catch(e){}}
+function applyLang(l,animated=false){if(!T[l])return;const loader=document.querySelector('.lang-loader');if(!animated){render(l);return}loader.classList.add('active');document.body.classList.add('lang-loading');setTimeout(()=>{render(l);setTimeout(()=>{document.body.classList.remove('lang-loading');loader.classList.remove('active')},180)},220)}
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);document.querySelector('[data-theme-toggle]').innerHTML=t==='dark'?'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>':'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';try{localStorage.setItem('site-theme',t)}catch(e){}}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang,true)));document.querySelector('[data-theme-toggle]').addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));try{applyLang(localStorage.getItem('concept-lang')||'en');applyTheme(localStorage.getItem('site-theme')||'dark')}catch(e){applyLang('en');applyTheme('dark')}
+</script>
+</body>
+</html>

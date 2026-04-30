@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>ShiftSync — Case Study · olegotka</title>
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <style>
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{
+      --font-d:'Cabinet Grotesk','Inter',sans-serif;
+      --font-b:'Satoshi','Inter',sans-serif;
+      --font-m:'SF Mono','Menlo',monospace;
+      --bg:#06061a;--bg-alt:#080820;--surface:#0d0d2b;--surface-2:#12123a;
+      --border:rgba(120,100,255,0.12);--border-h:rgba(120,100,255,0.28);
+      --grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);
+      --grad-sub:linear-gradient(135deg,rgba(37,99,255,0.12),rgba(124,58,237,0.12));
+      --text:#f0efff;--text-m:#8b8aaa;--text-f:#3a3a5c;
+      --r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
+      --tr:200ms cubic-bezier(0.16,1,0.3,1);--cw:960px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    body{font-family:var(--font-b);font-size:1rem;line-height:1.6;color:var(--text);background:var(--bg);overflow-x:hidden}
+    h1,h2,h3{font-family:var(--font-d);line-height:1.1;text-wrap:balance}
+    p{text-wrap:pretty;max-width:68ch}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:rgba(124,58,237,0.3);color:var(--text)}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background-image:linear-gradient(rgba(120,100,255,0.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(120,100,255,0.04) 1px,transparent 1px);background-size:48px 48px}
+    .page{position:relative;z-index:1}
+    .container{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-b);font-size:.9rem;font-weight:600;padding:.625rem 1.5rem;border-radius:var(--r-md);min-height:44px;cursor:pointer;transition:all var(--tr)}
+    .btn-primary{background:var(--grad);color:#fff;border:none}
+    .btn-primary:hover{box-shadow:0 6px 24px rgba(37,99,255,0.35);filter:brightness(1.07)}
+    .btn-ghost{background:transparent;color:var(--text-m);border:1.5px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--border-h);color:var(--text)}
+    nav{position:sticky;top:0;z-index:100;height:60px;display:flex;align-items:center;background:rgba(6,6,26,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--cw);margin:0 auto;width:100%;padding:0 clamp(1.5rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:var(--font-d);font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
+    .nav-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-back{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--text-m);transition:color var(--tr)}
+    .nav-back:hover{color:var(--text)}
+    .case-hero{padding:clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem)}
+    .cat-tag{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;display:block}
+    .case-h1{font-size:clamp(2.5rem,1rem + 5vw,5rem);font-weight:900;letter-spacing:-0.03em;color:var(--text);margin-bottom:1rem}
+    .case-sub{font-size:clamp(1rem,0.9rem + .5vw,1.25rem);color:var(--text-m);max-width:56ch;margin-bottom:2.5rem;line-height:1.6}
+    .case-metrics{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);border-radius:var(--r-xl);width:fit-content;overflow:hidden;background:rgba(13,13,43,0.7);margin-bottom:2rem}
+    .cm{padding:1.25rem 1.75rem;display:flex;flex-direction:column;gap:.25rem}
+    .cm+.cm{border-left:1px solid var(--border)}
+    .cm-n{font-family:var(--font-d);font-size:clamp(1.5rem,1rem + 1.5vw,2.25rem);font-weight:800;letter-spacing:-0.04em;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cm-l{font-family:var(--font-m);font-size:.65rem;color:var(--text-m);letter-spacing:.08em;text-transform:uppercase}
+    .case-cta{display:flex;flex-wrap:wrap;gap:.75rem}
+    .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:3rem 0}
+    .screen{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-xl);aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .screen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(37,99,255,0.15),transparent)}
+    .screen-label{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);font-family:var(--font-m);font-size:10px;color:var(--text-f);letter-spacing:.08em;white-space:nowrap}
+    .screen-icon{position:relative;z-index:1;opacity:.5}
+    .case-section{padding:3rem 0;border-top:1px solid var(--border)}
+    .sec-label{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;display:block}
+    .sec-h2{font-family:var(--font-d);font-size:clamp(1.5rem,1rem + 2vw,2.25rem);font-weight:800;letter-spacing:-0.025em;color:var(--text);margin-bottom:1.25rem}
+    .sec-body{font-size:1rem;color:var(--text-m);line-height:1.7;max-width:62ch}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+    .timeline{display:flex;flex-direction:column;margin-top:1.5rem}
+    .tl-item{display:grid;grid-template-columns:80px 1fr;gap:1.25rem;padding:1.25rem 0;border-top:1px solid var(--border)}
+    .tl-week{font-family:var(--font-m);font-size:.75rem;color:var(--text-f);letter-spacing:.06em;padding-top:.2rem}
+    .tl-title{font-weight:700;color:var(--text);margin-bottom:.25rem;font-size:.9375rem}
+    .tl-desc{font-size:.875rem;color:var(--text-m);line-height:1.5}
+    .stack-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+    .stack-item{font-family:var(--font-m);font-size:.8125rem;color:var(--text-m);background:rgba(120,100,255,0.08);border:1px solid var(--border);border-radius:var(--r-md);padding:.5rem .875rem}
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+    .result-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.5rem}
+    .result-n{font-family:var(--font-d);font-size:clamp(1.75rem,1rem + 2vw,2.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.375rem}
+    .result-l{font-size:.875rem;color:var(--text-m);line-height:1.4}
+    .quote-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;margin-top:2rem}
+    .quote-text{font-size:1.125rem;color:var(--text);line-height:1.65;font-style:italic;margin-bottom:1.25rem}
+    .quote-author{display:flex;align-items:center;gap:.75rem}
+    .quote-av{width:36px;height:36px;border-radius:50%;background:var(--grad-sub);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:.85rem;font-weight:700;color:var(--text-m)}
+    .quote-name{font-weight:600;font-size:.9rem;color:var(--text)}
+    .quote-role{font-size:.8rem;color:var(--text-f)}
+    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+    .feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem}
+    .feature-title{font-weight:700;font-size:.9375rem;color:var(--text);margin-bottom:.375rem}
+    .feature-desc{font-size:.875rem;color:var(--text-m);line-height:1.5}
+    .case-next{padding:3rem 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+    .next-label{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+    .next-name{font-family:var(--font-d);font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;color:var(--text)}
+    .next-link{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.875rem;color:var(--text-m);transition:color var(--tr),gap var(--tr)}
+    .next-link:hover{color:var(--text);gap:.75rem}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity 500ms cubic-bezier(0.16,1,0.3,1),transform 500ms cubic-bezier(0.16,1,0.3,1)}
+    .reveal.in{opacity:1;transform:none}
+    @media(max-width:640px){
+      .screens{grid-template-columns:1fr 1fr}.screens .screen:last-child{display:none}
+      .two-col,.feature-grid{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr 1fr}
+      .cm+.cm{border-left:none;border-top:1px solid var(--border)}.case-metrics{width:100%}
+    }
+    [data-theme="light"]{--bg:#f6f7fb;--bg-alt:#eef1fb;--surface:#ffffff;--surface-2:#f4f6ff;--border:rgba(50,64,120,0.12);--border-h:rgba(80,74,200,0.26);--text:#111428;--text-m:#5f647d;--text-f:#a3a7ba}
+    body.lang-loading .page{opacity:.42;filter:blur(3px);transform:scale(.998)}
+    .page{transition:opacity 240ms cubic-bezier(0.16,1,0.3,1),filter 240ms cubic-bezier(0.16,1,0.3,1),transform 240ms cubic-bezier(0.16,1,0.3,1)}
+    .lang-loader{position:fixed;inset:0;z-index:300;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity 180ms cubic-bezier(0.16,1,0.3,1)}
+    .lang-loader.active{opacity:1}.lang-loader-pill{display:inline-flex;align-items:center;gap:.7rem;color:#fff;background:rgba(6,6,26,.72);border:1px solid rgba(120,100,255,.24);border-radius:var(--r-full);padding:.7rem 1rem;backdrop-filter:blur(16px);box-shadow:0 18px 60px rgba(37,99,255,.2);font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+    .lang-spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.28);border-top-color:#fff;animation:spin 760ms linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+    [data-theme="light"] nav{background:rgba(246,247,251,.88)}
+    .nav-actions{display:flex;align-items:center;gap:.55rem}.lang-sw{display:flex;gap:3px}.lang-btn{font-family:var(--font-m);font-size:10px;color:var(--text-m);padding:3px 8px;border-radius:var(--r-full);border:1px solid var(--border);transition:all var(--tr)}.lang-btn.active{background:var(--grad);color:#fff;border-color:transparent}.theme-btn{width:32px;height:32px;border-radius:var(--r-full);border:1px solid var(--border);color:var(--text-m);display:grid;place-items:center}
+  </style>
+</head>
+<body data-case="shiftync">
+<div class="lang-loader" aria-hidden="true"><div class="lang-loader-pill"><span class="lang-spinner"></span><span data-loading-text>Loading language</span></div></div>
+<div class="page">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">oleg<span>otka</span></a>
+    <div class="nav-actions"><div class="lang-sw"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button><button class="lang-btn" data-lang="ru">RU</button></div><button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme"></button><a href="/#work" class="nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 3L5 8l5 5"/></svg><span class="nav-back-text">All work</span></a></div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="case-hero">
+    <span class="cat-tag reveal">SaaS · iOS App · 2024</span>
+    <h1 class="case-h1 reveal">Shift<span class="grad-text">Sync</span></h1>
+    <p class="case-sub reveal">Real-time team scheduling for shift workers — built for restaurants, logistics, and retail businesses that live and die by the roster.</p>
+    <div class="case-metrics reveal">
+      <div class="cm"><span class="cm-n">15+</span><span class="cm-l">Businesses, Q1</span></div>
+      <div class="cm"><span class="cm-n">&lt;2 wks</span><span class="cm-l">Build to launch</span></div>
+      <div class="cm"><span class="cm-n">4.7★</span><span class="cm-l">App Store rating</span></div>
+      <div class="cm"><span class="cm-n">0ms</span><span class="cm-l">Sync latency</span></div>
+    </div>
+    <div class="case-cta reveal">
+      <a href="/#cta" class="btn btn-primary" data-case-cta>Build something similar →</a>
+      <a href="/#work" class="btn btn-ghost" data-case-back>← Back to work</a>
+    </div>
+  </div>
+
+  <div class="screens reveal">
+    <div class="screen">
+      <svg class="screen-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(120,140,255,0.6)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span class="screen-label">Weekly Schedule</span>
+    </div>
+    <div class="screen">
+      <svg class="screen-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(120,140,255,0.6)" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="screen-label">Team View</span>
+    </div>
+    <div class="screen">
+      <svg class="screen-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(120,140,255,0.6)" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="screen-label">Notifications</span>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <div class="two-col">
+      <div>
+        <span class="sec-label">// the problem</span>
+        <h2 class="sec-h2">WhatsApp isn't a scheduling tool</h2>
+        <p class="sec-body">David's company operated 3 restaurant locations with 40+ staff across overlapping shifts. Rosters were built in Excel, distributed over WhatsApp, and updated via group chats that nobody read in time. Shift swaps happened via DMs. Missed shifts happened constantly.</p>
+        <p class="sec-body" style="margin-top:1rem">Existing tools like Deputy or When I Work were powerful but expensive for small operators and required web admin interfaces managers couldn't use on-site.</p>
+      </div>
+      <div>
+        <span class="sec-label">// the brief</span>
+        <h2 class="sec-h2">Scope</h2>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-week">Days 1–4</span><div><p class="tl-title">Supabase Setup</p><p class="tl-desc">Realtime DB schema, RLS policies, push token registration</p></div></div>
+          <div class="tl-item"><span class="tl-week">Days 5–9</span><div><p class="tl-title">Core Scheduling UI</p><p class="tl-desc">Weekly grid, shift assignment, drag-to-swap, staff availability</p></div></div>
+          <div class="tl-item"><span class="tl-week">Days 10–14</span><div><p class="tl-title">Notifications + Launch</p><p class="tl-desc">Push alerts, shift confirmation, App Store submission</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <span class="sec-label">// what was built</span>
+    <h2 class="sec-h2">Features shipped</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <p class="feature-title">Weekly schedule grid</p>
+        <p class="feature-desc">Drag-and-drop shift assignment with colour-coded roles. Managers and staff see the same view — no separate admin panel needed.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-title">Real-time sync</p>
+        <p class="feature-desc">Supabase Realtime — any schedule change propagates to all devices in under 200ms. No polling, no refresh buttons.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-title">Shift swap requests</p>
+        <p class="feature-desc">Staff can propose swaps; manager approves in one tap. Both parties get push notifications instantly.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-title">Availability management</p>
+        <p class="feature-desc">Staff set recurring or one-off availability. Scheduling conflicts highlighted automatically — no more double-booking.</p>
+      </div>
+    </div>
+    <div class="stack-grid" style="margin-top:1.75rem">
+      <span class="stack-item">Swift 5.9</span>
+      <span class="stack-item">SwiftUI</span>
+      <span class="stack-item">Supabase Realtime</span>
+      <span class="stack-item">PostgreSQL</span>
+      <span class="stack-item">Push Notifications</span>
+      <span class="stack-item">Row-Level Security</span>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <span class="sec-label">// results</span>
+    <h2 class="sec-h2">First quarter</h2>
+    <div class="results-grid">
+      <div class="result-card"><div class="result-n">15+</div><p class="result-l">Businesses using ShiftSync in Q1</p></div>
+      <div class="result-card"><div class="result-n">94%</div><p class="result-l">Reduction in missed-shift incidents</p></div>
+      <div class="result-card"><div class="result-n">4.7★</div><p class="result-l">App Store rating, 44 reviews</p></div>
+    </div>
+    <div class="quote-block">
+      <p class="quote-text">"We went from a chaotic WhatsApp group to a tool that my managers actually use. The real-time sync is seamless — a change shows up on every phone before you've put yours down."</p>
+      <div class="quote-author">
+        <div class="quote-av">DL</div>
+        <div><p class="quote-name">David Levi</p><p class="quote-role">CTO & operations lead, ShiftSync</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-next reveal">
+    <div>
+      <p class="next-label">Back to start</p>
+      <p class="next-name">FitTrack Pro</p>
+      <span style="font-family:var(--font-m);font-size:.68rem;color:var(--text-f)">Health &amp; Fitness · iOS</span>
+    </div>
+    <a href="fittrack.html" class="next-link">View FitTrack case study →</a>
+  </div>
+
+</div>
+</div>
+<script src="/assets/case-page.js"></script>
+</body>
+</html>
