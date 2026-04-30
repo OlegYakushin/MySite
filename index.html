@@ -38,13 +38,6 @@
       --ease:cubic-bezier(0.16,1,0.3,1);--tr:200ms cubic-bezier(0.16,1,0.3,1);
       --cw:1200px;--sec:clamp(5rem,9vw,8rem);
     }
-    [data-theme="light"]{
-      --bg:#f6f7fb;--bg-alt:#eef1fb;--surface:#ffffff;--surface-2:#f4f6ff;
-      --border:rgba(50,64,120,0.12);--border-h:rgba(80,74,200,0.26);
-      --grad-sub:linear-gradient(135deg,rgba(37,99,255,0.09) 0%,rgba(124,58,237,0.09) 100%);
-      --text:#111428;--text-m:#5f647d;--text-f:#a3a7ba;
-      --ok:#07885f;--ok-bg:rgba(7,136,95,0.08);
-    }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:72px}
     body{font-family:var(--font-b);font-size:1rem;line-height:1.6;color:var(--text);
@@ -129,9 +122,6 @@
       cursor:pointer;background:transparent;transition:all var(--tr)}
     .lang-btn:hover{color:var(--text);border-color:var(--border-h)}
     .lang-btn.active{background:var(--grad);color:#fff;border-color:transparent}
-    .theme-btn{width:34px;height:34px;border-radius:var(--r-full);border:1px solid var(--border);
-      color:var(--text-m);display:grid;place-items:center;transition:color var(--tr),border-color var(--tr),background var(--tr)}
-    .theme-btn:hover{color:var(--text);border-color:var(--border-h);background:rgba(120,100,255,0.08)}
     /* HERO */
     #hero{min-height:92vh;display:flex;align-items:center;
       padding:clamp(6rem,12vw,10rem) 0 clamp(4rem,8vw,7rem)}
@@ -305,7 +295,6 @@
       .metric+.metric{border-left:none;border-top:1px solid var(--border)}
       .nav-links{display:none}
       .nav-right{gap:.4rem}
-      .theme-btn{width:30px;height:30px}
       .logos{gap:1.5rem}
     }
   </style>
@@ -332,7 +321,6 @@
         <button class="lang-btn" data-lang="es">ES</button>
         <button class="lang-btn" data-lang="ru">RU</button>
       </div>
-      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme"></button>
       <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.5rem 1.125rem;min-height:36px;font-size:.875rem" data-i18n="nav.cta">Book a call</a>
     </div>
   </div>
@@ -867,22 +855,6 @@ function applyLang(l,animated=false){
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.getAttribute('data-lang'),true)));
 try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else applyLang('en');}catch(e){applyLang('en');}
 
-function applyTheme(theme){
-  document.documentElement.setAttribute('data-theme',theme);
-  document.querySelectorAll('[data-theme-toggle]').forEach(btn=>{
-    btn.innerHTML=theme==='dark'
-      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>'
-      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    btn.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');
-  });
-  try{localStorage.setItem('site-theme',theme);}catch(e){}
-}
-let siteTheme='dark';
-try{siteTheme=localStorage.getItem('site-theme')||'dark';}catch(e){}
-applyTheme(siteTheme);
-document.querySelectorAll('[data-theme-toggle]').forEach(btn=>{
-  btn.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'));
-});
 
 const portfolioTrack=document.getElementById('portfolio-track');
 document.querySelector('[data-carousel-prev]')?.addEventListener('click',()=>{
