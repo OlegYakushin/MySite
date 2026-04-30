@@ -30,3 +30,9 @@ X-Frame-Options: DENY
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 ```
+
+## Agent Discovery Notes
+
+The repository includes static agent discovery resources under `.well-known/`, plus `_headers` and `functions/[[path]].js` for hosts that support response headers and content negotiation.
+
+GitHub Pages serves the static files, but it does not execute `functions/[[path]].js` and does not apply `_headers`. For full RFC 8288 `Link` response headers and `Accept: text/markdown` negotiation, deploy behind Cloudflare Pages/Workers or another edge layer that can execute those rules.

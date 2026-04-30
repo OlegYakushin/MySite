@@ -12,6 +12,11 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://olegotka.es/">
+  <link rel="alternate" href="/index.md" type="text/markdown">
+  <link rel="service-desc" href="/openapi.json" type="application/openapi+json">
+  <link rel="service-doc" href="/docs/api.md" type="text/markdown">
+  <link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json">
+  <link rel="describedby" href="/.well-known/agent-card.json" type="application/json">
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -892,6 +897,10 @@ if(!mo.matches){
   },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+  const webmcpScript=document.createElement('script');
+  webmcpScript.src='/assets/webmcp.js';
+  webmcpScript.defer=true;
+  document.head.appendChild(webmcpScript);
 </script>
 </body>
 </html>

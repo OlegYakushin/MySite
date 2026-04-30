@@ -1,0 +1,23 @@
+{
+  "serverInfo": {
+    "name": "olegotka-web-discovery",
+    "version": "2026.04.30"
+  },
+  "description": "Browser-exposed discovery tools for the olegotka iOS MVP portfolio site.",
+  "transport": {
+    "type": "webmcp",
+    "endpoint": "https://olegotka.es/"
+  },
+  "capabilities": {
+    "tools": [
+      "get_services",
+      "get_projects",
+      "get_contact_options"
+    ],
+    "resources": [
+      "https://olegotka.es/index.md",
+      "https://olegotka.es/.well-known/api-catalog"
+    ],
+    "prompts": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://olegotka.es/",
+      "service-desc": [
+        {
+          "href": "https://olegotka.es/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://olegotka.es/docs/api.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://olegotka.es/health.json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

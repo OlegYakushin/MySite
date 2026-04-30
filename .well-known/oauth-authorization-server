@@ -1,0 +1,10 @@
+{
+  "issuer": "https://olegotka.es/",
+  "authorization_endpoint": "https://olegotka.es/.well-known/oauth-not-supported",
+  "token_endpoint": "https://olegotka.es/.well-known/oauth-not-supported",
+  "jwks_uri": "https://olegotka.es/.well-known/jwks.json",
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "scopes_supported": [],
+  "service_documentation": "https://olegotka.es/docs/api.md"
+}

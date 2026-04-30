@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "discover-services",
+      "type": "skill-md",
+      "description": "Discover olegotka iOS MVP Studio service offerings.",
+      "url": "https://olegotka.es/.well-known/agent-skills/discover-services.md",
+      "sha256": "9a561d8dcc5d0662d43301b221bf9c334453534d4575b41277221f0cf8e0fdff"
+    },
+    {
+      "name": "discover-projects",
+      "type": "skill-md",
+      "description": "Discover selected portfolio projects and case study URLs.",
+      "url": "https://olegotka.es/.well-known/agent-skills/discover-projects.md",
+      "sha256": "b0f6649192e8a7dc7647cde845fbf624b3b4fa184fd0f96a75773cbc1155d601"
+    },
+    {
+      "name": "start-project-inquiry",
+      "type": "skill-md",
+      "description": "Start an iOS MVP project inquiry with booking and contact options.",
+      "url": "https://olegotka.es/.well-known/agent-skills/start-project-inquiry.md",
+      "sha256": "f4d042f8ac7da750c5608863bbd78ad8a81035c1761c27bd3ae28e8a316bebd6"
+    }
+  ]
+}

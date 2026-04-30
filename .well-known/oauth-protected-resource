@@ -1,0 +1,7 @@
+{
+  "resource": "https://olegotka.es/",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "resource_documentation": "https://olegotka.es/docs/api.md",
+  "description": "olegotka.es currently exposes only public static discovery resources and has no protected API scopes."
+}

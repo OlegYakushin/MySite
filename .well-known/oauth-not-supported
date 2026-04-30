@@ -1,0 +1,4 @@
+{
+  "error": "oauth_not_supported",
+  "error_description": "olegotka.es has no protected APIs and does not issue OAuth access tokens."
+}

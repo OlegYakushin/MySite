@@ -1,0 +1,18 @@
+# olegotka.es
+
+Portfolio and micro-agency site for premium iOS MVP development.
+
+Useful resources:
+
+- Homepage: https://olegotka.es/
+- Markdown homepage: https://olegotka.es/index.md
+- API catalog: https://olegotka.es/.well-known/api-catalog
+- OpenAPI description: https://olegotka.es/openapi.json
+- Agent card: https://olegotka.es/.well-known/agent-card.json
+- Agent skills: https://olegotka.es/.well-known/agent-skills/index.json
+- MCP server card: https://olegotka.es/.well-known/mcp/server-card.json
+
+Contact:
+
+- Booking: https://cal.com/olegotka/first-call
+- Email: hello@olegotka.es

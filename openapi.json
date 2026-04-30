@@ -1,0 +1,66 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "olegotka Agent Discovery API",
+    "version": "2026.04.30",
+    "description": "Public discovery endpoints for the olegotka iOS MVP portfolio site."
+  },
+  "servers": [
+    {
+      "url": "https://olegotka.es"
+    }
+  ],
+  "paths": {
+    "/.well-known/api-catalog": {
+      "get": {
+        "summary": "API catalog",
+        "responses": {
+          "200": {
+            "description": "RFC 9727 linkset catalog",
+            "content": {
+              "application/linkset+json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health.json": {
+      "get": {
+        "summary": "Static health metadata",
+        "responses": {
+          "200": {
+            "description": "Health metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/index.md": {
+      "get": {
+        "summary": "Markdown homepage",
+        "responses": {
+          "200": {
+            "description": "Markdown representation of the homepage",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
