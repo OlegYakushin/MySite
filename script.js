@@ -529,8 +529,8 @@ function applyTranslations(lang) {
 }
 
 function setTheme(isDark) {
-  document.body.classList.toggle("dark", isDark);
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  document.body.classList.toggle("dark", true);
+  localStorage.setItem("theme", "dark");
 }
 
 function updateLangButtons(lang) {
@@ -563,23 +563,10 @@ applyTranslations(savedLang);
 updateLangButtons(savedLang);
 
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  setTheme(savedTheme === "dark");
-} else {
-  setTheme(prefersDark.matches);
-}
+setTheme(true);
 
-prefersDark.addEventListener("change", (event) => {
-  if (!localStorage.getItem("theme")) {
-    setTheme(event.matches);
-  }
-});
-
-themeToggle.addEventListener("click", () => {
-  const isDark = document.body.classList.contains("dark");
-  setTheme(!isDark);
-});
+themeToggle?.setAttribute("hidden", "");
+themeToggle?.addEventListener("click", () => setTheme(true));
 
 const form = document.getElementById("contactForm");
 if (form) {

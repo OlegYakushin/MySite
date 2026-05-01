@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-75T821TKQY"></script>
@@ -7,280 +7,310 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-75T821TKQY');
 </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>olegotka — Day’s Case Study</title>
-  <meta name="description" content="Case study: Day’s — visa and travel tracker MVP." />
-  <meta property="og:title" content="olegotka — Day’s Case Study" />
-  <meta property="og:description" content="Case study: Day’s — visa and travel tracker MVP." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://olegotka.es/days.html" />
-  <meta property="og:image" content="https://olegotka.es/assets/projects/days_preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://olegotka.es/days.html" />
-  <link rel="icon" href="/assets/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Days - Travel day and visa stay tracker</title>
+  <meta name="description" content="Days helps travelers, digital nomads, and expats track trips, count days in countries, and plan future stays with more clarity.">
+  <meta property="og:title" content="Days - Track your travel days with clarity">
+  <meta property="og:description" content="A calm iOS app for tracking trips, country stay totals, travel history, and future travel plans.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://olegotka.es/days">
+  <meta property="og:image" content="https://olegotka.es/assets/projects/days_preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://olegotka.es/days">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{
+      --font-d:'Cabinet Grotesk','Inter',sans-serif;--font-b:'Satoshi','Inter',sans-serif;--font-m:'SF Mono','Menlo',monospace;
+      --blue:#2563ff;--purple:#7c3aed;--green:#22d3a0;--cyan:#38bdf8;
+      --grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);
+      --travel:linear-gradient(135deg,#2563ff 0%,#38bdf8 48%,#22d3a0 100%);
+      --ease:cubic-bezier(.16,1,.3,1);--tr:200ms cubic-bezier(.16,1,.3,1);
+      --r-sm:6px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;--cw:1200px;--sec:clamp(5rem,9vw,8rem);
+    }
+    html[data-theme="dark"]{
+      --bg:#06061a;--bg-alt:#080820;--surface:#0d0d2b;--surface-2:#12123a;
+      --border:rgba(120,100,255,.12);--border-h:rgba(120,100,255,.28);
+      --text:#f0efff;--text-m:#8b8aaa;--text-f:#3a3a5c;--glass:rgba(6,6,26,.86);
+      --ok-bg:rgba(34,211,160,.1);--grad-sub:linear-gradient(135deg,rgba(37,99,255,.12),rgba(124,58,237,.12));
+      color-scheme:dark;
+    }
+    html[data-theme="light"]{
+      --bg:#f7f8ff;--bg-alt:#eef2ff;--surface:#fff;--surface-2:#f5f6ff;
+      --border:rgba(79,70,229,.14);--border-h:rgba(79,70,229,.32);
+      --text:#101225;--text-m:#596078;--text-f:#9aa1b8;--glass:rgba(247,248,255,.86);
+      --ok-bg:rgba(34,211,160,.13);--grad-sub:linear-gradient(135deg,rgba(37,99,255,.1),rgba(124,58,237,.1));
+      color-scheme:light;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:82px}
+    body{font-family:var(--font-b);font-size:1rem;line-height:1.6;color:var(--text);background:var(--bg);min-height:100dvh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(120,100,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,100,255,.05) 1px,transparent 1px);background-size:48px 48px}
+    body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 18% 10%,rgba(37,99,255,.14),transparent 70%),radial-gradient(ellipse 60% 50% at 84% 78%,rgba(34,211,160,.09),transparent 70%)}
+    h1,h2,h3,h4{font-family:var(--font-d);line-height:1.1;text-wrap:balance}
+    p{text-wrap:pretty;max-width:68ch}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+    img,svg{display:block;max-width:100%}
+    .page{position:relative;z-index:1}.container{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}section{padding:var(--sec) 0}
+    .grad-text{background:var(--travel);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .badge-pill{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-m);font-size:.72rem;letter-spacing:.04em;color:var(--green);background:var(--ok-bg);border:1px solid rgba(34,211,160,.2);border-radius:var(--r-full);padding:.25rem .75rem}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.9375rem;font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r-md);min-height:48px;white-space:nowrap;transition:transform var(--tr),box-shadow var(--tr),filter var(--tr),border-color var(--tr),background var(--tr)}
+    .btn:active{transform:scale(.97)}.btn-primary{background:var(--travel);color:#fff}.btn-primary:hover{box-shadow:0 6px 24px rgba(37,99,255,.35);filter:brightness(1.07)}
+    .btn-ghost{color:var(--text-m);border:1.5px solid var(--border);background:transparent}.btn-ghost:hover{border-color:var(--border-h);color:var(--text);background:rgba(120,100,255,.06)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;position:relative;overflow:hidden;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr)}
+    .card::before{content:'';position:absolute;inset:0;background:var(--grad-sub);opacity:0;transition:opacity var(--tr);pointer-events:none}.card:hover{border-color:var(--border-h);transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,99,255,.12),0 0 0 1px rgba(120,100,255,.15)}.card:hover::before{opacity:1}.card>*{position:relative;z-index:1}
+    nav{position:sticky;top:0;z-index:100;background:var(--glass);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--cw);height:64px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;align-items:center;gap:1rem}.logo{font-family:var(--font-d);font-size:1.1rem;font-weight:800;letter-spacing:-.02em}.logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;gap:.25rem;margin:0 auto}.nav-a{font-size:.9rem;font-weight:600;color:var(--text-m);padding:.375rem .75rem;border-radius:var(--r-sm);transition:color var(--tr),background var(--tr)}.nav-a:hover{color:var(--text);background:rgba(120,100,255,.08)}
+    .lang-sw{display:flex;align-items:center;gap:3px}.lang-btn{font-family:var(--font-m);font-size:10px;font-weight:500;color:var(--text-m);padding:3px 8px;border-radius:var(--r-full);border:1px solid var(--border);transition:all var(--tr)}.lang-btn.active{background:var(--grad);color:#fff;border-color:transparent}
+    .hero{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:clamp(5rem,9vw,8rem) 0}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,430px);gap:clamp(2rem,7vw,6rem);align-items:center}
+    .app-kicker{display:flex;align-items:center;gap:.875rem;margin-bottom:1.25rem}.app-icon{width:64px;height:64px;border-radius:18px;background:var(--travel);display:grid;place-items:center;box-shadow:0 18px 50px rgba(37,99,255,.25);position:relative;overflow:hidden}.app-icon::after{content:'';width:30px;height:30px;border:2px solid rgba(255,255,255,.78);border-radius:50% 50% 50% 12%;transform:rotate(-28deg)}
+    .app-label{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase}.hero-h1{font-size:clamp(3rem,.5rem + 6vw,6.7rem);font-weight:900;letter-spacing:-.03em;line-height:.98;margin-bottom:1.35rem}.hero-sub{font-size:clamp(1.125rem,1rem + .55vw,1.35rem);color:var(--text-m);max-width:54ch;margin-bottom:2rem}.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+    .hero-points{display:flex;flex-wrap:wrap;gap:.5rem}.tag{display:inline-flex;align-items:center;font-family:var(--font-m);font-size:11px;color:var(--text-m);background:rgba(120,100,255,.08);border:1px solid var(--border);border-radius:var(--r-full);padding:2px .625rem;white-space:nowrap}
+    .device-wrap{position:relative;min-height:560px;display:grid;place-items:center}.device-halo{position:absolute;width:min(76vw,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(37,99,255,.18),transparent 68%);filter:blur(2px)}
+    .phone{width:min(76vw,310px);aspect-ratio:9/19;border:1px solid var(--border-h);border-radius:42px;background:linear-gradient(160deg,var(--surface-2),var(--surface));padding:12px;box-shadow:0 34px 90px rgba(0,0,0,.32);position:relative}.phone::before{content:'';position:absolute;top:10px;left:50%;width:88px;height:24px;transform:translateX(-50%);border-radius:var(--r-full);background:var(--bg)}
+    .phone-screen{height:100%;border-radius:32px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(37,99,255,.14),transparent 42%),var(--bg);padding:3rem 1.1rem 1rem;display:flex;flex-direction:column;gap:1rem;overflow:hidden}.phone-screen img{width:100%;height:48%;object-fit:cover;border-radius:18px;border:1px solid var(--border);opacity:.92}.map-card{border:1px solid var(--border);border-radius:18px;background:var(--surface);padding:1rem;display:grid;gap:.75rem}.map-route{height:96px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,255,.32),rgba(34,211,160,.16));position:relative;overflow:hidden}.map-route::after{content:'';position:absolute;left:18px;right:20px;top:46px;border-top:2px dashed rgba(255,255,255,.62);transform:rotate(-12deg)}.mock-row{display:flex;justify-content:space-between;gap:.7rem}.mock-stat{flex:1;border:1px solid var(--border);border-radius:14px;padding:.75rem;background:var(--surface)}.mock-num{font-family:var(--font-d);font-size:1.4rem;font-weight:800}.mock-label{font-family:var(--font-m);font-size:.58rem;color:var(--text-f);text-transform:uppercase;letter-spacing:.08em}
+    .sec-head{margin-bottom:3rem}.sec-pre{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;display:block}.sec-h2{font-size:clamp(2rem,1.2rem + 2.5vw,3.2rem);font-weight:800;letter-spacing:-.025em;margin-bottom:1rem}.sec-sub{font-size:1rem;color:var(--text-m);max-width:52ch}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.feature-icon,.step-num{width:44px;height:44px;border-radius:.75rem;background:var(--grad-sub);border:1px solid var(--border);display:grid;place-items:center;margin-bottom:1.25rem;font-family:var(--font-d);font-weight:800;color:var(--text)}.card-title{font-family:var(--font-d);font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}.card-text{font-size:.9375rem;color:var(--text-m);line-height:1.55}
+    #preview,#apple{background:var(--bg-alt)}.shots-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:1.25rem}.shot{min-height:360px;border-radius:var(--r-xl);border:1px solid var(--border);background:var(--surface);padding:1rem;overflow:hidden;position:relative}.shot.large{grid-row:span 2;min-height:560px}.shot-screen{height:100%;border-radius:18px;background:linear-gradient(145deg,rgba(37,99,255,.16),rgba(34,211,160,.08)),var(--bg);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.8rem}.shot-bar{height:11px;border-radius:var(--r-full);background:var(--text);opacity:.85}.shot-block{flex:1;border-radius:16px;background:var(--surface);border:1px solid var(--border)}.shot-caption{position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.08em;text-transform:uppercase}
+    .steps-grid,.pricing-grid,.apple-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.price-card{display:flex;flex-direction:column;gap:1.25rem}.price-card.featured{background:var(--surface-2);border-color:rgba(37,99,255,.4);box-shadow:0 0 0 1px rgba(37,99,255,.2),0 20px 60px rgba(37,99,255,.12)}.price-popular{position:absolute;top:1.25rem;right:1.25rem;font-family:var(--font-m);font-size:10px;color:#fff;background:var(--travel);border-radius:var(--r-full);padding:3px .625rem}.price-amount{font-family:var(--font-d);font-size:clamp(1.9rem,1rem + 2vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}.price-note{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);margin-top:.25rem}.price-divider{height:1px;background:var(--border)}.price-feature{font-size:.875rem;color:var(--text-m);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4}.price-feature::before{content:'->';color:var(--blue);flex-shrink:0;font-family:var(--font-m);font-size:.7rem;margin-top:.08rem}
+    .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem}details{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;transition:border-color var(--tr),background var(--tr)}details:hover,details[open]{border-color:var(--border-h);background:var(--surface-2)}summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}summary::-webkit-details-marker{display:none}summary::after{content:'+';font-family:var(--font-m);color:var(--text-f)}details[open] summary::after{content:'-'}details p{margin-top:.75rem;color:var(--text-m);font-size:.9375rem}
+    .final-cta{text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,255,.12),transparent 70%)}.cta-inner{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;flex-direction:column;align-items:center;gap:1.75rem}.cta-h2{font-size:clamp(2rem,1rem + 4vw,4.5rem);font-weight:900;letter-spacing:-.03em}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);background:rgba(6,6,26,.95)}.footer-inner{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1.5rem}.f-logo{font-family:var(--font-d);font-size:1.05rem;font-weight:800;letter-spacing:-.02em}.f-links{display:flex;gap:1.25rem;flex-wrap:wrap}.f-link,.f-copy{font-size:.875rem;color:var(--text-m)}.f-copy{font-family:var(--font-m);font-size:.68rem;color:var(--text-f)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 550ms var(--ease),transform 550ms var(--ease)}.reveal.in{opacity:1;transform:none}
+    @media(max-width:980px){.hero-grid{grid-template-columns:1fr}.device-wrap{min-height:500px}.features-grid,.steps-grid,.pricing-grid,.apple-grid{grid-template-columns:1fr 1fr}.shots-grid{grid-template-columns:1fr 1fr}.shot.large{grid-column:1/-1;min-height:460px}.footer-inner{grid-template-columns:1fr}}
+    @media(max-width:680px){.nav-inner{height:auto;min-height:64px;display:grid;grid-template-columns:1fr auto;gap:.75rem;padding:.8rem 1rem}.nav-links{grid-column:1/-1;order:3;overflow:auto;margin:0;padding-bottom:.1rem}.nav-a{white-space:nowrap}.hero{padding-top:4rem}.hero-actions .btn{width:100%}.device-wrap{min-height:420px}.phone{width:min(78vw,270px)}.features-grid,.steps-grid,.pricing-grid,.apple-grid,.faq-list,.shots-grid{grid-template-columns:1fr}.shot,.shot.large{min-height:340px}.card{padding:1.5rem}}
+  </style>
 </head>
 <body>
-  <header class="topbar" id="top">
-    <div class="nav-inner">
-      <a class="logo" href="/index.html">olegotka</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="/index.html#services" data-i18n="nav_services">Services</a>
-        <a href="/index.html#work" data-i18n="nav_work">Work</a>
-        <a href="/index.html#process" data-i18n="nav_process">Process</a>
-        <a href="/index.html#testimonials" data-i18n="nav_testimonials">Testimonials</a>
-        <a href="/index.html#faq" data-i18n="nav_faq">FAQ</a>
-        <a href="/index.html#contact" data-i18n="nav_contact">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" data-i18n="toggle_theme">Dark mode</button>
-        <div class="lang-switch" aria-label="Language">
-          <button data-lang="en">EN</button>
-          <button data-lang="es">ES</button>
-          <button data-lang="ru">RU</button>
+  <div class="page">
+    <nav>
+      <div class="nav-inner">
+        <a href="/" class="logo" aria-label="Back to Olegotka homepage">oleg<span>otka</span></a>
+        <div class="nav-links" aria-label="Days page navigation">
+          <a href="#features" class="nav-a" data-i18n="nav.features">Features</a>
+          <a href="#preview" class="nav-a" data-i18n="nav.preview">Preview</a>
+          <a href="#pricing" class="nav-a" data-i18n="nav.pricing">Pricing</a>
+          <a href="#faq" class="nav-a" data-i18n="nav.faq">FAQ</a>
         </div>
-        <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="case-hero">
-      <div>
-        <p class="eyebrow" data-i18n="case_type">Case Study</p>
-        <h1 data-i18n="case_title">Day’s</h1>
-        <p class="hero-subtitle" data-i18n="case_tagline">Visa and travel tracker that helps users stay within limits.</p>
-        <div class="case-badges">
-          <span data-i18n="case_badge_1">Platform</span>
-          <span data-i18n="case_badge_2">Role</span>
-          <span data-i18n="case_badge_3">Timeline</span>
+        <div class="lang-sw" aria-label="Language switcher">
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="es">ES</button>
+          <button class="lang-btn" type="button" data-lang="ru">RU</button>
         </div>
       </div>
-      <div class="case-hero-card">
-        <img src="/assets/projects/days_preview.png" alt="Day’s" loading="eager" decoding="async" width="520" height="520" />
-        <div class="mockup-caption" data-i18n="case_mockup">Project visual</div>
-      </div>
-    </section>
+    </nav>
 
-    <section class="section">
-      <div class="tldr">
+    <main id="days-root"></main>
+
+    <footer>
+      <div class="footer-inner">
         <div>
-          <h3 data-i18n="case_problem_title">Problem</h3>
-          <p data-i18n="case_problem">Travelers struggled to track visa days across multiple trips.</p>
+          <a href="/" class="f-logo" data-app-name>Days</a>
+          <p class="f-copy" data-app-footer>Travel day tracking for clearer stays, histories, and future plans.</p>
         </div>
-        <div>
-          <h3 data-i18n="case_solution_title">Solution</h3>
-          <p data-i18n="case_solution">A calendar‑driven timeline with alerts and easy data entry.</p>
+        <div class="f-links">
+          <a href="#" class="f-link" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="#" class="f-link" data-i18n="footer.terms">Terms</a>
+          <a href="/" class="f-link" data-i18n="footer.studio">Olegotka</a>
         </div>
-        <div>
-          <h3 data-i18n="case_outcome_title">Outcome</h3>
-          <p data-i18n="case_outcome">MVP shipped to TestFlight and prepared for App Store.</p>
-        </div>
+        <p class="f-copy" data-app-copy>(c) 2026 Days. All rights reserved.</p>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_what_title">What we did</h2>
-        <p data-i18n="case_what_subtitle">Scope of work and responsibilities.</p>
-      </div>
-      <ul class="case-list">
-        <li data-i18n="case_what_1">Defined MVP scope and core flows</li>
-        <li data-i18n="case_what_2">Designed onboarding and calendar UX</li>
-        <li data-i18n="case_what_3">Built iOS app with offline support</li>
-        <li data-i18n="case_what_4">Prepared for App Store release</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_highlights_title">Highlights</h2>
-        <p data-i18n="case_highlights_subtitle">Key features or results.</p>
-      </div>
-      <div class="cards-grid">
-        <article class="card">
-          <h3 data-i18n="case_highlight_1">Timeline view</h3>
-          <p data-i18n="case_highlight_1_desc">Auto‑calculates days per region.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="case_highlight_2">Smart alerts</h3>
-          <p data-i18n="case_highlight_2_desc">Reminders before limits are reached.</p>
-        </article>
-        <article class="card">
-          <h3 data-i18n="case_highlight_3">Simple data entry</h3>
-          <p data-i18n="case_highlight_3_desc">Quick trip input with minimal friction.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_stack_title">Stack</h2>
-        <p data-i18n="case_stack_subtitle">Technologies used for this project.</p>
-      </div>
-      <div class="badge-row">
-        <span>UIKit</span>
-        <span>Core Data</span>
-        <span>Notifications</span>
-        <span>CI/CD</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_screens_title">Screenshots</h2>
-        <p data-i18n="case_screens_subtitle">Screenshots available on request.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_decisions_title">Key decisions</h2>
-        <p data-i18n="case_decisions_subtitle">Tradeoffs and process notes.</p>
-      </div>
-      <ul class="case-list">
-        <li data-i18n="case_decision_1">Prioritized calendar accuracy over complex analytics.</li>
-        <li data-i18n="case_decision_2">Designed for offline‑first usage.</li>
-        <li data-i18n="case_decision_3">Kept onboarding minimal to reduce drop‑off.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <h2 data-i18n="case_next_title">Next steps</h2>
-        <p data-i18n="case_next_subtitle">What’s planned or recommended next.</p>
-      </div>
-      <ul class="case-list">
-        <li data-i18n="case_next_1">Add premium features and pricing experiments.</li>
-        <li data-i18n="case_next_2">Integrate additional regions and rulesets.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-header">
-        <h2 data-i18n="case_cta_title">Want a similar result?</h2>
-        <p data-i18n="case_cta_subtitle">Let’s discuss your MVP and the fastest path to launch.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <p data-i18n="case_cta_body">Share your idea and get a clear plan within days.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" data-i18n="cta_primary">Book a Call</a>
-            <a class="btn btn-secondary" href="mailto:hello@olegotka.es" data-i18n="case_cta_secondary">Ask about a similar build</a>
-          </div>
-          <div class="contact-links">
-            <a class="btn btn-ghost" href="mailto:hello@olegotka.es" data-i18n="contact_email">Email</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener" data-i18n="contact_linkedin">LinkedIn</a>
-          </div>
-        </div>
-        <div class="contact-card">
-          <p data-i18n="case_cta_note">Prefer async? Send a short message and we’ll follow up.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <p data-i18n="footer_copy">© 2023–2026 Olegotka Studio. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="/index.html#services" data-i18n="nav_services">Services</a>
-        <a href="/index.html#work" data-i18n="nav_work">Work</a>
-        <a href="/index.html#contact" data-i18n="nav_contact">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script>
-    window.pageTranslations = {
+    const DAYS_PAGE = {
       en: {
-        case_title: "Day’s",
-        case_tagline: "Visa and travel tracker that helps users stay within limits.",
-        case_badge_1: "Platform: iOS",
-        case_badge_2: "Role: Studio team",
-        case_badge_3: "Timeline: MVP delivery",
-        case_problem: "Travelers struggled to track visa days across multiple trips.",
-        case_solution: "A calendar‑driven timeline with alerts and easy data entry.",
-        case_outcome: "MVP shipped to TestFlight and prepared for App Store.",
-        case_what_1: "Defined MVP scope and core flows",
-        case_what_2: "Designed onboarding and calendar UX",
-        case_what_3: "Built iOS app with offline support",
-        case_what_4: "Prepared for App Store release",
-        case_highlight_1: "Timeline view",
-        case_highlight_1_desc: "Auto‑calculates days per region.",
-        case_highlight_2: "Smart alerts",
-        case_highlight_2_desc: "Reminders before limits are reached.",
-        case_highlight_3: "Simple data entry",
-        case_highlight_3_desc: "Quick trip input with minimal friction.",
-        case_decision_1: "Prioritized calendar accuracy over complex analytics.",
-        case_decision_2: "Designed for offline‑first usage.",
-        case_decision_3: "Kept onboarding minimal to reduce drop‑off.",
-        case_next_1: "Add premium features and pricing experiments.",
-        case_next_2: "Integrate additional regions and rulesets."
+        appName: "Days",
+        badge: "Travel history and visa day planning",
+        tagline: "Track your travel days with clarity.",
+        description: "Days helps you understand where you have been, how long you stayed, and how your travel history affects future plans.",
+        primaryCta: "Coming soon",
+        secondaryCta: "Explore features",
+        storeUrl: "#",
+        nav: { features: "Features", preview: "Preview", pricing: "Pricing", faq: "FAQ" },
+        heroTags: ["Trip history", "Country stay totals", "Visa-aware planning"],
+        featuresTitle: "Every stay, counted clearly.",
+        featuresSubtitle: "Designed for travelers, digital nomads, expats, and anyone who needs a calmer view of time spent abroad.",
+        features: [
+          { icon: "01", title: "Trip history", text: "Keep all your trips organized by country, date, and year." },
+          { icon: "02", title: "Country day counting", text: "See how many days you have spent in each country." },
+          { icon: "03", title: "Visa-aware planning", text: "Plan future stays with a clearer view of limits and dates." },
+          { icon: "04", title: "Citizenship-based insights", text: "Compare visa-free options based on your citizenship." },
+          { icon: "05", title: "iCloud sync", text: "Keep your travel history synced across Apple devices." },
+          { icon: "06", title: "Privacy-first", text: "Your travel data should feel personal, safe, and under your control." }
+        ],
+        previewTitle: "A calm travel command center.",
+        previewSubtitle: "Real screenshots can drop into this section later. The layout already supports App Store-style previews.",
+        screenshots: ["Travel timeline", "Country statistics", "Visa planning", "Yearly overview"],
+        stepsTitle: "Plan from real history.",
+        stepsSubtitle: "Days turns scattered trips into a useful record for future decisions.",
+        steps: [
+          { title: "Add your trips", text: "Save country, dates, and details." },
+          { title: "Review your days", text: "See totals, yearly stats, and country history." },
+          { title: "Plan smarter", text: "Use your travel history to make better decisions for future trips." }
+        ],
+        appleTitle: "Designed for Apple devices.",
+        appleSubtitle: "Built around the kind of focused, native experience that feels at home on iPhone, iPad, and Mac.",
+        apple: [
+          { title: "iPhone first", text: "Add trips while you travel and check day totals when plans change." },
+          { title: "iPad and Mac ready", text: "Review longer histories and plan future stays on larger screens." },
+          { title: "iCloud sync support", text: "Keep your travel record available across your Apple devices." }
+        ],
+        pricingTitle: "Simple options for every traveler.",
+        pricingSubtitle: "Placeholder pricing for the launch page. Exact App Store pricing can be updated later.",
+        pricing: [
+          { name: "Free", price: "$0", note: "Starter", text: "Basic travel history and current-year overview.", features: ["Trip list", "Country totals", "Current-year summary"], cta: "Coming soon" },
+          { name: "Premium", price: "$3.99", note: "per month", text: "Advanced statistics, extended history, planning tools, and notifications.", features: ["Extended history", "Visa planning tools", "Smart reminders"], cta: "Coming soon", featured: true },
+          { name: "Lifetime", price: "$39", note: "one-time", text: "One-time access to premium features.", features: ["Premium features", "Future updates", "No subscription"], cta: "Coming soon" }
+        ],
+        faqTitle: "Good to know before you travel.",
+        faqSubtitle: "Days is a planning companion, not legal or immigration advice. Always verify official government sources before traveling.",
+        faq: [
+          { q: "What is Days?", a: "Days is a travel day tracking app that helps you record trips, count stays by country, and understand your travel history." },
+          { q: "Who is Days for?", a: "It is built for frequent travelers, digital nomads, expats, and people who need to track country stays or 90/180-style limits." },
+          { q: "Does Days replace official visa advice?", a: "No. Days is a planning and tracking tool, not legal or immigration advice. Always verify rules with official government sources before traveling." },
+          { q: "Can I sync data across devices?", a: "Days is designed with iCloud sync support so your travel history can stay available across Apple devices." },
+          { q: "Is my travel history private?", a: "Travel history is personal. Days is designed around privacy-first storage and user control." },
+          { q: "When will the app be available?", a: "The App Store link is a placeholder for now. This page will be updated when Days is ready to download." }
+        ],
+        finalTitle: "Plan every trip with more confidence.",
+        finalText: "Track where you have been, understand your stay totals, and make future plans with a clearer view.",
+        footerDescription: "Travel day tracking for clearer stays, histories, and future plans.",
+        copyright: "(c) 2026 Days. All rights reserved.",
+        footer: { privacy: "Privacy Policy", terms: "Terms", studio: "Olegotka" }
       },
       es: {
-        case_title: "Day’s",
-        case_tagline: "Rastreador de visados y viajes para mantenerse dentro de límites.",
-        case_badge_1: "Plataforma: iOS",
-        case_badge_2: "Rol: equipo del estudio",
-        case_badge_3: "Plazo: entrega MVP",
-        case_problem: "Los viajeros tenían dificultad para seguir los días de visado en múltiples viajes.",
-        case_solution: "Timeline con alertas y entrada simple de viajes.",
-        case_outcome: "MVP lanzado en TestFlight y preparado para App Store.",
-        case_what_1: "Definición de alcance y flujos clave",
-        case_what_2: "Diseño de onboarding y UX calendario",
-        case_what_3: "App iOS con soporte offline",
-        case_what_4: "Preparación para App Store",
-        case_highlight_1: "Vista timeline",
-        case_highlight_1_desc: "Cálculo automático por región.",
-        case_highlight_2: "Alertas inteligentes",
-        case_highlight_2_desc: "Avisos antes de llegar al límite.",
-        case_highlight_3: "Entrada rápida",
-        case_highlight_3_desc: "Añadir viajes sin fricción.",
-        case_decision_1: "Priorizar precisión del calendario sobre analítica compleja.",
-        case_decision_2: "Diseño offline‑first.",
-        case_decision_3: "Onboarding mínimo para reducir drop‑off.",
-        case_next_1: "Añadir features premium y tests de precios.",
-        case_next_2: "Integrar más regiones y reglas."
+        appName: "Days", badge: "Historial de viajes y planificacion de estancias", tagline: "Controla tus dias de viaje con claridad.",
+        description: "Days te ayuda a entender donde has estado, cuanto tiempo te quedaste y como tu historial afecta futuros planes.",
+        primaryCta: "Proximamente", secondaryCta: "Explorar funciones", storeUrl: "#",
+        nav: { features: "Funciones", preview: "Preview", pricing: "Precios", faq: "FAQ" },
+        heroTags: ["Historial de viajes", "Totales por pais", "Planificacion de visados"],
+        featuresTitle: "Cada estancia, contada con claridad.", featuresSubtitle: "Para viajeros, nomadas digitales, expats y personas que necesitan ver mejor el tiempo pasado fuera.",
+        features: [
+          { icon: "01", title: "Historial de viajes", text: "Organiza tus viajes por pais, fecha y ano." },
+          { icon: "02", title: "Conteo por pais", text: "Ve cuantos dias has pasado en cada pais." },
+          { icon: "03", title: "Planificacion con visados", text: "Planifica futuras estancias con mas claridad sobre limites y fechas." },
+          { icon: "04", title: "Insights por ciudadania", text: "Compara opciones visa-free segun tu ciudadania." },
+          { icon: "05", title: "iCloud sync", text: "Manten tu historial sincronizado en dispositivos Apple." },
+          { icon: "06", title: "Privacidad primero", text: "Tus datos de viaje deben sentirse personales, seguros y bajo tu control." }
+        ],
+        previewTitle: "Un centro de control tranquilo.", previewSubtitle: "Las capturas reales se pueden anadir aqui mas adelante.", screenshots: ["Timeline", "Estadisticas", "Plan de visado", "Resumen anual"],
+        stepsTitle: "Planifica desde tu historial.", stepsSubtitle: "Days convierte viajes dispersos en un registro util.",
+        steps: [{ title: "Anade viajes", text: "Guarda pais, fechas y detalles." }, { title: "Revisa tus dias", text: "Ve totales, estadisticas anuales e historial por pais." }, { title: "Planifica mejor", text: "Usa tu historial para decidir futuros viajes." }],
+        appleTitle: "Disenada para dispositivos Apple.", appleSubtitle: "Una experiencia nativa y enfocada para iPhone, iPad y Mac.",
+        apple: [{ title: "iPhone primero", text: "Anade viajes mientras viajas." }, { title: "Lista para iPad y Mac", text: "Revisa historiales largos en pantallas grandes." }, { title: "Soporte iCloud sync", text: "Manten tu registro disponible en tus dispositivos Apple." }],
+        pricingTitle: "Opciones simples.", pricingSubtitle: "Precios placeholder para la pagina de lanzamiento.",
+        pricing: [{ name: "Gratis", price: "$0", note: "Starter", text: "Historial basico y resumen del ano actual.", features: ["Lista de viajes", "Totales por pais", "Resumen anual"], cta: "Proximamente" }, { name: "Premium", price: "$3.99", note: "al mes", text: "Estadisticas avanzadas, historial extendido, planificacion y notificaciones.", features: ["Historial extendido", "Herramientas de visado", "Recordatorios"], cta: "Proximamente", featured: true }, { name: "Lifetime", price: "$39", note: "pago unico", text: "Acceso unico a funciones premium.", features: ["Funciones premium", "Futuras actualizaciones", "Sin suscripcion"], cta: "Proximamente" }],
+        faqTitle: "Antes de viajar.", faqSubtitle: "Days es una herramienta de planificacion, no es asesoria legal o migratoria. Verifica siempre fuentes oficiales antes de viajar.",
+        faq: [{ q: "Que es Days?", a: "Una app para registrar viajes, contar estancias por pais y entender tu historial." }, { q: "Para quien es?", a: "Para viajeros frecuentes, nomadas digitales, expats y personas que siguen limites de estancia." }, { q: "Sustituye consejo oficial de visados?", a: "No. Days no es asesoria legal o migratoria. Verifica siempre fuentes oficiales antes de viajar." }, { q: "Puedo sincronizar datos?", a: "Days esta disenada con soporte iCloud sync para dispositivos Apple." }, { q: "Mi historial es privado?", a: "Days esta disenada con enfoque privacy-first y control del usuario." }, { q: "Cuando estara disponible?", a: "El enlace App Store es placeholder por ahora." }],
+        finalTitle: "Planifica cada viaje con mas confianza.", finalText: "Controla donde has estado y toma mejores decisiones para futuros viajes.",
+        footerDescription: "Seguimiento de dias de viaje para estancias e historiales mas claros.", copyright: "(c) 2026 Days. Todos los derechos reservados.", footer: { privacy: "Privacidad", terms: "Terminos", studio: "Olegotka" }
       },
       ru: {
-        case_title: "Day’s",
-        case_tagline: "Трекер виз и поездок, чтобы соблюдать лимиты.",
-        case_badge_1: "Платформа: iOS",
-        case_badge_2: "Роль: команда студии",
-        case_badge_3: "Сроки: MVP-этап",
-        case_problem: "Путешественникам сложно отслеживать визовые дни между поездками.",
-        case_solution: "Календарная шкала с уведомлениями и простой ввод данных.",
-        case_outcome: "MVP выпущен в TestFlight и подготовлен к App Store.",
-        case_what_1: "Определение MVP и ключевых сценариев",
-        case_what_2: "Дизайн онбординга и календарного UX",
-        case_what_3: "iOS‑разработка с офлайн‑поддержкой",
-        case_what_4: "Подготовка к релизу в App Store",
-        case_highlight_1: "Таймлайн",
-        case_highlight_1_desc: "Автоподсчёт дней по регионам.",
-        case_highlight_2: "Умные напоминания",
-        case_highlight_2_desc: "Уведомления до достижения лимитов.",
-        case_highlight_3: "Простой ввод",
-        case_highlight_3_desc: "Быстрое добавление поездок.",
-        case_decision_1: "Приоритет точности календаря, а не сложной аналитики.",
-        case_decision_2: "Дизайн offline‑first.",
-        case_decision_3: "Минимальный онбординг для снижения оттока.",
-        case_next_1: "Добавить премиум‑функции и протестировать цены.",
-        case_next_2: "Подключить дополнительные регионы и правила."
+        appName: "Days", badge: "Travel history and visa day planning", tagline: "Otslezhivayte dni v poezdkah s yasnostyu.",
+        description: "Days pomogaet ponyat, gde vy byli, skolko dney ostavalis i kak istoriya poezdok vliyaet na budushchie plany.",
+        primaryCta: "Skoro", secondaryCta: "Funkcii", storeUrl: "#",
+        nav: { features: "Funkcii", preview: "Preview", pricing: "Ceny", faq: "FAQ" },
+        heroTags: ["Istoriya poezdok", "Dni po stranam", "Visa-aware planning"],
+        featuresTitle: "Kazhdaya poezdka, poschitana ponyatno.", featuresSubtitle: "Dlya travelers, digital nomads, expats i vseh, komu nuzhno schitat dni za granitsey.",
+        features: [
+          { icon: "01", title: "Istoriya poezdok", text: "Hranite poezdki po stranam, datam i godam." },
+          { icon: "02", title: "Podschet po stranam", text: "Smotrite, skolko dney vy proveli v kazhdoy strane." },
+          { icon: "03", title: "Visa-aware planning", text: "Planiruyte budushchie poezdki s bolee yasnym vidom limitov." },
+          { icon: "04", title: "Insights po grazhdanstvu", text: "Sravnivayte visa-free varianty na osnove grazhdanstva." },
+          { icon: "05", title: "iCloud sync", text: "Sinhroniziruyte istoriyu mezhdu Apple ustroystvami." },
+          { icon: "06", title: "Privacy-first", text: "Vashi travel data dolzhny ostavatsya lichnymi i pod kontrolem." }
+        ],
+        previewTitle: "Spokoynyy centr puteshestviy.", previewSubtitle: "Realnye skrinshoty mozhno dobavit pozzhe.", screenshots: ["Timeline", "Country stats", "Visa planning", "Year overview"],
+        stepsTitle: "Planiruyte ot realnoy istorii.", stepsSubtitle: "Days prevrashchaet poezdki v poleznuyu zapis.",
+        steps: [{ title: "Dobavte poezdki", text: "Sohranite stranu, daty i detali." }, { title: "Proverte dni", text: "Smotrite totals, statistiku i history." }, { title: "Planiruyte umnee", text: "Ispolzuyte istoriyu dlya budushchih resheniy." }],
+        appleTitle: "Designed for Apple devices.", appleSubtitle: "Native feel dlya iPhone, iPad i Mac.", apple: [{ title: "iPhone first", text: "Dobavlyayte poezdki v puti." }, { title: "iPad and Mac ready", text: "Smotrite bolshie istorii na bolshom ekrane." }, { title: "iCloud sync support", text: "Istoriya dostupna na Apple devices." }],
+        pricingTitle: "Prostye varianty.", pricingSubtitle: "Placeholder ceny dlya launch page.",
+        pricing: [{ name: "Free", price: "$0", note: "Starter", text: "Bazovaya istoriya i tekushchiy god.", features: ["Trip list", "Country totals", "Year summary"], cta: "Skoro" }, { name: "Premium", price: "$3.99", note: "v mesyac", text: "Advanced stats, extended history, planning tools i reminders.", features: ["Extended history", "Visa tools", "Reminders"], cta: "Skoro", featured: true }, { name: "Lifetime", price: "$39", note: "odin platezh", text: "Odin platezh za premium features.", features: ["Premium", "Future updates", "No subscription"], cta: "Skoro" }],
+        faqTitle: "Chto vazhno znat.", faqSubtitle: "Days eto planning tool, not legal or immigration advice. Vsegda proveryayte official government sources.",
+        faq: [{ q: "Chto takoe Days?", a: "App dlya zapisi poezdok, podscheta dney po stranam i istorii puteshestviy." }, { q: "Dlya kogo Days?", a: "Dlya frequent travelers, digital nomads, expats i teh, kto sleduet stay limits." }, { q: "Eto visa advice?", a: "Net. Days ne yavlyaetsya legal ili immigration advice. Vsegda proverayte official government sources." }, { q: "Est sync?", a: "Days designed with iCloud sync support." }, { q: "Moi dannye private?", a: "Days designed around privacy-first storage and user control." }, { q: "Kogda app budet dostupna?", a: "App Store link poka placeholder." }],
+        finalTitle: "Planiruyte kazhduyu poezdku uverennee.", finalText: "Ponimayte, gde vy byli, i planiruyte budushchie stays s bolshey yasnostyu.",
+        footerDescription: "Travel day tracking for clearer stays, histories, and future plans.", copyright: "(c) 2026 Days. All rights reserved.", footer: { privacy: "Privacy Policy", terms: "Terms", studio: "Olegotka" }
       }
     };
+
+    const root = document.getElementById('days-root');
+    let currentLang = 'en';
+    function escapeText(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));}
+    function splitTagline(value){const parts=value.split(' ');return [parts.slice(0,-2).join(' '),parts.slice(-2).join(' ')];}
+    function renderPage(lang){
+      const data = DAYS_PAGE[lang] || DAYS_PAGE.en;
+      const [headline, highlight] = splitTagline(data.tagline);
+      document.documentElement.lang = lang;
+      document.documentElement.dataset.theme = 'dark';
+      try{localStorage.setItem('days-theme','dark');localStorage.setItem('app-template-theme','dark');}catch(e){}
+      document.title = `${data.appName} - ${data.tagline}`;
+      document.querySelectorAll('[data-app-name]').forEach(el=>{el.textContent=data.appName;});
+      document.querySelector('[data-app-footer]').textContent=data.footerDescription;
+      document.querySelector('[data-app-copy]').textContent=data.copyright;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const path=el.dataset.i18n.split('.');
+        let value=data;
+        path.forEach(key=>{value=value?.[key];});
+        if(value) el.textContent=value;
+      });
+      document.querySelectorAll('[data-lang]').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));
+      root.innerHTML = `
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <div class="app-kicker reveal">
+                <div class="app-icon" aria-hidden="true"></div>
+                <div><span class="badge-pill"><span class="dot"></span>${escapeText(data.badge)}</span><p class="app-label">${escapeText(data.appName)}</p></div>
+              </div>
+              <h1 class="hero-h1 reveal">${escapeText(headline)}<br><span class="grad-text">${escapeText(highlight)}</span></h1>
+              <p class="hero-sub reveal">${escapeText(data.description)}</p>
+              <div class="hero-actions reveal"><a href="${escapeText(data.storeUrl)}" class="btn btn-primary">${escapeText(data.primaryCta)}</a><a href="#features" class="btn btn-ghost">${escapeText(data.secondaryCta)}</a></div>
+              <div class="hero-points reveal">${data.heroTags.map(tag=>`<span class="tag">${escapeText(tag)}</span>`).join('')}</div>
+            </div>
+            <div class="device-wrap reveal" aria-label="Days app preview">
+              <div class="device-halo"></div>
+              <div class="phone"><div class="phone-screen">
+                <img src="/assets/projects/days_preview.png" alt="Days travel app preview" width="520" height="520">
+                <div class="map-card"><div class="mock-row"><span class="tag">Barcelona</span><span class="tag">Tokyo</span></div><div class="map-route"></div></div>
+                <div class="mock-row"><div class="mock-stat"><div class="mock-num">73</div><div class="mock-label">days abroad</div></div><div class="mock-stat"><div class="mock-num">12</div><div class="mock-label">countries</div></div></div>
+              </div></div>
+            </div>
+          </div>
+        </section>
+        <section id="features"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// Features</span><h2 class="sec-h2">${escapeText(data.featuresTitle)}</h2><p class="sec-sub">${escapeText(data.featuresSubtitle)}</p></div><div class="features-grid">${data.features.map(item=>`<article class="card reveal"><div class="feature-icon">${escapeText(item.icon)}</div><h3 class="card-title">${escapeText(item.title)}</h3><p class="card-text">${escapeText(item.text)}</p></article>`).join('')}</div></div></section>
+        <section id="preview"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// Preview</span><h2 class="sec-h2">${escapeText(data.previewTitle)}</h2><p class="sec-sub">${escapeText(data.previewSubtitle)}</p></div><div class="shots-grid">${data.screenshots.map((label,index)=>`<article class="shot ${index===0?'large':''} reveal"><div class="shot-screen"><span class="shot-bar" style="width:${index===0?'46':'58'}%"></span><span class="shot-block"></span><span class="shot-bar" style="width:72%;opacity:.45"></span><span class="shot-bar" style="width:54%;opacity:.28"></span></div><p class="shot-caption">${escapeText(label)}</p></article>`).join('')}</div></div></section>
+        <section id="how-it-works"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// Flow</span><h2 class="sec-h2">${escapeText(data.stepsTitle)}</h2><p class="sec-sub">${escapeText(data.stepsSubtitle)}</p></div><div class="steps-grid">${data.steps.map((step,index)=>`<article class="card reveal"><div class="step-num">${String(index+1).padStart(2,'0')}</div><h3 class="card-title">${escapeText(step.title)}</h3><p class="card-text">${escapeText(step.text)}</p></article>`).join('')}</div></div></section>
+        <section id="apple"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// Apple devices</span><h2 class="sec-h2">${escapeText(data.appleTitle)}</h2><p class="sec-sub">${escapeText(data.appleSubtitle)}</p></div><div class="apple-grid">${data.apple.map(item=>`<article class="card reveal"><h3 class="card-title">${escapeText(item.title)}</h3><p class="card-text">${escapeText(item.text)}</p></article>`).join('')}</div></div></section>
+        <section id="pricing"><div class="container"><div class="sec-head reveal" style="text-align:center"><span class="sec-pre">// Pricing</span><h2 class="sec-h2">${escapeText(data.pricingTitle)}</h2><p class="sec-sub" style="margin:0 auto">${escapeText(data.pricingSubtitle)}</p></div><div class="pricing-grid">${data.pricing.map(plan=>`<article class="card price-card ${plan.featured?'featured':''} reveal">${plan.featured?'<span class="price-popular">Best value</span>':''}<div><h3 class="card-title">${escapeText(plan.name)}</h3><p class="card-text">${escapeText(plan.text)}</p></div><div><div class="price-amount ${plan.featured?'grad-text':''}">${escapeText(plan.price)}</div><p class="price-note">${escapeText(plan.note)}</p></div><div class="price-divider"></div>${plan.features.map(feature=>`<p class="price-feature">${escapeText(feature)}</p>`).join('')}<a href="${escapeText(data.storeUrl)}" class="btn ${plan.featured?'btn-primary':'btn-ghost'}" style="width:100%">${escapeText(plan.cta)}</a></article>`).join('')}</div></div></section>
+        <section id="faq"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// FAQ</span><h2 class="sec-h2">${escapeText(data.faqTitle)}</h2><p class="sec-sub">${escapeText(data.faqSubtitle)}</p></div><div class="faq-list">${data.faq.map((item,index)=>`<details class="reveal" ${index===0?'open':''}><summary>${escapeText(item.q)}</summary><p>${escapeText(item.a)}</p></details>`).join('')}</div></div></section>
+        <section class="final-cta" id="download"><div class="cta-inner"><span class="badge-pill reveal"><span class="dot"></span>${escapeText(data.badge)}</span><h2 class="cta-h2 reveal">${escapeText(data.finalTitle)}</h2><p class="sec-sub reveal" style="text-align:center">${escapeText(data.finalText)}</p><a href="${escapeText(data.storeUrl)}" class="btn btn-primary reveal">${escapeText(data.primaryCta)}</a></div></section>
+      `;
+      reveal();
+    }
+    function reveal(){
+      const items=document.querySelectorAll('.reveal');
+      if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){items.forEach(item=>item.classList.add('in'));return;}
+      const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('in');observer.unobserve(entry.target);});},{threshold:.08});
+      items.forEach(item=>observer.observe(item));
+    }
+    document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>{currentLang=btn.dataset.lang;try{localStorage.setItem('days-lang',currentLang);}catch(e){}renderPage(currentLang);}));
+    try{const saved=localStorage.getItem('days-lang');currentLang=DAYS_PAGE[saved]?saved:'en';}catch(e){currentLang='en';}
+    renderPage(currentLang);
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
