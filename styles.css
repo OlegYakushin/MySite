@@ -99,6 +99,7 @@ body.dark .topbar {
 }
 
 .theme-toggle {
+  display: none;
   border: 1px solid var(--border);
   background: transparent;
   padding: 0.4rem 0.8rem;

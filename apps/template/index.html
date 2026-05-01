@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>AppName - Premium app landing template</title>
+  <meta name="description" content="A reusable premium app landing page template for iOS and macOS apps by Olegotka Studio.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://olegotka.es/apps/template/">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'Cabinet Grotesk';src:url('/assets/fonts/CabinetGrotesk-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{
+      --font-d:'Cabinet Grotesk','Inter',sans-serif;
+      --font-b:'Satoshi','Inter',sans-serif;
+      --font-m:'SF Mono','Menlo',monospace;
+      --blue:#2563ff;--purple:#7c3aed;--ok:#22d3a0;
+      --grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);
+      --ease:cubic-bezier(.16,1,.3,1);--tr:200ms cubic-bezier(.16,1,.3,1);
+      --r-sm:6px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
+      --cw:1200px;--sec:clamp(5rem,9vw,8rem);
+    }
+    html[data-theme="dark"]{
+      --bg:#06061a;--bg-alt:#080820;--surface:#0d0d2b;--surface-2:#12123a;
+      --border:rgba(120,100,255,.12);--border-h:rgba(120,100,255,.28);
+      --text:#f0efff;--text-m:#8b8aaa;--text-f:#3a3a5c;
+      --ok-bg:rgba(34,211,160,.1);--glass:rgba(6,6,26,.85);
+      --grad-sub:linear-gradient(135deg,rgba(37,99,255,.12) 0%,rgba(124,58,237,.12) 100%);
+      color-scheme:dark;
+    }
+    html[data-theme="light"]{
+      --bg:#f7f8ff;--bg-alt:#eef2ff;--surface:#ffffff;--surface-2:#f5f6ff;
+      --border:rgba(79,70,229,.14);--border-h:rgba(79,70,229,.32);
+      --text:#101225;--text-m:#596078;--text-f:#9aa1b8;
+      --ok-bg:rgba(34,211,160,.13);--glass:rgba(247,248,255,.85);
+      --grad-sub:linear-gradient(135deg,rgba(37,99,255,.1) 0%,rgba(124,58,237,.1) 100%);
+      color-scheme:light;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:82px}
+    body{font-family:var(--font-b);font-size:1rem;line-height:1.6;color:var(--text);background:var(--bg);min-height:100dvh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(120,100,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,100,255,.05) 1px,transparent 1px);background-size:48px 48px}
+    body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 20% 10%,rgba(37,99,255,.12),transparent 70%),radial-gradient(ellipse 60% 50% at 85% 80%,rgba(124,58,237,.1),transparent 70%)}
+    h1,h2,h3,h4{font-family:var(--font-d);line-height:1.1;text-wrap:balance}
+    p{text-wrap:pretty;max-width:68ch}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+    .page{position:relative;z-index:1}
+    .container{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+    section{padding:var(--sec) 0}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .badge-pill{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-m);font-size:.72rem;letter-spacing:.04em;color:var(--ok);background:var(--ok-bg);border:1px solid rgba(34,211,160,.2);border-radius:var(--r-full);padding:.25rem .75rem}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.9375rem;font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r-md);min-height:48px;white-space:nowrap;transition:transform var(--tr),box-shadow var(--tr),filter var(--tr),border-color var(--tr),background var(--tr)}
+    .btn:active{transform:scale(.97)}
+    .btn-primary{background:var(--grad);color:#fff}
+    .btn-primary:hover{box-shadow:0 6px 24px rgba(37,99,255,.35);filter:brightness(1.07)}
+    .btn-ghost{color:var(--text-m);border:1.5px solid var(--border);background:transparent}
+    .btn-ghost:hover{border-color:var(--border-h);color:var(--text);background:rgba(120,100,255,.06)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;position:relative;overflow:hidden;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr)}
+    .card::before{content:'';position:absolute;inset:0;background:var(--grad-sub);opacity:0;transition:opacity var(--tr);pointer-events:none}
+    .card:hover{border-color:var(--border-h);transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,99,255,.12),0 0 0 1px rgba(120,100,255,.15)}
+    .card:hover::before{opacity:1}
+    .card>*{position:relative;z-index:1}
+    nav{position:sticky;top:0;z-index:100;background:var(--glass);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--cw);height:64px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;align-items:center;gap:1rem}
+    .logo{font-family:var(--font-d);font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
+    .logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-links{display:flex;gap:.25rem;margin:0 auto}
+    .nav-a{font-size:.9rem;font-weight:600;color:var(--text-m);padding:.375rem .75rem;border-radius:var(--r-sm);transition:color var(--tr),background var(--tr)}
+    .nav-a:hover{color:var(--text);background:rgba(120,100,255,.08)}
+    .nav-right{display:flex;align-items:center;gap:.5rem}
+    .icon-btn{width:36px;height:36px;border:1px solid var(--border);border-radius:var(--r-full);display:none;place-items:center;color:var(--text-m);transition:all var(--tr)}
+    .icon-btn:hover{border-color:var(--border-h);color:var(--text);background:rgba(120,100,255,.08)}
+    .lang-sw{display:flex;align-items:center;gap:3px}
+    .lang-btn{font-family:var(--font-m);font-size:10px;font-weight:500;color:var(--text-m);padding:3px 8px;border-radius:var(--r-full);border:1px solid var(--border);transition:all var(--tr)}
+    .lang-btn.active{background:var(--grad);color:#fff;border-color:transparent}
+    .hero{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:clamp(5rem,9vw,8rem) 0}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,430px);gap:clamp(2rem,7vw,6rem);align-items:center}
+    .app-kicker{display:flex;align-items:center;gap:.875rem;margin-bottom:1.25rem}
+    .app-icon{width:64px;height:64px;border-radius:18px;background:var(--grad);display:grid;place-items:center;box-shadow:0 18px 50px rgba(37,99,255,.25);position:relative;overflow:hidden}
+    .app-icon::after{content:'';width:32px;height:32px;border:2px solid rgba(255,255,255,.7);border-radius:10px;transform:rotate(12deg)}
+    .app-label{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase}
+    .hero-h1{font-size:clamp(3rem,.5rem + 6vw,6.7rem);font-weight:900;letter-spacing:-.03em;line-height:.98;margin-bottom:1.35rem}
+    .hero-sub{font-size:clamp(1.125rem,1rem + .55vw,1.35rem);color:var(--text-m);max-width:54ch;margin-bottom:2rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+    .hero-points{display:flex;flex-wrap:wrap;gap:.5rem}
+    .tag{display:inline-flex;align-items:center;font-family:var(--font-m);font-size:11px;color:var(--text-m);background:rgba(120,100,255,.08);border:1px solid var(--border);border-radius:var(--r-full);padding:2px .625rem;white-space:nowrap}
+    .device-wrap{position:relative;min-height:560px;display:grid;place-items:center}
+    .device-halo{position:absolute;width:min(76vw,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(37,99,255,.18),transparent 68%);filter:blur(2px)}
+    .phone{width:min(76vw,310px);aspect-ratio:9/19;border:1px solid var(--border-h);border-radius:42px;background:linear-gradient(160deg,var(--surface-2),var(--surface));padding:12px;box-shadow:0 34px 90px rgba(0,0,0,.32);position:relative}
+    .phone::before{content:'';position:absolute;top:10px;left:50%;width:88px;height:24px;transform:translateX(-50%);border-radius:var(--r-full);background:var(--bg)}
+    .phone-screen{height:100%;border-radius:32px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(37,99,255,.12),transparent 42%),var(--bg);padding:3rem 1.1rem 1rem;display:flex;flex-direction:column;gap:1rem;overflow:hidden}
+    .mock-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+    .mock-title{height:12px;width:42%;border-radius:var(--r-full);background:var(--text)}
+    .mock-pill{height:28px;width:58px;border-radius:var(--r-full);background:var(--grad-sub);border:1px solid var(--border)}
+    .mock-card{border:1px solid var(--border);border-radius:18px;background:var(--surface);padding:1rem;min-height:110px}
+    .mock-chart{height:92px;border-radius:16px;background:linear-gradient(135deg,rgba(37,99,255,.34),rgba(124,58,237,.18));position:relative;overflow:hidden}
+    .mock-chart::after{content:'';position:absolute;left:14px;right:14px;bottom:18px;height:38px;border:2px solid rgba(255,255,255,.55);border-top:0;border-right:0;transform:skewX(-18deg)}
+    .mock-list{display:grid;gap:.7rem}
+    .mock-line{height:48px;border-radius:14px;background:var(--surface);border:1px solid var(--border)}
+    .sec-head{margin-bottom:3rem}
+    .sec-pre{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;display:block}
+    .sec-h2{font-size:clamp(2rem,1.2rem + 2.5vw,3.2rem);font-weight:800;letter-spacing:-.025em;margin-bottom:1rem}
+    .sec-sub{font-size:1rem;color:var(--text-m);max-width:52ch}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .feature-icon,.step-num{width:44px;height:44px;border-radius:.75rem;background:var(--grad-sub);border:1px solid var(--border);display:grid;place-items:center;margin-bottom:1.25rem;font-family:var(--font-d);font-weight:800;color:var(--text)}
+    .card-title{font-family:var(--font-d);font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.5rem}
+    .card-text{font-size:.9375rem;color:var(--text-m);line-height:1.55}
+    #screenshots{background:var(--bg-alt)}
+    .shots-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:1.25rem;align-items:stretch}
+    .shot{min-height:360px;border-radius:var(--r-xl);border:1px solid var(--border);background:var(--surface);padding:1rem;overflow:hidden;position:relative}
+    .shot.large{grid-row:span 2;min-height:560px}
+    .shot-screen{height:100%;border-radius:18px;background:linear-gradient(145deg,rgba(37,99,255,.16),rgba(124,58,237,.08)),var(--bg);border:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+    .shot-bar{height:11px;border-radius:var(--r-full);background:var(--text);opacity:.85}
+    .shot-block{flex:1;border-radius:16px;background:var(--surface);border:1px solid var(--border)}
+    .shot-caption{position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;font-family:var(--font-m);font-size:.68rem;color:var(--text-f);letter-spacing:.08em;text-transform:uppercase}
+    .steps-grid,.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .price-card{display:flex;flex-direction:column;gap:1.25rem}
+    .price-card.featured{background:var(--surface-2);border-color:rgba(37,99,255,.4);box-shadow:0 0 0 1px rgba(37,99,255,.2),0 20px 60px rgba(37,99,255,.12)}
+    .price-popular{position:absolute;top:1.25rem;right:1.25rem;font-family:var(--font-m);font-size:10px;color:#fff;background:var(--grad);border-radius:var(--r-full);padding:3px .625rem}
+    .price-amount{font-family:var(--font-d);font-size:clamp(1.9rem,1rem + 2vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+    .price-note{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);margin-top:.25rem}
+    .price-divider{height:1px;background:var(--border)}
+    .price-feature{font-size:.875rem;color:var(--text-m);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4}
+    .price-feature::before{content:'->';color:var(--blue);flex-shrink:0;font-family:var(--font-m);font-size:.7rem;margin-top:.08rem}
+    .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    details{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;transition:border-color var(--tr),background var(--tr)}
+    details:hover,details[open]{border-color:var(--border-h);background:var(--surface-2)}
+    summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:'+';font-family:var(--font-m);color:var(--text-f)}
+    details[open] summary::after{content:'-'}
+    details p{margin-top:.75rem;color:var(--text-m);font-size:.9375rem}
+    .final-cta{text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,255,.12),transparent 70%)}
+    .cta-inner{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;flex-direction:column;align-items:center;gap:1.75rem}
+    .cta-h2{font-size:clamp(2rem,1rem + 4vw,4.5rem);font-weight:900;letter-spacing:-.03em}
+    footer{padding:2.5rem 0;border-top:1px solid var(--border);background:color-mix(in srgb,var(--bg) 94%,#000 6%)}
+    .footer-inner{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1.5rem}
+    .f-logo{font-family:var(--font-d);font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+    .f-links{display:flex;gap:1.25rem;flex-wrap:wrap}
+    .f-link,.f-copy{font-size:.875rem;color:var(--text-m)}
+    .f-copy{font-family:var(--font-m);font-size:.68rem;color:var(--text-f)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 550ms var(--ease),transform 550ms var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .device-wrap{min-height:500px}
+      .features-grid,.steps-grid,.pricing-grid{grid-template-columns:1fr 1fr}
+      .shots-grid{grid-template-columns:1fr 1fr}
+      .shot.large{grid-column:1/-1;min-height:460px}
+      .footer-inner{grid-template-columns:1fr}
+    }
+    @media(max-width:680px){
+      .nav-inner{height:auto;min-height:64px;display:grid;grid-template-columns:1fr auto;gap:.75rem;padding:.8rem 1rem}
+      .nav-links{grid-column:1/-1;order:3;overflow:auto;margin:0;padding-bottom:.1rem}
+      .nav-a{white-space:nowrap}
+      .hero{padding-top:4rem}
+      .hero-actions .btn{width:100%}
+      .device-wrap{min-height:420px}
+      .phone{width:min(78vw,270px)}
+      .features-grid,.steps-grid,.pricing-grid,.faq-list,.shots-grid{grid-template-columns:1fr}
+      .shot,.shot.large{min-height:340px}
+      .card{padding:1.5rem}
+      .footer-inner{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <div class="nav-inner">
+        <a href="/" class="logo" aria-label="Back to Olegotka homepage">oleg<span>otka</span></a>
+        <div class="nav-links" aria-label="App page navigation">
+          <a href="#features" class="nav-a" data-i18n="nav.features">Features</a>
+          <a href="#screenshots" class="nav-a" data-i18n="nav.screenshots">Screenshots</a>
+          <a href="#pricing" class="nav-a" data-i18n="nav.pricing">Pricing</a>
+          <a href="#faq" class="nav-a" data-i18n="nav.faq">FAQ</a>
+        </div>
+        <div class="nav-right">
+          <div class="lang-sw" aria-label="Language switcher">
+            <button class="lang-btn active" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+            <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          </div>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme">
+            <span data-theme-icon>L</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main id="app-root"></main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <a href="/" class="f-logo" data-app-name>AppName</a>
+          <p class="f-copy" data-app-footer>Reusable landing page template for focused Apple-platform apps.</p>
+        </div>
+        <div class="f-links">
+          <a href="#" class="f-link" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="#" class="f-link" data-i18n="footer.terms">Terms</a>
+          <a href="/" class="f-link" data-i18n="footer.studio">Studio</a>
+        </div>
+        <p class="f-copy" data-app-copy>(c) 2026 AppName. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const APP_TEMPLATE = {
+      en: {
+        appName: "AppName",
+        tagline: "A calmer way to run your day.",
+        description: "Replace this copy with a crisp explanation of what your app does, who it helps, and why it deserves a place on someone's Home Screen.",
+        badge: "iOS and macOS app template",
+        primaryCta: "Download on the App Store",
+        secondaryCta: "Learn more",
+        storeUrl: "#",
+        nav: { features: "Features", screenshots: "Screenshots", pricing: "Pricing", faq: "FAQ" },
+        heroTags: ["Private by design", "Native SwiftUI feel", "Works across Apple devices"],
+        featuresTitle: "Designed for daily use.",
+        featuresSubtitle: "Swap these cards for the app's strongest outcomes. Keep them short, concrete, and benefit-led.",
+        features: [
+          { icon: "01", title: "Fast capture", text: "Turn an idea, task, or moment into a clean record in seconds." },
+          { icon: "02", title: "Smart organization", text: "Group the important things automatically without making users manage a system." },
+          { icon: "03", title: "Gentle reminders", text: "Bring people back at the right time with quiet, useful nudges." },
+          { icon: "04", title: "Offline first", text: "Make core flows feel instant even when the connection is unreliable." },
+          { icon: "05", title: "Private sync", text: "Keep user data available across devices with a privacy-forward architecture." },
+          { icon: "06", title: "Beautiful widgets", text: "Give users glanceable value from the Lock Screen and Home Screen." }
+        ],
+        screenshotsTitle: "Preview the product.",
+        screenshotsSubtitle: "Use these placeholders until real App Store screenshots are ready.",
+        screenshots: ["Today view", "Detail screen", "Widget state", "Settings"],
+        stepsTitle: "How it works.",
+        stepsSubtitle: "Three simple steps are enough for most app landing pages.",
+        steps: [
+          { title: "Capture", text: "Open the app and save the thing that matters with one focused action." },
+          { title: "Refine", text: "The app organizes the context, timing, and next step automatically." },
+          { title: "Return", text: "Come back through reminders, widgets, or search when the moment is right." }
+        ],
+        pricingTitle: "Simple pricing.",
+        pricingSubtitle: "Placeholder plans for free, subscription, and lifetime purchase models.",
+        pricing: [
+          { name: "Free", price: "$0", note: "Starter plan", text: "For trying the core workflow.", features: ["Core app flow", "Limited items", "Basic widgets"], cta: "Start free" },
+          { name: "Premium", price: "$4.99", note: "per month", text: "For people who use it every day.", features: ["Unlimited items", "Cloud sync", "Advanced reminders"], cta: "Start trial", featured: true },
+          { name: "Lifetime", price: "$49", note: "one-time purchase", text: "For users who prefer to own it.", features: ["All premium features", "Future updates", "Family sharing placeholder"], cta: "Buy lifetime" }
+        ],
+        faqTitle: "Questions, answered.",
+        faqSubtitle: "Replace these with product-specific launch, privacy, and billing answers.",
+        faq: [
+          { q: "Is this a real app?", a: "This is a reusable landing page template. Replace the placeholder content with your app's real details." },
+          { q: "Where do the App Store buttons go?", a: "The CTA links use placeholder anchors for now. Point them to the App Store listing when the app is live." },
+          { q: "Can I use this for macOS apps?", a: "Yes. The structure is written for Apple-platform apps and works for iOS, iPadOS, macOS, and watchOS." },
+          { q: "Does it support dark and light mode?", a: "The template keeps light-theme tokens for later, but currently renders dark by default." },
+          { q: "How should I customize screenshots?", a: "Replace the placeholders with real product imagery or screenshots once the app UI is stable." }
+        ],
+        finalTitle: "Ready for App Store launch.",
+        finalText: "Use this closing section to repeat the main outcome and send visitors to the App Store.",
+        footerDescription: "Reusable landing page template for focused Apple-platform apps.",
+        copyright: "(c) 2026 AppName. All rights reserved.",
+        footer: { privacy: "Privacy Policy", terms: "Terms", studio: "Studio" }
+      },
+      es: {
+        appName: "AppName",
+        tagline: "Una forma mas tranquila de organizar tu dia.",
+        description: "Sustituye este texto por una explicacion clara de que hace tu app, a quien ayuda y por que merece estar en la pantalla de inicio.",
+        badge: "Plantilla para apps iOS y macOS",
+        primaryCta: "Descargar en App Store",
+        secondaryCta: "Ver mas",
+        storeUrl: "#",
+        nav: { features: "Funciones", screenshots: "Capturas", pricing: "Precios", faq: "FAQ" },
+        heroTags: ["Privada por diseno", "Sensacion nativa SwiftUI", "Para dispositivos Apple"],
+        featuresTitle: "Disenada para uso diario.",
+        featuresSubtitle: "Cambia estas tarjetas por los resultados mas fuertes de la app. Breves, concretos y orientados al beneficio.",
+        features: [
+          { icon: "01", title: "Captura rapida", text: "Convierte una idea, tarea o momento en un registro limpio en segundos." },
+          { icon: "02", title: "Organizacion inteligente", text: "Agrupa lo importante automaticamente sin obligar al usuario a gestionar un sistema." },
+          { icon: "03", title: "Recordatorios suaves", text: "Trae a las personas de vuelta en el momento adecuado con avisos utiles." },
+          { icon: "04", title: "Offline primero", text: "Los flujos principales se sienten instantaneos incluso con mala conexion." },
+          { icon: "05", title: "Sync privado", text: "Datos disponibles en todos los dispositivos con arquitectura enfocada en privacidad." },
+          { icon: "06", title: "Widgets bonitos", text: "Valor visible desde la pantalla de bloqueo y la pantalla de inicio." }
+        ],
+        screenshotsTitle: "Vista previa del producto.",
+        screenshotsSubtitle: "Usa estos placeholders hasta tener capturas reales para App Store.",
+        screenshots: ["Vista de hoy", "Detalle", "Widget", "Ajustes"],
+        stepsTitle: "Como funciona.",
+        stepsSubtitle: "Tres pasos simples suelen bastar para una landing de app.",
+        steps: [
+          { title: "Captura", text: "Abre la app y guarda lo importante con una accion enfocada." },
+          { title: "Refina", text: "La app organiza contexto, tiempo y siguiente paso automaticamente." },
+          { title: "Vuelve", text: "Regresa con recordatorios, widgets o busqueda cuando toca." }
+        ],
+        pricingTitle: "Precios simples.",
+        pricingSubtitle: "Planes placeholder para modelo gratis, suscripcion y compra lifetime.",
+        pricing: [
+          { name: "Gratis", price: "$0", note: "Plan inicial", text: "Para probar el flujo principal.", features: ["Flujo principal", "Items limitados", "Widgets basicos"], cta: "Empezar gratis" },
+          { name: "Premium", price: "$4.99", note: "al mes", text: "Para quien la usa cada dia.", features: ["Items ilimitados", "Sync en la nube", "Recordatorios avanzados"], cta: "Probar", featured: true },
+          { name: "Lifetime", price: "$49", note: "pago unico", text: "Para usuarios que prefieren comprar.", features: ["Todo premium", "Futuras actualizaciones", "Family sharing placeholder"], cta: "Comprar lifetime" }
+        ],
+        faqTitle: "Preguntas frecuentes.",
+        faqSubtitle: "Sustituye estas respuestas por dudas reales de lanzamiento, privacidad y pagos.",
+        faq: [
+          { q: "Es una app real?", a: "Es una plantilla reutilizable. Cambia los placeholders por detalles reales de tu app." },
+          { q: "A donde van los botones App Store?", a: "Ahora apuntan a enlaces placeholder. Cambialos por la ficha de App Store cuando este publicada." },
+          { q: "Sirve para apps macOS?", a: "Si. La estructura funciona para iOS, iPadOS, macOS y watchOS." },
+          { q: "Tiene modo claro y oscuro?", a: "La plantilla conserva tokens de tema claro para mas adelante, pero ahora se muestra en modo oscuro." },
+          { q: "Como personalizo capturas?", a: "Sustituye los placeholders por imagenes reales cuando la UI este estable." }
+        ],
+        finalTitle: "Lista para lanzar en App Store.",
+        finalText: "Usa este cierre para repetir el resultado principal y enviar visitantes al App Store.",
+        footerDescription: "Plantilla reutilizable para landing pages de apps Apple.",
+        copyright: "(c) 2026 AppName. Todos los derechos reservados.",
+        footer: { privacy: "Privacidad", terms: "Terminos", studio: "Studio" }
+      },
+      ru: {
+        appName: "AppName",
+        tagline: "Spokoynyy sposob upravlyat dnem.",
+        description: "Zamenite etot tekst na kratkoe opisanie: chto delaet prilozhenie, komu pomogaet i pochemu ego stoit ustanovit.",
+        badge: "Shablon dlya iOS i macOS app",
+        primaryCta: "Skachat v App Store",
+        secondaryCta: "Uznat bolshe",
+        storeUrl: "#",
+        nav: { features: "Funkcii", screenshots: "Skriny", pricing: "Ceny", faq: "FAQ" },
+        heroTags: ["Privacy first", "Native SwiftUI feel", "Dlya Apple devices"],
+        featuresTitle: "Dlya ezhednevnogo ispolzovaniya.",
+        featuresSubtitle: "Zamenite kartochki na glavnyye preimushchestva vashego prilozheniya.",
+        features: [
+          { icon: "01", title: "Bystryy vvod", text: "Sohranyayte ideyu, zadachu ili moment za neskolko sekund." },
+          { icon: "02", title: "Umnaya organizaciya", text: "Vazhnoe gruppiruetsya avtomaticheski, bez slozhnoy sistemy." },
+          { icon: "03", title: "Myagkie napominaniya", text: "Vozvrashchayte polzovatelya v nuzhnyy moment." },
+          { icon: "04", title: "Offline first", text: "Osnovnye scenarii rabotayut bystro dazhe bez stabilnogo interneta." },
+          { icon: "05", title: "Privatnyy sync", text: "Dannye dostupny na ustroystvah s fokusom na privacy." },
+          { icon: "06", title: "Krasivye vidzhety", text: "Polza na Lock Screen i Home Screen s pervogo vzglyada." }
+        ],
+        screenshotsTitle: "Preview produkta.",
+        screenshotsSubtitle: "Ispolzuyte placeholders, poka net realnyh App Store skrinshotov.",
+        screenshots: ["Today view", "Detail", "Widget", "Settings"],
+        stepsTitle: "Kak eto rabotaet.",
+        stepsSubtitle: "Tri prostyh shaga dostatochno dlya bolshinstva app landing pages.",
+        steps: [
+          { title: "Zahvat", text: "Otkroyte app i sohranite vazhnoe odnim deystviem." },
+          { title: "Utochnenie", text: "App organizuet kontekst, vremya i sleduyushchiy shag." },
+          { title: "Vozvrat", text: "Vernites cherez reminder, widget ili search v nuzhnyy moment." }
+        ],
+        pricingTitle: "Prostye ceny.",
+        pricingSubtitle: "Placeholder plany dlya free, subscription i lifetime purchase.",
+        pricing: [
+          { name: "Free", price: "$0", note: "Start", text: "Chtoby poprobovat osnovnoy flow.", features: ["Core flow", "Limited items", "Basic widgets"], cta: "Nachat" },
+          { name: "Premium", price: "$4.99", note: "v mesyac", text: "Dlya ezhednevnogo ispolzovaniya.", features: ["Unlimited items", "Cloud sync", "Advanced reminders"], cta: "Trial", featured: true },
+          { name: "Lifetime", price: "$49", note: "odin platezh", text: "Dlya teh, kto hochet kupit navsegda.", features: ["All premium", "Future updates", "Family sharing placeholder"], cta: "Kupit" }
+        ],
+        faqTitle: "Voprosy i otvety.",
+        faqSubtitle: "Zamenite na realnye voprosy pro launch, privacy i billing.",
+        faq: [
+          { q: "Eto realnoe prilozhenie?", a: "Eto reusable landing page template. Zamenite placeholder content na realnye dannye." },
+          { q: "Kuda vedut App Store knopki?", a: "Seychas eto placeholder links. Zamenite ih na App Store listing posle publikatcii." },
+          { q: "Mozhno dlya macOS app?", a: "Da. Struktura podhodit dlya iOS, iPadOS, macOS i watchOS." },
+          { q: "Est dark i light mode?", a: "Light-theme tokens sohraneny na budushchee, no seychas stranica renderitsya v dark mode." },
+          { q: "Kak zamenit skrinshoty?", a: "Zamenite placeholders na realnye product images, kogda UI stabilen." }
+        ],
+        finalTitle: "Gotovo k App Store launch.",
+        finalText: "Ispolzuyte final CTA, chtoby povtorit glavnoe preimushchestvo i otpravit v App Store.",
+        footerDescription: "Reusable landing page template dlya Apple-platform apps.",
+        copyright: "(c) 2026 AppName. Vse prava zashchishcheny.",
+        footer: { privacy: "Privacy Policy", terms: "Terms", studio: "Studio" }
+      }
+    };
+
+    const root = document.getElementById('app-root');
+    let currentLang = 'en';
+
+    function html(strings, ...values) {
+      return strings.reduce((out, str, i) => out + str + (values[i] ?? ''), '');
+    }
+
+    function escapeText(value) {
+      return String(value).replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' }[char]));
+    }
+
+    function renderPage(lang) {
+      const data = APP_TEMPLATE[lang] || APP_TEMPLATE.en;
+      document.documentElement.lang = lang;
+      document.title = `${data.appName} - ${data.tagline}`;
+      document.querySelectorAll('[data-app-name]').forEach(el => { el.textContent = data.appName; });
+      document.querySelector('[data-app-footer]').textContent = data.footerDescription;
+      document.querySelector('[data-app-copy]').textContent = data.copyright;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n').split('.');
+        let value = data;
+        key.forEach(part => { value = value?.[part]; });
+        if (value) el.textContent = value;
+      });
+      document.querySelectorAll('[data-lang]').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+
+      root.innerHTML = html`
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <div class="app-kicker reveal">
+                <div class="app-icon" aria-hidden="true"></div>
+                <div>
+                  <span class="badge-pill"><span class="dot"></span>${escapeText(data.badge)}</span>
+                  <p class="app-label">${escapeText(data.appName)}</p>
+                </div>
+              </div>
+              <h1 class="hero-h1 reveal">${escapeText(data.tagline.split(' ').slice(0,-2).join(' '))}<br><span class="grad-text">${escapeText(data.tagline.split(' ').slice(-2).join(' '))}</span></h1>
+              <p class="hero-sub reveal">${escapeText(data.description)}</p>
+              <div class="hero-actions reveal">
+                <a href="${escapeText(data.storeUrl)}" class="btn btn-primary">${escapeText(data.primaryCta)}</a>
+                <a href="#features" class="btn btn-ghost">${escapeText(data.secondaryCta)}</a>
+              </div>
+              <div class="hero-points reveal">${data.heroTags.map(tag => `<span class="tag">${escapeText(tag)}</span>`).join('')}</div>
+            </div>
+            <div class="device-wrap reveal" aria-label="App screenshot placeholder">
+              <div class="device-halo"></div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <div class="mock-row"><span class="mock-title"></span><span class="mock-pill"></span></div>
+                  <div class="mock-card"><div class="mock-chart"></div></div>
+                  <div class="mock-list"><span class="mock-line"></span><span class="mock-line"></span><span class="mock-line"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features">
+          <div class="container">
+            <div class="sec-head reveal">
+              <span class="sec-pre">// Features</span>
+              <h2 class="sec-h2">${escapeText(data.featuresTitle)}</h2>
+              <p class="sec-sub">${escapeText(data.featuresSubtitle)}</p>
+            </div>
+            <div class="features-grid">
+              ${data.features.map(item => `
+                <article class="card reveal">
+                  <div class="feature-icon">${escapeText(item.icon)}</div>
+                  <h3 class="card-title">${escapeText(item.title)}</h3>
+                  <p class="card-text">${escapeText(item.text)}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="screenshots">
+          <div class="container">
+            <div class="sec-head reveal">
+              <span class="sec-pre">// Screenshots</span>
+              <h2 class="sec-h2">${escapeText(data.screenshotsTitle)}</h2>
+              <p class="sec-sub">${escapeText(data.screenshotsSubtitle)}</p>
+            </div>
+            <div class="shots-grid">
+              ${data.screenshots.map((label, index) => `
+                <article class="shot ${index === 0 ? 'large' : ''} reveal">
+                  <div class="shot-screen">
+                    <span class="shot-bar" style="width:${index === 0 ? '46' : '58'}%"></span>
+                    <span class="shot-block"></span>
+                    <span class="shot-bar" style="width:72%;opacity:.45"></span>
+                    <span class="shot-bar" style="width:54%;opacity:.28"></span>
+                  </div>
+                  <p class="shot-caption">${escapeText(label)}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="how-it-works">
+          <div class="container">
+            <div class="sec-head reveal">
+              <span class="sec-pre">// Flow</span>
+              <h2 class="sec-h2">${escapeText(data.stepsTitle)}</h2>
+              <p class="sec-sub">${escapeText(data.stepsSubtitle)}</p>
+            </div>
+            <div class="steps-grid">
+              ${data.steps.map((step, index) => `
+                <article class="card reveal">
+                  <div class="step-num">${String(index + 1).padStart(2, '0')}</div>
+                  <h3 class="card-title">${escapeText(step.title)}</h3>
+                  <p class="card-text">${escapeText(step.text)}</p>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing">
+          <div class="container">
+            <div class="sec-head reveal" style="text-align:center">
+              <span class="sec-pre">// Pricing</span>
+              <h2 class="sec-h2">${escapeText(data.pricingTitle)}</h2>
+              <p class="sec-sub" style="margin:0 auto">${escapeText(data.pricingSubtitle)}</p>
+            </div>
+            <div class="pricing-grid">
+              ${data.pricing.map(plan => `
+                <article class="card price-card ${plan.featured ? 'featured' : ''} reveal">
+                  ${plan.featured ? '<span class="price-popular">Best value</span>' : ''}
+                  <div>
+                    <h3 class="card-title">${escapeText(plan.name)}</h3>
+                    <p class="card-text">${escapeText(plan.text)}</p>
+                  </div>
+                  <div>
+                    <div class="price-amount ${plan.featured ? 'grad-text' : ''}">${escapeText(plan.price)}</div>
+                    <p class="price-note">${escapeText(plan.note)}</p>
+                  </div>
+                  <div class="price-divider"></div>
+                  ${plan.features.map(feature => `<p class="price-feature">${escapeText(feature)}</p>`).join('')}
+                  <a href="${escapeText(data.storeUrl)}" class="btn ${plan.featured ? 'btn-primary' : 'btn-ghost'}" style="width:100%">${escapeText(plan.cta)}</a>
+                </article>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq">
+          <div class="container">
+            <div class="sec-head reveal">
+              <span class="sec-pre">// FAQ</span>
+              <h2 class="sec-h2">${escapeText(data.faqTitle)}</h2>
+              <p class="sec-sub">${escapeText(data.faqSubtitle)}</p>
+            </div>
+            <div class="faq-list">
+              ${data.faq.map((item, index) => `
+                <details class="reveal" ${index === 0 ? 'open' : ''}>
+                  <summary>${escapeText(item.q)}</summary>
+                  <p>${escapeText(item.a)}</p>
+                </details>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta" id="download">
+          <div class="cta-inner">
+            <span class="badge-pill reveal"><span class="dot"></span>${escapeText(data.badge)}</span>
+            <h2 class="cta-h2 reveal">${escapeText(data.finalTitle)}</h2>
+            <p class="sec-sub reveal" style="text-align:center">${escapeText(data.finalText)}</p>
+            <a href="${escapeText(data.storeUrl)}" class="btn btn-primary reveal">${escapeText(data.primaryCta)}</a>
+          </div>
+        </section>
+      `;
+      reveal();
+    }
+
+    function reveal() {
+      const items = document.querySelectorAll('.reveal');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      if (prefersReduced) {
+        items.forEach(item => item.classList.add('in'));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: .08 });
+      items.forEach(item => observer.observe(item));
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('[data-theme-icon]').textContent = theme === 'dark' ? 'L' : 'D';
+      try { localStorage.setItem('app-template-theme', theme); } catch(e) {}
+    }
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        try { localStorage.setItem('app-template-lang', currentLang); } catch(e) {}
+        renderPage(currentLang);
+      });
+    });
+
+    document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
+      applyTheme('dark');
+    });
+
+    try {
+      applyTheme('dark');
+      const savedLang = localStorage.getItem('app-template-lang');
+      currentLang = APP_TEMPLATE[savedLang] ? savedLang : 'en';
+    } catch(e) {
+      applyTheme('dark');
+    }
+    renderPage(currentLang);
+  </script>
+</body>
+</html>
