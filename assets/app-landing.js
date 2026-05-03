@@ -44,9 +44,25 @@
     `;
   }
 
+  function renderCtas(data, includeSecondary = true){
+    const ctas = data.ctas && data.ctas.length
+      ? data.ctas.filter(cta => includeSecondary || (cta.external !== false && !String(cta.href || '').startsWith('#')))
+      : [
+        { label: data.primaryCta, href: data.appStoreUrl, variant: 'primary', external: true },
+        ...(includeSecondary ? [{ label: data.secondaryCta, href: '#features', variant: 'ghost', external: false }] : [])
+      ];
+    return ctas.map(cta => {
+      if (!cta || !cta.label || !cta.href) return '';
+      const variant = cta.variant === 'ghost' ? 'btn-ghost' : 'btn-primary';
+      const target = cta.external === false || String(cta.href).startsWith('#') ? '' : ' target="_blank" rel="noopener"';
+      return `<a href="${escapeText(cta.href)}" class="btn ${variant}"${target}>${escapeText(cta.label)}</a>`;
+    }).join('');
+  }
+
   function renderPage(lang){
     const data = getLangData(lang);
     const [headline, highlight] = splitTagline(data.tagline);
+    const heroActionClass = data.ctas && data.ctas.length > 2 ? ' hero-actions-many' : '';
     renderChrome(data, lang);
     const navLinks = document.querySelector('[data-nav-links]');
     if (navLinks) navLinks.innerHTML = renderNav(data);
@@ -61,9 +77,8 @@
             </div>
             <h1 class="hero-h1 reveal">${escapeText(headline)}${highlight ? `<br><span class="grad-text">${escapeText(highlight)}</span>` : ''}</h1>
             <p class="hero-sub reveal">${escapeText(data.description)}</p>
-            <div class="hero-actions reveal">
-              <a href="${escapeText(data.appStoreUrl)}" class="btn btn-primary" target="_blank" rel="noopener">${escapeText(data.primaryCta)}</a>
-              <a href="#features" class="btn btn-ghost">${escapeText(data.secondaryCta)}</a>
+            <div class="hero-actions${heroActionClass} reveal">
+              ${renderCtas(data, true)}
             </div>
             <div class="hero-points reveal">${(data.heroTags || []).map(tag => `<span class="tag">${escapeText(tag)}</span>`).join('')}</div>
           </div>
@@ -78,7 +93,7 @@
       <section id="how-it-works"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// ${escapeText(data.labels?.how || 'Flow')}</span><h2 class="sec-h2">${escapeText(data.stepsTitle)}</h2><p class="sec-sub">${escapeText(data.stepsSubtitle)}</p></div><div class="steps-grid">${(data.steps || []).map((step,index) => `<article class="card reveal"><div class="step-num">${String(index + 1).padStart(2,'0')}</div><h3 class="card-title">${escapeText(step.title)}</h3><p class="card-text">${escapeText(step.text)}</p></article>`).join('')}</div></div></section>
       ${data.useCases ? `<section id="use-cases"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// ${escapeText(data.labels?.useCases || 'Use cases')}</span><h2 class="sec-h2">${escapeText(data.useCasesTitle)}</h2><p class="sec-sub">${escapeText(data.useCasesSubtitle)}</p></div><div class="use-grid">${data.useCases.map(item => `<article class="card reveal"><h3 class="card-title">${escapeText(item.title)}</h3><p class="card-text">${escapeText(item.text)}</p></article>`).join('')}</div></div></section>` : ''}
       <section id="faq"><div class="container"><div class="sec-head reveal"><span class="sec-pre">// FAQ</span><h2 class="sec-h2">${escapeText(data.faqTitle)}</h2><p class="sec-sub">${escapeText(data.faqSubtitle)}</p>${data.disclaimer ? `<p class="disclaimer">${escapeText(data.disclaimer)}</p>` : ''}</div><div class="faq-list">${(data.faq || []).map((item,index) => `<details class="reveal" ${index === 0 ? 'open' : ''}><summary>${escapeText(item.q)}</summary><p>${escapeText(item.a)}</p></details>`).join('')}</div></div></section>
-      <section class="final-cta" id="download"><div class="cta-inner"><span class="badge-pill reveal"><span class="dot"></span>${escapeText(data.badge)}</span><h2 class="cta-h2 reveal">${escapeText(data.finalTitle)}</h2><p class="sec-sub reveal" style="text-align:center">${escapeText(data.finalText)}</p><a href="${escapeText(data.appStoreUrl)}" class="btn btn-primary reveal" target="_blank" rel="noopener">${escapeText(data.primaryCta)}</a></div></section>
+      <section class="final-cta" id="download"><div class="cta-inner"><span class="badge-pill reveal"><span class="dot"></span>${escapeText(data.badge)}</span><h2 class="cta-h2 reveal">${escapeText(data.finalTitle)}</h2><p class="sec-sub reveal" style="text-align:center">${escapeText(data.finalText)}</p><div class="cta-btns reveal">${renderCtas(data, false)}</div></div></section>
     `;
     reveal();
   }
