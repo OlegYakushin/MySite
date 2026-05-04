@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Days Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for Days, an iOS travel passport and travel history app." />
+  <meta property="og:title" content="Days Privacy Policy" />
+  <meta property="og:description" content="How Days handles travel profile data, documents metadata, trip history, iCloud sync, subscriptions, and optional analytics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olegotka.es/days-privacy.html" />
+  <meta property="og:image" content="https://olegotka.es/assets/projects/days_preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://olegotka.es/days-privacy.html" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <style>
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:Cabinet;src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:Cabinet;src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{
+      --font-display:Cabinet,Inter,sans-serif;
+      --font-body:Satoshi,Inter,sans-serif;
+      --font-mono:"SF Mono",Menlo,monospace;
+      --bg:#06061a;
+      --bg-alt:#080820;
+      --surface:#0d0d2b;
+      --surface-2:#12123a;
+      --border:rgba(120,100,255,.12);
+      --border-hover:rgba(120,100,255,.28);
+      --blue:#2563ff;
+      --purple:#7c3aed;
+      --grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);
+      --grad-soft:linear-gradient(135deg,rgba(37,99,255,.12) 0%,rgba(124,58,237,.12) 100%);
+      --text:#f0efff;
+      --muted:#8b8aaa;
+      --faint:#3a3a5c;
+      --ok:#22d3a0;
+      --ok-bg:rgba(34,211,160,.1);
+      --radius:24px;
+      --cw:1200px;
+      --ease:cubic-bezier(.16,1,.3,1);
+      --tr:200ms cubic-bezier(.16,1,.3,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{min-height:100dvh;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.65}
+    body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(120,100,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,100,255,.05) 1px,transparent 1px);background-size:48px 48px}
+    body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 20% 10%,rgba(37,99,255,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 85% 80%,rgba(124,58,237,.1) 0%,transparent 70%)}
+    a{color:inherit;text-decoration:none}
+    p{max-width:72ch;text-wrap:pretty}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.08;text-wrap:balance}
+    .page{position:relative;z-index:1}
+    .container{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+    nav{position:sticky;top:0;z-index:10;height:64px;display:flex;align-items:center;background:rgba(6,6,26,.85);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{width:100%;max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;align-items:center;gap:1rem}
+    .logo{font-family:var(--font-display);font-size:1.1rem;font-weight:900;letter-spacing:-.02em}
+    .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:.25rem;margin:0 auto}
+    .nav-a{font-size:.9rem;font-weight:500;color:var(--muted);padding:.375rem .75rem;border-radius:6px;transition:color var(--tr),background var(--tr)}
+    .nav-a:hover{color:var(--text);background:rgba(120,100,255,.08)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:.75rem 1.5rem;border-radius:12px;font-size:.9375rem;font-weight:700;white-space:nowrap;transition:all var(--tr)}
+    .btn-primary{background:var(--grad);color:#fff}
+    .btn-primary:hover{filter:brightness(1.07);box-shadow:0 6px 24px rgba(37,99,255,.35)}
+    .btn-ghost{border:1.5px solid var(--border);color:var(--muted)}
+    .btn-ghost:hover{border-color:var(--border-hover);color:var(--text);background:rgba(120,100,255,.06)}
+    .badge-pill{display:inline-flex;align-items:center;gap:.5rem;width:max-content;border:1px solid rgba(34,211,160,.2);border-radius:999px;background:var(--ok-bg);color:var(--ok);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;padding:.25rem .75rem}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.42}}
+    .hero{padding:clamp(6rem,12vw,9rem) 0 clamp(3.5rem,7vw,6rem)}
+    .hero-copy{max-width:900px}
+    .hero h1{margin:1.25rem 0 1.5rem;font-size:clamp(3rem,.5rem + 7vw,7.25rem);font-weight:900;letter-spacing:-.03em}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{font-size:clamp(1.125rem,1rem + .65vw,1.4rem);color:var(--muted);max-width:58ch;line-height:1.55}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+    .hero-metrics{display:flex;flex-wrap:wrap;width:fit-content;margin-top:3rem;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:rgba(13,13,43,.7);backdrop-filter:blur(8px)}
+    .metric{padding:1.1rem 1.5rem;display:flex;flex-direction:column;gap:.25rem}
+    .metric+.metric{border-left:1px solid var(--border)}
+    .metric-n{font-family:var(--font-display);font-size:clamp(1.45rem,1rem + 1.6vw,2.35rem);font-weight:900;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .metric-l{font-family:var(--font-mono);font-size:.66rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .trust-strip{padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(13,13,43,.4)}
+    .trust-inner{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+    .tag{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;background:rgba(120,100,255,.08);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:2px .625rem;white-space:nowrap}
+    section.content{padding:clamp(4rem,8vw,7rem) 0}
+    .section-head{margin-bottom:3rem}
+    .section-kicker{display:block;margin-bottom:.75rem;color:var(--faint);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+    .section-head h2{font-size:clamp(2rem,1.2rem + 2.5vw,3.2rem);font-weight:900;letter-spacing:-.025em;margin-bottom:1rem}
+    .section-head p{color:var(--muted);font-size:1rem}
+    .legal-layout{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:1.25rem;align-items:start}
+    .summary{position:sticky;top:88px}
+    .card{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:2rem;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr)}
+    .card::before{content:"";position:absolute;inset:0;background:var(--grad-soft);opacity:0;pointer-events:none;transition:opacity var(--tr)}
+    .card:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,99,255,.12),0 0 0 1px rgba(120,100,255,.15)}
+    .card:hover::before{opacity:1}
+    .card>*{position:relative;z-index:1}
+    .summary h2,.legal-card h2{margin-bottom:1rem;font-size:1.25rem;font-weight:900;letter-spacing:-.02em}
+    .legal-card+.legal-card{margin-top:1rem}
+    .legal-card p,.summary p{color:var(--muted)}
+    .legal-card p+p{margin-top:1rem}
+    .legal-card ul,.summary ul{padding-left:1.15rem;color:var(--muted)}
+    .legal-card li,.summary li{margin-top:.65rem}
+    .legal-card strong{color:var(--text)}
+    .legal-card a{color:#7aa2ff;font-weight:700}
+    .legal-note{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:.92rem}
+    .nutrition-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+    .nutrition-grid>div{border:1px solid var(--border);border-radius:16px;background:rgba(18,18,58,.68);padding:1rem}
+    .nutrition-grid h3{font-size:1rem;margin-bottom:.5rem}
+    footer{border-top:1px solid var(--border);padding:2rem 0;background:rgba(13,13,43,.42)}
+    .footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;color:var(--muted)}
+    .footer-links,.footer-social{display:flex;flex-wrap:wrap;gap:1rem}
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .nav-inner{justify-content:space-between}
+      .legal-layout{grid-template-columns:1fr}
+      .summary{position:static}
+    }
+    @media (max-width:640px){
+      nav{height:auto;min-height:64px}
+      .nav-inner{padding-top:.75rem;padding-bottom:.75rem}
+      .hero-metrics{width:100%}
+      .metric{width:100%;padding:1rem 1.25rem}
+      .metric+.metric{border-left:0;border-top:1px solid var(--border)}
+      .nutrition-grid{grid-template-columns:1fr}
+      .card{padding:1.35rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav aria-label="Primary">
+      <div class="nav-inner">
+        <a class="logo" href="/index.html">oleg<span> otka</span></a>
+        <div class="nav-links">
+          <a class="nav-a" href="/index.html#services">Services</a>
+          <a class="nav-a" href="/index.html#work">Work</a>
+          <a class="nav-a" href="/index.html#pricing">Pricing</a>
+          <a class="nav-a" href="/index.html#contact">Contact</a>
+        </div>
+        <a class="btn btn-ghost" href="/days.html">Days</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-copy">
+            <span class="badge-pill"><span class="dot"></span> Days iOS App</span>
+            <h1>Privacy <span class="grad-text">Policy.</span></h1>
+            <p class="hero-sub">
+              Days is a travel passport and travel history app. This policy explains what information the app
+              handles, where it is stored, and how optional account, sync, subscription, and analytics features work.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:hello@olegotka.es">Privacy contact →</a>
+              <a class="btn btn-ghost" href="/days.html">Back to Days</a>
+            </div>
+            <div class="hero-metrics" aria-label="Privacy highlights">
+              <div class="metric">
+                <span class="metric-n">Local</span>
+                <span class="metric-l">first storage</span>
+              </div>
+              <div class="metric">
+                <span class="metric-n">Opt-in</span>
+                <span class="metric-l">analytics only</span>
+              </div>
+              <div class="metric">
+                <span class="metric-n">No</span>
+                <span class="metric-l">ads or tracking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="trust-strip">
+        <div class="container trust-inner" aria-label="Policy markers">
+          <span class="tag">Last updated: May 5, 2026</span>
+          <span class="tag">No sale of personal data</span>
+          <span class="tag">No third-party advertising</span>
+          <span class="tag">StoreKit / App Store subscriptions</span>
+          <span class="tag">Optional iCloud sync</span>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">// privacy policy</span>
+            <h2>Clear terms for sensitive travel data.</h2>
+            <p>
+              Travel history, passports, visas, and residence permits can be sensitive. Days is written to be
+              direct about what exists now, what depends on Apple services, and what may apply only if account
+              features are enabled later.
+            </p>
+          </div>
+
+          <div class="legal-layout">
+            <aside class="summary card" aria-label="Privacy summary">
+              <h2>At a glance</h2>
+              <ul>
+                <li>Your main Days data is currently stored locally on your device.</li>
+                <li>iCloud sync may store and sync your data through your Apple account if enabled.</li>
+                <li>Analytics are opt-in only. If you do not enable analytics, analytics events are not sent.</li>
+                <li>Payments and subscription processing are handled by Apple through StoreKit and the App Store.</li>
+              </ul>
+              <p class="legal-note">
+                This is not legal advice; final text should be reviewed by counsel before publication.
+              </p>
+            </aside>
+
+            <div>
+              <article class="card legal-card">
+                <h2>1. Overview / Who We Are</h2>
+                <p>
+                  Days helps you keep a private record of citizenship, passports, visas, residence permits,
+                  trips, travel dates, and related travel access information. The app is operated by Olegotka
+                  Studio. For privacy questions, contact us at
+                  <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+                <p>
+                  We treat travel history and immigration-related records as sensitive information. Our goal is
+                  to collect as little data as needed, keep the current experience local-first, and clearly label
+                  features that depend on Apple services or future account infrastructure.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>2. Information We Collect</h2>
+                <ul>
+                  <li><strong>Travel profile data:</strong> citizenship, passport information, visas, residence permits, and related metadata you add to Days.</li>
+                  <li><strong>Document metadata:</strong> details such as document type, issuing country, validity dates, and status. Days does not collect document scans or photos unless that feature is explicitly added later and you choose to use it.</li>
+                  <li><strong>Trip history:</strong> countries visited and trip start and end dates, plus travel statistics generated from that information.</li>
+                  <li><strong>Settings:</strong> language, theme, analytics consent, and other app preferences.</li>
+                  <li><strong>Account data if registration is enabled:</strong> name, email address, Sign in with Apple identifier, and account settings if and when account features are enabled.</li>
+                  <li><strong>Subscription status:</strong> information from Apple about whether Days Pro is active, expired, in a trial, or otherwise entitled through the App Store.</li>
+                  <li><strong>Diagnostics and analytics:</strong> app events, performance data, crash or diagnostic information only if analytics or diagnostics collection is enabled by you or provided through Apple-controlled system diagnostics.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>3. How We Use Information</h2>
+                <ul>
+                  <li>To calculate travel access, visa-free access, stay limits, and related travel reminders.</li>
+                  <li>To show your travel history, country lists, timelines, and statistics.</li>
+                  <li>To save and restore your data locally on your device.</li>
+                  <li>To sync data between your Apple devices if iCloud sync is enabled.</li>
+                  <li>To manage Days Pro subscription state and unlock paid features.</li>
+                  <li>To provide account features if and when registration, Sign in with Apple, or backend services are enabled.</li>
+                  <li>To improve stability, performance, and product decisions if analytics is enabled.</li>
+                  <li>To respond to support requests that you send to us.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>4. Local Storage and iCloud</h2>
+                <p>
+                  The core Days experience is local-first. Your travel profile, document metadata, trip history,
+                  and settings are currently stored on your device unless you enable sync or account-based features.
+                </p>
+                <p>
+                  If iCloud sync is enabled, Days may store and synchronize your app data through iCloud so it can
+                  be available on your Apple devices. iCloud data is controlled by your Apple account and is also
+                  subject to Apple privacy terms, iCloud settings, device settings, and Apple account controls.
+                  You can manage iCloud access in iOS settings.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>5. Subscriptions and Payments</h2>
+                <p>
+                  Days Pro subscriptions are processed by Apple through StoreKit and the App Store. Days receives
+                  subscription status and entitlement information needed to unlock paid features, but we do not
+                  receive your full payment card number or full App Store payment details.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>6. Analytics</h2>
+                <p>
+                  Analytics are opt-in only. If you do not enable analytics, Days does not send analytics events.
+                  If enabled, analytics may help us understand feature usage, app stability, and performance so we
+                  can improve the app.
+                </p>
+                <p>
+                  Days does not use analytics for advertising tracking, does not track you across other apps or
+                  websites, and does not share analytics data with advertising networks.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>7. Data Sharing</h2>
+                <ul>
+                  <li>We do not sell your personal data.</li>
+                  <li>We do not use third-party advertising networks.</li>
+                  <li>We do not track you across apps or websites for advertising.</li>
+                  <li>Apple may process information needed for App Store purchases, StoreKit, iCloud, Sign in with Apple, and device diagnostics.</li>
+                  <li>If account features, backend storage, or support tools are enabled in the future, we may use service providers only as necessary to operate those features and only with comparable protection commitments.</li>
+                  <li>We may disclose information if required by law or to protect the rights, safety, and security of users or the app.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>8. Data Retention</h2>
+                <p>
+                  Your Days data is kept while you keep it in the app, in iCloud, or in an account if account
+                  features are enabled. You can edit or delete records in the app where available. If export
+                  features are available, you can export your data before deleting it.
+                </p>
+                <p>
+                  If you delete local app data or uninstall the app, data stored only on that device may be removed.
+                  Data synced to iCloud may remain available through your Apple account until you delete it through
+                  the app, iCloud, device settings, or Apple account controls.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>9. Account Deletion</h2>
+                <p>
+                  If account creation exists, Days must allow you to initiate account deletion from within the app.
+                  Account deletion should cover the account record and associated personal data stored in the
+                  account or backend service, subject to legal, security, fraud-prevention, or transaction records
+                  that must be retained.
+                </p>
+                <p>
+                  If account features are not enabled, you can delete the data available in the app and manage any
+                  iCloud copies through the app, iOS settings, iCloud settings, or Apple account controls.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>10. User Rights</h2>
+                <p>
+                  Depending on where you live and which features are enabled, you may have rights to access,
+                  correct, delete, export, or restrict the use of your personal data. You can also withdraw
+                  analytics consent at any time in the app where that setting is available.
+                </p>
+                <p>
+                  For requests that cannot be completed directly in the app, contact us at
+                  <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>11. Children</h2>
+                <p>
+                  Days is not directed to children. We do not knowingly collect personal information from children.
+                  If you believe a child has provided personal information through Days, contact us so we can review
+                  and delete it where appropriate.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>12. International Users / GDPR-Style Rights</h2>
+                <p>
+                  Days may be used by people in different countries. If GDPR, UK GDPR, Swiss, California, or similar
+                  privacy laws apply to you, you may have additional rights such as access, correction, deletion,
+                  portability, objection, restriction, withdrawal of consent, and the right to contact a data
+                  protection authority.
+                </p>
+                <p>
+                  Because Days is currently local-first, many privacy actions can be handled directly on your device
+                  or through your Apple account. If account or backend features are enabled, we will process
+                  applicable requests for account data through the contact channel above.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>13. Security</h2>
+                <p>
+                  We use reasonable technical and organizational measures appropriate for the app, including a
+                  local-first design and reliance on Apple platform security where applicable. No app, device,
+                  network, or storage system can be guaranteed to be completely secure, so you should protect your
+                  device, Apple ID, passcode, and iCloud account.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>14. Changes to This Policy</h2>
+                <p>
+                  We may update this Privacy Policy as Days changes. When we make changes, we will update the
+                  "Last updated" date and post the new version on this page. If a change materially affects how
+                  your data is handled, we will take reasonable steps to make the change clear.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>15. Contact</h2>
+                <p>
+                  Questions, privacy requests, or account deletion requests can be sent to
+                  <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>App Store Privacy Nutrition Label Summary</h2>
+                <p>
+                  This summary is provided to help prepare App Store privacy answers. It should be reviewed against
+                  the exact app build, SDKs, and enabled services before submission.
+                </p>
+                <div class="nutrition-grid">
+                  <div>
+                    <h3>Data linked to user</h3>
+                    <ul>
+                      <li>Contact info if account features are enabled, such as name or email.</li>
+                      <li>User content and travel data if synced through iCloud or stored in an account-based service.</li>
+                      <li>Identifiers for purchases, account features, Sign in with Apple, or subscription entitlement where applicable.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Data not linked or optional</h3>
+                    <ul>
+                      <li>Diagnostics and analytics only if the user enables analytics consent or Apple provides diagnostics through its own settings.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Tracking</h3>
+                    <p>No. Days does not track users across apps or websites owned by other companies for advertising.</p>
+                  </div>
+                  <div>
+                    <h3>Third-party advertising</h3>
+                    <p>No. Days does not use third-party advertising networks.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <p>© 2026 Oleg Yakushin. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/days.html">Days</a>
+          <a href="/index.html#work">Work</a>
+          <a href="/index.html#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:hello@olegotka.es">Email</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
