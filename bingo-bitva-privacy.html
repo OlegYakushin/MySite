@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psychics Bingo App Privacy Policy</title>
+  <meta name="description" content="Privacy Policy and App Privacy notes for Psychics Bingo App." />
+  <meta property="og:title" content="Psychics Bingo App Privacy Policy" />
+  <meta property="og:description" content="How Psychics Bingo App handles account registration, game data, authentication, analytics, and account deletion requests." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olegotka.es/bingo-bitva-privacy.html" />
+  <meta property="og:image" content="https://olegotka.es/assets/apps/bingo-bitva/hero-screen.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://olegotka.es/bingo-bitva-privacy.html" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <style>
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:Satoshi;src:url('/assets/fonts/Satoshi-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:Cabinet;src:url('/assets/fonts/CabinetGrotesk-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:Cabinet;src:url('/assets/fonts/CabinetGrotesk-ExtraBold.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+    :root{--font-display:Cabinet,Inter,sans-serif;--font-body:Satoshi,Inter,sans-serif;--font-mono:"SF Mono",Menlo,monospace;--bg:#06061a;--surface:#0d0d2b;--border:rgba(120,100,255,.12);--border-hover:rgba(120,100,255,.28);--grad:linear-gradient(135deg,#2563ff 0%,#7c3aed 100%);--grad-soft:linear-gradient(135deg,rgba(37,99,255,.12) 0%,rgba(124,58,237,.12) 100%);--text:#f0efff;--muted:#8b8aaa;--faint:#3a3a5c;--ok:#22d3a0;--ok-bg:rgba(34,211,160,.1);--radius:24px;--cw:1200px;--tr:200ms cubic-bezier(.16,1,.3,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{min-height:100dvh;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.65}
+    body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(120,100,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,100,255,.05) 1px,transparent 1px);background-size:48px 48px}
+    body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 20% 10%,rgba(37,99,255,.12) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 85% 80%,rgba(124,58,237,.1) 0%,transparent 70%)}
+    a{color:inherit;text-decoration:none} p{max-width:72ch;text-wrap:pretty} h1,h2,h3{font-family:var(--font-display);line-height:1.08;text-wrap:balance}
+    .page{position:relative;z-index:1}.container{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+    nav{position:sticky;top:0;z-index:10;height:64px;display:flex;align-items:center;background:rgba(6,6,26,.85);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{width:100%;max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);display:flex;align-items:center;gap:1rem}.logo{font-family:var(--font-display);font-size:1.1rem;font-weight:900;letter-spacing:-.02em}.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:.25rem;margin:0 auto}.nav-a{font-size:.9rem;font-weight:500;color:var(--muted);padding:.375rem .75rem;border-radius:6px;transition:color var(--tr),background var(--tr)}.nav-a:hover{color:var(--text);background:rgba(120,100,255,.08)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:.75rem 1.5rem;border-radius:12px;font-size:.9375rem;font-weight:700;white-space:nowrap;transition:all var(--tr)}.btn-primary{background:var(--grad);color:#fff}.btn-primary:hover{filter:brightness(1.07);box-shadow:0 6px 24px rgba(37,99,255,.35)}.btn-ghost{border:1.5px solid var(--border);color:var(--muted)}.btn-ghost:hover{border-color:var(--border-hover);color:var(--text);background:rgba(120,100,255,.06)}
+    .badge-pill{display:inline-flex;align-items:center;gap:.5rem;width:max-content;border:1px solid rgba(34,211,160,.2);border-radius:999px;background:var(--ok-bg);color:var(--ok);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;padding:.25rem .75rem}.dot{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.42}}
+    .hero{padding:clamp(6rem,12vw,9rem) 0 clamp(3.5rem,7vw,6rem)}.hero-copy{max-width:900px}.hero h1{margin:1.25rem 0 1.5rem;font-size:clamp(3rem,.5rem + 7vw,7.25rem);font-weight:900;letter-spacing:-.03em}.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.hero-sub{font-size:clamp(1.125rem,1rem + .65vw,1.4rem);color:var(--muted);max-width:58ch;line-height:1.55}.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+    .hero-metrics{display:flex;flex-wrap:wrap;width:fit-content;margin-top:3rem;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:rgba(13,13,43,.7);backdrop-filter:blur(8px)}.metric{padding:1.1rem 1.5rem;display:flex;flex-direction:column;gap:.25rem}.metric+.metric{border-left:1px solid var(--border)}.metric-n{font-family:var(--font-display);font-size:clamp(1.45rem,1rem + 1.6vw,2.35rem);font-weight:900;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.metric-l{font-family:var(--font-mono);font-size:.66rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .trust-strip{padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(13,13,43,.4)}.trust-inner{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}.tag{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;background:rgba(120,100,255,.08);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:2px .625rem;white-space:nowrap}
+    section.content{padding:clamp(4rem,8vw,7rem) 0}.section-head{margin-bottom:3rem}.section-kicker{display:block;margin-bottom:.75rem;color:var(--faint);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}.section-head h2{font-size:clamp(2rem,1.2rem + 2.5vw,3.2rem);font-weight:900;letter-spacing:-.025em;margin-bottom:1rem}.section-head p{color:var(--muted);font-size:1rem}
+    .legal-layout{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:1.25rem;align-items:start}.summary{position:sticky;top:88px}.card{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:2rem;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr)}.card::before{content:"";position:absolute;inset:0;background:var(--grad-soft);opacity:0;pointer-events:none;transition:opacity var(--tr)}.card:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,99,255,.12),0 0 0 1px rgba(120,100,255,.15)}.card:hover::before{opacity:1}.card>*{position:relative;z-index:1}
+    .summary h2,.legal-card h2{margin-bottom:1rem;font-size:1.25rem;font-weight:900;letter-spacing:-.02em}.legal-card+.legal-card{margin-top:1rem}.legal-card p,.summary p{color:var(--muted)}.legal-card p+p{margin-top:1rem}.legal-card ul,.summary ul{padding-left:1.15rem;color:var(--muted)}.legal-card li,.summary li{margin-top:.65rem}.legal-card strong{color:var(--text)}.legal-card a{color:#7aa2ff;font-weight:700}.legal-note{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-size:.92rem}
+    .nutrition-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem}.nutrition-grid>div{border:1px solid var(--border);border-radius:16px;background:rgba(18,18,58,.68);padding:1rem}.nutrition-grid h3{font-size:1rem;margin-bottom:.5rem}
+    footer{border-top:1px solid var(--border);padding:2rem 0;background:rgba(13,13,43,.42)}.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;color:var(--muted)}.footer-links,.footer-social{display:flex;flex-wrap:wrap;gap:1rem}
+    @media (max-width:900px){.nav-links{display:none}.nav-inner{justify-content:space-between}.legal-layout{grid-template-columns:1fr}.summary{position:static}}@media (max-width:640px){nav{height:auto;min-height:64px}.nav-inner{padding-top:.75rem;padding-bottom:.75rem}.hero-metrics{width:100%}.metric{width:100%;padding:1rem 1.25rem}.metric+.metric{border-left:0;border-top:1px solid var(--border)}.nutrition-grid{grid-template-columns:1fr}.card{padding:1.35rem}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav aria-label="Primary">
+      <div class="nav-inner">
+        <a class="logo" href="/index.html">oleg<span>otka</span></a>
+        <div class="nav-links">
+          <a class="nav-a" href="/bingo-bitva.html">Bingo</a>
+          <a class="nav-a" href="https://bingo.olegotka.es" target="_blank" rel="noopener">Play</a>
+          <a class="nav-a" href="/index.html#contact">Contact</a>
+        </div>
+        <a class="btn btn-ghost" href="/bingo-bitva.html">Back to Bingo</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-copy">
+            <span class="badge-pill"><span class="dot"></span> Psychics Bingo App</span>
+            <h1>Privacy <span class="grad-text">Policy.</span></h1>
+            <p class="hero-sub">
+              Psychics Bingo App is a light entertainment bingo game for solo and shared play. This policy explains
+              how account registration, player profiles, game history, statistics, room play, analytics, and support
+              requests are handled.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:hello@olegotka.es">Privacy contact -></a>
+              <a class="btn btn-ghost" href="https://bingo.olegotka.es" target="_blank" rel="noopener">Open web app</a>
+            </div>
+            <div class="hero-metrics" aria-label="Privacy highlights">
+              <div class="metric"><span class="metric-n">Email</span><span class="metric-l">account login</span></div>
+              <div class="metric"><span class="metric-n">No</span><span class="metric-l">data sale</span></div>
+              <div class="metric"><span class="metric-n">No</span><span class="metric-l">ad tracking</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="trust-strip">
+        <div class="container trust-inner" aria-label="Policy markers">
+          <span class="tag">Last updated: May 8, 2026</span>
+          <span class="tag">Account registration added</span>
+          <span class="tag">Email/password login</span>
+          <span class="tag">Game history and stats</span>
+          <span class="tag">Support: hello@olegotka.es</span>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">// what changed</span>
+            <h2>What changed because of registration.</h2>
+            <p>
+              The app can now create user accounts. That means it may handle email addresses, account IDs,
+              player profile data, session security information, and account-linked game history or statistics.
+            </p>
+          </div>
+
+          <div class="legal-layout">
+            <aside class="summary card" aria-label="Privacy summary">
+              <h2>At a glance</h2>
+              <ul>
+                <li>Email or another account identifier may be collected for registration and login.</li>
+                <li>User ID/auth ID and session security data are used to keep accounts working and protected.</li>
+                <li>Game data such as player name, rooms, history, statistics, predictions, and preferences may be linked to the account.</li>
+                <li>Registration data is not sold to third parties and is not used for cross-app advertising tracking.</li>
+              </ul>
+              <p class="legal-note">
+                This is not legal advice; final text should be reviewed by counsel and matched to the exact production build before publication.
+              </p>
+            </aside>
+
+            <div>
+              <article class="card legal-card">
+                <h2>1. Overview / Who We Are</h2>
+                <p>
+                  Psychics Bingo App is operated by Olegotka Studio. The app lets users play bingo-style games,
+                  create or join rooms, track game history and statistics, and use an account to save data across sessions.
+                  For privacy questions, contact <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>2. Information We Collect</h2>
+                <ul>
+                  <li><strong>Account data:</strong> email address or another account identifier, user ID/auth ID, and login status.</li>
+                  <li><strong>Profile data:</strong> player name, display preferences, avatar or profile fields if added in the app.</li>
+                  <li><strong>Authentication and session data:</strong> password reset status, session tokens, device/session metadata, timestamps, and security logs needed to protect accounts.</li>
+                  <li><strong>Game data:</strong> bingo cards, rooms, room codes, solo or multiplayer mode, game history, statistics, predictions, wins, and settings.</li>
+                  <li><strong>Device and diagnostics data:</strong> app version, device type, crash logs, performance information, and technical error logs if collected.</li>
+                  <li><strong>Usage analytics:</strong> page views, feature usage, or gameplay events if analytics is enabled in the app or web version.</li>
+                  <li><strong>Support data:</strong> email address and message content if you contact us for help.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>3. Authentication Providers</h2>
+                <p>
+                  The reviewed public project and web app show email/password registration, but do not identify the exact
+                  production authentication provider in the static site files. If the production build uses Supabase,
+                  Firebase, Apple, Google, or another authentication/backend provider, that provider may process account
+                  identifiers, email addresses, auth IDs, password reset events, session tokens, IP/device metadata, and
+                  security logs as needed to provide login, account recovery, abuse prevention, and session security.
+                </p>
+                <p>
+                  Before App Store publication, replace this paragraph with the exact provider name and link to that
+                  provider's privacy terms if the provider is known.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>4. How We Use Information</h2>
+                <ul>
+                  <li>To create accounts, sign users in, reset passwords, and protect sessions.</li>
+                  <li>To save player name, game history, statistics, predictions, and preferences.</li>
+                  <li>To create, join, and manage solo or multiplayer rooms.</li>
+                  <li>To prevent abuse, troubleshoot errors, and keep the service reliable.</li>
+                  <li>To respond to support requests.</li>
+                  <li>To understand feature usage and improve the app if analytics are enabled.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>5. Storage and Security</h2>
+                <p>
+                  Account and gameplay data may be stored on our servers or by our authentication/backend provider.
+                  We use reasonable technical and organizational measures to protect data, including account-based
+                  access controls, session security, and provider security controls where applicable.
+                </p>
+                <p>
+                  No system is completely secure. Users should choose a strong password, protect their email account,
+                  and sign out on shared devices.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>6. Analytics, Ads, and Personalization</h2>
+                <p>
+                  The Olegotka website uses Google Analytics. The web app also contains an analytics route tracker in
+                  the public build. Analytics may be used to understand page views, feature usage, errors, and app
+                  performance. Analytics are not used to sell user data.
+                </p>
+                <p>
+                  We do not sell registration data. We do not use third-party advertising networks, and we do not track
+                  users across other apps or websites for advertising. Personalization, if used, is limited to app
+                  features such as player name, saved game history, statistics, rooms, or preferences.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>7. Data Sharing</h2>
+                <ul>
+                  <li>We do not sell personal data.</li>
+                  <li>We may share data with authentication, hosting, analytics, crash reporting, or infrastructure providers only as needed to operate the app.</li>
+                  <li>Apple may process App Store-related information for the iOS app.</li>
+                  <li>We may disclose information if required by law or to protect users, the app, or our rights.</li>
+                </ul>
+              </article>
+
+              <article class="card legal-card">
+                <h2>8. Data Retention</h2>
+                <p>
+                  Account data and linked gameplay data are kept while the account remains active or as needed to provide
+                  the app, maintain security, comply with legal obligations, resolve disputes, or enforce terms. Local
+                  settings may remain on the device until the app data is deleted or the app is uninstalled.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>9. Account Deletion and Data Requests</h2>
+                <p>
+                  Users can request account deletion or personal data deletion by contacting
+                  <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>. Deletion should cover the account record,
+                  auth ID, profile data, and associated personal data, subject to security, fraud prevention, transaction,
+                  or legal records that must be retained.
+                </p>
+                <p>
+                  The reviewed public project does not show a dedicated in-app account deletion screen. If account
+                  creation is available in the iOS app, an in-app way to initiate account deletion should be added or
+                  verified before App Store publication.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>10. User Rights</h2>
+                <p>
+                  Depending on where you live, you may have rights to access, correct, delete, export, object to, or
+                  restrict the use of your personal data. You may also withdraw consent for optional analytics where the
+                  app provides that control. Contact us at <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>11. Children</h2>
+                <p>
+                  Psychics Bingo App is an entertainment app and is not directed to children. We do not knowingly collect
+                  personal information from children. If you believe a child has provided personal information, contact us
+                  so we can review and delete it where appropriate.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>12. International Users</h2>
+                <p>
+                  The app may be used by people in different countries. Data may be processed in countries where we or
+                  our service providers operate. Privacy rights may vary by location, including GDPR-style rights for
+                  users in the EEA, UK, or similar jurisdictions.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>13. Changes to This Policy</h2>
+                <p>
+                  We may update this Privacy Policy as the app changes. When we do, we will update the "Last updated"
+                  date and post the new version on this page.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>14. Contact</h2>
+                <p>
+                  Questions, privacy requests, support requests, or account deletion requests can be sent to
+                  <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.
+                </p>
+              </article>
+
+              <article class="card legal-card">
+                <h2>App Store Connect Privacy Labels Checklist</h2>
+                <p>
+                  Review this checklist against the exact production iOS build, SDKs, and auth provider before submitting.
+                </p>
+                <div class="nutrition-grid">
+                  <div>
+                    <h3>Data linked to user</h3>
+                    <ul>
+                      <li>Contact Info: email address if collected for registration/login.</li>
+                      <li>Identifiers: user ID/auth ID/account ID.</li>
+                      <li>User Content or Gameplay Content: player name, rooms, cards, predictions, game history, and statistics if stored with the account.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Usage / diagnostics</h3>
+                    <ul>
+                      <li>Usage Data: page views, feature usage, gameplay events if analytics is enabled.</li>
+                      <li>Diagnostics: crash logs, performance data, and technical logs if collected.</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Tracking</h3>
+                    <p>No, based on the current policy intent. Do not mark tracking unless data is used to track users across apps or websites owned by other companies.</p>
+                  </div>
+                  <div>
+                    <h3>Action items</h3>
+                    <ul>
+                      <li>Confirm the exact auth provider: Supabase, Firebase, Apple, Google, or other.</li>
+                      <li>Add or verify an in-app account deletion flow.</li>
+                      <li>Confirm whether analytics/crash reporting SDKs are present in the iOS build.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <p>(c) 2026 Olegotka Studio. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/bingo-bitva.html">Bingo</a>
+          <a href="https://bingo.olegotka.es" target="_blank" rel="noopener">Play</a>
+          <a href="/index.html#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="mailto:hello@olegotka.es">Email</a>
+          <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
