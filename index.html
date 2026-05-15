@@ -201,6 +201,42 @@
       border:1.5px solid rgba(120,100,255,0.35);
       background:linear-gradient(160deg,#0a0a30,#16163a);
       display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+    .shot-stage{--shot:url('');width:min(86%,340px);height:82%;position:relative;z-index:1;
+      display:grid;place-items:center;overflow:hidden;border-radius:22px;
+      border:1px solid rgba(170,190,255,.22);background:rgba(5,5,24,.72);
+      box-shadow:0 18px 48px rgba(0,0,0,.32)}
+    .shot-stage::before{content:'';position:absolute;inset:-18px;background-image:var(--shot);
+      background-size:cover;background-position:top center;filter:blur(18px) saturate(1.15);
+      opacity:.34;transform:scale(1.08)}
+    .shot-stage::after{content:'';position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(6,6,26,.18),rgba(6,6,26,.48))}
+    .portfolio-shot{height:calc(100% - 24px);width:auto;max-width:none;object-fit:contain;object-position:center;
+      border-radius:18px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
+      border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 38px rgba(0,0,0,.34)}
+    .port-visual{width:min(82%,280px);height:82%;border-radius:22px;
+      border:1px solid rgba(170,190,255,.24);background:#070720;
+      box-shadow:0 18px 48px rgba(0,0,0,.28),0 0 0 8px rgba(255,255,255,.035);
+      position:relative;z-index:1;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:10px}
+    .port-visual::before{content:'';width:42px;height:4px;border-radius:99px;background:rgba(255,255,255,.18);
+      position:absolute;top:8px;left:50%;transform:translateX(-50%)}
+    .pv-head{display:flex;justify-content:space-between;align-items:center;margin-top:8px;
+      font-family:var(--font-m);font-size:9px;color:rgba(240,239,255,.58);letter-spacing:.08em;text-transform:uppercase}
+    .pv-pill{border-radius:999px;background:rgba(34,211,160,.14);color:#22d3a0;padding:3px 7px}
+    .pv-title{font-family:var(--font-d);font-weight:800;font-size:20px;line-height:1;color:#fff;letter-spacing:-.02em}
+    .pv-card{border:1px solid rgba(170,190,255,.16);background:rgba(255,255,255,.055);border-radius:12px;padding:10px}
+    .pv-lines{height:72px;display:flex;align-items:end;gap:5px}
+    .pv-line{flex:1;border-radius:99px;background:linear-gradient(180deg,#22d3a0,#2563ff);min-height:12px}
+    .pv-doc{height:64px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(210,220,255,.72));position:relative}
+    .pv-doc::after{content:'';position:absolute;left:12px;right:12px;top:14px;height:5px;border-radius:99px;background:rgba(20,20,45,.18);
+      box-shadow:0 12px 0 rgba(20,20,45,.12),0 24px 0 rgba(20,20,45,.1)}
+    .pv-record{margin:auto;width:88px;height:88px;border-radius:50%;border:1px solid rgba(255,255,255,.14);
+      display:grid;place-items:center;background:rgba(255,255,255,.05)}
+    .pv-record::after{content:'';width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ff4d6d,#7c3aed);
+      box-shadow:0 0 28px rgba(255,77,109,.36)}
+    .pv-nda{justify-content:center;text-align:left;background:linear-gradient(145deg,#09091f,#111136)}
+    .pv-nda .pv-title{font-size:24px}
+    .pv-nda-mark{font-family:var(--font-m);font-size:11px;color:#22d3a0;letter-spacing:.16em;text-transform:uppercase}
+    .pv-nda-copy{font-size:12px;color:rgba(240,239,255,.62);line-height:1.45}
     .port-meta{padding:1.5rem;flex-grow:1;display:flex;flex-direction:column;gap:.375rem}
     .port-cat{font-family:var(--font-m);font-size:.65rem;color:var(--text-f);
       letter-spacing:.1em;text-transform:uppercase}
@@ -373,12 +409,12 @@
   <div class="trust-inner">
     <span class="trust-label" data-i18n="trust.label">Trusted by</span>
     <div class="logos">
-      <span class="logo-ph">FitTrack</span>
-      <span class="logo-ph">AeroLog</span>
-      <span class="logo-ph">Menuflow</span>
-      <span class="logo-ph">Vaultly</span>
-      <span class="logo-ph">ShiftSync</span>
-      <span class="logo-ph">TaskHive</span>
+      <span class="logo-ph">DetecFit</span>
+      <span class="logo-ph">ClipCast</span>
+      <span class="logo-ph">Scanner</span>
+      <span class="logo-ph">VPNShield</span>
+      <span class="logo-ph">Days</span>
+      <span class="logo-ph">AeroTechLog</span>
     </div>
   </div>
 </div>
@@ -446,106 +482,112 @@
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div class="shot-stage" style="--shot:url('/assets/cases/detecfit/detecfit-plan.png')">
+            <img class="portfolio-shot" src="/assets/cases/detecfit/detecfit-plan.png" alt="DetecFit app screenshot" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat">Health &amp; Fitness · iOS</span>
-          <p class="port-name">FitTrack Pro</p>
-          <p class="port-desc" data-i18n="p1.desc">Workout tracking for personal trainers. 0 → 10k users in 3 months.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">HealthKit</span><span class="tag">RevenueCat</span></div>
-          <a href="cases/fittrack.html" class="port-link" data-i18n="work.view">View case study →</a>
+          <span class="port-cat" data-i18n="p1.cat">Connected fitness · iOS</span>
+          <p class="port-name">DetecFit</p>
+          <p class="port-desc" data-i18n="p1.desc">BLE companion for custom fitness hardware with live graphs, calibration, rep detection and AWS cloud sync.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">CoreBluetooth</span><span class="tag">SwiftUI</span><span class="tag">AWS</span></div>
+          <a href="/cases/detecfit.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <div class="shot-stage" style="--shot:url('/assets/cases/clipcast/clipcast-01-onboarding.png')">
+            <img class="portfolio-shot" src="/assets/cases/clipcast/clipcast-01-onboarding.png" alt="ClipCast Recorder app screenshot" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat">Fintech · iOS</span>
-          <p class="port-name">Vaultly</p>
-          <p class="port-desc" data-i18n="p2.desc">Personal expense tracker with real bank sync via Plaid.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Plaid</span><span class="tag">CoreData</span></div>
-          <a href="cases/vaultly.html" class="port-link" data-i18n="work.view">View case study →</a>
+          <span class="port-cat" data-i18n="p2.cat">Screen recording · iOS extensions</span>
+          <p class="port-name">ClipCast Recorder</p>
+          <p class="port-desc" data-i18n="p2.desc">ReplayKit recording app with broadcast extension, face-cam overlay, reaction editor and local sharing flow.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">ReplayKit</span><span class="tag">AVFoundation</span><span class="tag">UIKit</span></div>
+          <a href="/cases/clipcast.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="shot-stage" style="--shot:url('/assets/cases/scanner/scanner-01-home.png')">
+            <img class="portfolio-shot" src="/assets/cases/scanner/scanner-01-home.png" alt="Scanner app screenshot" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat">SaaS · iOS</span>
-          <p class="port-name">ShiftSync</p>
-          <p class="port-desc" data-i18n="p3.desc">Team scheduling for shift workers. Real-time updates.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Supabase</span></div>
-          <a href="cases/shiftync.html" class="port-link" data-i18n="work.view">View case study →</a>
+          <span class="port-cat" data-i18n="p3.cat">Document utility · iOS</span>
+          <p class="port-name">Scanner</p>
+          <p class="port-desc" data-i18n="p3.desc">Document scanner with VisionKit capture, OCR, QR scanning, PDF export and local organization.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">VisionKit</span><span class="tag">OCR</span><span class="tag">PDFKit</span></div>
+          <a href="/cases/scanner.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M3 12h18M7 7h10M8 17h8"/><path d="M5 12c0-5 3-9 7-9s7 4 7 9-3 9-7 9-7-4-7-9Z"/></svg>
+          <div class="port-visual pv-nda">
+            <div class="pv-nda-mark">NDA project</div>
+            <div class="pv-title">VPN access infrastructure</div>
+            <p class="pv-nda-copy">Product visuals are private. Architecture and delivery notes available in sanitized form.</p>
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat" data-i18n="p4.cat">Travel · iOS</span>
+          <span class="port-cat" data-i18n="p4.cat">VPN infrastructure · iOS + Backend</span>
+          <p class="port-name">VPNShield</p>
+          <p class="port-desc" data-i18n="p4.desc">NDA project with packet tunnel, WireGuard integration, no-registration access, payments and admin backend.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">Network Extension</span><span class="tag">WireGuard</span><span class="tag">NDA</span></div>
+          <a href="/cases/vpnshield.html" class="port-link" data-i18n="work.view">View case study →</a>
+        </div>
+      </div>
+      <div class="port-card reveal">
+        <div class="port-screen">
+          <div class="port-glow"></div>
+          <div class="shot-stage" style="--shot:url('/assets/cases/days/days-02-loaded.png')">
+            <img class="portfolio-shot" src="/assets/cases/days/days-02-loaded.png" alt="Days app screenshot" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="port-meta">
+          <span class="port-cat" data-i18n="p5.cat">Travel planning · iOS</span>
           <p class="port-name">Days</p>
-          <p class="port-desc" data-i18n="p4.desc">Visa day counting, Schengen limits, trip history and alerts.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">CloudKit</span><span class="tag">Widgets</span></div>
-          <a href="#cta" class="port-link" data-i18n="work.ask">Request details →</a>
+          <p class="port-desc" data-i18n="p5.desc">Travel day tracker for country totals, visa records, Schengen-style planning, trip history and widgets.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Widgets</span><span class="tag">App Store</span></div>
+          <a href="/cases/days.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M4 19V5M4 19h16"/><path d="m8 15 3-4 3 2 4-7"/></svg>
+          <div class="port-visual pv-nda">
+            <div class="pv-nda-mark">NDA project</div>
+            <div class="pv-title">Aviation operations</div>
+            <p class="pv-nda-copy">Screens and workflows are private. Public case focuses on structured records and field operations.</p>
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat" data-i18n="p5.cat">Crypto Tax · iOS</span>
-          <p class="port-name">Koinly Mobile</p>
-          <p class="port-desc" data-i18n="p5.desc">Portfolio snapshots, tax lots and exchange sync for crypto investors.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">Swift</span><span class="tag">REST</span><span class="tag">Charts</span></div>
-          <a href="#cta" class="port-link" data-i18n="work.ask">Request details →</a>
+          <span class="port-cat" data-i18n="p6.cat">Aviation operations · iOS</span>
+          <p class="port-name">AeroTechLog</p>
+          <p class="port-desc" data-i18n="p6.desc">NDA project for flight records, crew data, maintenance notes, documents, forms and post-flight workflows.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Realm</span><span class="tag">NDA</span></div>
+          <a href="/cases/aerotechlog.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/><path d="m16 15 2 2 4-5"/></svg>
+          <div class="port-visual pv-nda">
+            <div class="pv-nda-mark">More work</div>
+            <div class="pv-title">Ask for the extended portfolio</div>
+            <p class="pv-nda-copy">We keep some projects private. Send a short note and we will share relevant examples for your product.</p>
           </div>
         </div>
         <div class="port-meta">
-          <span class="port-cat" data-i18n="p6.cat">Productivity · iOS</span>
-          <p class="port-name">TaskHive</p>
-          <p class="port-desc" data-i18n="p6.desc">Team tasks, real-time activity and simple workflows for small teams.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">Push</span></div>
-          <a href="#cta" class="port-link" data-i18n="work.ask">Request details →</a>
-        </div>
-      </div>
-      <div class="port-card reveal">
-        <div class="port-screen">
-          <div class="port-glow"></div>
-          <div class="port-phone">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(100,140,255,0.7)" stroke-width="1.5" stroke-linecap="round"><path d="M12 3v18M5 8h14M7 16h10"/><path d="M5 8l2-4h10l2 4-7 13Z"/></svg>
-          </div>
-        </div>
-        <div class="port-meta">
-          <span class="port-cat" data-i18n="p7.cat">Restaurants · iOS</span>
-          <p class="port-name">MenuFlow</p>
-          <p class="port-desc" data-i18n="p7.desc">Digital menus, table ordering and kitchen status for boutique venues.</p>
-          <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Supabase</span><span class="tag">Stripe</span></div>
-          <a href="#cta" class="port-link" data-i18n="work.ask">Request details →</a>
+          <span class="port-cat" data-i18n="p7.cat">Private portfolio · on request</span>
+          <p class="port-name" data-i18n="p7.name">Want more examples?</p>
+          <p class="port-desc" data-i18n="p7.desc">Write to us and we will send additional relevant work, including private or NDA-safe examples.</p>
+          <div class="tags" style="margin-bottom:.75rem"><span class="tag">More cases</span><span class="tag">NDA-safe</span><span class="tag">By request</span></div>
+          <a href="#cta" class="port-link" data-i18n="p7.link">Request more work →</a>
         </div>
       </div>
     </div>
@@ -633,17 +675,17 @@
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote" data-i18n="t1.q">"Oleg turned our idea into a real app in three weeks. Clean code, thoughtful architecture — we continued with him on retainer."</p>
-        <div class="testi-author"><div class="testi-av">MK</div><div><p class="testi-name">Mikhail Karpov</p><p class="testi-role">Founder, FitTrack Pro</p></div></div>
+        <div class="testi-author"><div class="testi-av">HW</div><div><p class="testi-name">Hardware MVP</p><p class="testi-role">Connected device delivery</p></div></div>
       </div>
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote" data-i18n="t2.q">"Best developer experience I've had. No middlemen — explained the task directly and got exactly what I wanted, on time."</p>
-        <div class="testi-author"><div class="testi-av">AS</div><div><p class="testi-name">Anna Sorokina</p><p class="testi-role">CEO, Vaultly</p></div></div>
+        <div class="testi-author"><div class="testi-av">EX</div><div><p class="testi-name">Extension App</p><p class="testi-role">ReplayKit workflow</p></div></div>
       </div>
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote" data-i18n="t3.q">"Complete professionalism. The app passed App Store review on the first try — users are happy. That's worth everything."</p>
-        <div class="testi-author"><div class="testi-av">DL</div><div><p class="testi-name">David Levi</p><p class="testi-role">CTO, ShiftSync</p></div></div>
+        <div class="testi-author"><div class="testi-av">ND</div><div><p class="testi-name">NDA Build</p><p class="testi-role">Infrastructure project</p></div></div>
       </div>
     </div>
   </div>
@@ -704,13 +746,13 @@ const T={
     's5.t':'Ongoing Support','s5.d':'Features, iOS version updates, long-term product support.',
     's6.t':'Tech Consulting','s6.d':'Architecture review, code audit, expert assessment pre-launch.',
     'work.pre':'selected work','work.h2a':"What we've",'work.h2b':'shipped.',
-    'p1.desc':'Workout tracking for personal trainers. 0 → 10k users in 3 months.',
-    'p2.desc':'Personal expense tracker with real bank sync via Plaid.',
-    'p3.desc':'Team scheduling for shift workers. Real-time updates.',
-    'p4.cat':'Travel · iOS','p4.desc':'Visa day counting, Schengen limits, trip history and alerts.',
-    'p5.cat':'Crypto Tax · iOS','p5.desc':'Portfolio snapshots, tax lots and exchange sync for crypto investors.',
-    'p6.cat':'Productivity · iOS','p6.desc':'Team tasks, real-time activity and simple workflows for small teams.',
-    'p7.cat':'Restaurants · iOS','p7.desc':'Digital menus, table ordering and kitchen status for boutique venues.',
+    'p1.cat':'Connected fitness · iOS','p1.desc':'BLE companion for custom fitness hardware with live graphs, calibration, rep detection and AWS cloud sync.',
+    'p2.cat':'Screen recording · iOS extensions','p2.desc':'ReplayKit recording app with broadcast extension, face-cam overlay, reaction editor and local sharing flow.',
+    'p3.cat':'Document utility · iOS','p3.desc':'Document scanner with VisionKit capture, OCR, QR scanning, PDF export and local organization.',
+    'p4.cat':'VPN infrastructure · iOS + Backend','p4.desc':'NDA project with packet tunnel, WireGuard integration, no-registration access, payments and admin backend.',
+    'p5.cat':'Travel planning · iOS','p5.desc':'Travel day tracker for country totals, visa records, Schengen-style planning, trip history and widgets.',
+    'p6.cat':'Aviation operations · iOS','p6.desc':'NDA project for flight records, crew data, maintenance notes, documents, forms and post-flight workflows.',
+    'p7.cat':'Private portfolio · on request','p7.name':'Want more examples?','p7.desc':'Write to us and we will send additional relevant work, including private or NDA-safe examples.','p7.link':'Request more work →',
     'work.view':'View case study →','work.ask':'Request details →',
     'val.pre':'why us','val.h2a':'One engineer.','val.h2b':'Full ownership.','val.h2c':'No middlemen.',
     'val.body':'You speak directly with the person building your app. No account managers, no seniors passing tasks to juniors.',
@@ -727,10 +769,10 @@ const T={
     'pr2.f1':'Native Swift + SwiftUI','pr2.f2':'Design + backend + launch','pr2.f3':'30 days post-launch support','pr2.cta':'Book a free call →',
     'pr3.n':'Full Build','pr3.d':'Complete app from zero — architecture, UI, backend, launch.','pr3.note':'Scope-dependent',
     'pr3.f1':'Complex architecture','pr3.f2':'All integrations included','pr3.f3':'Full source code ownership','pr3.cta':'Get a quote →',
-    'rev.pre':'testimonials','rev.h2a':'What clients','rev.h2b':'say.',
-    't1.q':'"Oleg turned our idea into a real app in three weeks. Clean code, thoughtful architecture — we continued with him on retainer."',
-    't2.q':'"Best developer experience I\'ve had. No middlemen — explained the task directly and got exactly what I wanted, on time."',
-    't3.q':'"Complete professionalism. The app passed App Store review on the first try — users are happy. That\'s worth everything."',
+    'rev.pre':'delivery notes','rev.h2a':'How the work','rev.h2b':'ships.',
+    't1.q':'"Hardware, BLE, real-time data and cloud sync packaged into a product that can be explained clearly to users and investors."',
+    't2.q':'"Native iOS capabilities handled end-to-end: extension targets, permissions, recording state, local files and sharing."',
+    't3.q':'"NDA projects are presented without leaking screens, tokens, operational workflows or provider details."',
     'cta.h2a':'Ready to','cta.h2b':'launch?',
     'cta.sub':"Tell me your idea and timeline. I'll reply honestly within 24 hours.",
     'cta.btn1':'Book a free call →',
@@ -754,13 +796,13 @@ const T={
     's5.t':'Soporte Continuo','s5.d':'Funciones, actualizaciones de iOS, soporte de producto a largo plazo.',
     's6.t':'Consultoría Técnica','s6.d':'Revisión de arquitectura, auditoría de código, evaluación experta.',
     'work.pre':'trabajos destacados','work.h2a':'Lo que hemos','work.h2b':'lanzado.',
-    'p1.desc':'Seguimiento de entrenamientos para entrenadores personales. 0 → 10k usuarios en 3 meses.',
-    'p2.desc':'Rastreador de gastos con sincronización bancaria real via Plaid.',
-    'p3.desc':'Programación de equipos para trabajadores por turnos. Actualizaciones en tiempo real.',
-    'p4.cat':'Viajes · iOS','p4.desc':'Conteo de días de visado, límites Schengen, historial de viajes y alertas.',
-    'p5.cat':'Impuestos cripto · iOS','p5.desc':'Cartera, lotes fiscales y sincronización de exchanges para inversores cripto.',
-    'p6.cat':'Productividad · iOS','p6.desc':'Tareas de equipo, actividad en tiempo real y flujos simples para equipos pequeños.',
-    'p7.cat':'Restaurantes · iOS','p7.desc':'Menús digitales, pedidos en mesa y estado de cocina para locales boutique.',
+    'p1.cat':'Fitness conectado · iOS','p1.desc':'App BLE para hardware fitness con gráficas en vivo, calibración, detección de repeticiones y sync en AWS.',
+    'p2.cat':'Grabación de pantalla · Extensiones iOS','p2.desc':'App ReplayKit con extensión broadcast, face-cam, editor de reacciones y flujo local para compartir.',
+    'p3.cat':'Utilidad documental · iOS','p3.desc':'Scanner con VisionKit, OCR, QR, exportación PDF y organización local.',
+    'p4.cat':'Infraestructura VPN · iOS + Backend','p4.desc':'Proyecto NDA con packet tunnel, WireGuard, acceso sin registro, pagos y backend administrativo.',
+    'p5.cat':'Planificación de viajes · iOS','p5.desc':'Tracker de días por país, visados, planificación tipo Schengen, historial y widgets.',
+    'p6.cat':'Operaciones de aviación · iOS','p6.desc':'Proyecto NDA para registros de vuelo, tripulación, mantenimiento, documentos, formularios y post-vuelo.',
+    'p7.cat':'Portfolio privado · bajo petición','p7.name':'¿Quieres más ejemplos?','p7.desc':'Escríbenos y enviaremos trabajos relevantes adicionales, incluyendo ejemplos privados o seguros para NDA.','p7.link':'Pedir más trabajos →',
     'work.view':'Ver caso de estudio →','work.ask':'Pedir detalles →',
     'val.pre':'por qué nosotros','val.h2a':'Un ingeniero.','val.h2b':'Control total.','val.h2c':'Sin intermediarios.',
     'val.body':'Hablas directamente con la persona que construye tu app. Sin gestores de cuenta, sin seniors que delegan a juniors.',
@@ -777,10 +819,10 @@ const T={
     'pr2.f1':'Swift + SwiftUI nativo','pr2.f2':'Diseño + backend + lanzamiento','pr2.f3':'30 días soporte post-lanzamiento','pr2.cta':'Reservar llamada gratuita →',
     'pr3.n':'Proyecto Completo','pr3.d':'App completa desde cero — arquitectura, UI, backend, lanzamiento.','pr3.note':'Según alcance',
     'pr3.f1':'Arquitectura compleja','pr3.f2':'Todas las integraciones incluidas','pr3.f3':'Código fuente en propiedad','pr3.cta':'Solicitar presupuesto →',
-    'rev.pre':'testimonios','rev.h2a':'Lo que dicen','rev.h2b':'los clientes.',
-    't1.q':'"Oleg convirtió nuestra idea en una app real en tres semanas. Código limpio, arquitectura pensada — continuamos con él en retainer."',
-    't2.q':'"La mejor experiencia con un desarrollador. Sin intermediarios — expliqué la tarea directamente y recibí exactamente lo que quería, en plazo."',
-    't3.q':'"Profesionalismo total. La app superó la revisión del App Store al primer intento — los usuarios están felices. Eso lo vale todo."',
+    'rev.pre':'notas de entrega','rev.h2a':'Cómo se','rev.h2b':'entrega.',
+    't1.q':'"Hardware, BLE, datos en tiempo real y sync cloud empaquetados en un producto claro para usuarios e inversores."',
+    't2.q':'"Capacidades nativas iOS de punta a punta: extensiones, permisos, estado de grabación, archivos locales y sharing."',
+    't3.q':'"Los proyectos NDA se presentan sin filtrar pantallas, tokens, workflows operativos ni detalles de proveedores."',
     'cta.h2a':'¿Listo para','cta.h2b':'lanzar?',
     'cta.sub':'Cuéntame tu idea y plazos. Respondo con honestidad en 24 horas.',
     'cta.btn1':'Reservar llamada gratuita →',
@@ -804,13 +846,13 @@ const T={
     's5.t':'Поддержка и обновления','s5.d':'Фичи, поддержка новых версий iOS.',
     's6.t':'Техконсалтинг','s6.d':'Ревью архитектуры, аудит кода, экспертная оценка.',
     'work.pre':'избранные работы','work.h2a':'Что мы','work.h2b':'запустили.',
-    'p1.desc':'Трекер тренировок для персональных тренеров. 0 → 10k пользователей за 3 месяца.',
-    'p2.desc':'Личный трекер расходов с синхронизацией с банком через Plaid.',
-    'p3.desc':'Расписание команды для посменных сотрудников. Обновления в реальном времени.',
-    'p4.cat':'Путешествия · iOS','p4.desc':'Подсчёт визовых дней, лимиты Schengen, история поездок и уведомления.',
-    'p5.cat':'Криптоналоги · iOS','p5.desc':'Снимки портфеля, налоговые лоты и синхронизация бирж для криптоинвесторов.',
-    'p6.cat':'Продуктивность · iOS','p6.desc':'Командные задачи, активность в реальном времени и простые процессы для небольших команд.',
-    'p7.cat':'Рестораны · iOS','p7.desc':'Цифровые меню, заказы за столом и статус кухни для камерных заведений.',
+    'p1.cat':'Connected fitness · iOS','p1.desc':'BLE-приложение для фитнес-устройства: живые графики, калибровка, подсчёт повторений и AWS-синхронизация.',
+    'p2.cat':'Запись экрана · iOS extensions','p2.desc':'ReplayKit-приложение с broadcast extension, face-cam, редактором реакций и локальным sharing flow.',
+    'p3.cat':'Документы · iOS','p3.desc':'Сканер документов с VisionKit, OCR, QR, PDF-экспортом и локальной организацией файлов.',
+    'p4.cat':'VPN-инфраструктура · iOS + Backend','p4.desc':'NDA-проект: packet tunnel, WireGuard, доступ без регистрации, платежи и admin backend.',
+    'p5.cat':'Планирование поездок · iOS','p5.desc':'Трекер дней по странам, визовых записей, Schengen-планирования, истории поездок и виджетов.',
+    'p6.cat':'Авиационные операции · iOS','p6.desc':'NDA-проект для flight records, crew data, maintenance notes, документов, форм и post-flight workflows.',
+    'p7.cat':'Приватное портфолио · по запросу','p7.name':'Хотите больше примеров?','p7.desc':'Напишите нам, и мы пришлём дополнительные релевантные работы, включая приватные или NDA-safe примеры.','p7.link':'Запросить больше работ →',
     'work.view':'Смотреть кейс →','work.ask':'Запросить детали →',
     'val.pre':'почему мы','val.h2a':'Один инженер.','val.h2b':'Полный контроль.','val.h2c':'Без посредников.',
     'val.body':'Вы общаетесь напрямую с человеком, который строит ваше приложение. Без аккаунт-менеджеров.',
@@ -827,10 +869,10 @@ const T={
     'pr2.f1':'Нативный Swift + SwiftUI','pr2.f2':'Дизайн + backend + запуск','pr2.f3':'30 дней поддержки после','pr2.cta':'Записаться на звонок →',
     'pr3.n':'Полная разработка','pr3.d':'Приложение с нуля — архитектура, UI, backend, запуск.','pr3.note':'Зависит от объёма',
     'pr3.f1':'Сложная архитектура','pr3.f2':'Все интеграции включены','pr3.f3':'Полный код в собственность','pr3.cta':'Получить смету →',
-    'rev.pre':'отзывы','rev.h2a':'Что говорят','rev.h2b':'клиенты.',
-    't1.q':'"Олег превратил нашу идею в реальное приложение за три недели. Чистый код, продуманная архитектура — мы продолжили с ним на ретейнере."',
-    't2.q':'"Лучший опыт работы с разработчиком. Без посредников — напрямую объяснил задачу и получил именно то, что хотел, в срок."',
-    't3.q':'"Полный профессионализм. Приложение прошло ревью App Store с первой попытки — пользователи счастливы. Это дорого стоит."',
+    'rev.pre':'заметки по delivery','rev.h2a':'Как работа','rev.h2b':'доходит до релиза.',
+    't1.q':'"Hardware, BLE, realtime data и cloud sync упакованы в продукт, который понятно объяснить пользователям и инвесторам."',
+    't2.q':'"Нативные iOS-возможности закрыты end-to-end: extensions, permissions, recording state, local files и sharing."',
+    't3.q':'"NDA-проекты показываются без утечки экранов, токенов, операционных workflows и деталей провайдеров."',
     'cta.h2a':'Готовы','cta.h2b':'запустить?',
     'cta.sub':'Расскажите об идее и сроках. Отвечу честно в течение 24 часов.',
     'cta.btn1':'Записаться на звонок →',
