@@ -22,6 +22,9 @@ Boutique digital studio in Barcelona helping local businesses grow online with f
 - EXIMP: B2B logistics website reference with strong first-screen messaging and lead flow.
 - Le Swan: restaurant website reference with memorable identity and reservation-first structure.
 - THP Hair: salon website reference with premium photography, service paths and booking cues.
+- 6 Corners Dental: dental clinic website reference with local trust and direct contact cues.
+- MacArthur Place: hotel website reference with immersive photography and booking-first structure.
+- The Agency: real estate website reference with premium brand presence and property search.
 - Business Websites: custom sites for local businesses that need trust, clarity and enquiries.
 - Landing Pages: campaign pages for bookings, consultations and local offers.
 - Mobile Applications: custom iOS and Android apps for advanced business needs.
