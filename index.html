@@ -345,6 +345,19 @@
     .cta-h2{font-size:clamp(2rem,1rem + 4vw,4.5rem);font-weight:900;
       letter-spacing:-0.03em;line-height:1.05;color:var(--text)}
     .cta-sub{font-size:1.0625rem;color:var(--text-m);max-width:46ch;text-align:center}
+    .review-form{width:min(100%,640px);display:grid;gap:.875rem;text-align:left}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
+    .form-field{display:grid;gap:.35rem}
+    .form-field span{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);
+      letter-spacing:.04em;text-transform:uppercase}
+    .form-field input,.form-field textarea{width:100%;border:1px solid var(--border);
+      border-radius:var(--r-md);background:rgba(13,13,43,.72);color:var(--text);
+      font:inherit;padding:.9rem 1rem;outline:none;transition:border-color var(--tr),box-shadow var(--tr)}
+    .form-field textarea{min-height:118px;resize:vertical}
+    .form-field input:focus,.form-field textarea:focus{border-color:var(--border-h);
+      box-shadow:0 0 0 4px rgba(37,99,255,.12)}
+    .review-note{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);
+      text-align:center;max-width:none}
     .cta-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
     /* FOOTER */
     footer{padding:2.5rem 0;border-top:1px solid var(--border);background:rgba(6,6,26,0.95)}
@@ -370,6 +383,7 @@
     }
     @media(max-width:600px){
       .services-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
       nav{height:auto;min-height:0}
       .nav-inner{display:grid;grid-template-columns:1fr auto;gap:.75rem;
         padding:.8rem 1rem;width:100%}
@@ -414,7 +428,7 @@
         <button class="lang-btn" data-lang="ca">CA</button>
         <button class="lang-btn" data-lang="ru">RU</button>
       </div>
-      <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.5rem 1.125rem;min-height:36px;font-size:.875rem" data-i18n="nav.cta">Free review</a>
+      <a href="#review-form" class="btn btn-primary" style="padding:.5rem 1.125rem;min-height:36px;font-size:.875rem" data-i18n="nav.cta">Free review</a>
     </div>
   </div>
 </nav>
@@ -429,7 +443,7 @@
       <h1 class="hero-h1 reveal"><span data-i18n="hero.h1a">Websites that help</span><br><span class="grad-text" data-i18n="hero.h1b">local businesses grow.</span></h1>
       <p class="hero-sub reveal" data-i18n="hero.sub">Modern, fast, SEO-ready websites designed to turn visitors into customers.</p>
       <div class="hero-cta reveal">
-        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.cta1">Get a Free Website Review →</a>
+        <a href="#review-form" class="btn btn-primary" data-i18n="hero.cta1">Get a Free Website Review →</a>
         <a href="#work" class="btn btn-ghost" data-i18n="hero.cta2">View Our Work ↓</a>
       </div>
       <div class="hero-metrics reveal">
@@ -714,7 +728,7 @@
           <p class="port-name" data-i18n="p7.name">Want more examples?</p>
           <p class="port-desc" data-i18n="p7.desc">Tell us your business type and we will share relevant examples, including NDA-safe work when useful.</p>
           <div class="tags" style="margin-bottom:.75rem"><span class="tag">Websites</span><span class="tag">Landing pages</span><span class="tag">Tools</span></div>
-          <a href="#cta" class="port-link" data-i18n="p7.link">Request more work →</a>
+          <a href="#review-form" class="port-link" data-i18n="p7.link">Request more work →</a>
         </div>
       </div>
     </div>
@@ -824,8 +838,18 @@
     <div class="reveal"><span class="badge-pill"><span class="dot"></span><span data-i18n="hero.badge">Available for new projects · 2026</span></span></div>
     <h2 class="cta-h2 reveal"><span data-i18n="cta.h2a">Ready for a</span><br><span class="grad-text" data-i18n="cta.h2b">better website?</span></h2>
     <p class="cta-sub reveal" data-i18n="cta.sub">Send your current website or business idea. I will reply with honest next steps within 24 hours.</p>
+    <form id="review-form" class="review-form reveal">
+      <div class="form-row">
+        <label class="form-field"><span data-i18n="review.name">Your name</span><input name="name" autocomplete="name"></label>
+        <label class="form-field"><span data-i18n="review.email">Email</span><input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label class="form-field"><span data-i18n="review.website">Website or business</span><input name="website" autocomplete="url"></label>
+      <label class="form-field"><span data-i18n="review.message">What would you like to improve?</span><textarea name="message" required></textarea></label>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" data-i18n="cta.btn1">Send review request →</button>
+      <p class="review-note" data-i18n="review.note">This opens your email app with the message ready to send.</p>
+    </form>
     <div class="cta-btns reveal">
-      <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta.btn1">Get a Free Website Review →</a>
+      <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta.call">Book a call separately →</a>
       <a href="mailto:hello@olegotka.es" class="btn btn-ghost">hello@olegotka.es</a>
     </div>
   </div>
@@ -909,7 +933,8 @@ const T={
     "t3.q":"\"When a website is not enough, we can extend the system with custom apps, dashboards and internal tools.\"",
     "cta.h2a":"Ready for a","cta.h2b":"better website?",
     "cta.sub":"Send your current website or business idea. I will reply with honest next steps within 24 hours.",
-    "cta.btn1":"Get a Free Website Review →",
+    "cta.btn1":"Send review request →","cta.call":"Book a call separately →",
+    "review.name":"Your name","review.email":"Email","review.website":"Website or business","review.message":"What would you like to improve?","review.note":"This opens your email app with the message ready to send.",
     "footer.copy":"© 2026 Oleg Yakushin. All rights reserved."
   },
   es:{
@@ -965,7 +990,8 @@ const T={
     "t3.q":"\"Cuando una web no basta, podemos ampliar el sistema con apps, dashboards y herramientas internas.\"",
     "cta.h2a":"¿Listo para una","cta.h2b":"web mejor?",
     "cta.sub":"Envía tu web actual o tu idea de negocio. Responderé con próximos pasos honestos en 24 horas.",
-    "cta.btn1":"Pedir una revisión web gratis →",
+    "cta.btn1":"Enviar solicitud de revisión →","cta.call":"Reservar llamada aparte →",
+    "review.name":"Tu nombre","review.email":"Email","review.website":"Web o negocio","review.message":"¿Qué quieres mejorar?","review.note":"Esto abre tu app de email con el mensaje preparado para enviar.",
     "footer.copy":"© 2026 Oleg Yakushin. Todos los derechos reservados."
   },
   ca:{
@@ -1021,7 +1047,8 @@ const T={
     "t3.q":"\"Quan una web no és suficient, podem ampliar el sistema amb apps, dashboards i eines internes.\"",
     "cta.h2a":"A punt per una","cta.h2b":"web millor?",
     "cta.sub":"Envia la teva web actual o idea de negoci. Respondré amb pròxims passos honestos en 24 hores.",
-    "cta.btn1":"Demana una revisió web gratuïta →",
+    "cta.btn1":"Enviar sol·licitud de revisió →","cta.call":"Reservar trucada a part →",
+    "review.name":"El teu nom","review.email":"Email","review.website":"Web o negoci","review.message":"Què vols millorar?","review.note":"Això obre la teva app d'email amb el missatge preparat per enviar.",
     "footer.copy":"© 2026 Oleg Yakushin. Tots els drets reservats."
   },
   ru:{
@@ -1077,7 +1104,8 @@ const T={
     "t3.q":"\"Когда сайта недостаточно, систему можно расширить приложениями, dashboard и внутренними инструментами.\"",
     "cta.h2a":"Готовы к","cta.h2b":"сайту лучше?",
     "cta.sub":"Пришлите текущий сайт или идею бизнеса. Я отвечу честно со следующими шагами в течение 24 часов.",
-    "cta.btn1":"Получить бесплатный аудит сайта →",
+    "cta.btn1":"Отправить заявку на аудит →","cta.call":"Записаться на звонок отдельно →",
+    "review.name":"Ваше имя","review.email":"Email","review.website":"Сайт или бизнес","review.message":"Что хотите улучшить?","review.note":"Форма откроет почту с готовым сообщением для отправки.",
     "footer.copy":"© 2026 Олег Якушин. Все права защищены."
   }
 };
@@ -1119,6 +1147,21 @@ function applyLang(l,animated=false){
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.getAttribute('data-lang'),true)));
 try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else applyLang('en');}catch(e){applyLang('en');}
 
+document.getElementById('review-form')?.addEventListener('submit',event=>{
+  event.preventDefault();
+  const data=new FormData(event.currentTarget);
+  const lines=[
+    `Name: ${data.get('name') || ''}`,
+    `Email: ${data.get('email') || ''}`,
+    `Website or business: ${data.get('website') || ''}`,
+    '',
+    'What I would like to improve:',
+    `${data.get('message') || ''}`
+  ];
+  const subject=encodeURIComponent('Free website review request');
+  const body=encodeURIComponent(lines.join('\n'));
+  window.location.href=`mailto:hello@olegotka.es?subject=${subject}&body=${body}`;
+});
 
 const portfolioTrack=document.getElementById('portfolio-track');
 document.querySelector('[data-carousel-prev]')?.addEventListener('click',()=>{

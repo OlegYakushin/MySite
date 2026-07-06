@@ -34,5 +34,6 @@ Boutique digital studio in Barcelona helping local businesses grow online with f
 ## Contact
 
 - Website: https://olegotka.es/
-- Free website review: https://cal.com/olegotka/first-call
+- Free website review: https://olegotka.es/#review-form
+- Book a call: https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es
