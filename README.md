@@ -1,6 +1,6 @@
 # olegotka.es
 
-Portfolio and micro-agency landing page for premium iOS MVP development.
+Portfolio and micro-agency landing page for a boutique digital studio focused on web design, local SEO and custom digital products for local businesses.
 
 ## Local check
 

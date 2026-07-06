@@ -1,7 +1,7 @@
 {
-  "name": "olegotka iOS MVP Studio",
+  "name": "olegotka Digital Studio",
   "version": "2026.04.30",
-  "description": "Discovery card for a premium iOS MVP development portfolio and micro-agency website.",
+  "description": "Discovery card for a boutique digital studio offering web design, local SEO, landing pages and custom digital products for local businesses.",
   "url": "https://olegotka.es/",
   "supportedInterfaces": [
     {
@@ -21,8 +21,8 @@
   "skills": [
     {
       "id": "discover-services",
-      "name": "Discover iOS services",
-      "description": "Return the studio's iOS MVP, App Store launch, backend integration and support services."
+      "name": "Discover digital studio services",
+      "description": "Return the studio's website design, development, local SEO, landing page, maintenance and custom app services."
     },
     {
       "id": "discover-projects",
@@ -32,7 +32,7 @@
     {
       "id": "start-project-inquiry",
       "name": "Start project inquiry",
-      "description": "Provide booking and contact options for a new iOS MVP project."
+      "description": "Provide booking and contact options for a website review or digital project inquiry."
     }
   ]
 }

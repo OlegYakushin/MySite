@@ -1,6 +1,6 @@
 # olegotka.es
 
-Portfolio and micro-agency site for premium iOS MVP development.
+Boutique digital studio in Barcelona for web design, website development, local SEO, landing pages, analytics, maintenance and custom digital products for local businesses.
 
 Useful resources:
 
@@ -14,5 +14,5 @@ Useful resources:
 
 Contact:
 
-- Booking: https://cal.com/olegotka/first-call
+- Free website review: https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es

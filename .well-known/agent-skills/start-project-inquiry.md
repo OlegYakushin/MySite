@@ -1,12 +1,13 @@
 # Start Project Inquiry
 
-Help a prospective client start an iOS MVP project inquiry.
+Help a prospective client start a website review or digital project inquiry.
 
 ## Inputs
 
-- Project idea
+- Business type and location
+- Current website or Google Business Profile, if available
+- Main goal: more bookings, more calls, better search visibility or a new digital tool
 - Desired launch timeline
-- Required integrations
 - Budget range, if available
 
 ## Actions

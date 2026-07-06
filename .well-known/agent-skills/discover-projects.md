@@ -1,13 +1,11 @@
 # Discover Projects
 
-Return selected public project summaries for olegotka iOS MVP Studio.
+Return selected public project summaries for olegotka Digital Studio.
 
 ## Projects
 
-- FitTrack Pro — health and fitness iOS app.
-- Vaultly — personal finance iOS app.
-- ShiftSync — realtime shift scheduling iOS app.
-- Days — visa day tracking and travel alerts.
-- Koinly Mobile — crypto portfolio and tax snapshots.
-- TaskHive — team task workflows.
-- MenuFlow — restaurant menu and ordering flows.
+- Business Websites — custom websites for local visibility, trust and enquiries.
+- Landing Pages — focused campaign pages for bookings, consultations and offers.
+- Mobile Applications — custom iOS and Android products for advanced business needs.
+- Web Applications — private portals, payment flows and operational platforms.
+- Internal Business Tools — dashboards, document workflows and team processes.

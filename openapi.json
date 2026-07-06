@@ -3,7 +3,7 @@
   "info": {
     "title": "olegotka Agent Discovery API",
     "version": "2026.04.30",
-    "description": "Public discovery endpoints for the olegotka iOS MVP portfolio site."
+    "description": "Public discovery endpoints for the olegotka digital studio website."
   },
   "servers": [
     {

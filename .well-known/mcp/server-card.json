@@ -3,7 +3,7 @@
     "name": "olegotka-web-discovery",
     "version": "2026.04.30"
   },
-  "description": "Browser-exposed discovery tools for the olegotka iOS MVP portfolio site.",
+  "description": "Browser-exposed discovery tools for the olegotka digital studio website.",
   "transport": {
     "type": "webmcp",
     "endpoint": "https://olegotka.es/"

@@ -1,28 +1,35 @@
-# olegotka — iOS MVPs for startups
+# olegotka — Web Design & SEO for Local Businesses
 
-Premium iOS MVP development for startups and growing businesses.
+Boutique digital studio in Barcelona helping local businesses grow online with fast websites, landing pages, local SEO and custom digital tools.
 
 ## Services
 
-- MVP Development: native Swift and SwiftUI apps from idea to App Store.
-- Full iOS App: scalable architecture, polished UX, and integrations.
-- Backend & APIs: Supabase, Firebase, REST, analytics and subscriptions.
-- App Store Launch: submission, ASO, screenshots and release support.
-- Ongoing Support: roadmap delivery, bug fixes and iOS version updates.
-- Tech Consulting: architecture review, code audit and launch readiness.
+- Website Design: premium mobile-first design for a professional online presence.
+- Website Development: fast, responsive, SEO-ready websites.
+- Landing Pages: focused pages for bookings, campaigns, offers and lead generation.
+- Local SEO: search-friendly structure, local keywords and Google Business Profile improvements.
+- Care & Performance: speed optimization, maintenance, analytics and ongoing updates.
+- Custom Mobile Apps: advanced iOS and Android products for businesses ready to go beyond a website.
+
+## Packages
+
+- Template Website: from €200.
+- Custom Design Website: design and development from €700.
+- Website Support: monthly maintenance from €200.
 
 ## Selected Work
 
-- FitTrack Pro: workout tracking for personal trainers.
-- Vaultly: personal finance with bank sync.
-- ShiftSync: realtime scheduling for shift teams.
-- Days: visa day counting and travel alerts.
-- Koinly Mobile: crypto portfolio and tax snapshots.
-- TaskHive: team task workflows.
-- MenuFlow: restaurant ordering and kitchen status.
+- EXIMP: B2B logistics website reference with strong first-screen messaging and lead flow.
+- Le Swan: restaurant website reference with memorable identity and reservation-first structure.
+- THP Hair: salon website reference with premium photography, service paths and booking cues.
+- Business Websites: custom sites for local businesses that need trust, clarity and enquiries.
+- Landing Pages: campaign pages for bookings, consultations and local offers.
+- Mobile Applications: custom iOS and Android apps for advanced business needs.
+- Web Applications: private customer portals, payments and operational platforms.
+- Internal Business Tools: dashboards, document workflows and team processes.
 
 ## Contact
 
 - Website: https://olegotka.es/
-- Booking: https://cal.com/olegotka/first-call
+- Free website review: https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es
