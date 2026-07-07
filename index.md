@@ -11,6 +11,15 @@ Boutique digital studio building fast websites, landing pages, local SEO and cus
 - Care & Performance: speed optimization, maintenance, analytics and ongoing updates.
 - Custom Mobile Apps: advanced iOS and Android products for businesses ready to go beyond a website.
 
+## Service Pages
+
+- Website Design: https://olegotka.es/web-design.html
+- Website Development: https://olegotka.es/website-development.html
+- Landing Pages: https://olegotka.es/landing-pages.html
+- SEO Optimization: https://olegotka.es/seo.html
+- Website Maintenance: https://olegotka.es/website-maintenance.html
+- Local Business Websites: https://olegotka.es/local-business-websites.html
+
 ## Packages
 
 - Template Website: from €200.

@@ -6,6 +6,12 @@ Useful resources:
 
 - Homepage: https://olegotka.es/
 - Markdown homepage: https://olegotka.es/index.md
+- Website design: https://olegotka.es/web-design.html
+- Website development: https://olegotka.es/website-development.html
+- Landing pages: https://olegotka.es/landing-pages.html
+- SEO optimization: https://olegotka.es/seo.html
+- Website maintenance: https://olegotka.es/website-maintenance.html
+- Local business websites: https://olegotka.es/local-business-websites.html
 - API catalog: https://olegotka.es/.well-known/api-catalog
 - OpenAPI description: https://olegotka.es/openapi.json
 - Agent card: https://olegotka.es/.well-known/agent-card.json

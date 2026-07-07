@@ -56,13 +56,24 @@
     "sameAs": [
       "https://github.com/OlegYakushin"
     ],
-    "makesOffer": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Design"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Website Development"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Local SEO Optimization"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Google Business Profile Optimization"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Mobile Apps"}}
-    ]
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital studio services",
+      "itemListElement": [
+        {"@type": "Offer", "name": "Template Website", "price": "200", "priceCurrency": "EUR", "url": "https://olegotka.es/local-business-websites.html", "itemOffered": {"@type": "Service", "name": "Template Website"}},
+        {"@type": "Offer", "name": "Custom Design Website", "price": "700", "priceCurrency": "EUR", "url": "https://olegotka.es/website-development.html", "itemOffered": {"@type": "Service", "name": "Website Design and Development"}},
+        {"@type": "Offer", "name": "Website Support", "price": "200", "priceCurrency": "EUR", "url": "https://olegotka.es/website-maintenance.html", "itemOffered": {"@type": "Service", "name": "Website Maintenance"}},
+        {"@type": "Offer", "url": "https://olegotka.es/web-design.html", "itemOffered": {"@type": "Service", "name": "Website Design"}},
+        {"@type": "Offer", "url": "https://olegotka.es/seo.html", "itemOffered": {"@type": "Service", "name": "SEO Optimization"}},
+        {"@type": "Offer", "url": "https://olegotka.es/landing-pages.html", "itemOffered": {"@type": "Service", "name": "Landing Pages"}}
+      ]
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@olegotka.es",
+      "contactType": "customer enquiries",
+      "availableLanguage": ["English", "Spanish", "Catalan", "Russian"]
+    }
   }
   </script>
   <style>
@@ -491,30 +502,35 @@
         <div class="svc-title" data-i18n="s1.t">Website Design</div>
         <p class="svc-desc" data-i18n="s1.d">Premium, mobile-first design that makes your business look professional and easy to trust.</p>
         <div class="tags"><span class="tag">Trust</span><span class="tag">Mobile-first</span><span class="tag">Brand fit</span></div>
+        <a href="/web-design.html" class="port-link" data-i18n="svc.learn">Learn more →</a>
       </div>
       <div class="card reveal">
         <div class="svc-icon">🏗</div>
         <div class="svc-title" data-i18n="s2.t">Website Development</div>
         <p class="svc-desc" data-i18n="s2.d">Fast, responsive websites built cleanly so customers can find you and contact you easily.</p>
         <div class="tags"><span class="tag">Fast</span><span class="tag">Responsive</span><span class="tag">SEO-ready</span></div>
+        <a href="/website-development.html" class="port-link" data-i18n="svc.learn">Learn more →</a>
       </div>
       <div class="card reveal">
         <div class="svc-icon">☁️</div>
         <div class="svc-title" data-i18n="s3.t">Landing Pages</div>
         <p class="svc-desc" data-i18n="s3.d">Focused pages for campaigns, offers, bookings and lead generation without extra clutter.</p>
         <div class="tags"><span class="tag">Bookings</span><span class="tag">Leads</span><span class="tag">Offers</span></div>
+        <a href="/landing-pages.html" class="port-link" data-i18n="svc.learn">Learn more →</a>
       </div>
       <div class="card reveal">
         <div class="svc-icon">🚀</div>
         <div class="svc-title" data-i18n="s4.t">Local SEO</div>
         <p class="svc-desc" data-i18n="s4.d">Search-friendly structure, local keywords and Google Business Profile improvements.</p>
         <div class="tags"><span class="tag">Google</span><span class="tag">Barcelona</span><span class="tag">Local search</span></div>
+        <a href="/seo.html" class="port-link" data-i18n="svc.learn">Learn more →</a>
       </div>
       <div class="card reveal">
         <div class="svc-icon">🔄</div>
         <div class="svc-title" data-i18n="s5.t">Care & Performance</div>
         <p class="svc-desc" data-i18n="s5.d">Speed improvements, maintenance, analytics and updates so your site stays healthy.</p>
         <div class="tags"><span class="tag">Speed</span><span class="tag">Analytics</span><span class="tag">Maintenance</span></div>
+        <a href="/website-maintenance.html" class="port-link" data-i18n="svc.learn">Learn more →</a>
       </div>
       <div class="card reveal">
         <div class="svc-icon">🔍</div>
@@ -896,7 +912,7 @@ const T={
     "hero.m1":"Projects shipped","hero.m2":"Weeks to launch","hero.m3":"Ready from day one",
     "trust.label":"Custom digital products for",
     "svc.pre":"what we do","svc.h2a":"Online presence","svc.h2b":"built to convert.",
-    "svc.sub":"Practical digital packages for restaurants, salons, clinics, lawyers, real estate teams and local service businesses.",
+    "svc.sub":"Practical digital packages for restaurants, salons, clinics, lawyers, real estate teams and local service businesses.","svc.learn":"Learn more →",
     "s1.t":"Website Design","s1.d":"Premium, mobile-first design that makes your business look professional and easy to trust.",
     "s2.t":"Website Development","s2.d":"Fast, responsive websites built cleanly so customers can find you and contact you easily.",
     "s3.t":"Landing Pages","s3.d":"Focused pages for campaigns, offers, bookings and lead generation without extra clutter.",
@@ -953,7 +969,7 @@ const T={
     "hero.m1":"Proyectos lanzados","hero.m2":"Semanas para lanzar","hero.m3":"Listo desde el primer día",
     "trust.label":"Productos digitales a medida para",
     "svc.pre":"qué hacemos","svc.h2a":"Presencia online","svc.h2b":"para convertir.",
-    "svc.sub":"Paquetes digitales prácticos para restaurantes, salones, clínicas, abogados, inmobiliarias y negocios locales.",
+    "svc.sub":"Paquetes digitales prácticos para restaurantes, salones, clínicas, abogados, inmobiliarias y negocios locales.","svc.learn":"Ver más →",
     "s1.t":"Diseño Web","s1.d":"Diseño premium y mobile-first para que tu negocio se vea profesional y genere confianza.",
     "s2.t":"Desarrollo Web","s2.d":"Webs rápidas y responsive construidas de forma limpia para que te encuentren y contacten fácilmente.",
     "s3.t":"Landing Pages","s3.d":"Páginas enfocadas para campañas, ofertas, reservas y captación de contactos sin ruido.",
@@ -1010,7 +1026,7 @@ const T={
     "hero.m1":"Projectes llançats","hero.m2":"Setmanes per llançar","hero.m3":"A punt des del primer dia",
     "trust.label":"Productes digitals a mida per a",
     "svc.pre":"què fem","svc.h2a":"Presència online","svc.h2b":"pensada per convertir.",
-    "svc.sub":"Paquets digitals pràctics per a restaurants, salons, clíniques, advocats, immobiliàries i negocis locals.",
+    "svc.sub":"Paquets digitals pràctics per a restaurants, salons, clíniques, advocats, immobiliàries i negocis locals.","svc.learn":"Veure més →",
     "s1.t":"Disseny Web","s1.d":"Disseny premium i mobile-first perquè el teu negoci sembli professional i generi confiança.",
     "s2.t":"Desenvolupament Web","s2.d":"Webs ràpides i responsive construïdes amb cura perquè et trobin i et contactin fàcilment.",
     "s3.t":"Landing Pages","s3.d":"Pàgines enfocades per a campanyes, ofertes, reserves i captació de contactes sense soroll.",
@@ -1067,7 +1083,7 @@ const T={
     "hero.m1":"Проектов запущено","hero.m2":"Недели до запуска","hero.m3":"Готово с первого дня",
     "trust.label":"Индивидуальные digital-продукты для",
     "svc.pre":"что мы делаем","svc.h2a":"Онлайн-присутствие,","svc.h2b":"которое конвертирует.",
-    "svc.sub":"Практичные digital-пакеты для ресторанов, салонов, клиник, юристов, агентств недвижимости и локального сервиса.",
+    "svc.sub":"Практичные digital-пакеты для ресторанов, салонов, клиник, юристов, агентств недвижимости и локального сервиса.","svc.learn":"Подробнее →",
     "s1.t":"Дизайн сайтов","s1.d":"Премиальный mobile-first дизайн, чтобы бизнес выглядел профессионально и вызывал доверие.",
     "s2.t":"Разработка сайтов","s2.d":"Быстрые адаптивные сайты, на которых вас легко найти и удобно связаться.",
     "s3.t":"Landing Pages","s3.d":"Фокусные страницы для кампаний, офферов, записей и заявок без лишнего шума.",
