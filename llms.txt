@@ -1,6 +1,6 @@
 # olegotka.es
 
-Boutique digital studio in Barcelona for web design, website development, local SEO, landing pages, analytics, maintenance and custom digital products for local businesses.
+Boutique digital studio for web design, website development, local SEO, landing pages, analytics, maintenance and custom digital products.
 
 Useful resources:
 
@@ -14,5 +14,6 @@ Useful resources:
 
 Contact:
 
-- Free website review: https://cal.com/olegotka/first-call
+- Free website review: https://olegotka.es/#review-form
+- Book a call: https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es

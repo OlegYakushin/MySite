@@ -1,6 +1,6 @@
-# olegotka — Web Design & SEO for Local Businesses
+# olegotka — Boutique Digital Studio
 
-Boutique digital studio in Barcelona helping local businesses grow online with fast websites, landing pages, local SEO and custom digital tools.
+Boutique digital studio building fast websites, landing pages, local SEO and custom digital tools.
 
 ## Services
 
