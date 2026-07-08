@@ -26,6 +26,11 @@
   <meta name="twitter:image" content="https://olegotka.es/assets/og-image-20260707.png">
   <meta name="twitter:image:alt" content="olegotka.es — modern websites for local businesses">
   <link rel="canonical" href="https://olegotka.es/">
+  <link rel="alternate" hreflang="x-default" href="https://olegotka.es/">
+  <link rel="alternate" hreflang="en" href="https://olegotka.es/">
+  <link rel="alternate" hreflang="es" href="https://olegotka.es/">
+  <link rel="alternate" hreflang="ca" href="https://olegotka.es/">
+  <link rel="alternate" hreflang="ru" href="https://olegotka.es/">
   <link rel="alternate" href="/index.md" type="text/markdown">
   <link rel="service-desc" href="/openapi.json" type="application/openapi+json">
   <link rel="service-doc" href="/docs/api.md" type="text/markdown">
@@ -37,11 +42,12 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "LocalBusiness"],
     "name": "olegotka",
     "url": "https://olegotka.es/",
     "email": "hello@olegotka.es",
-    "description": "Boutique digital studio in Barcelona offering web design, website development, local SEO, landing pages, website maintenance, analytics and custom mobile apps.",
+    "description": "Boutique digital studio serving Barcelona, Catalonia and Spain with web design, website development, local SEO, landing pages, website maintenance, analytics and custom mobile apps.",
+    "priceRange": "€€",
     "areaServed": [
       {"@type": "City", "name": "Barcelona"},
       {"@type": "AdministrativeArea", "name": "Catalonia"},
@@ -74,6 +80,38 @@
       "contactType": "customer enquiries",
       "availableLanguage": ["English", "Spanish", "Catalan", "Russian"]
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you work with businesses in Barcelona and Spain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. olegotka works with businesses in Barcelona, Catalonia and across Spain, with remote collaboration available for wider projects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a website cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Template websites start from €200, custom design and development starts from €700, and ongoing website support starts from €200 per month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send a website review request by email?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The main website review form prepares an email request so the first step can happen in writing. A call booking link is also available as a secondary option."
+        }
+      }
+    ]
   }
   </script>
   <style>
@@ -376,6 +414,10 @@
       box-shadow:0 0 0 4px rgba(37,99,255,.12)}
     .review-note{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);
       text-align:center;max-width:none}
+    .contact-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem 1rem;
+      font-family:var(--font-m);font-size:.72rem;color:var(--text-m);max-width:760px}
+    .contact-strip span{border:1px solid var(--border);border-radius:var(--r-full);
+      background:rgba(13,13,43,.58);padding:.55rem .75rem}
     .cta-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
     /* FOOTER */
     footer{padding:2.5rem 0;border-top:1px solid var(--border);background:rgba(6,6,26,0.95)}
@@ -459,7 +501,7 @@
         <span class="badge-pill"><span class="dot"></span><span data-i18n="hero.badge">Available for new projects · 2026</span></span>
       </div>
       <h1 class="hero-h1 reveal"><span data-i18n="hero.h1a">Websites that help</span><br><span class="grad-text" data-i18n="hero.h1b">local businesses grow.</span></h1>
-      <p class="hero-sub reveal" data-i18n="hero.sub">Modern, fast, SEO-ready websites designed to turn visitors into customers.</p>
+      <p class="hero-sub reveal" data-i18n="hero.sub">Modern, fast, SEO-ready websites for businesses in Barcelona, Catalonia and Spain, designed to turn visitors into customers.</p>
       <div class="hero-cta reveal">
         <a href="#review-form" class="btn btn-primary" data-i18n="hero.cta1">Get a Free Website Review →</a>
         <a href="#work" class="btn btn-ghost" data-i18n="hero.cta2">View Our Work ↓</a>
@@ -861,6 +903,11 @@
     <div class="reveal"><span class="badge-pill"><span class="dot"></span><span data-i18n="hero.badge">Available for new projects · 2026</span></span></div>
     <h2 class="cta-h2 reveal"><span data-i18n="cta.h2a">Ready for a</span><br><span class="grad-text" data-i18n="cta.h2b">better website?</span></h2>
     <p class="cta-sub reveal" data-i18n="cta.sub">Send your current website or business idea. I will reply with honest next steps within 24 hours.</p>
+    <div class="contact-strip reveal">
+      <span data-i18n="contact.area">Service area: Barcelona · Catalonia · Spain</span>
+      <span>Email: hello@olegotka.es</span>
+      <span data-i18n="contact.meet">Local meetings by appointment</span>
+    </div>
     <form id="review-form" class="review-form reveal">
       <div class="form-row">
         <label class="form-field"><span data-i18n="review.name">Your name</span><input name="name" autocomplete="name"></label>
@@ -907,7 +954,7 @@ const T={
     "nav.services":"Services","nav.work":"Work","nav.values":"About","nav.pricing":"Packages","nav.cta":"Free review",
     "hero.badge":"Available for new projects · 2026",
     "hero.h1a":"Websites that help","hero.h1b":"local businesses grow.",
-    "hero.sub":"Modern, fast, SEO-ready websites designed to turn visitors into customers.",
+    "hero.sub":"Modern, fast, SEO-ready websites for businesses in Barcelona, Catalonia and Spain, designed to turn visitors into customers.",
     "hero.cta1":"Get a Free Website Review →","hero.cta2":"View Our Work ↓",
     "hero.m1":"Projects shipped","hero.m2":"Weeks to launch","hero.m3":"Ready from day one",
     "trust.label":"Custom digital products for",
@@ -955,6 +1002,7 @@ const T={
     "t3.q":"\"When a website is not enough, we can extend the system with custom apps, dashboards and internal tools.\"",
     "cta.h2a":"Ready for a","cta.h2b":"better website?",
     "cta.sub":"Send your current website or business idea. I will reply with honest next steps within 24 hours.",
+    "contact.area":"Service area: Barcelona · Catalonia · Spain","contact.meet":"Local meetings by appointment",
     "cta.btn1":"Send review request →","cta.call":"Book a call separately →",
     "review.name":"Your name","review.email":"Email","review.website":"Website or business","review.message":"What would you like to improve?","review.note":"This opens your email app with the message ready to send.",
     "footer.copy":"© 2026 Oleg Yakushin. All rights reserved."
@@ -964,7 +1012,7 @@ const T={
     "nav.services":"Servicios","nav.work":"Trabajos","nav.values":"Nosotros","nav.pricing":"Paquetes","nav.cta":"Revisión gratis",
     "hero.badge":"Disponible para nuevos proyectos · 2026",
     "hero.h1a":"Webs que ayudan","hero.h1b":"a crecer localmente.",
-    "hero.sub":"Sitios web modernos, rápidos y preparados para SEO, diseñados para convertir visitantes en clientes.",
+    "hero.sub":"Sitios web modernos, rápidos y preparados para SEO para negocios en Barcelona, Cataluña y España.",
     "hero.cta1":"Pedir una revisión web gratis →","hero.cta2":"Ver trabajos ↓",
     "hero.m1":"Proyectos lanzados","hero.m2":"Semanas para lanzar","hero.m3":"Listo desde el primer día",
     "trust.label":"Productos digitales a medida para",
@@ -1012,6 +1060,7 @@ const T={
     "t3.q":"\"Cuando una web no basta, podemos ampliar el sistema con apps, dashboards y herramientas internas.\"",
     "cta.h2a":"¿Listo para una","cta.h2b":"web mejor?",
     "cta.sub":"Envía tu web actual o tu idea de negocio. Responderé con próximos pasos honestos en 24 horas.",
+    "contact.area":"Zona de servicio: Barcelona · Cataluña · España","contact.meet":"Reuniones locales con cita previa",
     "cta.btn1":"Enviar solicitud de revisión →","cta.call":"Reservar llamada aparte →",
     "review.name":"Tu nombre","review.email":"Email","review.website":"Web o negocio","review.message":"¿Qué quieres mejorar?","review.note":"Esto abre tu app de email con el mensaje preparado para enviar.",
     "footer.copy":"© 2026 Oleg Yakushin. Todos los derechos reservados."
@@ -1021,7 +1070,7 @@ const T={
     "nav.services":"Serveis","nav.work":"Treballs","nav.values":"Nosaltres","nav.pricing":"Paquets","nav.cta":"Revisió gratis",
     "hero.badge":"Disponible per a nous projectes · 2026",
     "hero.h1a":"Webs que ajuden","hero.h1b":"el negoci local a créixer.",
-    "hero.sub":"Llocs web moderns, ràpids i preparats per a SEO, dissenyats per convertir visitants en clients.",
+    "hero.sub":"Llocs web moderns, ràpids i preparats per a SEO per a negocis a Barcelona, Catalunya i Espanya.",
     "hero.cta1":"Demana una revisió web gratuïta →","hero.cta2":"Veure treballs ↓",
     "hero.m1":"Projectes llançats","hero.m2":"Setmanes per llançar","hero.m3":"A punt des del primer dia",
     "trust.label":"Productes digitals a mida per a",
@@ -1069,6 +1118,7 @@ const T={
     "t3.q":"\"Quan una web no és suficient, podem ampliar el sistema amb apps, dashboards i eines internes.\"",
     "cta.h2a":"A punt per una","cta.h2b":"web millor?",
     "cta.sub":"Envia la teva web actual o idea de negoci. Respondré amb pròxims passos honestos en 24 hores.",
+    "contact.area":"Zona de servei: Barcelona · Catalunya · Espanya","contact.meet":"Reunions locals amb cita prèvia",
     "cta.btn1":"Enviar sol·licitud de revisió →","cta.call":"Reservar trucada a part →",
     "review.name":"El teu nom","review.email":"Email","review.website":"Web o negoci","review.message":"Què vols millorar?","review.note":"Això obre la teva app d'email amb el missatge preparat per enviar.",
     "footer.copy":"© 2026 Oleg Yakushin. Tots els drets reservats."
@@ -1078,7 +1128,7 @@ const T={
     "nav.services":"Услуги","nav.work":"Работы","nav.values":"О нас","nav.pricing":"Пакеты","nav.cta":"Аудит бесплатно",
     "hero.badge":"Открыт для новых проектов · 2026",
     "hero.h1a":"Сайты, которые помогают","hero.h1b":"локальному бизнесу расти.",
-    "hero.sub":"Современные, быстрые и SEO-готовые сайты, которые превращают посетителей в клиентов.",
+    "hero.sub":"Современные, быстрые и SEO-готовые сайты для бизнеса в Испании, Европе и онлайн.",
     "hero.cta1":"Получить бесплатный аудит сайта →","hero.cta2":"Смотреть работы ↓",
     "hero.m1":"Проектов запущено","hero.m2":"Недели до запуска","hero.m3":"Готово с первого дня",
     "trust.label":"Индивидуальные digital-продукты для",
@@ -1126,6 +1176,7 @@ const T={
     "t3.q":"\"Когда сайта недостаточно, систему можно расширить приложениями, dashboard и внутренними инструментами.\"",
     "cta.h2a":"Готовы к","cta.h2b":"сайту лучше?",
     "cta.sub":"Пришлите текущий сайт или идею бизнеса. Я отвечу честно со следующими шагами в течение 24 часов.",
+    "contact.area":"Работаем: Испания · Каталония · Барселона · удаленно","contact.meet":"Локальные встречи по договоренности",
     "cta.btn1":"Отправить заявку на аудит →","cta.call":"Записаться на звонок отдельно →",
     "review.name":"Ваше имя","review.email":"Email","review.website":"Сайт или бизнес","review.message":"Что хотите улучшить?","review.note":"Форма откроет почту с готовым сообщением для отправки.",
     "footer.copy":"© 2026 Олег Якушин. Все права защищены."
@@ -1167,7 +1218,16 @@ function applyLang(l,animated=false){
   },220);
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.getAttribute('data-lang'),true)));
-try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else applyLang('en');}catch(e){applyLang('en');}
+function detectLang(){
+  const supported=['es','ca','ru','en'];
+  const langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(l=>String(l).toLowerCase());
+  for(const candidate of langs){
+    const base=candidate.split('-')[0];
+    if(supported.includes(base)) return base;
+  }
+  return 'es';
+}
+try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else applyLang(detectLang());}catch(e){applyLang('es');}
 
 document.getElementById('review-form')?.addEventListener('submit',event=>{
   event.preventDefault();
