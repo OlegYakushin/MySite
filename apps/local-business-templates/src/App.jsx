@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -29,7 +29,8 @@ const text = {
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 function useLanguage() {
-  const [lang, setLang] = useState("es");
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  const [lang, setLang] = useState(requestedLanguage === "ca" ? "ca" : "es");
   return { lang, setLang, common: text[lang] };
 }
 
@@ -201,90 +202,177 @@ function OficioClaro() {
   );
 }
 
+const catalogText = {
+  es: {
+    htmlLang: "es", metaTitle: "Plantillas web para negocios locales | olegotka", metaDescription: "20 plantillas web para restaurantes, comercios, clínicas, profesionales y negocios locales en España.",
+    home: "Volver a olegotka.es", count: "20 plantillas, interfaz en 4 idiomas", request: "Pedir una web", eyebrow: "Biblioteca para negocios locales", title: "20 plantillas para tu negocio.", lead: "Elige una dirección, abre la demo y comprueba cómo se adapta a tu negocio.", explore: "Explorar plantillas", collage: "Selección de plantillas", libraryTitle: "Elige por tipo de negocio", available: (count) => `${count} direcciones disponibles`, filter: "Filtrar plantillas", demo: "Ver demo", ctaTitle: "¿Has encontrado una dirección?", ctaBody: "Adaptamos textos, colores, fotografías y contacto a tu negocio.", ctaLink: "Cuéntame tu negocio", footer: "Diseño y desarrollo web en Barcelona", back: "Todas las plantillas", want: "Quiero esta web", language: "Idioma", preview: (name, type) => `Vista previa de ${name} para ${type.toLowerCase()}`, previewShort: (name) => `Vista previa de la plantilla ${name}`, subject: "Quiero adaptar una plantilla",
+    categories: { all: "Todas", food: "Gastronomía", services: "Servicios", health: "Salud", retail: "Comercio", spaces: "Espacios" },
+  },
+  en: {
+    htmlLang: "en", metaTitle: "Website templates for local businesses | olegotka", metaDescription: "20 website templates for restaurants, shops, clinics, professionals and local businesses in Spain.",
+    home: "Back to olegotka.es", count: "20 templates, interface in 4 languages", request: "Get a website", eyebrow: "Library for local businesses", title: "20 templates for your business.", lead: "Choose a direction, open the demo and see how it can fit your business.", explore: "Explore templates", collage: "Selected templates", libraryTitle: "Choose by business type", available: (count) => `${count} directions available`, filter: "Filter templates", demo: "View demo", ctaTitle: "Found the right direction?", ctaBody: "We adapt the copy, colours, photography and contact details to your business.", ctaLink: "Tell me about your business", footer: "Web design and development in Barcelona", back: "All templates", want: "I want this website", language: "Language", preview: (name, type) => `${name} preview for ${type.toLowerCase()}`, previewShort: (name) => `${name} template preview`, subject: "I want to adapt a website template",
+    categories: { all: "All", food: "Food and drink", services: "Services", health: "Health", retail: "Retail", spaces: "Spaces" },
+  },
+  ca: {
+    htmlLang: "ca", metaTitle: "Plantilles web per a negocis locals | olegotka", metaDescription: "20 plantilles web per a restaurants, comerços, clíniques, professionals i negocis locals a Espanya.",
+    home: "Tornar a olegotka.es", count: "20 plantilles, interfície en 4 idiomes", request: "Demanar una web", eyebrow: "Biblioteca per a negocis locals", title: "20 plantilles per al teu negoci.", lead: "Tria una direcció, obre la demo i comprova com s'adapta al teu negoci.", explore: "Explorar plantilles", collage: "Selecció de plantilles", libraryTitle: "Tria per tipus de negoci", available: (count) => `${count} direccions disponibles`, filter: "Filtrar plantilles", demo: "Veure demo", ctaTitle: "Has trobat una direcció?", ctaBody: "Adaptem textos, colors, fotografies i contacte al teu negoci.", ctaLink: "Explica'm el teu negoci", footer: "Disseny i desenvolupament web a Barcelona", back: "Totes les plantilles", want: "Vull aquesta web", language: "Idioma", preview: (name, type) => `Vista prèvia de ${name} per a ${type.toLowerCase()}`, previewShort: (name) => `Vista prèvia de la plantilla ${name}`, subject: "Vull adaptar una plantilla web",
+    categories: { all: "Totes", food: "Gastronomia", services: "Serveis", health: "Salut", retail: "Comerç", spaces: "Espais" },
+  },
+  ru: {
+    htmlLang: "ru", metaTitle: "Шаблоны сайтов для локального бизнеса | olegotka", metaDescription: "20 шаблонов сайтов для ресторанов, магазинов, клиник, специалистов и локального бизнеса.",
+    home: "На главную olegotka.es", count: "20 шаблонов, интерфейс на 4 языках", request: "Заказать сайт", eyebrow: "Библиотека для локального бизнеса", title: "20 шаблонов для вашего бизнеса.", lead: "Выберите направление, откройте демо и посмотрите, как оно подходит вашему бизнесу.", explore: "Смотреть шаблоны", collage: "Выбранные шаблоны", libraryTitle: "Выберите тип бизнеса", available: (count) => `${count} вариантов`, filter: "Фильтр шаблонов", demo: "Открыть демо", ctaTitle: "Нашли подходящее направление?", ctaBody: "Адаптируем тексты, цвета, фотографии и контакты под ваш бизнес.", ctaLink: "Рассказать о бизнесе", footer: "Веб-дизайн и разработка в Барселоне", back: "Все шаблоны", want: "Хочу такой сайт", language: "Язык", preview: (name, type) => `Превью ${name}: ${type.toLowerCase()}`, previewShort: (name) => `Превью шаблона ${name}`, subject: "Хочу адаптировать шаблон сайта",
+    categories: { all: "Все", food: "Еда и напитки", services: "Услуги", health: "Здоровье", retail: "Торговля", spaces: "Пространства" },
+  },
+};
+
+const translatedFamilies = {
+  en: {
+    "mesa-viva": ["Restaurants and cafes", "Image-led design with menu and booking."], turno: ["Appointment services", "Clear offer and immediate contact."], "oficio-claro": ["Professional services", "Authority, expertise and a qualified enquiry."],
+    mercado: ["Local shop and concept store", "A digital shop window that changes with the store without turning the catalogue into noise."], taller: ["Workshop and repair service", "The website shows the process and craft before making promises."], "clinica-serena": ["Clinic and private practice", "Calm hierarchy, human language and no invented clinical claims."], patio: ["Small hotel and guesthouse", "A useful postcard: atmosphere first, decision second."], estudio: ["Creative studio", "Visual proof leads while the copy guides the eye."], raiz: ["Yoga, massage and wellness", "A calm presence that remains direct and commercially useful."], aula: ["Academy and local school", "The structure works like a clear timetable, not a school brochure."], nido: ["Pet care and services", "Friendly without looking childish, useful without filling the screen with icons."], "casa-abierta": ["Real estate and property", "One strong image and a clear path to booking a viewing."], obrador: ["Bakery and workshop", "A digital daily board without inventing stock or prices."], nocturno: ["Bar, music and nightlife", "The schedule reads like a poster, not an admin table."], botanica: ["Florist and plants", "Confident colour, real photography and visible contact details."], ruta: ["Tours and local experiences", "The city is the image, while the practical details stay visible."], liga: ["Training and sports club", "Scoreboard energy with information that helps people decide."], sastreria: ["Fashion, atelier and tailoring", "The lookbook starts a conversation instead of becoming an endless showcase."], orbita: ["Coworking and workspaces", "Availability and community share the same homepage."], barrio: ["Bookshop and neighbourhood space", "A neighbourhood noticeboard organised around usefulness, not an algorithm."],
+  },
+  ru: {
+    "mesa-viva": ["Рестораны и кафе", "Акцент на фотографиях, меню и бронировании."], turno: ["Услуги по записи", "Понятное предложение и быстрая связь."], "oficio-claro": ["Профессиональные услуги", "Экспертность, направления работы и точный запрос."],
+    mercado: ["Локальный магазин", "Цифровая витрина, которая меняется вместе с магазином и не перегружает каталог."], taller: ["Мастерская и ремонт", "Сайт показывает процесс и мастерство до громких обещаний."], "clinica-serena": ["Клиника и частная практика", "Спокойная иерархия, понятный язык и никаких выдуманных медицинских фактов."], patio: ["Небольшой отель или гостевой дом", "Полезная открытка: сначала атмосфера, затем решение."], estudio: ["Творческая студия", "Визуальные работы ведут, а текст помогает сосредоточиться."], raiz: ["Йога, массаж и велнес", "Спокойная подача, которая остается прямой и полезной для бизнеса."], aula: ["Академия и локальная школа", "Структура работает как понятное расписание, а не как школьная брошюра."], nido: ["Уход за животными", "Дружелюбно, но не по-детски. Полезно, но без перегрузки иконками."], "casa-abierta": ["Недвижимость", "Один сильный образ и понятный путь к записи на просмотр."], obrador: ["Пекарня и мастерская", "Цифровая доска на каждый день без выдуманных остатков и цен."], nocturno: ["Бар, музыка и ночная жизнь", "Расписание читается как афиша, а не как административная таблица."], botanica: ["Цветочный магазин", "Уверенный цвет, настоящие фотографии и заметные контакты."], ruta: ["Туры и локальные впечатления", "Город становится главным образом, а практические детали остаются на виду."], liga: ["Тренировки и спортивный клуб", "Энергия спортивного табло и информация, которая помогает принять решение."], sastreria: ["Мода, ателье и пошив", "Лукбук начинает диалог, а не превращается в бесконечную витрину."], orbita: ["Коворкинг и рабочие пространства", "Свободные места и сообщество встречаются на одной главной странице."], barrio: ["Книжный магазин и место для района", "Районная афиша, собранная вокруг полезности, а не алгоритма."],
+  },
+};
+
+const categoryByFamily = {
+  "mesa-viva": "food", turno: "services", "oficio-claro": "services", mercado: "retail", taller: "services", "clinica-serena": "health", patio: "spaces", estudio: "services", raiz: "health", aula: "services", nido: "health", "casa-abierta": "spaces", obrador: "food", nocturno: "food", botanica: "retail", ruta: "services", liga: "health", sastreria: "retail", orbita: "spaces", barrio: "retail",
+};
+
+const coreFamilies = [
+  { id: "mesa-viva", name: "Mesa Viva", color: "#8f201e", copy: { es: ["Restaurantes y cafeterías", "Fotografía dominante, carta y reserva."], ca: ["Restaurants i cafeteries", "Fotografia dominant, carta i reserva."], en: translatedFamilies.en["mesa-viva"], ru: translatedFamilies.ru["mesa-viva"] } },
+  { id: "turno", name: "Turno", color: "#1555ef", copy: { es: ["Servicios con cita", "Oferta clara y contacto inmediato."], ca: ["Serveis amb cita", "Oferta clara i contacte immediat."], en: translatedFamilies.en.turno, ru: translatedFamilies.ru.turno } },
+  { id: "oficio-claro", name: "Oficio Claro", color: "#431335", copy: { es: ["Servicios profesionales", "Autoridad, ámbitos y consulta cualificada."], ca: ["Serveis professionals", "Autoritat, àmbits i consulta qualificada."], en: translatedFamilies.en["oficio-claro"], ru: translatedFamilies.ru["oficio-claro"] } },
+];
+
 const families = [
-  { id: "mesa-viva", name: "Mesa Viva", type: "Restaurantes y cafeterías", description: "Fotografía dominante, carta y reserva.", color: "#8f201e", category: "Gastronomía" },
-  { id: "turno", name: "Turno", type: "Servicios con cita", description: "Oferta clara y contacto inmediato.", color: "#1555ef", category: "Servicios" },
-  { id: "oficio-claro", name: "Oficio Claro", type: "Servicios profesionales", description: "Autoridad, ámbitos y consulta cualificada.", color: "#431335", category: "Servicios" },
+  ...coreFamilies,
   ...additionalFamilies.map((family) => ({
     id: family.id,
     name: family.name,
-    type: family.copy.es.type,
-    description: family.copy.es.story,
     color: family.colors[0],
-    category: ({
-      mercado: "Comercio", taller: "Servicios", "clinica-serena": "Salud", patio: "Espacios",
-      estudio: "Servicios", raiz: "Salud", aula: "Servicios", nido: "Salud", "casa-abierta": "Espacios",
-      obrador: "Gastronomía", nocturno: "Gastronomía", botanica: "Comercio", ruta: "Servicios",
-      liga: "Salud", sastreria: "Comercio", orbita: "Espacios", barrio: "Comercio",
-    })[family.id] ?? "Servicios",
+    copy: {
+      es: [family.copy.es.type, family.copy.es.story],
+      ca: [family.copy.ca.type, family.copy.ca.story],
+      en: translatedFamilies.en[family.id],
+      ru: translatedFamilies.ru[family.id],
+    },
   })),
-];
+].map((family) => ({ ...family, category: categoryByFamily[family.id] }));
+
+const supportedLanguages = ["es", "en", "ca", "ru"];
+
+function initialCatalogLanguage() {
+  const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+  if (supportedLanguages.includes(queryLanguage)) return queryLanguage;
+  const savedLanguage = window.localStorage.getItem("templateCatalogLanguage");
+  if (supportedLanguages.includes(savedLanguage)) return savedLanguage;
+  const browserLanguage = window.navigator.language.toLowerCase().split("-")[0];
+  return supportedLanguages.includes(browserLanguage) ? browserLanguage : "es";
+}
+
+function useCatalogLanguage() {
+  const [lang, setLangState] = useState(initialCatalogLanguage);
+  const copy = catalogText[lang];
+
+  useEffect(() => {
+    document.documentElement.lang = copy.htmlLang;
+    document.title = copy.metaTitle;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", copy.metaDescription);
+    window.localStorage.setItem("templateCatalogLanguage", lang);
+  }, [copy, lang]);
+
+  const setLang = (nextLanguage) => {
+    setLangState(nextLanguage);
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("lang", nextLanguage);
+    window.history.replaceState({}, "", nextUrl);
+  };
+
+  return { lang, setLang, copy };
+}
+
+function CatalogLanguageSwitch({ lang, onChange, label, compact = false }) {
+  if (compact) {
+    return <label className="catalog-language-select"><span className="sr-only">{label}</span><select aria-label={label} onChange={(event) => onChange(event.target.value)} value={lang}>{supportedLanguages.map((code) => <option key={code} value={code}>{code === "ca" ? "CAT" : code.toUpperCase()}</option>)}</select></label>;
+  }
+  return <div className="catalog-language" aria-label={label}>{supportedLanguages.map((code) => <button aria-pressed={lang === code} className={lang === code ? "active" : ""} key={code} onClick={() => onChange(code)} type="button">{code === "ca" ? "CAT" : code.toUpperCase()}</button>)}</div>;
+}
 
 function Catalog() {
-  const [category, setCategory] = useState("Todas");
-  const categories = ["Todas", "Gastronomía", "Servicios", "Salud", "Comercio", "Espacios"];
-  const visibleFamilies = category === "Todas" ? families : families.filter((family) => family.category === category);
+  const { lang, setLang, copy } = useCatalogLanguage();
+  const [category, setCategory] = useState("all");
+  const categories = ["all", "food", "services", "health", "retail", "spaces"];
+  const visibleFamilies = category === "all" ? families : families.filter((family) => family.category === category);
+  const subject = encodeURIComponent(copy.subject);
 
   return (
     <main className="studio-catalog">
       <header className="catalog-header">
-        <a className="catalog-brand" href="/" aria-label="Volver a olegotka.es">oleg<span>otka</span></a>
-        <span className="catalog-count">20 plantillas en ES y CAT</span>
-        <a className="catalog-contact" href="mailto:hello@olegotka.es?subject=Quiero%20una%20web%20desde%20una%20plantilla">Pedir una web <ArrowRight size={18} /></a>
+        <a className="catalog-brand" href="/" aria-label={copy.home}>oleg<span>otka</span></a>
+        <span className="catalog-count">{copy.count}</span>
+        <div className="catalog-actions">
+          <CatalogLanguageSwitch lang={lang} label={copy.language} onChange={setLang} />
+          <a className="catalog-contact" href={`mailto:hello@olegotka.es?subject=${subject}`}>{copy.request} <ArrowRight size={18} /></a>
+        </div>
       </header>
 
       <section className="catalog-intro">
         <div className="catalog-hero-copy">
-          <p>Biblioteca para negocios locales</p>
-          <h1>20 plantillas para tu negocio.</h1>
-          <span>Elige una dirección, abre la demo y comprueba cómo se adapta a tu negocio.</span>
-          <a href="#catalogo">Explorar plantillas <ArrowRight size={20} /></a>
+          <p>{copy.eyebrow}</p>
+          <h1>{copy.title}</h1>
+          <span>{copy.lead}</span>
+          <a href="#catalogo">{copy.explore} <ArrowRight size={20} /></a>
         </div>
-        <div className="catalog-collage" aria-label="Selección de plantillas">
+        <div className="catalog-collage" aria-label={copy.collage}>
           {["mesa-viva", "oficio-claro", "turno"].map((id, index) => (
-            <img key={id} className={`catalog-collage-${index + 1}`} src={publicAsset(`previews/${id}.png`)} alt={`Vista previa de la plantilla ${families.find((family) => family.id === id)?.name}`} />
+            <img key={id} className={`catalog-collage-${index + 1}`} src={publicAsset(`previews/${id}.png`)} alt={copy.previewShort(families.find((family) => family.id === id)?.name)} />
           ))}
         </div>
       </section>
 
       <section className="catalog-library" id="catalogo">
         <div className="catalog-library-head">
-          <div><h2>Elige por tipo de negocio</h2><p>{visibleFamilies.length} direcciones disponibles</p></div>
-          <div className="catalog-filters" aria-label="Filtrar plantillas">
-            {categories.map((item) => <button className={category === item ? "active" : ""} key={item} onClick={() => setCategory(item)} type="button">{item}</button>)}
+          <div><h2>{copy.libraryTitle}</h2><p>{copy.available(visibleFamilies.length)}</p></div>
+          <div className="catalog-filters" aria-label={copy.filter}>
+            {categories.map((item) => <button aria-pressed={category === item} className={category === item ? "active" : ""} key={item} onClick={() => setCategory(item)} type="button">{copy.categories[item]}</button>)}
           </div>
         </div>
 
         <div className="catalog-grid" aria-live="polite">
-          {visibleFamilies.map((family) => (
-            <a className="catalog-card" href={`${import.meta.env.BASE_URL}?template=${family.id}`} key={family.id} style={{ "--entry-color": family.color }}>
+          {visibleFamilies.map((family) => {
+            const [type, description] = family.copy[lang] ?? family.copy.es;
+            return <a className="catalog-card" href={`${import.meta.env.BASE_URL}?template=${family.id}&lang=${lang}`} key={family.id} style={{ "--entry-color": family.color }}>
               <div className="catalog-preview">
                 <span aria-hidden="true">{family.name}</span>
-                <img loading="lazy" src={publicAsset(`previews/${family.id}.png`)} alt={`Vista previa de ${family.name} para ${family.type.toLowerCase()}`} />
+                <img loading="lazy" src={publicAsset(`previews/${family.id}.png`)} alt={copy.preview(family.name, type)} />
               </div>
               <div className="catalog-card-copy">
-                <div><p>{family.category}</p><h3>{family.name}</h3></div>
-                <span>{family.type}</span>
-                <strong>{family.description}</strong>
-                <em>Ver demo <ArrowRight size={19} /></em>
+                <div><p>{copy.categories[family.category]}</p><h3>{family.name}</h3></div>
+                <span>{type}</span>
+                <strong>{description}</strong>
+                <em>{copy.demo} <ArrowRight size={19} /></em>
               </div>
-            </a>
-          ))}
+            </a>;
+          })}
         </div>
       </section>
 
       <section className="catalog-cta">
-        <h2>¿Has encontrado una dirección?</h2>
-        <p>Adaptamos textos, colores, fotografías y contacto a tu negocio.</p>
-        <a href="mailto:hello@olegotka.es?subject=Quiero%20adaptar%20una%20plantilla">Cuéntame tu negocio <ArrowRight size={20} /></a>
+        <h2>{copy.ctaTitle}</h2>
+        <p>{copy.ctaBody}</p>
+        <a href={`mailto:hello@olegotka.es?subject=${subject}`}>{copy.ctaLink} <ArrowRight size={20} /></a>
       </section>
-      <footer className="catalog-footer"><a href="/">olegotka.es</a><span>Diseño y desarrollo web en Barcelona</span></footer>
+      <footer className="catalog-footer"><a href="/">olegotka.es</a><span>{copy.footer}</span></footer>
     </main>
   );
 }
 
 function PreviewFrame({ children }) {
-  return <div className="template-preview-frame"><div className="template-preview-tools"><a href={import.meta.env.BASE_URL}><ArrowLeft size={19} />Todas las plantillas</a><a href="mailto:hello@olegotka.es?subject=Quiero%20esta%20plantilla">Quiero esta web</a></div>{children}</div>;
+  const { lang, setLang, copy } = useCatalogLanguage();
+  const subject = encodeURIComponent(copy.subject);
+  return <div className="template-preview-frame"><div className="template-preview-tools"><a href={`${import.meta.env.BASE_URL}?lang=${lang}`}><ArrowLeft size={19} />{copy.back}</a><CatalogLanguageSwitch compact lang={lang} label={copy.language} onChange={setLang} /><a href={`mailto:hello@olegotka.es?subject=${subject}`}>{copy.want}</a></div>{children}</div>;
 }
 
 export function App() {

@@ -351,7 +351,9 @@ const layouts = {
 
 export function CollectionTemplate({ family }) {
   const languages = family.languages || Object.keys(family.copy).map((code) => ({ code, label: code === "ca" ? "CAT" : code.toUpperCase() }));
-  const [lang, setLang] = useState(family.defaultLanguage || languages[0]?.code || "es");
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  const initialLanguage = languages.some((language) => language.code === requestedLanguage) ? requestedLanguage : (family.defaultLanguage || languages[0]?.code || "es");
+  const [lang, setLang] = useState(initialLanguage);
   const [sent, setSent] = useState(false);
   const copy = family.copy[lang] || family.copy.en || family.copy.es || Object.values(family.copy)[0];
   const baseLabels = ui[lang] || ui.en;

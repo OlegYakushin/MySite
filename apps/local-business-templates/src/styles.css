@@ -9,6 +9,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; text-decoration: none; }
 img { display: block; width: 100%; }
 h1, h2, h3, p { text-wrap: pretty; }
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
 :focus-visible { outline: 3px solid #ffeb00; outline-offset: 4px; }
 .language-switch { display: inline-flex; align-items: center; gap: .42rem; }
 .language-switch button { border: 0; border-bottom: 2px solid transparent; padding: .35rem .08rem; background: transparent; color: inherit; cursor: pointer; font-weight: 700; }
@@ -78,6 +79,42 @@ h1, h2, h3, p { text-wrap: pretty; }
 }
 .catalog-brand span { color: var(--catalog-accent); }
 .catalog-count { color: var(--catalog-muted); font-size: .78rem; font-weight: 700; }
+.catalog-actions { justify-self: end; display: flex; align-items: center; gap: .65rem; }
+.catalog-language {
+  display: inline-flex;
+  align-items: center;
+  gap: .12rem;
+  padding: .2rem;
+  border: 1px solid var(--catalog-line);
+  border-radius: 999px;
+  background: var(--catalog-surface);
+}
+.catalog-language button {
+  min-width: 2rem;
+  min-height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  padding: .35rem .45rem;
+  background: transparent;
+  color: var(--catalog-muted);
+  cursor: pointer;
+  font-size: .65rem;
+  font-weight: 800;
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+.catalog-language button:hover { color: var(--catalog-ink); transform: translateY(-1px); }
+.catalog-language button.active { background: var(--catalog-ink); color: var(--catalog-bg); }
+.catalog-language-select select {
+  min-height: 2.55rem;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  padding: .45rem 1.8rem .45rem .7rem;
+  background: #282825;
+  color: #f7f5ef;
+  font-size: .7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
 .catalog-contact,
 .catalog-hero-copy > a,
 .catalog-cta > a {
@@ -97,7 +134,6 @@ h1, h2, h3, p { text-wrap: pretty; }
   white-space: nowrap;
   transition: transform 180ms cubic-bezier(.16,1,.3,1), background 180ms ease;
 }
-.catalog-contact { justify-self: end; }
 .catalog-contact:hover,
 .catalog-hero-copy > a:hover,
 .catalog-cta > a:hover { transform: translateY(-2px); background: var(--catalog-accent); }
@@ -274,6 +310,8 @@ h1, h2, h3, p { text-wrap: pretty; }
 }
 
 @media (max-width: 960px) {
+  .studio-catalog > .catalog-header { grid-template-columns: 1fr auto; }
+  .catalog-count { display: none; }
   .studio-catalog > .catalog-intro { grid-template-columns: 1fr; min-height: auto; }
   .catalog-hero-copy { padding-top: 2rem; }
   .catalog-collage { min-height: 38rem; }
@@ -285,7 +323,9 @@ h1, h2, h3, p { text-wrap: pretty; }
 @media (max-width: 700px) {
   .studio-catalog > .catalog-header { grid-template-columns: 1fr auto; min-height: 4rem; padding-inline: 1rem; }
   .catalog-count { display: none; }
-  .catalog-contact { min-height: 2.5rem; padding: .55rem .8rem; }
+  .catalog-actions { gap: 0; }
+  .catalog-contact { display: none; }
+  .catalog-language button { min-width: 1.85rem; padding-inline: .35rem; }
   .studio-catalog > .catalog-intro { display: block; padding: 3.5rem 1rem 4rem; }
   .studio-catalog .catalog-hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
   .catalog-collage { min-height: 27rem; margin-top: 2.5rem; }
@@ -304,7 +344,9 @@ h1, h2, h3, p { text-wrap: pretty; }
   .catalog-cta { padding: 3rem 1.3rem; }
   .catalog-footer { align-items: flex-start; flex-direction: column; }
   .template-preview-tools { width: calc(100% - 1rem); justify-content: space-between; bottom: .5rem; }
-  .template-preview-tools a { padding-inline: .65rem; }
+  .template-preview-tools a { max-width: 42%; padding-inline: .65rem; overflow: hidden; text-overflow: ellipsis; }
+  .template-preview-tools a:last-child { justify-content: center; }
+  .catalog-language-select select { min-width: 3.5rem; width: 3.5rem; padding-inline: .55rem; }
 }
 
 /* Config-driven collection: nine genuinely different site structures */
