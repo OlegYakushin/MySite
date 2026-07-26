@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap para desarrollar un MVP iOS: de idea a App Store</title>
+  <meta name="description" content="Un roadmap práctico para crear un MVP iOS: alcance, riesgos técnicos, desarrollo por entregas, beta, publicación y métricas tras el lanzamiento.">
+  <link rel="canonical" href="https://olegotka.es/es/guias/roadmap-mvp-ios.html">
+  <link rel="alternate" hreflang="en" href="https://olegotka.es/insights/ios-mvp-roadmap.html">
+  <link rel="alternate" hreflang="es" href="https://olegotka.es/es/guias/roadmap-mvp-ios.html">
+  <link rel="alternate" hreflang="x-default" href="https://olegotka.es/insights/ios-mvp-roadmap.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Roadmap para desarrollar un MVP iOS">
+  <meta property="og:description" content="De una idea clara a una primera versión útil, medible y preparada para App Store.">
+  <meta property="og:url" content="https://olegotka.es/es/guias/roadmap-mvp-ios.html">
+  <meta property="og:site_name" content="Oleg Yakushin — iOS Developer">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Roadmap para desarrollar un MVP iOS: de idea a App Store",
+    "description": "Un roadmap práctico para crear un MVP iOS: alcance, riesgos técnicos, desarrollo por entregas, beta, publicación y métricas tras el lanzamiento.",
+    "inLanguage": "es",
+    "datePublished": "2026-07-22",
+    "dateModified": "2026-07-26",
+    "author": {
+      "@type": "Person",
+      "name": "Oleg Yakushin",
+      "url": "https://olegotka.es/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Oleg Yakushin"
+    },
+    "mainEntityOfPage": "https://olegotka.es/es/guias/roadmap-mvp-ios.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Oleg Yakushin — inicio">OY</a>
+    <nav aria-label="Navegación principal">
+      <a href="/#work">Proyectos</a>
+      <a href="/es/guias/">Guías</a>
+      <a class="nav-cta" href="/#apply">Solicitar proyecto</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article">
+      <a class="eyebrow" href="/es/guias/">Guías de desarrollo iOS</a>
+      <h1>Roadmap para desarrollar un MVP iOS: de idea a App Store</h1>
+      <p class="lead">Un buen MVP no es una app incompleta. Es la versión más pequeña que resuelve un problema real, permite aprender de usuarios y se puede publicar con calidad.</p>
+      <div class="article-meta">
+        <span>Oleg Yakushin</span>
+        <span>8 min de lectura</span>
+        <time datetime="2026-07-26">26 de julio de 2026</time>
+      </div>
+
+      <section>
+        <h2>1. Define el resultado, no una lista infinita de funciones</h2>
+        <p>Antes de diseñar pantallas, concreta qué debe conseguir el usuario y qué debe aprender el negocio. Una frase útil suele tener esta forma: “Ayudamos a [tipo de usuario] a [resultado] sin [fricción actual]”.</p>
+        <p>El MVP necesita una métrica principal: completar una reserva, registrar una sesión, terminar una tarea o volver a usar la app durante la primera semana.</p>
+      </section>
+
+      <section>
+        <h2>2. Diseña primero el flujo principal</h2>
+        <p>Identifica el recorrido mínimo desde la entrada hasta el valor: abrir la app, entender la propuesta, realizar la acción clave y recibir una confirmación clara.</p>
+        <ul>
+          <li>Conserva un único caso de uso principal.</li>
+          <li>Reduce formularios, permisos y decisiones iniciales.</li>
+          <li>Pospone roles avanzados, personalización extensa e integraciones secundarias.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Resuelve los riesgos técnicos al principio</h2>
+        <p>Un prototipo visual no demuestra que la parte difícil funcione. Si el producto depende de vídeo, Bluetooth, sincronización, pagos, ubicación o procesamiento en segundo plano, valida ese riesgo antes de construir todo el interfaz.</p>
+        <p>Una prueba técnica corta puede evitar semanas de trabajo sobre una arquitectura equivocada.</p>
+      </section>
+
+      <section>
+        <h2>4. Elige una arquitectura del tamaño de la primera versión</h2>
+        <p>La base debe ser mantenible, pero no necesita anticipar todos los escenarios futuros. Para muchos MVP iOS, SwiftUI, una separación sencilla de estado y servicios, analítica y pruebas del flujo crítico ofrecen un equilibrio adecuado.</p>
+        <p>Las decisiones difíciles de revertir —modelo de datos, autenticación, pagos y privacidad— merecen más atención que abstracciones prematuras.</p>
+      </section>
+
+      <section>
+        <h2>5. Desarrolla en entregas verticales</h2>
+        <p>Cada entrega debería conectar interfaz, lógica y datos para producir algo comprobable. Es mejor tener un flujo completo pequeño que muchas pantallas sin comportamiento real.</p>
+        <ol>
+          <li>Prototipo navegable y alcance confirmado.</li>
+          <li>Primer flujo funcional con datos reales o controlados.</li>
+          <li>Estados de carga, vacío, error y recuperación.</li>
+          <li>Beta interna y después TestFlight con usuarios seleccionados.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>6. Diseña también los fallos</h2>
+        <p>La experiencia real incluye conexiones lentas, permisos denegados, sesiones caducadas y datos incompletos. Definir estos estados durante el desarrollo reduce errores y evita improvisar justo antes del lanzamiento.</p>
+      </section>
+
+      <section>
+        <h2>7. Prepara App Store antes de terminar</h2>
+        <p>No dejes para el último día la política de privacidad, los textos de permisos, capturas, datos de revisión y configuración de suscripciones. Algunos requisitos pueden obligar a cambiar el producto.</p>
+        <p>Usa nuestra <a href="/es/guias/checklist-lanzamiento-app-store.html">checklist de lanzamiento en App Store</a> para revisar la entrega.</p>
+      </section>
+
+      <section>
+        <h2>8. Planifica qué ocurre después del lanzamiento</h2>
+        <p>La primera versión abre una etapa de aprendizaje. Mide activación, finalización del flujo principal, errores, retención y comentarios cualitativos. Las siguientes prioridades deben salir de esa evidencia, no de una lista antigua de ideas.</p>
+      </section>
+
+      <aside class="article-cta">
+        <p class="eyebrow">¿Tienes una idea para iOS?</p>
+        <h2>Convirtámosla en un MVP publicable.</h2>
+        <p>Revisaré alcance, riesgos y una ruta realista hacia TestFlight y App Store.</p>
+        <a class="button" href="/#apply">Solicitar una evaluación</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/">Oleg Yakushin</a>
+    <a href="/es/guias/">Guías iOS</a>
+    <a href="/privacy-policy.html">Privacidad</a>
+  </footer>
+  <script src="/assets/cookie-consent.js" defer></script>
+</body>
+</html>

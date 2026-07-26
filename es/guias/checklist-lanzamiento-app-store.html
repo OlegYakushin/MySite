@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checklist para publicar una app iOS en App Store</title>
+  <meta name="description" content="Checklist práctica para lanzar una app iOS: calidad, privacidad, pagos, ficha de App Store, revisión, publicación y seguimiento.">
+  <link rel="canonical" href="https://olegotka.es/es/guias/checklist-lanzamiento-app-store.html">
+  <link rel="alternate" hreflang="en" href="https://olegotka.es/insights/app-store-launch-checklist.html">
+  <link rel="alternate" hreflang="es" href="https://olegotka.es/es/guias/checklist-lanzamiento-app-store.html">
+  <link rel="alternate" hreflang="x-default" href="https://olegotka.es/insights/app-store-launch-checklist.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Checklist para publicar una app iOS en App Store">
+  <meta property="og:description" content="Una revisión completa antes de enviar tu app a App Store Connect.">
+  <meta property="og:url" content="https://olegotka.es/es/guias/checklist-lanzamiento-app-store.html">
+  <meta property="og:site_name" content="Oleg Yakushin — iOS Developer">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Checklist para publicar una app iOS en App Store",
+    "description": "Checklist práctica para lanzar una app iOS: calidad, privacidad, pagos, ficha de App Store, revisión, publicación y seguimiento.",
+    "inLanguage": "es",
+    "datePublished": "2026-07-26",
+    "dateModified": "2026-07-26",
+    "author": {
+      "@type": "Person",
+      "name": "Oleg Yakushin",
+      "url": "https://olegotka.es/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Oleg Yakushin"
+    },
+    "mainEntityOfPage": "https://olegotka.es/es/guias/checklist-lanzamiento-app-store.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Oleg Yakushin — inicio">OY</a>
+    <nav aria-label="Navegación principal">
+      <a href="/#work">Proyectos</a>
+      <a href="/es/guias/">Guías</a>
+      <a class="nav-cta" href="/#apply">Solicitar proyecto</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article">
+      <a class="eyebrow" href="/es/guias/">Guías de desarrollo iOS</a>
+      <h1>Checklist para publicar una app iOS en App Store</h1>
+      <p class="lead">La revisión de Apple es solo una parte del lanzamiento. Esta lista ayuda a comprobar producto, estabilidad, privacidad y materiales comerciales antes de enviar la versión.</p>
+      <div class="article-meta">
+        <span>Oleg Yakushin</span>
+        <span>9 min de lectura</span>
+        <time datetime="2026-07-26">26 de julio de 2026</time>
+      </div>
+
+      <section>
+        <h2>Producto y experiencia</h2>
+        <ul class="checklist">
+          <li>El flujo principal se puede completar desde una instalación nueva.</li>
+          <li>Los estados de carga, vacío, error y sin conexión tienen una respuesta clara.</li>
+          <li>La app explica por qué solicita cada permiso antes del diálogo del sistema.</li>
+          <li>Los enlaces de soporte, privacidad y condiciones funcionan.</li>
+          <li>La interfaz es usable con tamaños de texto mayores y VoiceOver en las acciones críticas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Calidad técnica</h2>
+        <ul class="checklist">
+          <li>La versión final se prueba en los modelos y versiones de iOS compatibles.</li>
+          <li>No quedan bloqueos, datos de prueba, menús internos ni credenciales en la compilación.</li>
+          <li>Se verifican instalación, actualización, cierre de sesión y recuperación de cuenta.</li>
+          <li>Los enlaces universales, notificaciones y tareas en segundo plano funcionan en producción.</li>
+          <li>La analítica y los informes de errores no recopilan información innecesaria.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Privacidad y datos</h2>
+        <ul class="checklist">
+          <li>La política de privacidad describe los datos realmente usados por la app y sus proveedores.</li>
+          <li>Las respuestas de App Privacy en App Store Connect coinciden con el comportamiento real.</li>
+          <li>Los textos de uso en Info.plist explican de forma específica para qué se necesita cada permiso.</li>
+          <li>La eliminación de cuenta está disponible dentro de la app cuando se permite crear una cuenta.</li>
+          <li>Los SDK de terceros y sus manifiestos de privacidad están actualizados.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pagos y suscripciones</h2>
+        <ul class="checklist">
+          <li>Las compras digitales utilizan el sistema admitido por Apple para ese caso.</li>
+          <li>Precio, duración, renovación y prueba gratuita se muestran antes de comprar.</li>
+          <li>“Restaurar compras” funciona y es fácil de encontrar.</li>
+          <li>Se prueban compra, cancelación, renovación, reembolso y periodo de gracia en sandbox.</li>
+          <li>La pantalla de pago incluye enlaces a privacidad y condiciones.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ficha de App Store</h2>
+        <ul class="checklist">
+          <li>Nombre, subtítulo y descripción explican el beneficio sin promesas no demostrables.</li>
+          <li>Las capturas corresponden a la versión actual y son legibles en cada tamaño requerido.</li>
+          <li>Icono, categoría, edad, derechos y datos de contacto están completos.</li>
+          <li>Las palabras clave no repiten términos innecesariamente ni incluyen marcas ajenas.</li>
+          <li>La URL de soporte lleva a una página donde una persona puede obtener ayuda.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Acceso para la revisión</h2>
+        <ul class="checklist">
+          <li>Apple recibe una cuenta de demostración activa si alguna función requiere acceso.</li>
+          <li>Las notas explican pasos no evidentes, hardware necesario y funciones restringidas por región.</li>
+          <li>El backend de producción estará disponible durante toda la revisión.</li>
+          <li>Los datos de muestra permiten comprobar el flujo principal sin configuración especial.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Publicación</h2>
+        <ul class="checklist">
+          <li>El número de versión, build, firma y capacidades corresponden al entorno de producción.</li>
+          <li>Se decide entre publicación automática, manual o gradual.</li>
+          <li>Soporte y monitorización están preparados para el día del lanzamiento.</li>
+          <li>Existe un plan para corregir rápidamente un fallo crítico o pausar una campaña.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Después de la aprobación</h2>
+        <p>Comprueba la ficha pública, instala la versión desde App Store y recorre de nuevo el flujo principal. Vigila errores, rendimiento, conversión y reseñas durante los primeros días. El lanzamiento termina cuando la versión real es estable, no cuando cambia el estado en App Store Connect.</p>
+        <p>Si todavía estás definiendo la primera versión, empieza por el <a href="/es/guias/roadmap-mvp-ios.html">roadmap para un MVP iOS</a>.</p>
+      </section>
+
+      <aside class="article-cta">
+        <p class="eyebrow">¿Preparando un lanzamiento?</p>
+        <h2>Revisemos la app antes de enviarla.</h2>
+        <p>Puedo ayudarte a cerrar errores, requisitos de App Store y los detalles que retrasan una publicación.</p>
+        <a class="button" href="/#apply">Solicitar una revisión</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/">Oleg Yakushin</a>
+    <a href="/es/guias/">Guías iOS</a>
+    <a href="/privacy-policy.html">Privacidad</a>
+  </footer>
+  <script src="/assets/cookie-consent.js" defer></script>
+</body>
+</html>

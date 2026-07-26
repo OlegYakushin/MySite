@@ -30,6 +30,10 @@ Premium iOS MVP development for startups and growing businesses.
 ## Spanish market
 
 - [Desarrollo de apps iOS en Barcelona](https://olegotka.es/es/desarrollo-app-ios-barcelona.html)
+- [Guías de desarrollo iOS](https://olegotka.es/es/guias/)
+- [Cuánto cuesta desarrollar una app iOS](https://olegotka.es/es/guias/cuanto-cuesta-desarrollar-app-ios.html)
+- [Roadmap para desarrollar un MVP iOS](https://olegotka.es/es/guias/roadmap-mvp-ios.html)
+- [Checklist para publicar una app iOS en App Store](https://olegotka.es/es/guias/checklist-lanzamiento-app-store.html)
 
 ## Contact
 
