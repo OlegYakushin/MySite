@@ -5,6 +5,11 @@ Portfolio and micro-agency site for premium iOS MVP development.
 Useful resources:
 
 - Homepage: https://olegotka.es/
+- Project application: https://olegotka.es/#apply
+- iOS development guides: https://olegotka.es/insights/
+- iOS app development cost: https://olegotka.es/insights/ios-app-development-cost.html
+- iOS MVP roadmap: https://olegotka.es/insights/ios-mvp-roadmap.html
+- App Store launch checklist: https://olegotka.es/insights/app-store-launch-checklist.html
 - Markdown homepage: https://olegotka.es/index.md
 - API catalog: https://olegotka.es/.well-known/api-catalog
 - OpenAPI description: https://olegotka.es/openapi.json
@@ -14,5 +19,5 @@ Useful resources:
 
 Contact:
 
-- Booking: https://cal.com/olegotka/first-call
+- Booking (secondary): https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es

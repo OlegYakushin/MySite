@@ -21,8 +21,15 @@ Premium iOS MVP development for startups and growing businesses.
 - TaskHive: team task workflows.
 - MenuFlow: restaurant ordering and kitchen status.
 
+## iOS Development Guides
+
+- [How much does iOS app development cost?](https://olegotka.es/insights/ios-app-development-cost.html)
+- [A practical roadmap for an iOS MVP](https://olegotka.es/insights/ios-mvp-roadmap.html)
+- [App Store launch checklist](https://olegotka.es/insights/app-store-launch-checklist.html)
+
 ## Contact
 
 - Website: https://olegotka.es/
-- Booking: https://cal.com/olegotka/first-call
+- Project application: https://olegotka.es/#apply
+- Booking (secondary): https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es

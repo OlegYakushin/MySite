@@ -338,15 +338,41 @@
       font-family:var(--font-d);font-size:.9rem;font-weight:700;color:var(--text-m)}
     .testi-name{font-weight:600;font-size:.9rem;color:var(--text);line-height:1.2}
     .testi-role{font-size:.8rem;color:var(--text-f);line-height:1.2}
-    /* CTA */
-    #cta{padding:var(--sec) 0;text-align:center;
+    /* INSIGHTS */
+    .insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .insight-card{display:flex;flex-direction:column;min-height:280px}
+    .insight-meta{font-family:var(--font-m);font-size:.68rem;color:var(--text-f);
+      letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+    .insight-title{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem}
+    .insight-copy{font-size:.9375rem;color:var(--text-m);line-height:1.6;margin-bottom:1.5rem}
+    .insight-link{color:#9baeff;font-weight:700;margin-top:auto}
+    /* APPLICATION */
+    #apply{padding:var(--sec) 0;
       background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(37,99,255,0.1),transparent 70%)}
-    .cta-inner{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);
-      display:flex;flex-direction:column;align-items:center;gap:2rem}
+    .apply-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+      gap:clamp(2rem,6vw,6rem);align-items:start}
+    .cta-inner{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
     .cta-h2{font-size:clamp(2rem,1rem + 4vw,4.5rem);font-weight:900;
       letter-spacing:-0.03em;line-height:1.05;color:var(--text)}
-    .cta-sub{font-size:1.0625rem;color:var(--text-m);max-width:46ch;text-align:center}
-    .cta-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .cta-sub{font-size:1.0625rem;color:var(--text-m);max-width:46ch}
+    .call-secondary{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;color:var(--text-m)}
+    .application-form{background:var(--surface);border:1px solid var(--border);
+      border-radius:var(--r-xl);padding:clamp(1.25rem,4vw,2rem);
+      box-shadow:0 24px 80px rgba(37,99,255,.12)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .field{display:flex;flex-direction:column;gap:.45rem}
+    .field-full{grid-column:1/-1}
+    .field label{font-size:.82rem;font-weight:700;color:var(--text)}
+    .field input,.field select,.field textarea{width:100%;font:inherit;color:var(--text);
+      background:rgba(6,6,26,.65);border:1px solid var(--border);border-radius:var(--r-md);
+      padding:.8rem .9rem;outline:none;transition:border-color var(--tr),box-shadow var(--tr)}
+    .field textarea{min-height:130px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#587cff;
+      box-shadow:0 0 0 3px rgba(37,99,255,.16)}
+    .field select{color-scheme:dark}
+    .form-note,.form-status{font-size:.78rem;color:var(--text-m);margin-top:1rem}
+    .form-status{min-height:1.25rem;color:var(--ok)}
+    .application-form .btn{width:100%;justify-content:center;margin-top:.5rem}
     /* FOOTER */
     footer{padding:2.5rem 0;border-top:1px solid var(--border);background:rgba(6,6,26,0.95)}
     .footer-inner{max-width:var(--cw);margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem);
@@ -366,11 +392,12 @@
     .reveal.in{opacity:1;transform:none}
     /* RESPONSIVE */
     @media(max-width:900px){
-      .services-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr 1fr}
-      .values-layout{grid-template-columns:1fr;gap:3rem}
+      .services-grid,.pricing-grid,.testi-grid,.insights-grid{grid-template-columns:1fr 1fr}
+      .values-layout,.apply-layout{grid-template-columns:1fr;gap:3rem}
     }
     @media(max-width:600px){
-      .services-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+      .services-grid,.pricing-grid,.testi-grid,.insights-grid,.form-grid{grid-template-columns:1fr}
+      .field-full{grid-column:auto}
       nav{height:auto;min-height:0}
       .nav-inner{display:grid;grid-template-columns:1fr auto;gap:.75rem;
         padding:.8rem 1rem;width:100%}
@@ -407,6 +434,7 @@
       <a href="#work" class="nav-a" data-i18n="nav.work">Work</a>
       <a href="#values" class="nav-a" data-i18n="nav.values">About</a>
       <a href="#pricing" class="nav-a" data-i18n="nav.pricing">Pricing</a>
+      <a href="#insights" class="nav-a" data-i18n="nav.insights">Insights</a>
     </div>
     <div class="nav-right">
       <div class="lang-sw">
@@ -414,7 +442,7 @@
         <button class="lang-btn" data-lang="es">ES</button>
         <button class="lang-btn" data-lang="ru">RU</button>
       </div>
-      <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.5rem 1.125rem;min-height:36px;font-size:.875rem" data-i18n="nav.cta">Book a call</a>
+      <a href="#apply" class="btn btn-primary" style="padding:.5rem 1.125rem;min-height:36px;font-size:.875rem" data-i18n="nav.cta">Start a project</a>
     </div>
   </div>
 </nav>
@@ -429,7 +457,7 @@
       <h1 class="hero-h1 reveal"><span data-i18n="hero.h1a">iOS Studio</span><br><span class="grad-text" data-i18n="hero.h1b">next level.</span></h1>
       <p class="hero-sub reveal" data-i18n="hero.sub">Native iOS apps for startups and growing businesses — from zero to App Store in weeks, not months.</p>
       <div class="hero-cta reveal">
-        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.cta1">Book a free call →</a>
+        <a href="#apply" class="btn btn-primary" data-i18n="hero.cta1">Leave a project request →</a>
         <a href="#work" class="btn btn-ghost" data-i18n="hero.cta2">See our work ↓</a>
       </div>
       <div class="hero-metrics reveal">
@@ -624,7 +652,7 @@
           <p class="port-name" data-i18n="p7.name">Want more examples?</p>
           <p class="port-desc" data-i18n="p7.desc">Write to us and we will send additional relevant work, including private or NDA-safe examples.</p>
           <div class="tags" style="margin-bottom:.75rem"><span class="tag">More cases</span><span class="tag">NDA-safe</span><span class="tag">By request</span></div>
-          <a href="#cta" class="port-link" data-i18n="p7.link">Request more work →</a>
+          <a href="#apply" class="port-link" data-i18n="p7.link">Request more work →</a>
         </div>
       </div>
     </div>
@@ -673,7 +701,7 @@
         <p class="price-feature" data-i18n="pr1.f1">Weekly progress updates</p>
         <p class="price-feature" data-i18n="pr1.f2">New iOS version support</p>
         <p class="price-feature" data-i18n="pr1.f3">Priority response</p>
-        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center" data-i18n="pr1.cta">Let's talk →</a>
+        <a href="#apply" data-project-type="support" class="btn btn-ghost" style="width:100%;justify-content:center" data-i18n="pr1.cta">Request retainer →</a>
       </div>
       <div class="price-card featured reveal">
         <span class="price-popular" data-i18n="pr.popular">Most popular</span>
@@ -684,7 +712,7 @@
         <p class="price-feature" data-i18n="pr2.f1">Native Swift + SwiftUI</p>
         <p class="price-feature" data-i18n="pr2.f2">Design + backend + launch</p>
         <p class="price-feature" data-i18n="pr2.f3">30 days post-launch support</p>
-        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center" data-i18n="pr2.cta">Book a free call →</a>
+        <a href="#apply" data-project-type="mvp" class="btn btn-primary" style="width:100%;justify-content:center" data-i18n="pr2.cta">Request an MVP →</a>
       </div>
       <div class="price-card reveal">
         <p class="price-name" data-i18n="pr3.n">Full Build</p>
@@ -694,7 +722,7 @@
         <p class="price-feature" data-i18n="pr3.f1">Complex architecture</p>
         <p class="price-feature" data-i18n="pr3.f2">All integrations included</p>
         <p class="price-feature" data-i18n="pr3.f3">Full source code ownership</p>
-        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center" data-i18n="pr3.cta">Get a quote →</a>
+        <a href="#apply" data-project-type="full" class="btn btn-ghost" style="width:100%;justify-content:center" data-i18n="pr3.cta">Request a quote →</a>
       </div>
     </div>
     <p style="text-align:center;font-family:var(--font-m);font-size:.7rem;color:var(--text-f);margin-top:2rem" data-i18n="price.fine">Fixed price always. No hourly billing surprises.</p>
@@ -728,15 +756,94 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <div class="reveal"><span class="badge-pill"><span class="dot"></span><span data-i18n="hero.badge">Available for new projects · 2026</span></span></div>
-    <h2 class="cta-h2 reveal"><span data-i18n="cta.h2a">Ready to</span><br><span class="grad-text" data-i18n="cta.h2b">launch?</span></h2>
-    <p class="cta-sub reveal" data-i18n="cta.sub">Tell me your idea and timeline. I'll reply honestly within 24 hours.</p>
-    <div class="cta-btns reveal">
-      <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta.btn1">Book a free call →</a>
-      <a href="mailto:hello@olegotka.es" class="btn btn-ghost">hello@olegotka.es</a>
+<!-- INSIGHTS -->
+<section id="insights" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-pre">// <span data-i18n="insights.pre">iOS product guides</span></span>
+      <h2 class="sec-h2"><span data-i18n="insights.h2a">Plan the build</span> <span class="grad-text" data-i18n="insights.h2b">with fewer unknowns.</span></h2>
+      <p class="sec-sub" data-i18n="insights.sub">Practical answers about scope, cost, delivery and App Store launch.</p>
+    </div>
+    <div class="insights-grid">
+      <article class="card insight-card reveal">
+        <p class="insight-meta">8 min · Budget & scope</p>
+        <h3 class="insight-title">How much does iOS app development cost?</h3>
+        <p class="insight-copy">A practical breakdown of MVP, full-build and ongoing support budgets.</p>
+        <a class="insight-link" href="/insights/ios-app-development-cost.html">Read the guide →</a>
+      </article>
+      <article class="card insight-card reveal">
+        <p class="insight-meta">7 min · Product delivery</p>
+        <h3 class="insight-title">The iOS MVP roadmap</h3>
+        <p class="insight-copy">What happens from the first scope decision to a production App Store release.</p>
+        <a class="insight-link" href="/insights/ios-mvp-roadmap.html">Read the guide →</a>
+      </article>
+      <article class="card insight-card reveal">
+        <p class="insight-meta">6 min · App Store</p>
+        <h3 class="insight-title">App Store launch checklist</h3>
+        <p class="insight-copy">Metadata, privacy, review preparation and release details teams often miss.</p>
+        <a class="insight-link" href="/insights/app-store-launch-checklist.html">Read the guide →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION -->
+<section id="apply">
+  <div class="container apply-layout">
+    <div class="cta-inner">
+      <div class="reveal"><span class="badge-pill"><span class="dot"></span><span data-i18n="hero.badge">Available for new projects · 2026</span></span></div>
+      <h2 class="cta-h2 reveal"><span data-i18n="cta.h2a">Tell me about</span><br><span class="grad-text" data-i18n="cta.h2b">your iOS project.</span></h2>
+      <p class="cta-sub reveal" data-i18n="cta.sub">Send the essentials. I will review the scope and reply personally within 24 hours.</p>
+      <div class="call-secondary reveal">
+        <span data-i18n="cta.callHint">Prefer to talk first?</span>
+        <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta.call">Book a call</a>
+      </div>
+    </div>
+    <form class="application-form reveal" id="application-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="app-name" data-i18n="form.name">Your name</label>
+          <input id="app-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="app-email" data-i18n="form.email">Work email</label>
+          <input id="app-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="app-type" data-i18n="form.type">What do you need?</label>
+          <select id="app-type" name="projectType" required>
+            <option value="" data-i18n="form.choose">Choose a project type</option>
+            <option value="mvp" data-i18n="form.mvp">iOS MVP</option>
+            <option value="full" data-i18n="form.full">Full iOS app</option>
+            <option value="support" data-i18n="form.support">Existing app / support</option>
+            <option value="review" data-i18n="form.review">Code or architecture review</option>
+            <option value="launch" data-i18n="form.launch">App Store launch</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="app-stage" data-i18n="form.stage">Current stage</label>
+          <select id="app-stage" name="stage" required>
+            <option value="" data-i18n="form.chooseStage">Choose a stage</option>
+            <option value="idea" data-i18n="form.idea">Idea / requirements</option>
+            <option value="design" data-i18n="form.design">Prototype / design</option>
+            <option value="existing" data-i18n="form.existing">Existing app</option>
+          </select>
+        </div>
+        <div class="field field-full">
+          <label for="app-brief" data-i18n="form.brief">Project brief</label>
+          <textarea id="app-brief" name="brief" required data-i18n-placeholder="form.briefPlaceholder" placeholder="What should the app do, for whom, and what matters most?"></textarea>
+        </div>
+        <div class="field field-full">
+          <label for="app-timeline" data-i18n="form.timeline">Target timeline (optional)</label>
+          <input id="app-timeline" name="timeline" data-i18n-placeholder="form.timelinePlaceholder" placeholder="For example: launch in October">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" data-i18n="form.submit">Prepare my application →</button>
+      <p class="form-note" data-i18n="form.note">This prepares the application in your email app so you can review and send it.</p>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
     </div>
   </div>
 </section>
@@ -767,11 +874,11 @@
 const T={
   en:{
     'ui.loading':'Loading language',
-    'nav.services':'Services','nav.work':'Work','nav.values':'About','nav.pricing':'Pricing','nav.cta':'Book a call',
+    'nav.services':'Services','nav.work':'Work','nav.values':'About','nav.pricing':'Pricing','nav.insights':'Insights','nav.cta':'Start a project',
     'hero.badge':'Available for new projects · 2026',
     'hero.h1a':'iOS Studio','hero.h1b':'next level.',
     'hero.sub':'Native iOS apps for startups and growing businesses — from zero to App Store in weeks, not months.',
-    'hero.cta1':'Book a free call →','hero.cta2':'See our work ↓',
+    'hero.cta1':'Leave a project request →','hero.cta2':'See our work ↓',
     'hero.m1':'Apps shipped','hero.m2':'Weeks to MVP','hero.m3':'App Store rated',
     'trust.label':'Trusted by',
     'svc.pre':'what we build','svc.h2a':'Apps people','svc.h2b':'actually use.',
@@ -801,27 +908,36 @@ const T={
     'price.fine':'Fixed price always. No hourly billing surprises.',
     'pr.popular':'Most popular',
     'pr1.n':'Retainer','pr1.d':'Ongoing development, support, and updates.','pr1.note':'Min. 3 months',
-    'pr1.f1':'Weekly progress updates','pr1.f2':'New iOS version support','pr1.f3':'Priority response','pr1.cta':"Let's talk →",
+    'pr1.f1':'Weekly progress updates','pr1.f2':'New iOS version support','pr1.f3':'Priority response','pr1.cta':'Request retainer →',
     'pr2.n':'MVP Sprint','pr2.d':'Fixed scope, fixed price. Idea → App Store in 2–4 weeks.','pr2.note':'Fixed price',
-    'pr2.f1':'Native Swift + SwiftUI','pr2.f2':'Design + backend + launch','pr2.f3':'30 days post-launch support','pr2.cta':'Book a free call →',
+    'pr2.f1':'Native Swift + SwiftUI','pr2.f2':'Design + backend + launch','pr2.f3':'30 days post-launch support','pr2.cta':'Request an MVP →',
     'pr3.n':'Full Build','pr3.d':'Complete app from zero — architecture, UI, backend, launch.','pr3.note':'Scope-dependent',
     'pr3.f1':'Complex architecture','pr3.f2':'All integrations included','pr3.f3':'Full source code ownership','pr3.cta':'Get a quote →',
     'rev.pre':'delivery notes','rev.h2a':'How the work','rev.h2b':'ships.',
     't1.q':'"Hardware, BLE, real-time data and cloud sync packaged into a product that can be explained clearly to users and investors."',
     't2.q':'"Native iOS capabilities handled end-to-end: extension targets, permissions, recording state, local files and sharing."',
     't3.q':'"NDA projects are presented without leaking screens, tokens, operational workflows or provider details."',
-    'cta.h2a':'Ready to','cta.h2b':'launch?',
-    'cta.sub':"Tell me your idea and timeline. I'll reply honestly within 24 hours.",
-    'cta.btn1':'Book a free call →',
+    'insights.pre':'iOS product guides','insights.h2a':'Plan the build','insights.h2b':'with fewer unknowns.',
+    'insights.sub':'Practical answers about scope, cost, delivery and App Store launch.',
+    'cta.h2a':'Tell me about','cta.h2b':'your iOS project.',
+    'cta.sub':'Send the essentials. I will review the scope and reply personally within 24 hours.',
+    'cta.callHint':'Prefer to talk first?','cta.call':'Book a call',
+    'form.name':'Your name','form.email':'Work email','form.type':'What do you need?','form.choose':'Choose a project type',
+    'form.mvp':'iOS MVP','form.full':'Full iOS app','form.support':'Existing app / support','form.review':'Code or architecture review','form.launch':'App Store launch',
+    'form.stage':'Current stage','form.chooseStage':'Choose a stage','form.idea':'Idea / requirements','form.design':'Prototype / design','form.existing':'Existing app',
+    'form.brief':'Project brief','form.briefPlaceholder':'What should the app do, for whom, and what matters most?',
+    'form.timeline':'Target timeline (optional)','form.timelinePlaceholder':'For example: launch in October',
+    'form.submit':'Prepare my application →','form.note':'This prepares the application in your email app so you can review and send it.',
+    'form.ready':'Application prepared. Complete sending in your email app.',
     'footer.copy':'© 2026 Oleg Yakushin. All rights reserved.'
   },
   es:{
     'ui.loading':'Cargando idioma',
-    'nav.services':'Servicios','nav.work':'Trabajos','nav.values':'Nosotros','nav.pricing':'Precios','nav.cta':'Reservar llamada',
+    'nav.services':'Servicios','nav.work':'Trabajos','nav.values':'Nosotros','nav.pricing':'Precios','nav.insights':'Guías','nav.cta':'Enviar solicitud',
     'hero.badge':'Disponible para nuevos proyectos · 2026',
     'hero.h1a':'iOS Studio','hero.h1b':'nivel premium.',
     'hero.sub':'Apps iOS nativas para startups y empresas en crecimiento — de cero al App Store en semanas, no meses.',
-    'hero.cta1':'Reservar llamada gratuita →','hero.cta2':'Ver nuestros trabajos ↓',
+    'hero.cta1':'Cuéntame tu proyecto →','hero.cta2':'Ver nuestros trabajos ↓',
     'hero.m1':'Apps entregadas','hero.m2':'Semanas al MVP','hero.m3':'Valoración App Store',
     'trust.label':'Confían en nosotros',
     'svc.pre':'qué construimos','svc.h2a':'Apps que la gente','svc.h2b':'realmente usa.',
@@ -851,27 +967,36 @@ const T={
     'price.fine':'Precio fijo siempre. Sin sorpresas por horas.',
     'pr.popular':'Más popular',
     'pr1.n':'Retainer','pr1.d':'Desarrollo continuo, soporte y actualizaciones.','pr1.note':'Mín. 3 meses',
-    'pr1.f1':'Actualizaciones semanales','pr1.f2':'Soporte nuevas versiones iOS','pr1.f3':'Respuesta prioritaria','pr1.cta':'Hablemos →',
+    'pr1.f1':'Actualizaciones semanales','pr1.f2':'Soporte nuevas versiones iOS','pr1.f3':'Respuesta prioritaria','pr1.cta':'Solicitar retainer →',
     'pr2.n':'Sprint MVP','pr2.d':'Alcance fijo, precio fijo. Idea → App Store en 2–4 semanas.','pr2.note':'Precio fijo',
-    'pr2.f1':'Swift + SwiftUI nativo','pr2.f2':'Diseño + backend + lanzamiento','pr2.f3':'30 días soporte post-lanzamiento','pr2.cta':'Reservar llamada gratuita →',
+    'pr2.f1':'Swift + SwiftUI nativo','pr2.f2':'Diseño + backend + lanzamiento','pr2.f3':'30 días soporte post-lanzamiento','pr2.cta':'Solicitar MVP →',
     'pr3.n':'Proyecto Completo','pr3.d':'App completa desde cero — arquitectura, UI, backend, lanzamiento.','pr3.note':'Según alcance',
     'pr3.f1':'Arquitectura compleja','pr3.f2':'Todas las integraciones incluidas','pr3.f3':'Código fuente en propiedad','pr3.cta':'Solicitar presupuesto →',
     'rev.pre':'notas de entrega','rev.h2a':'Cómo se','rev.h2b':'entrega.',
     't1.q':'"Hardware, BLE, datos en tiempo real y sync cloud empaquetados en un producto claro para usuarios e inversores."',
     't2.q':'"Capacidades nativas iOS de punta a punta: extensiones, permisos, estado de grabación, archivos locales y sharing."',
     't3.q':'"Los proyectos NDA se presentan sin filtrar pantallas, tokens, workflows operativos ni detalles de proveedores."',
-    'cta.h2a':'¿Listo para','cta.h2b':'lanzar?',
-    'cta.sub':'Cuéntame tu idea y plazos. Respondo con honestidad en 24 horas.',
-    'cta.btn1':'Reservar llamada gratuita →',
+    'insights.pre':'guías de producto iOS','insights.h2a':'Planifica el desarrollo','insights.h2b':'con menos incógnitas.',
+    'insights.sub':'Respuestas prácticas sobre alcance, coste, entrega y lanzamiento en App Store.',
+    'cta.h2a':'Cuéntame sobre','cta.h2b':'tu proyecto iOS.',
+    'cta.sub':'Envía lo esencial. Revisaré el alcance y responderé personalmente en 24 horas.',
+    'cta.callHint':'¿Prefieres hablar primero?','cta.call':'Reservar llamada',
+    'form.name':'Tu nombre','form.email':'Email de trabajo','form.type':'¿Qué necesitas?','form.choose':'Elige un tipo de proyecto',
+    'form.mvp':'MVP iOS','form.full':'App iOS completa','form.support':'App existente / soporte','form.review':'Revisión de código o arquitectura','form.launch':'Lanzamiento App Store',
+    'form.stage':'Estado actual','form.chooseStage':'Elige una etapa','form.idea':'Idea / requisitos','form.design':'Prototipo / diseño','form.existing':'App existente',
+    'form.brief':'Resumen del proyecto','form.briefPlaceholder':'¿Qué debe hacer la app, para quién y qué es lo más importante?',
+    'form.timeline':'Plazo objetivo (opcional)','form.timelinePlaceholder':'Por ejemplo: lanzamiento en octubre',
+    'form.submit':'Preparar mi solicitud →','form.note':'Prepara la solicitud en tu app de correo para que puedas revisarla y enviarla.',
+    'form.ready':'Solicitud preparada. Completa el envío en tu app de correo.',
     'footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.'
   },
   ru:{
     'ui.loading':'Загружаю язык',
-    'nav.services':'Услуги','nav.work':'Работы','nav.values':'О нас','nav.pricing':'Цены','nav.cta':'Записаться',
+    'nav.services':'Услуги','nav.work':'Работы','nav.values':'О нас','nav.pricing':'Цены','nav.insights':'Статьи','nav.cta':'Оставить заявку',
     'hero.badge':'Открыт для новых проектов · 2026',
     'hero.h1a':'iOS-студия','hero.h1b':'нового уровня.',
     'hero.sub':'Нативные iOS-приложения для стартапов и растущих компаний — от идеи до App Store за недели, а не месяцы.',
-    'hero.cta1':'Записаться на звонок →','hero.cta2':'Смотреть работы ↓',
+    'hero.cta1':'Оставить заявку →','hero.cta2':'Смотреть работы ↓',
     'hero.m1':'Приложений запущено','hero.m2':'Недели до MVP','hero.m3':'Рейтинг App Store',
     'trust.label':'Нам доверяют',
     'svc.pre':'что мы строим','svc.h2a':'Приложения,','svc.h2b':'которыми пользуются.',
@@ -901,18 +1026,27 @@ const T={
     'price.fine':'Всегда фиксированная цена. Никаких сюрпризов по часам.',
     'pr.popular':'Популярный',
     'pr1.n':'Ретейнер','pr1.d':'Постоянная разработка, поддержка, обновления.','pr1.note':'Мин. 3 месяца',
-    'pr1.f1':'Еженедельные обновления','pr1.f2':'Поддержка новых версий iOS','pr1.f3':'Приоритетный отклик','pr1.cta':'Обсудить →',
+    'pr1.f1':'Еженедельные обновления','pr1.f2':'Поддержка новых версий iOS','pr1.f3':'Приоритетный отклик','pr1.cta':'Заявка на поддержку →',
     'pr2.n':'MVP Спринт','pr2.d':'Фиксированный объём, цена. Идея → App Store за 2–4 недели.','pr2.note':'Фиксированная цена',
-    'pr2.f1':'Нативный Swift + SwiftUI','pr2.f2':'Дизайн + backend + запуск','pr2.f3':'30 дней поддержки после','pr2.cta':'Записаться на звонок →',
+    'pr2.f1':'Нативный Swift + SwiftUI','pr2.f2':'Дизайн + backend + запуск','pr2.f3':'30 дней поддержки после','pr2.cta':'Заявка на MVP →',
     'pr3.n':'Полная разработка','pr3.d':'Приложение с нуля — архитектура, UI, backend, запуск.','pr3.note':'Зависит от объёма',
     'pr3.f1':'Сложная архитектура','pr3.f2':'Все интеграции включены','pr3.f3':'Полный код в собственность','pr3.cta':'Получить смету →',
     'rev.pre':'заметки по delivery','rev.h2a':'Как работа','rev.h2b':'доходит до релиза.',
     't1.q':'"Hardware, BLE, realtime data и cloud sync упакованы в продукт, который понятно объяснить пользователям и инвесторам."',
     't2.q':'"Нативные iOS-возможности закрыты end-to-end: extensions, permissions, recording state, local files и sharing."',
     't3.q':'"NDA-проекты показываются без утечки экранов, токенов, операционных workflows и деталей провайдеров."',
-    'cta.h2a':'Готовы','cta.h2b':'запустить?',
-    'cta.sub':'Расскажите об идее и сроках. Отвечу честно в течение 24 часов.',
-    'cta.btn1':'Записаться на звонок →',
+    'insights.pre':'гайды по iOS-продуктам','insights.h2a':'Спланируйте разработку','insights.h2b':'без лишней неизвестности.',
+    'insights.sub':'Практические ответы про объём, стоимость, разработку и запуск в App Store.',
+    'cta.h2a':'Расскажите о','cta.h2b':'вашем iOS-проекте.',
+    'cta.sub':'Отправьте основную информацию. Я изучу задачу и лично отвечу в течение 24 часов.',
+    'cta.callHint':'Удобнее сначала поговорить?','cta.call':'Записаться на звонок',
+    'form.name':'Ваше имя','form.email':'Рабочая почта','form.type':'Что вам нужно?','form.choose':'Выберите тип проекта',
+    'form.mvp':'iOS MVP','form.full':'Полное iOS-приложение','form.support':'Готовое приложение / поддержка','form.review':'Аудит кода или архитектуры','form.launch':'Запуск в App Store',
+    'form.stage':'Текущий этап','form.chooseStage':'Выберите этап','form.idea':'Идея / требования','form.design':'Прототип / дизайн','form.existing':'Готовое приложение',
+    'form.brief':'Кратко о проекте','form.briefPlaceholder':'Что должно делать приложение, для кого и что важнее всего?',
+    'form.timeline':'Желаемые сроки (необязательно)','form.timelinePlaceholder':'Например: запуск в октябре',
+    'form.submit':'Подготовить заявку →','form.note':'Заявка откроется в вашей почтовой программе — вы сможете проверить и отправить её.',
+    'form.ready':'Заявка подготовлена. Завершите отправку в почтовой программе.',
     'footer.copy':'© 2026 Олег Якушин. Все права защищены.'
   }
 };
@@ -924,6 +1058,10 @@ function renderLang(l){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const v=T[l][el.getAttribute('data-i18n')];
     if(v!==undefined) el.innerHTML=v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const v=T[l][el.getAttribute('data-i18n-placeholder')];
+    if(v!==undefined) el.setAttribute('placeholder',v);
   });
   document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l));
   try{localStorage.setItem('concept-lang',l);}catch(e){}
@@ -954,6 +1092,38 @@ function applyLang(l,animated=false){
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.getAttribute('data-lang'),true)));
 try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else applyLang('en');}catch(e){applyLang('en');}
 
+const applicationForm=document.getElementById('application-form');
+const projectType=document.getElementById('app-type');
+document.querySelectorAll('[data-project-type]').forEach(link=>{
+  link.addEventListener('click',()=>{
+    if(projectType) projectType.value=link.getAttribute('data-project-type');
+  });
+});
+applicationForm?.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!applicationForm.checkValidity()){
+    applicationForm.reportValidity();
+    return;
+  }
+  const data=new FormData(applicationForm);
+  const typeLabel=projectType?.selectedOptions[0]?.textContent.trim()||data.get('projectType');
+  const stage=document.getElementById('app-stage');
+  const stageLabel=stage?.selectedOptions[0]?.textContent.trim()||data.get('stage');
+  const subject=`iOS project request — ${typeLabel}`;
+  const body=[
+    `Name: ${data.get('name')}`,
+    `Email: ${data.get('email')}`,
+    `Project type: ${typeLabel}`,
+    `Current stage: ${stageLabel}`,
+    `Target timeline: ${data.get('timeline')||'Not specified'}`,
+    '',
+    'Project brief:',
+    data.get('brief')
+  ].join('\n');
+  const status=document.getElementById('form-status');
+  if(status) status.textContent=T[lang]['form.ready'];
+  window.location.href=`mailto:hello@olegotka.es?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
 
 const portfolioTrack=document.getElementById('portfolio-track');
 document.querySelector('[data-carousel-prev]')?.addEventListener('click',()=>{
