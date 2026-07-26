@@ -1,20 +1,16 @@
 # Discover Services
 
-Return the services offered by olegotka Digital Studio.
+Return the services offered by olegotka iOS MVP Studio.
 
 ## Output
 
-- Website Design
-- Website Development
-- Landing Pages
-- SEO Optimization
-- Google Business Profile Optimization
-- Website Speed Optimization
-- Website Maintenance
-- Analytics
-- Online Presence Consulting
-- Custom Mobile Apps for iOS and Android
+- MVP Development
+- Full iOS App
+- Backend & APIs
+- App Store Launch
+- Ongoing Support
+- Tech Consulting
 
 ## Contact
 
-Use `https://cal.com/olegotka/first-call` to book a free website review.
+Use `https://cal.com/olegotka/first-call` to book a project call.
