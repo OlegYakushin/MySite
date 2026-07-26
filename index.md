@@ -33,3 +33,4 @@ Premium iOS MVP development for startups and growing businesses.
 - Project application: https://olegotka.es/#apply
 - Booking (secondary): https://cal.com/olegotka/first-call
 - Email: hello@olegotka.es
+- Privacy notice: https://olegotka.es/privacy-policy.html

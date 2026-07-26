@@ -372,6 +372,14 @@
     .field select{color-scheme:dark}
     .form-note,.form-status{font-size:.78rem;color:var(--text-m);margin-top:1rem}
     .form-status{min-height:1.25rem;color:var(--ok)}
+    .form-status.error{color:#ff8f9c}
+    .form-consent{display:flex;align-items:flex-start;gap:.65rem;color:var(--text-m);
+      font-size:.78rem;line-height:1.45;margin-top:1rem}
+    .form-consent input{width:17px;height:17px;margin-top:.12rem;accent-color:var(--blue);flex:0 0 auto}
+    .form-consent a{color:#aab9ff;text-decoration:underline;text-underline-offset:2px}
+    .form-honey{position:absolute!important;left:-10000px!important;width:1px!important;
+      height:1px!important;overflow:hidden!important}
+    .application-form .btn[disabled]{cursor:wait;opacity:.7;transform:none;filter:saturate(.7)}
     .application-form .btn{width:100%;justify-content:center;margin-top:.5rem}
     /* FOOTER */
     footer{padding:2.5rem 0;border-top:1px solid var(--border);background:rgba(6,6,26,0.95)}
@@ -799,7 +807,12 @@
         <a href="https://cal.com/olegotka/first-call" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta.call">Book a call</a>
       </div>
     </div>
-    <form class="application-form reveal" id="application-form">
+    <form class="application-form reveal" id="application-form"
+      action="https://formsubmit.co/hello@olegotka.es" method="POST">
+      <input type="hidden" name="_subject" value="New iOS project request — olegotka.es">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://olegotka.es/?submitted=1#apply">
+      <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-grid">
         <div class="field">
           <label for="app-name" data-i18n="form.name">Your name</label>
@@ -838,13 +851,14 @@
           <input id="app-timeline" name="timeline" data-i18n-placeholder="form.timelinePlaceholder" placeholder="For example: launch in October">
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" data-i18n="form.submit">Prepare my application →</button>
-      <p class="form-note" data-i18n="form.note">This prepares the application in your email app so you can review and send it.</p>
+      <label class="form-consent">
+        <input type="checkbox" name="privacyAccepted" value="yes" required>
+        <span data-i18n="form.privacy">I have read the <a href="/privacy-policy.html" target="_blank">privacy notice</a>.</span>
+      </label>
+      <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send application →</button>
+      <p class="form-note" data-i18n="form.note">Your request is sent directly to hello@olegotka.es. You stay on this page.</p>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
-  </div>
-</section>
-    </div>
   </div>
 </section>
 
@@ -859,6 +873,7 @@
       <a href="https://www.linkedin.com/in/oleg-yakushin/" target="_blank" rel="noopener" class="f-link">LinkedIn</a>
       <a href="https://github.com/OlegYakushin" target="_blank" rel="noopener" class="f-link">GitHub</a>
       <a href="mailto:hello@olegotka.es" class="f-link">Email</a>
+      <a href="/privacy-policy.html" class="f-link" data-i18n="footer.privacy">Privacy</a>
     </div>
     <div class="lang-sw">
       <button class="lang-btn active" data-lang="en">EN</button>
@@ -927,9 +942,11 @@ const T={
     'form.stage':'Current stage','form.chooseStage':'Choose a stage','form.idea':'Idea / requirements','form.design':'Prototype / design','form.existing':'Existing app',
     'form.brief':'Project brief','form.briefPlaceholder':'What should the app do, for whom, and what matters most?',
     'form.timeline':'Target timeline (optional)','form.timelinePlaceholder':'For example: launch in October',
-    'form.submit':'Prepare my application →','form.note':'This prepares the application in your email app so you can review and send it.',
-    'form.ready':'Application prepared. Complete sending in your email app.',
-    'footer.copy':'© 2026 Oleg Yakushin. All rights reserved.'
+    'form.privacy':'I have read the <a href="/privacy-policy.html" target="_blank">privacy notice</a>.',
+    'form.submit':'Send application →','form.note':'Your request is sent directly to hello@olegotka.es. You stay on this page.',
+    'form.sending':'Sending your application…','form.ready':'Application sent. I will reply personally within 24 hours.',
+    'form.error':'The application could not be sent. Try again or email hello@olegotka.es.',
+    'footer.privacy':'Privacy','footer.copy':'© 2026 Oleg Yakushin. All rights reserved.'
   },
   es:{
     'ui.loading':'Cargando idioma',
@@ -986,9 +1003,11 @@ const T={
     'form.stage':'Estado actual','form.chooseStage':'Elige una etapa','form.idea':'Idea / requisitos','form.design':'Prototipo / diseño','form.existing':'App existente',
     'form.brief':'Resumen del proyecto','form.briefPlaceholder':'¿Qué debe hacer la app, para quién y qué es lo más importante?',
     'form.timeline':'Plazo objetivo (opcional)','form.timelinePlaceholder':'Por ejemplo: lanzamiento en octubre',
-    'form.submit':'Preparar mi solicitud →','form.note':'Prepara la solicitud en tu app de correo para que puedas revisarla y enviarla.',
-    'form.ready':'Solicitud preparada. Completa el envío en tu app de correo.',
-    'footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.'
+    'form.privacy':'He leído el <a href="/privacy-policy.html" target="_blank">aviso de privacidad</a>.',
+    'form.submit':'Enviar solicitud →','form.note':'Tu solicitud se envía directamente a hello@olegotka.es. Permaneces en esta página.',
+    'form.sending':'Enviando tu solicitud…','form.ready':'Solicitud enviada. Responderé personalmente en 24 horas.',
+    'form.error':'No se pudo enviar la solicitud. Inténtalo de nuevo o escribe a hello@olegotka.es.',
+    'footer.privacy':'Privacidad','footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.'
   },
   ru:{
     'ui.loading':'Загружаю язык',
@@ -1045,9 +1064,11 @@ const T={
     'form.stage':'Текущий этап','form.chooseStage':'Выберите этап','form.idea':'Идея / требования','form.design':'Прототип / дизайн','form.existing':'Готовое приложение',
     'form.brief':'Кратко о проекте','form.briefPlaceholder':'Что должно делать приложение, для кого и что важнее всего?',
     'form.timeline':'Желаемые сроки (необязательно)','form.timelinePlaceholder':'Например: запуск в октябре',
-    'form.submit':'Подготовить заявку →','form.note':'Заявка откроется в вашей почтовой программе — вы сможете проверить и отправить её.',
-    'form.ready':'Заявка подготовлена. Завершите отправку в почтовой программе.',
-    'footer.copy':'© 2026 Олег Якушин. Все права защищены.'
+    'form.privacy':'Я ознакомился с <a href="/privacy-policy.html" target="_blank">уведомлением о конфиденциальности</a>.',
+    'form.submit':'Отправить заявку →','form.note':'Заявка отправляется напрямую на hello@olegotka.es. Вы останетесь на этой странице.',
+    'form.sending':'Отправляю заявку…','form.ready':'Заявка отправлена. Я лично отвечу в течение 24 часов.',
+    'form.error':'Не удалось отправить заявку. Попробуйте ещё раз или напишите на hello@olegotka.es.',
+    'footer.privacy':'Конфиденциальность','footer.copy':'© 2026 Олег Якушин. Все права защищены.'
   }
 };
 
@@ -1099,31 +1120,71 @@ document.querySelectorAll('[data-project-type]').forEach(link=>{
     if(projectType) projectType.value=link.getAttribute('data-project-type');
   });
 });
-applicationForm?.addEventListener('submit',event=>{
+function trackProjectLead(projectKind){
+  try{
+    const choice=JSON.parse(localStorage.getItem('olegotka_cookie_consent_v1')||'null');
+    if(choice?.analytics===true && typeof window.gtag==='function'){
+      window.gtag('event','generate_lead',{project_type:projectKind,form_location:'homepage'});
+    }
+  }catch(e){}
+}
+applicationForm?.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!applicationForm.checkValidity()){
     applicationForm.reportValidity();
     return;
   }
+  const status=document.getElementById('form-status');
+  const submitButton=applicationForm.querySelector('button[type="submit"]');
   const data=new FormData(applicationForm);
   const typeLabel=projectType?.selectedOptions[0]?.textContent.trim()||data.get('projectType');
   const stage=document.getElementById('app-stage');
   const stageLabel=stage?.selectedOptions[0]?.textContent.trim()||data.get('stage');
-  const subject=`iOS project request — ${typeLabel}`;
-  const body=[
-    `Name: ${data.get('name')}`,
-    `Email: ${data.get('email')}`,
-    `Project type: ${typeLabel}`,
-    `Current stage: ${stageLabel}`,
-    `Target timeline: ${data.get('timeline')||'Not specified'}`,
-    '',
-    'Project brief:',
-    data.get('brief')
-  ].join('\n');
+  data.set('Project type',typeLabel);
+  data.set('Current stage',stageLabel);
+  data.set('Language',lang);
+  data.set('Source page',window.location.href);
+  data.set('_subject',`iOS project request — ${typeLabel}`);
+  data.delete('projectType');
+  data.delete('stage');
+  if(status){
+    status.classList.remove('error');
+    status.textContent=T[lang]['form.sending'];
+  }
+  if(submitButton){
+    submitButton.disabled=true;
+    submitButton.setAttribute('aria-busy','true');
+    submitButton.textContent=T[lang]['form.sending'];
+  }
+  try{
+    const response=await fetch('https://formsubmit.co/ajax/hello@olegotka.es',{
+      method:'POST',
+      headers:{Accept:'application/json'},
+      body:data
+    });
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok || result.success===false) throw new Error('Submission failed');
+    trackProjectLead(data.get('Project type'));
+    applicationForm.reset();
+    if(status) status.textContent=T[lang]['form.ready'];
+  }catch(error){
+    if(status){
+      status.classList.add('error');
+      status.textContent=T[lang]['form.error'];
+    }
+  }finally{
+    if(submitButton){
+      submitButton.disabled=false;
+      submitButton.removeAttribute('aria-busy');
+      submitButton.textContent=T[lang]['form.submit'];
+    }
+  }
+});
+if(new URLSearchParams(window.location.search).get('submitted')==='1'){
   const status=document.getElementById('form-status');
   if(status) status.textContent=T[lang]['form.ready'];
-  window.location.href=`mailto:hello@olegotka.es?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+  history.replaceState({},'',`${window.location.pathname}#apply`);
+}
 
 const portfolioTrack=document.getElementById('portfolio-track');
 document.querySelector('[data-carousel-prev]')?.addEventListener('click',()=>{

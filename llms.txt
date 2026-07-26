@@ -10,6 +10,7 @@ Useful resources:
 - iOS app development cost: https://olegotka.es/insights/ios-app-development-cost.html
 - iOS MVP roadmap: https://olegotka.es/insights/ios-mvp-roadmap.html
 - App Store launch checklist: https://olegotka.es/insights/app-store-launch-checklist.html
+- Privacy notice: https://olegotka.es/privacy-policy.html
 - Markdown homepage: https://olegotka.es/index.md
 - API catalog: https://olegotka.es/.well-known/api-catalog
 - OpenAPI description: https://olegotka.es/openapi.json
