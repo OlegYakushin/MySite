@@ -1,0 +1,35 @@
+TRAVEL HISTORY NOTES
+
+Prepared with the free DAY'S checklist:
+https://olegotka.es/travel-history-checklist.html
+
+Period I am reviewing:
+From:
+To:
+
+Dates use YYYY-MM-DD. Keep uncertain dates marked as needing checking.
+Duplicate the block below for each trip.
+
+TRIP
+Country:
+Actual arrival date:
+Actual departure date (or ongoing):
+Source I checked:
+Status: confirmed / needs checking
+Missing information:
+
+FUTURE PLANS (keep separate from completed trips)
+Country:
+Planned arrival:
+Planned departure:
+
+FINAL REVIEW
+[ ] Checked actual travel, not only reservations
+[ ] Removed duplicate entries
+[ ] Checked overlapping trips and missing departures
+[ ] Marked unresolved dates
+[ ] Reviewed the full period, including gaps between trips
+
+This is a notes template, not a stay-limit calculator or an import file.
+DAY'S 2.0 uses manual trip entry.
+Do not include document numbers or booking codes in a shared copy.
