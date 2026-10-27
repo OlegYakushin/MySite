@@ -6,6 +6,13 @@
     <description>MacReport Agent updates</description>
     <language>en</language>
     <item>
+      <title>MacReport Agent 0.5.0</title>
+      <pubDate>Tue, 27 Oct 2026 22:53:38 GMT</pubDate>
+      <description>New bento overview and native sidebar, with Light, Dark and Follow System appearance. Includes agent-originated test push and alerts for repeated power-adapter transitions.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.5.0-16.zip" length="1958478" type="application/octet-stream" sparkle:version="16" sparkle:shortVersionString="0.5.0" sparkle:edSignature="Ea0vHI+kf1C++VWkF395irPo9w/P5wI3NKKBp9U+A0OvSiRQIXH113aFwp5f5oWOSyEN8SSr7AXM+uP2rV+3BQ==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.4.0</title>
       <pubDate>Tue, 27 Oct 2026 21:25:39 GMT</pubDate>
       <description>Open installed applications and control an unlocked Mac through direct taps, scroll, encrypted text and fixed keys. Requires a separate local control switch and macOS Accessibility permission.</description>
