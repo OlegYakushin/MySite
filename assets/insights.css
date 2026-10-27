@@ -22,3 +22,15 @@ article p,article li{color:#c4c3d7}article strong{color:var(--text)}article ul,a
 .index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:100px}.guide{display:flex;flex-direction:column;min-height:330px;padding:28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);text-decoration:none;transition:.25s ease}.guide:hover{transform:translateY(-4px);border-color:rgba(86,128,255,.45)}.guide h2{font-size:28px;margin:22px 0 14px}.guide p{color:var(--muted);margin:0}.guide .read{margin-top:auto;color:var(--blue);font-weight:700}
 footer{border-top:1px solid var(--line);padding:34px 0;color:var(--faint);font-size:14px}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media(max-width:800px){.article-layout{grid-template-columns:1fr}.toc{display:none}.index-grid{grid-template-columns:1fr}.nav-links a:not(.button){display:none}.hero{padding-top:64px}}
+
+/* Readable scope comparisons in the budget and release guides. */
+.table-scroll{max-width:100%;overflow-x:auto;margin:24px 0;scrollbar-color:var(--muted) var(--surface)}
+.comparison-table{width:100%;border-collapse:collapse;font-size:16px;text-align:left}
+.comparison-table th,.comparison-table td{padding:16px 14px;vertical-align:top;border-bottom:1px solid var(--line);min-width:120px}
+.comparison-table thead{background:var(--surface)}.comparison-table tbody th{font-weight:700;color:var(--text)}.comparison-table td{color:#c4c3d7}
+.comparison-table td:last-child{min-width:240px}.meta,footer{color:var(--muted)}
+.reading-guide{max-width:820px;padding:64px 0 96px}.reading-guide h1{margin-top:0}.reading-guide .meta{margin-bottom:36px}
+a:focus-visible,.table-scroll:focus-visible{outline:2px solid #b8c7ff;outline-offset:4px}::selection{background:#334e9b;color:white}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.guide{transition:none}}
+
+.article-layout>article{min-width:0}

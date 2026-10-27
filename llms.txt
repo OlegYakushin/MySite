@@ -5,6 +5,10 @@ Portfolio and micro-agency site for premium iOS MVP development.
 Useful resources:
 
 - Homepage: https://olegotka.es/
+- Selected iOS projects: https://olegotka.es/#work
+- HealthKit and watchOS case, in development: https://olegotka.es/cases/still.html
+- Pomodoro Tale native focus app: https://olegotka.es/cases/pomodoro-tale.html
+- DAY’S travel app: https://olegotka.es/cases/days.html
 - Project application: https://olegotka.es/#apply
 - iOS development guides: https://olegotka.es/insights/
 - iOS app development cost: https://olegotka.es/insights/ios-app-development-cost.html

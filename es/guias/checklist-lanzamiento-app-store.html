@@ -24,7 +24,7 @@
     "description": "Checklist práctica para lanzar una app iOS: calidad, privacidad, pagos, ficha de App Store, revisión, publicación y seguimiento.",
     "inLanguage": "es",
     "datePublished": "2026-07-26",
-    "dateModified": "2026-07-26",
+    "dateModified": "2026-10-27",
     "author": {
       "@type": "Person",
       "name": "Oleg Yakushin",
@@ -39,26 +39,20 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="Oleg Yakushin — inicio">OY</a>
-    <nav aria-label="Navegación principal">
-      <a href="/#work">Proyectos</a>
-      <a href="/es/guias/">Guías</a>
-      <a class="nav-cta" href="/#apply">Solicitar proyecto</a>
-    </nav>
-  </header>
+  <header class="nav"><div class="nav-inner"><a class="logo" href="/">oleg<span>otka</span></a><nav class="nav-links" aria-label="Navegación principal"><a href="/es/guias/">Guías iOS</a><a href="/es/desarrollo-app-ios-barcelona.html">Desarrollo iOS</a><a class="button" href="/#apply">Enviar solicitud</a></nav></div></header>
 
-  <main>
-    <article class="article">
+  <main class="wrap">
+    <article class="reading-guide">
       <a class="eyebrow" href="/es/guias/">Guías de desarrollo iOS</a>
       <h1>Checklist para publicar una app iOS en App Store</h1>
       <p class="lead">La revisión de Apple es solo una parte del lanzamiento. Esta lista ayuda a comprobar producto, estabilidad, privacidad y materiales comerciales antes de enviar la versión.</p>
-      <div class="article-meta">
+      <div class="meta">
         <span>Oleg Yakushin</span>
         <span>9 min de lectura</span>
-        <time datetime="2026-07-26">26 de julio de 2026</time>
+        <time datetime="2026-10-27">Actualizado el 27 de octubre de 2026</time>
       </div>
 
+<section><h2>Ocho comprobaciones antes de publicar</h2><ol><li>Instala el build previsto y completa el flujo principal desde cero.</li><li>Revisa privacidad, permisos y enlaces de soporte.</li><li>Compara capturas y metadatos con la versión real.</li><li>Prueba compra y restauración en sandbox cuando corresponda.</li><li>Proporciona acceso e instrucciones a los revisores.</li><li>Añade la versión y las compras necesarias al mismo borrador.</li><li>Confirma el envío efectivo a revisión y su resultado.</li><li>Tras publicar, instala la app desde la ficha pública y verifica producción.</li></ol></section>
       <section>
         <h2>Producto y experiencia</h2>
         <ul class="checklist">
@@ -99,7 +93,7 @@
           <li>Precio, duración, renovación y prueba gratuita se muestran antes de comprar.</li>
           <li>“Restaurar compras” funciona y es fácil de encontrar.</li>
           <li>Se prueban compra, cancelación, renovación, reembolso y periodo de gracia en sandbox.</li>
-          <li>La pantalla de pago incluye enlaces a privacidad y condiciones.</li>
+          <li>La pantalla de pago incluye enlaces a privacidad y condiciones.</li><li>La primera compra de cada tipo acompaña a una nueva versión. Un grupo nuevo de suscripción se envía con al menos una suscripción, dentro del mismo borrador.</li><li>Una prueba local de StoreKit no sustituye una compra y restauración con productos reales de sandbox o TestFlight.</li>
         </ul>
       </section>
 
@@ -140,6 +134,7 @@
         <p>Si todavía estás definiendo la primera versión, empieza por el <a href="/es/guias/roadmap-mvp-ios.html">roadmap para un MVP iOS</a>.</p>
       </section>
 
+<section><h2>TestFlight, revisión y publicación son etapas diferentes</h2><p>Subir un build solo confirma la carga. TestFlight permite distribuir una beta; no demuestra aprobación para App Store. Añadir una versión al borrador tampoco la envía: hay que completar el envío a revisión. Después de la aprobación, verifica si queda una publicación manual pendiente y comprueba la ficha y la instalación pública.</p><h3>¿Se puede garantizar la fecha de aprobación?</h3><p>No. La revisión es una dependencia externa. Una publicación manual permite separar la aprobación del momento elegido para el lanzamiento.</p><h3>¿Qué necesito para la primera suscripción?</h3><p>Comprueba que la nueva versión, el grupo nuevo y las suscripciones necesarias estén incluidos en el mismo borrador antes de enviarlo.</p></section><section><h2>Fuentes y siguientes pasos</h2><p>Comprobado con la documentación de Apple el 27 de octubre de 2026: <a href="https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-app/">envío de una app</a>, <a href="https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase">compras y suscripciones</a> y <a href="https://developer.apple.com/help/app-store-connect/test-in-app-purchases/overview-of-testing-in-sandbox">pruebas sandbox</a>.</p><p>Consulta <a href="/es/guias/cuanto-cuesta-desarrollar-app-ios.html">cuánto cuesta desarrollar una app iOS</a> y los <a href="/es/desarrollo-app-ios-barcelona.html#proyectos">proyectos de desarrollo iOS en Barcelona</a>.</p></section>
       <aside class="article-cta">
         <p class="eyebrow">¿Preparando un lanzamiento?</p>
         <h2>Revisemos la app antes de enviarla.</h2>
@@ -149,11 +144,7 @@
     </article>
   </main>
 
-  <footer>
-    <a href="/">Oleg Yakushin</a>
-    <a href="/es/guias/">Guías iOS</a>
-    <a href="/privacy-policy.html">Privacidad</a>
-  </footer>
+  <footer><div class="wrap footer-row"><a href="/es/guias/">← Guías iOS</a><a href="/privacy-policy.html">Privacidad</a><a href="mailto:hello@olegotka.es">hello@olegotka.es</a></div></footer>
   <script src="/assets/cookie-consent.js" defer></script>
 </body>
 </html>
