@@ -6,11 +6,11 @@
     <description>MacReport Agent updates</description>
     <language>en</language>
     <item>
-      <title>MacReport Agent 0.3.0</title>
-      <pubDate>Tue, 27 Oct 2026 20:40:10 GMT</pubDate>
-      <description>Resource analysis with reviewed cleanup, normal app termination, before/after readings, and refreshed cleanup review screens.</description>
+      <title>MacReport Agent 0.4.0</title>
+      <pubDate>Tue, 27 Oct 2026 21:25:39 GMT</pubDate>
+      <description>Open installed applications and control an unlocked Mac through direct taps, scroll, encrypted text and fixed keys. Requires a separate local control switch and macOS Accessibility permission.</description>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.3.0-13.zip" length="1662280" type="application/octet-stream" sparkle:version="13" sparkle:shortVersionString="0.3.0" sparkle:edSignature="iZpYjTHvtOIoGy3m1Fzpf18Zta6Q6KojHks+r9YfSZ8rDTGeNVIChKTW6NFfy7cVLmZR37pTeos2IGabI6zaBg==" />
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.4.0-14.zip" length="1849762" type="application/octet-stream" sparkle:version="14" sparkle:shortVersionString="0.4.0" sparkle:edSignature="pLYAes2CiOXMYXFoXj+qigBDi+tvVykBqsafhTNzUQ29jB5SoNs6icVN7nW0KKzLM518ikTfhfbiWJQVJf7nCg==" />
     </item>
   </channel>
 </rss>
