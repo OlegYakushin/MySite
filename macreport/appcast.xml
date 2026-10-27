@@ -7,10 +7,10 @@
     <language>en</language>
     <item>
       <title>MacReport Agent 0.3.0</title>
-      <pubDate>Tue, 27 Oct 2026 20:19:20 GMT</pubDate>
-      <description>Resource analysis and reviewed cleanup, normal app termination, before/after readings, and screen-capture permission diagnostics.</description>
+      <pubDate>Tue, 27 Oct 2026 20:40:10 GMT</pubDate>
+      <description>Resource analysis with reviewed cleanup, normal app termination, before/after readings, and refreshed cleanup review screens.</description>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.3.0-12.zip" length="1666400" type="application/octet-stream" sparkle:version="12" sparkle:shortVersionString="0.3.0" sparkle:edSignature="cOQMZo2mTblbujRXiCtpJtzlRqmkkvWWgZLq6YK/VaF6tcuqkB/HC6f11ToVXOQPgkE/7MFVzVPRCGZeAzFiDw==" />
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.3.0-13.zip" length="1662280" type="application/octet-stream" sparkle:version="13" sparkle:shortVersionString="0.3.0" sparkle:edSignature="iZpYjTHvtOIoGy3m1Fzpf18Zta6Q6KojHks+r9YfSZ8rDTGeNVIChKTW6NFfy7cVLmZR37pTeos2IGabI6zaBg==" />
     </item>
   </channel>
 </rss>
