@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>MacReport Agent</title>
+    <link>https://olegotka.es/macreport/</link>
+    <description>MacReport Agent updates</description>
+    <language>en</language>
+    <item>
+      <title>MacReport Agent 0.3.0</title>
+      <pubDate>Tue, 27 Oct 2026 20:19:20 GMT</pubDate>
+      <description>Resource analysis and reviewed cleanup, normal app termination, before/after readings, and screen-capture permission diagnostics.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.3.0-12.zip" length="1666400" type="application/octet-stream" sparkle:version="12" sparkle:shortVersionString="0.3.0" sparkle:edSignature="cOQMZo2mTblbujRXiCtpJtzlRqmkkvWWgZLq6YK/VaF6tcuqkB/HC6f11ToVXOQPgkE/7MFVzVPRCGZeAzFiDw==" />
+    </item>
+  </channel>
+</rss>
