@@ -548,7 +548,7 @@
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-pre">// <span data-i18n="work.pre">selected work</span></span>
-      <h2 class="sec-h2"><span data-i18n="work.h2a">What we've</span> <span class="grad-text" data-i18n="work.h2b">shipped.</span></h2>
+      <h2 class="sec-h2"><span data-i18n="work.h2a">Selected</span> <span class="grad-text" data-i18n="work.h2b">products.</span></h2>
     </div>
     <div class="portfolio-shell">
     <div class="portfolio-track" id="portfolio-track" aria-label="Project carousel">
@@ -566,6 +566,14 @@
           <div class="tags" style="margin-bottom:.75rem"><span class="tag">CoreBluetooth</span><span class="tag">SwiftUI</span><span class="tag">AWS</span></div>
           <a href="/cases/detecfit.html" class="port-link" data-i18n="work.view">View case study →</a>
         </div>
+      </div>
+      <div class="port-card reveal">
+        <div class="port-screen"><div class="port-glow"></div><div class="shot-stage" style="--shot:url('/assets/cases/still/app.webp')"><img class="portfolio-shot" src="/assets/cases/still/app.webp" alt="Still app screen with example content" width="600" height="1300" loading="lazy" decoding="async"></div></div>
+        <div class="port-meta"><span class="port-cat" data-i18n="still.cat">Health & recovery · iPhone + Apple Watch</span><p class="port-name">Still</p><p class="port-desc" data-i18n="still.desc">HealthKit trends, a private journal, breathing sessions, watch companion and widgets. In development.</p><div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">HealthKit</span><span class="tag">watchOS</span></div><a href="/cases/still.html" class="port-link" data-i18n="work.view">View case study →</a></div>
+      </div>
+      <div class="port-card reveal">
+        <div class="port-screen"><div class="port-glow"></div><div class="shot-stage" style="--shot:url('/assets/cases/pomodoro-tale/app.webp')"><img class="portfolio-shot" src="/assets/cases/pomodoro-tale/app.webp" alt="Pomodoro Tale app screen with example content" width="600" height="1300" loading="lazy" decoding="async"></div></div>
+        <div class="port-meta"><span class="port-cat" data-i18n="pomodoro-tale.cat">Focus & ambience · Apple platforms</span><p class="port-name">Pomodoro Tale</p><p class="port-desc" data-i18n="pomodoro-tale.desc">A focus timer with illustrated scenes, music and ambience, configurable intervals, widgets and Apple TV support.</p><div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">WidgetKit</span><span class="tag">tvOS</span></div><a href="/cases/pomodoro-tale.html" class="port-link" data-i18n="work.view">View case study →</a></div>
       </div>
       <div class="port-card reveal">
         <div class="port-screen">
@@ -617,13 +625,13 @@
       <div class="port-card reveal">
         <div class="port-screen">
           <div class="port-glow"></div>
-          <div class="shot-stage" style="--shot:url('/assets/cases/days/days-02-loaded.png')">
-            <img class="portfolio-shot" src="/assets/cases/days/days-02-loaded.png" alt="Days app screenshot" loading="lazy" decoding="async">
+          <div class="shot-stage" style="--shot:url('/assets/apps/days/release-2/en-01-days.png')">
+            <img class="portfolio-shot" src="/assets/apps/days/release-2/en-01-days.png" alt="Days app screenshot" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="port-meta">
           <span class="port-cat" data-i18n="p5.cat">Travel planning · iOS</span>
-          <p class="port-name">Days</p>
+          <p class="port-name">DAY’S</p>
           <p class="port-desc" data-i18n="p5.desc">Travel day tracker for country totals, visa records, Schengen-style planning, trip history and widgets.</p>
           <div class="tags" style="margin-bottom:.75rem"><span class="tag">SwiftUI</span><span class="tag">Widgets</span><span class="tag">App Store</span></div>
           <a href="/cases/days.html" class="port-link" data-i18n="work.view">View case study →</a>
@@ -907,12 +915,12 @@ const T={
     's4.t':'App Store Launch','s4.d':'Submission, ASO, screenshots and metadata end-to-end.',
     's5.t':'Ongoing Support','s5.d':'Features, iOS version updates, long-term product support.',
     's6.t':'Tech Consulting','s6.d':'Architecture review, code audit, expert assessment pre-launch.',
-    'work.pre':'selected work','work.h2a':"What we've",'work.h2b':'shipped.',
+    'work.pre':'selected work','work.h2a':"Selected",'work.h2b':"products.",
     'p1.cat':'Connected fitness · iOS','p1.desc':'BLE companion for custom fitness hardware with live graphs, calibration, rep detection and AWS cloud sync.',
     'p2.cat':'Screen recording · iOS extensions','p2.desc':'ReplayKit recording app with broadcast extension, face-cam overlay, reaction editor and local sharing flow.',
     'p3.cat':'Document utility · iOS','p3.desc':'Document scanner with VisionKit capture, OCR, QR scanning, PDF export and local organization.',
     'p4.cat':'VPN infrastructure · iOS + Backend','p4.desc':'NDA project with packet tunnel, WireGuard integration, no-registration access, payments and admin backend.',
-    'p5.cat':'Travel planning · iOS','p5.desc':'Travel day tracker for country totals, visa records, Schengen-style planning, trip history and widgets.',
+    'p5.cat':'Travel planning · iOS','p5.desc':"Offline trip history, a stay-day calendar, Schengen 90/180 planning and document records, with optional Premium forecasts and iCloud sync.",
     'p6.cat':'Aviation operations · iOS','p6.desc':'NDA project for flight records, crew data, maintenance notes, documents, forms and post-flight workflows.',
     'p7.cat':'Private portfolio · on request','p7.name':'Want more examples?','p7.desc':'Write to us and we will send additional relevant work, including private or NDA-safe examples.','p7.link':'Request more work →',
     'work.view':'View case study →','work.ask':'Request details →',
@@ -949,7 +957,11 @@ const T={
     'form.submit':'Send application →','form.note':'Your request is sent directly to hello@olegotka.es. You stay on this page.',
     'form.sending':'Sending your application…','form.ready':'Application sent. I will reply personally within 24 hours.',
     'form.error':'The application could not be sent. Try again or email hello@olegotka.es.',
-    'footer.privacy':'Privacy','footer.copy':'© 2026 Oleg Yakushin. All rights reserved.'
+    'footer.privacy':'Privacy','footer.copy':'© 2026 Oleg Yakushin. All rights reserved.',
+    'still.cat':"Health & recovery · iPhone + Apple Watch",
+    'still.desc':"HealthKit trends, a private journal, breathing sessions, watch companion and widgets. In development.",
+    'pomodoro-tale.cat':"Focus & ambience · Apple platforms",
+    'pomodoro-tale.desc':"A focus timer with illustrated scenes, music and ambience, configurable intervals, widgets and Apple TV support.",
   },
   es:{
     'ui.loading':'Cargando idioma',
@@ -968,12 +980,12 @@ const T={
     's4.t':'Lanzamiento App Store','s4.d':'Publicación, ASO, capturas y metadatos de principio a fin.',
     's5.t':'Soporte Continuo','s5.d':'Funciones, actualizaciones de iOS, soporte de producto a largo plazo.',
     's6.t':'Consultoría Técnica','s6.d':'Revisión de arquitectura, auditoría de código, evaluación experta.',
-    'work.pre':'trabajos destacados','work.h2a':'Lo que hemos','work.h2b':'lanzado.',
+    'work.pre':'trabajos destacados','work.h2a':"Productos",'work.h2b':"destacados.",
     'p1.cat':'Fitness conectado · iOS','p1.desc':'App BLE para hardware fitness con gráficas en vivo, calibración, detección de repeticiones y sync en AWS.',
     'p2.cat':'Grabación de pantalla · Extensiones iOS','p2.desc':'App ReplayKit con extensión broadcast, face-cam, editor de reacciones y flujo local para compartir.',
     'p3.cat':'Utilidad documental · iOS','p3.desc':'Scanner con VisionKit, OCR, QR, exportación PDF y organización local.',
     'p4.cat':'Infraestructura VPN · iOS + Backend','p4.desc':'Proyecto NDA con packet tunnel, WireGuard, acceso sin registro, pagos y backend administrativo.',
-    'p5.cat':'Planificación de viajes · iOS','p5.desc':'Tracker de días por país, visados, planificación tipo Schengen, historial y widgets.',
+    'p5.cat':'Planificación de viajes · iOS','p5.desc':"Historial de viajes sin conexión, calendario de estancia, planificación Schengen 90/180 y documentos. Premium añade previsiones y sincronización con iCloud.",
     'p6.cat':'Operaciones de aviación · iOS','p6.desc':'Proyecto NDA para registros de vuelo, tripulación, mantenimiento, documentos, formularios y post-vuelo.',
     'p7.cat':'Portfolio privado · bajo petición','p7.name':'¿Quieres más ejemplos?','p7.desc':'Escríbenos y enviaremos trabajos relevantes adicionales, incluyendo ejemplos privados o seguros para NDA.','p7.link':'Pedir más trabajos →',
     'work.view':'Ver caso de estudio →','work.ask':'Pedir detalles →',
@@ -1010,7 +1022,11 @@ const T={
     'form.submit':'Enviar solicitud →','form.note':'Tu solicitud se envía directamente a hello@olegotka.es. Permaneces en esta página.',
     'form.sending':'Enviando tu solicitud…','form.ready':'Solicitud enviada. Responderé personalmente en 24 horas.',
     'form.error':'No se pudo enviar la solicitud. Inténtalo de nuevo o escribe a hello@olegotka.es.',
-    'footer.privacy':'Privacidad','footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.'
+    'footer.privacy':'Privacidad','footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.',
+    'still.cat':"Bienestar y recuperación · iPhone + Apple Watch",
+    'still.desc':"Tendencias de HealthKit, diario privado, respiración, app para Watch y widgets. En desarrollo.",
+    'pomodoro-tale.cat':"Concentración y ambiente · Plataformas Apple",
+    'pomodoro-tale.desc':"Temporizador de concentración con escenas ilustradas, música y ambiente, intervalos configurables, widgets y soporte para Apple TV.",
   },
   ru:{
     'ui.loading':'Загружаю язык',
@@ -1029,12 +1045,12 @@ const T={
     's4.t':'Запуск в App Store','s4.d':'Публикация, ASO, скриншоты и метаданные под ключ.',
     's5.t':'Поддержка и обновления','s5.d':'Фичи, поддержка новых версий iOS.',
     's6.t':'Техконсалтинг','s6.d':'Ревью архитектуры, аудит кода, экспертная оценка.',
-    'work.pre':'избранные работы','work.h2a':'Что мы','work.h2b':'запустили.',
+    'work.pre':'избранные работы','work.h2a':"Избранные",'work.h2b':"продукты.",
     'p1.cat':'Connected fitness · iOS','p1.desc':'BLE-приложение для фитнес-устройства: живые графики, калибровка, подсчёт повторений и AWS-синхронизация.',
     'p2.cat':'Запись экрана · iOS extensions','p2.desc':'ReplayKit-приложение с broadcast extension, face-cam, редактором реакций и локальным sharing flow.',
     'p3.cat':'Документы · iOS','p3.desc':'Сканер документов с VisionKit, OCR, QR, PDF-экспортом и локальной организацией файлов.',
     'p4.cat':'VPN-инфраструктура · iOS + Backend','p4.desc':'NDA-проект: packet tunnel, WireGuard, доступ без регистрации, платежи и admin backend.',
-    'p5.cat':'Планирование поездок · iOS','p5.desc':'Трекер дней по странам, визовых записей, Schengen-планирования, истории поездок и виджетов.',
+    'p5.cat':'Планирование поездок · iOS','p5.desc':"История поездок офлайн, календарь пребывания, планирование Шенгена 90/180 и документы. В Premium — прогнозы и синхронизация iCloud.",
     'p6.cat':'Авиационные операции · iOS','p6.desc':'NDA-проект для flight records, crew data, maintenance notes, документов, форм и post-flight workflows.',
     'p7.cat':'Приватное портфолио · по запросу','p7.name':'Хотите больше примеров?','p7.desc':'Напишите нам, и мы пришлём дополнительные релевантные работы, включая приватные или NDA-safe примеры.','p7.link':'Запросить больше работ →',
     'work.view':'Смотреть кейс →','work.ask':'Запросить детали →',
@@ -1071,7 +1087,11 @@ const T={
     'form.submit':'Отправить заявку →','form.note':'Заявка отправляется напрямую на hello@olegotka.es. Вы останетесь на этой странице.',
     'form.sending':'Отправляю заявку…','form.ready':'Заявка отправлена. Я лично отвечу в течение 24 часов.',
     'form.error':'Не удалось отправить заявку. Попробуйте ещё раз или напишите на hello@olegotka.es.',
-    'footer.privacy':'Конфиденциальность','footer.copy':'© 2026 Олег Якушин. Все права защищены.'
+    'footer.privacy':'Конфиденциальность','footer.copy':'© 2026 Олег Якушин. Все права защищены.',
+    'still.cat':"Самочувствие и восстановление · iPhone + Apple Watch",
+    'still.desc':"Тренды HealthKit, личный дневник, дыхательные паузы, приложение для Watch и виджеты. В разработке.",
+    'pomodoro-tale.cat':"Фокус и атмосфера · Платформы Apple",
+    'pomodoro-tale.desc':"Таймер фокуса с иллюстрированными сценами, музыкой и фоновыми звуками, настройкой интервалов, виджетами и поддержкой Apple TV.",
   }
 };
 
