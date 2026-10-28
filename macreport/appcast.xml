@@ -2,6 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
     <item>
+      <title>MacReport Agent 0.8.1 (32)</title>
+      <pubDate>Wed, 28 Oct 2026 21:57:33 GMT</pubDate>
+      <description>Optional closed-lid mode with one-time local macOS system-component approval. External power only, bounded to 15 minutes, 1, 2 or 4 hours. The helper temporarily changes the global sleep setting and restores it on expiry, agent disconnect, loss of AC power or high temperature. Mac and iPhone share the confirmed state. Use iPhone 0.8.1 (31). Enable only on an open, ventilated surface; hardware lid-close acceptance remains a tester check.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.8.1-32.zip" length="18670518" type="application/octet-stream" sparkle:version="32" sparkle:shortVersionString="0.8.1" sparkle:edSignature="Qafgkhq9+g0Yj7jCOfGuafbVDMsSD3fc/Jq9LOn6xN25irrINbDbMbeI3dDX5/Kop+MKcgXJ0jQPyvTnOKMQBQ==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.8.1 (28)</title>
       <pubDate>Wed, 28 Oct 2026 20:43:03 GMT</pubDate>
       <description>Emergency protection: opt in in settings, hold and confirm to lock your Mac and ask user apps to quit normally. Reports confirmed, pending and declined steps. Adjustable direct Live profiles up to 10, 5 or 2 fps with smaller resolution, measured heartbeat replies and signed automatic-update settings. Use iPhone 0.8.1 (28) for the new controls. Emergency protection remains off until enabled.</description>
