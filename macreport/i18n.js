@@ -98,7 +98,7 @@
   "Already invited?": "Уже есть приглашение?",
   "Install the companion after joining the iPhone test.": "Установи агент после подключения к тесту iPhone.",
   "Download the Mac agent": "Скачать агент для Mac",
-  "Version 0.8.1 (32) · Developer ID signed and notarized.": "Версия 0.8.1 (32) · Подписана Developer ID и нотарифицирована.",
+  "Version 0.8.1 (33) · Developer ID signed and notarized.": "Версия 0.8.1 (33) · Подписана Developer ID и нотарифицирована.",
   "Signed automatic updates are available in the Mac agent’s settings. Sparkle may ask to restart the agent to finish an update.": "Подписанные автообновления доступны в настройках агента Mac. Для завершения обновления Sparkle может предложить перезапуск агента.",
   "Made by": "Разработчик —",
   "Oleg Yakushin": "Oleg Yakushin",

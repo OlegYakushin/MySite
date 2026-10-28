@@ -2,6 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
     <item>
+      <title>MacReport Agent 0.8.1 (33)</title>
+      <pubDate>Wed, 28 Oct 2026 22:32:58 GMT</pubDate>
+      <description>Closed-lid mode on external power with local macOS approval, confirmed state and a bounded timer. Fixes repeated sessions using the same protected journal directory. Real enable/disable, a repeated start and sleep restoration when the agent exits were verified. The updated component must finish registration before use. Physical lid-close behavior remains a tester check. Pair with iPhone 0.8.1 (31).</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.8.1-33.zip" length="18679601" type="application/octet-stream" sparkle:version="33" sparkle:shortVersionString="0.8.1" sparkle:edSignature="pwfNYmBGPTCs3rRAT32cKVYNcfT67D3YfMbpAbRNJEZYkIX90/Sv4Q3PmIoVodVV3Xa5WWHuKDQXD0a4bYLoAA==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.8.1 (32)</title>
       <pubDate>Wed, 28 Oct 2026 21:57:33 GMT</pubDate>
       <description>Optional closed-lid mode with one-time local macOS system-component approval. External power only, bounded to 15 minutes, 1, 2 or 4 hours. The helper temporarily changes the global sleep setting and restores it on expiry, agent disconnect, loss of AC power or high temperature. Mac and iPhone share the confirmed state. Use iPhone 0.8.1 (31). Enable only on an open, ventilated surface; hardware lid-close acceptance remains a tester check.</description>
