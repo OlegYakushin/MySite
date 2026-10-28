@@ -6,6 +6,13 @@
     <description>MacReport Agent updates</description>
     <language>en</language>
     <item>
+      <title>MacReport Agent 0.7.1</title>
+      <pubDate>Wed, 28 Oct 2026 11:21:12 GMT</pubDate>
+      <description>Customize the overview on each Mac: reorder and hide sections, choose readings and full-width tiles, and restore the default layout. Settings stay local and do not change permissions. English and Russian; Light and Dark appearance.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.7.1-21.zip" length="15481674" type="application/octet-stream" sparkle:version="21" sparkle:shortVersionString="0.7.1" sparkle:edSignature="0CCUdyp/hr8LR85sny8J3XJd1RHIRTvzBtzb51l8lFkoz8cSnINZZHfQMMewhHKW2lmNp/hr1kXlrUmcyLotCg==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.7.0</title>
       <pubDate>Wed, 28 Oct 2026 01:33:33 GMT</pubDate>
       <description>English and Russian, a compact overview, per-action feedback, event history, alert thresholds and quiet hours. Live viewing starts separately from mouse and keyboard control and reconnects without replaying input. Recoverable cleanup and separately confirmed permanent deletion. TURN fallback supports an owner-configured server; no hosted relay is included.</description>
