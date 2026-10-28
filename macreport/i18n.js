@@ -159,6 +159,55 @@
   "Please agree to receive an invitation and early-access updates.": "Подтверди согласие на приглашение и новости раннего доступа.",
   "We couldn't save your email. Please try again in a moment.": "Не удалось сохранить email. Попробуй чуть позже."
 };
+  Object.assign(russian, {
+  "MacReport — Your Mac. Your iCloud.": "MacReport — Твой Mac. Твой iCloud.",
+  "Mac status and control on your iPhone. Readings and commands stay in your private iCloud. Join the MacReport early-access list.": "Состояние Mac и управление с iPhone. Показатели и команды — в твоём приватном iCloud. Запишись на тест MacReport.",
+  "Mac status and control on your iPhone. Through your private iCloud.": "Состояние Mac и управление с iPhone. Через твой приватный iCloud.",
+  "Your iCloud.": "Твой iCloud.",
+  "Check and control your Mac from your iPhone. Readings and commands stay in your private iCloud.": "Проверяй Mac и управляй им с iPhone. Показатели и команды — в твоём приватном iCloud.",
+  "In private testing.": "Идёт закрытый тест.",
+  "iPhone + Mac · Same iCloud account": "iPhone + Mac · Один аккаунт iCloud",
+  "Interface preview · Sample data": "Макет интерфейса · Пример данных",
+  "Your data stays yours.": "Твои данные — у тебя.",
+  "MacReport uses your private iCloud database. The developer doesn’t receive your Mac’s readings, commands or requested screen images.": "MacReport использует твою приватную базу iCloud. Разработчик не получает показатели, команды и запрошенные снимки экрана твоего Mac.",
+  "Mac readings and commands pass between your Mac and iPhone through your private iCloud": "Показатели и команды передаются между твоими Mac и iPhone через твой приватный iCloud",
+  "Your Mac": "Твой Mac",
+  "Private iCloud": "Приватный iCloud",
+  "Your iPhone": "Твой iPhone",
+  "Live screen and input use a separate encrypted connection. Nearby control stays on your local network.": "Экран и ввод в Live передаются по отдельному зашифрованному соединению. Пульт «Рядом» работает по локальной сети.",
+  "Privacy details": "Подробнее о приватности",
+  "A few useful things,": "Полезные вещи",
+  "from your iPhone.": "с твоего iPhone.",
+  "Check on your Mac": "Проверить состояние",
+  "Battery, CPU, memory and storage. Seven days of readings, plus widgets and Apple Watch.": "Заряд, процессор, память и место на диске. История за семь дней, виджеты и Apple Watch.",
+  "See the screen": "Посмотреть экран",
+  "Live viewing or a requested image. Mouse and keyboard control only when you allow it on your Mac.": "Live или снимок по запросу. Управление мышью и клавиатурой — только с твоего разрешения на Mac.",
+  "Handle the little things": "Управлять на расстоянии",
+  "Adjust display and keyboard brightness": "Настроить яркость экрана и клавиатуры",
+  "Lock your Mac, open an app, change brightness or set a keep-awake timer. Review files before cleanup.": "Заблокировать Mac, открыть приложение, сменить яркость или включить таймер бодрствования. Проверить файлы перед очисткой.",
+  "A trackpad nearby": "Трекпад под рукой",
+  "Use your iPhone as a trackpad and keyboard while looking at your Mac. Pair once through iCloud.": "Используй iPhone как трекпад и клавиатуру, когда смотришь на Mac. Первое подключение — через iCloud.",
+  "Good to know.": "Что нужно знать.",
+  "iOS 17 or later and macOS 14 or later, with the same iCloud account. Install the iPhone app through TestFlight and the signed Mac agent. Enable screen viewing and control separately on your Mac.": "iOS 17 или новее и macOS 14 или новее, один аккаунт iCloud. Приложение для iPhone — через TestFlight, для Mac — подписанный агент. Просмотр экрана и управление включаются отдельно на Mac.",
+  "Does my Mac need to be awake?": "Mac должен быть включён?",
+  "Yes. It must be awake, online and running the agent. MacReport cannot remotely unlock macOS or answer password prompts.": "Да. Mac должен бодрствовать, быть в сети и работать с запущенным агентом. MacReport не может удалённо разблокировать macOS или ответить на запрос пароля.",
+  "Does Live work on every network?": "Live работает в любой сети?",
+  "Some networks block direct connections. You can configure your own TURN relay or request screen images through iCloud. Live has no audio. Viewing stops when your Mac locks or sleeps.": "Некоторые сети блокируют прямое соединение. Можно настроить свой TURN-сервер или запрашивать снимки через iCloud. Live работает без звука. Просмотр прекращается при блокировке или переходе Mac в сон.",
+  "What happens during cleanup?": "Как работает очистка?",
+  "You choose the files and confirm. Moving them to recovery does not free space; permanent deletion needs a separate confirmation. Personal files are never selected automatically.": "Ты выбираешь файлы и подтверждаешь действие. Перемещение в папку восстановления не освобождает место; окончательное удаление нужно подтвердить отдельно. Личные файлы не выбираются автоматически.",
+  "Where does my waitlist email go?": "Куда попадёт email из формы?",
+  "Your email is stored in Cloudflare D1 through OpenAI Sites, separately from iCloud. Oleg Yakushin can view and export the list to send invitations manually. The form does not send an automatic email.": "Email хранится в Cloudflare D1 через OpenAI Sites, отдельно от iCloud. Oleg Yakushin может просматривать и выгружать список, чтобы вручную отправлять приглашения. Форма не отправляет автоматических писем.",
+  "To remove your address, email": "Чтобы удалить свой адрес, напиши на",
+  "Try MacReport.": "Попробуй MacReport.",
+  "Leave your email for a testing invitation.": "Оставь email для приглашения на тест.",
+  "Stored in Cloudflare, separately from iCloud. Only the developer can access the list.": "Хранится в Cloudflare, отдельно от iCloud. Доступ к списку есть только у разработчика.",
+  "Mac companion download": "Скачать приложение для Mac",
+  "Install after receiving your iPhone invitation.": "Установи после получения приглашения на iPhone."
+});
+  Object.assign(russian, {
+    "Status, screen and control.": "Состояние, экран и управление.",
+    "Questions": "Вопросы"
+  });
   const choices = ['system', 'en', 'ru'];
   function resolve(choice, languages) {
     if (choice === 'en' || choice === 'ru') return choice;
