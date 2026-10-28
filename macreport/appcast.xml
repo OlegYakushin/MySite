@@ -7,10 +7,10 @@
     <language>en</language>
     <item>
       <title>MacReport Agent 0.8.0</title>
-      <pubDate>Wed, 28 Oct 2026 12:20:34 GMT</pubDate>
-      <description>Detailed local disk cleanup: app and browser caches, old logs, installers, Downloads, large and old files, exact duplicates and a storage breakdown. Search, filter, review each choice and keep data recoverable. Recognized source projects and protected data are excluded. Update the iPhone app to 0.8.0 for the detailed view.</description>
+      <pubDate>Wed, 28 Oct 2026 12:39:08 GMT</pubDate>
+      <description>Detailed disk cleanup with caches, old logs, Downloads, installers, large and old files, exact duplicates and a storage breakdown. Review each choice and keep data recoverable. Recognized projects and protected data are excluded. Retries an incomplete zero-work cold scan once. Works with iPhone 0.8.0 (22).</description>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.8.0-22.zip" length="15697550" type="application/octet-stream" sparkle:version="22" sparkle:shortVersionString="0.8.0" sparkle:edSignature="XUaaGhKSY8z5cOVm7nUfxJK3Hl5ocDp9XLzxxJkhzKoTem+A5clFXt4y4TDPR1L7fyC1V8mphjauoDzTFP5yCA==" />
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.8.0-23.zip" length="15697690" type="application/octet-stream" sparkle:version="23" sparkle:shortVersionString="0.8.0" sparkle:edSignature="JqkI0T3LYU8Y6ZhYgEUZC7rdhMYTd1+tXh4At1BhgtrDVeTDLVJjYiFClEFl/Zys12PNo0E0uD0sBvChvLQLAw==" />
     </item>
     <item>
       <title>MacReport Agent 0.7.1</title>
