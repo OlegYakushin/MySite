@@ -210,7 +210,7 @@
   });
   Object.assign(russian, {
     "App screenshot · Sample data": "Экран приложения · Пример данных",
-    "MacReport iPhone app in Russian: status, screen, terminal and cleanup. Sample data.": "Приложение MacReport на iPhone: состояние, экран, терминал и очистка. Пример данных."
+    "MacReport iPhone app: status, screen, terminal and cleanup. Sample data.": "Приложение MacReport на iPhone: состояние, экран, терминал и очистка. Пример данных."
   });
   const choices = ['system', 'en', 'ru'];
   function resolve(choice, languages) {
@@ -245,6 +245,10 @@
       if (trimmed) node.textContent = original.replace(trimmed, t(trimmed));
     }
     for (const [element, name, original] of attributes) element.setAttribute(name, t(original));
+    for (const image of document.querySelectorAll('[data-screenshot-en][data-screenshot-ru]')) {
+      const source = language === 'ru' ? image.dataset.screenshotRu : image.dataset.screenshotEn;
+      if (image.getAttribute('src') !== source) image.setAttribute('src', source);
+    }
     const select = document.getElementById('language');
     if (select) select.value = choice;
     window.dispatchEvent(new CustomEvent('macreport:language'));
