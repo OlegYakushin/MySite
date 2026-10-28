@@ -6,6 +6,13 @@
     <description>MacReport Agent updates</description>
     <language>en</language>
     <item>
+      <title>MacReport Agent 0.6.0</title>
+      <pubDate>Wed, 28 Oct 2026 00:01:11 GMT</pubDate>
+      <description>Direct Live screen viewing and remote control with owner-private iCloud signaling. Requires the local screen/control permissions and an unlocked awake Mac. This first release uses direct connections without a TURN relay; iCloud snapshots remain available for unsupported networks. Faster status updates and clearer widget timestamps.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.6.0-18.zip" length="15121122" type="application/octet-stream" sparkle:version="18" sparkle:shortVersionString="0.6.0" sparkle:edSignature="5cilzCUY2RdlS8z4McR0Lo0w9xUr2Rtgw8uQEPghv14eSWsE6cWGaGi8pYbOJzpQvD2c5m+K7JmPhry0IylfBQ==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.5.0</title>
       <pubDate>Tue, 27 Oct 2026 22:53:38 GMT</pubDate>
       <description>New bento overview and native sidebar, with Light, Dark and Follow System appearance. Includes agent-originated test push and alerts for repeated power-adapter transitions.</description>
