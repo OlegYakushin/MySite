@@ -6,6 +6,13 @@
     <description>MacReport Agent updates</description>
     <language>en</language>
     <item>
+      <title>MacReport Agent 0.8.1</title>
+      <pubDate>Wed, 28 Oct 2026 16:49:24 GMT</pubDate>
+      <description>Clearer cleanup coverage and folder-specific analysis, file details, candidate search, scan progress and recovery totals. Compact status cards, better language switching and ordered layout previews. Pair with iPhone 0.8.1 (24). Direct Live has no hosted relay.</description>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://olegotka.es/macreport/downloads/MacReport-Agent-0.8.1-24.zip" length="15830579" type="application/octet-stream" sparkle:version="24" sparkle:shortVersionString="0.8.1" sparkle:edSignature="Y/Zv97ZgrZTXVXmJKIEBn/uGPgagrvb8mHB1FV8i/hTM8dzxzjT2C50J9fWJn41EjJ+6IMo7l/na/tN+yAkGDA==" />
+    </item>
+    <item>
       <title>MacReport Agent 0.8.0</title>
       <pubDate>Wed, 28 Oct 2026 12:39:08 GMT</pubDate>
       <description>Detailed disk cleanup with caches, old logs, Downloads, installers, large and old files, exact duplicates and a storage breakdown. Review each choice and keep data recoverable. Recognized projects and protected data are excluded. Retries an incomplete zero-work cold scan once. Works with iPhone 0.8.0 (22).</description>
