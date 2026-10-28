@@ -208,6 +208,10 @@
     "Status, screen and control.": "Состояние, экран и управление.",
     "Questions": "Вопросы"
   });
+  Object.assign(russian, {
+    "App screenshot · Sample data": "Экран приложения · Пример данных",
+    "MacReport iPhone app in Russian: status, screen, terminal and cleanup. Sample data.": "Приложение MacReport на iPhone: состояние, экран, терминал и очистка. Пример данных."
+  });
   const choices = ['system', 'en', 'ru'];
   function resolve(choice, languages) {
     if (choice === 'en' || choice === 'ru') return choice;
@@ -224,8 +228,8 @@
   let language = resolve(choice, navigator.languages?.length ? navigator.languages : [navigator.language]);
   const originals = new WeakMap();
   const originalTitle = document.title;
-  const attributes = [...document.querySelectorAll('[aria-label],[placeholder],meta[name="description"],meta[property="og:title"],meta[property="og:description"]')].flatMap(element =>
-    ['aria-label', 'placeholder', 'content'].filter(name => element.hasAttribute(name)).map(name => [element, name, element.getAttribute(name)]));
+  const attributes = [...document.querySelectorAll('[aria-label],[alt],[placeholder],meta[name="description"],meta[property="og:title"],meta[property="og:description"]')].flatMap(element =>
+    ['aria-label', 'alt', 'placeholder', 'content'].filter(name => element.hasAttribute(name)).map(name => [element, name, element.getAttribute(name)]));
   const t = value => language === 'ru' && Object.hasOwn(russian, value) ? russian[value] : value;
   function render() {
     language = resolve(choice, navigator.languages?.length ? navigator.languages : [navigator.language]);
