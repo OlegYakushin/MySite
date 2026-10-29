@@ -1,7 +1,7 @@
 (() => {
   const appearance = document.getElementById('appearance');
   const modes = ['system', 'light', 'dark'];
-  let stored = 'system';
+  let stored = 'light';
   try { const value = localStorage.getItem('macreport-appearance'); if (modes.includes(value)) stored = value; } catch {}
   function setAppearance(mode) {
     if (mode === 'system') delete document.documentElement.dataset.theme;

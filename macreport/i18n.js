@@ -7,7 +7,7 @@
   "MacReport": "MacReport",
   "Main": "Основная навигация",
   "How it works": "Как это работает",
-  "Privacy": "Конфиденциальность",
+  "Privacy": "Приватность",
   "Language": "Язык",
   "Device language": "Язык системы",
   "English": "English",
@@ -211,6 +211,23 @@
   Object.assign(russian, {
     "App screenshot · Sample data": "Экран приложения · Пример данных",
     "MacReport iPhone app: status, screen, terminal and cleanup. Sample data.": "Приложение MacReport на iPhone: состояние, экран, терминал и очистка. Пример данных."
+  });
+  Object.assign(russian, {
+    "MacReport — Your Mac. On your iPhone.": "MacReport — Твой Mac. На твоём iPhone.",
+    "On your iPhone.": "На твоём iPhone.",
+    "Status and control, through your private iCloud.": "Состояние и управление — через твой личный iCloud.",
+    "Mac awake and online.": "Mac включён и в сети.",
+    "Your devices. Your private iCloud.": "Твои устройства. Твой личный iCloud.",
+    "Readings": "Показатели",
+    "Screen": "Экран",
+    "Control": "Управление",
+    "Battery, CPU, memory and storage in your private iCloud.": "Батарея, процессор, память и диск — в твоём личном iCloud.",
+    "View and control your Mac over an encrypted Live connection.": "Экран и управление Mac — через зашифрованное Live-соединение.",
+    "Send commands and run common tasks through iCloud.": "Отправляй команды и запускай привычные задачи через iCloud.",
+    "Send commands and run common tasks.": "Отправляй команды и запускай привычные задачи.",
+    "Waitlist email is stored separately in Cloudflare.": "Email для приглашения хранится отдельно — в Cloudflare.",
+    "What stays in my iCloud?": "Что хранится в моём iCloud?",
+    "Readings, commands and requested screen images stay in your private iCloud. The developer can’t access them. Live screen and input use a separate encrypted connection. Nearby control stays on your local network.": "Показатели, команды и запрошенные снимки экрана хранятся в твоём личном iCloud. Разработчик не имеет к ним доступа. Экран и ввод в Live идут по отдельному зашифрованному соединению. Управление вблизи работает по локальной сети."
   });
   const choices = ['system', 'en', 'ru'];
   function resolve(choice, languages) {
