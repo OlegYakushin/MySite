@@ -14,6 +14,14 @@
     try { localStorage.setItem('macreport-appearance', appearance.value); } catch {}
   });
   const form = document.getElementById('early-access');
+  const consent = form.querySelector('[name=consent]');
+  let consentEdited = false;
+  // Browser form restoration must not preselect email consent.
+  consent.checked = false;
+  consent.addEventListener('change', () => { consentEdited = true; });
+  window.addEventListener('pageshow', event => {
+    if (event.persisted || !consentEdited) consent.checked = false;
+  });
   const status = document.getElementById('signup-status');
   const button = form.querySelector('button[type=submit]');
   const t = value => window.MacReportLocale?.t(value) ?? value;
