@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reconnect a Bluetooth LE device on iOS | iOS Field Notes</title>
+  <meta name="description" content="Handle lost connections, cancellation and service discovery in CoreBluetooth, then verify recovery on a real iPhone.">
+  <link rel="canonical" href="https://olegotka.es/ios/corebluetooth-reconnect/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reconnect a Bluetooth LE device on iOS">
+  <meta property="og:description" content="Handle lost connections, cancellation and service discovery in CoreBluetooth, then verify recovery on a real iPhone.">
+  <meta property="og:url" content="https://olegotka.es/ios/corebluetooth-reconnect/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <link rel="stylesheet" href="/assets/field-notes.css">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Reconnect a Bluetooth LE device on iOS",
+  "description": "Handle lost connections, cancellation and service discovery in CoreBluetooth, then verify recovery on a real iPhone.",
+  "mainEntityOfPage": "https://olegotka.es/ios/corebluetooth-reconnect/",
+  "datePublished": "2026-11-12",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Oleg Yakushin",
+    "url": "https://olegotka.es/"
+  }
+}
+  </script>
+</head>
+<body class="field-notes">
+  <a class="fn-skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap fn-nav">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav aria-label="Main navigation"><a href="/insights/">Insights</a><a href="/ios/">iOS Field Notes</a></nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <header class="fn-hero fn-article-hero">
+      <a class="fn-back" href="/ios/">← All Field Notes</a>
+      <p class="fn-topic">CoreBluetooth</p>
+      <h1>Reconnect a Bluetooth LE device on iOS</h1>
+      <p class="lead">Handle lost connections, cancellation and service discovery in CoreBluetooth, then verify recovery on a real iPhone.</p>
+      <div class="meta"><span>Oleg Yakushin</span><time datetime="2026-11-12">12 November 2026</time></div>
+    </header>
+    <div class="article-layout fn-layout">
+      <article>
+        <section aria-labelledby="intent">
+          <h2 id="intent">Keep connection intent separate from link state</h2>
+
+          <p>Imagine a training session halfway through a live chart. The sensor goes out of range. Show that readings have paused, retain the session locally, and keep the device selected while the user still wants to resume. If the user taps Disconnect or ends the session, clear that intent before cancelling the connection.</p>
+          <p>Keep one central manager and a strong reference to the selected peripheral for the session. This small policy can guard a manual attempt, a scheduled retry or a radio-state change. Evaluate it on the same queue that owns your CoreBluetooth state.</p>
+          <pre tabindex="0" aria-label="Swift code example"><code class="language-swift">import CoreBluetooth
+import Foundation
+
+struct ReconnectIntent {
+    var targetID: UUID?
+    var allowsReconnect = false
+
+    func canConnect(
+        peripheral: CBPeripheral,
+        central: CBCentralManager
+    ) -&gt; Bool {
+        allowsReconnect
+            &amp;&amp; targetID == peripheral.identifier
+            &amp;&amp; central.state == .poweredOn
+            &amp;&amp; peripheral.state == .disconnected
+    }
+}</code></pre>
+          <p>Call <code>connect(_:options:)</code> once after the policy passes. Keep an explicit in-flight flag in the owner so multiple callbacks cannot start overlapping attempts. This example covers the retry decision; the owner still handles delegates, timers and service discovery.</p>
+          <p>DetecFit is an example of the product context: a device streams readings that feed a workout screen. The policy above is a standalone example. <a href="/cases/detecfit.html">DetecFit case study</a></p>
+        </section>
+        <section aria-labelledby="callbacks">
+          <h2 id="callbacks">Handle the three connection callbacks</h2>
+
+          <ol>
+            <li><strong><code>didConnect</code>.</strong> If the connection is still wanted, discover the services and characteristics required for this session. Enable notifications again and wait for the device handshake or a usable reading before showing the data as live. If the intent has been cleared, cancel the late connection.</li>
+            <li><strong><code>didDisconnectPeripheral</code>.</strong> Clear references to services and characteristics from the old link. When the same device is still wanted and Bluetooth is on, enqueue a single reconnect attempt. A disconnect caused by the user's own cancellation follows the same intent check.</li>
+            <li><strong><code>didFailToConnect</code>.</strong> End the in-flight attempt. A short, capped retry delay can help with repeated failures. Recheck intent when the delay expires and cancel any scheduled work when the user stops or changes device.</li>
+          </ol>
+          <p>A pending CoreBluetooth connection can wait indefinitely. If the UI offers a retry deadline, cancel the pending attempt at that deadline and wait for its terminal callback before starting another. Keep one pending attempt per selected peripheral. <a href="https://developer.apple.com/documentation/corebluetooth/cbcentralmanager/connect(_:options:)">Apple’s connection API</a></p>
+          <p>For a foreground flow, treat <code>centralManagerDidUpdateState</code> as another input. When Bluetooth is unavailable, pause retries and show the reason. When it returns, apply the same intent and in-flight checks. Validate background execution and state restoration separately if the product relies on either. <a href="https://developer.apple.com/documentation/corebluetooth">Core Bluetooth documentation</a></p>
+        </section>
+        <section aria-labelledby="data">
+          <h2 id="data">Recover the data as well as the link</h2>
+
+          <p>Track the last accepted reading per session using an identifier the device protocol actually supplies, such as a sequence number. If the firmware can replay buffered readings, request the missing range and deduplicate before writing it. If it cannot replay, preserve the gap in the saved session and show where live readings resumed.</p>
+        </section>
+        <section aria-labelledby="test">
+          <h2 id="test">Verify on a real iPhone</h2>
+
+          <ul>
+            <li>Walk out of range during a stream, return, and check that there is one active connection attempt and that the chart resumes after subscriptions are set up.</li>
+            <li>Disconnect manually while a retry is scheduled. Wait past the retry delay and confirm that no connection starts.</li>
+            <li>Power off the peripheral during connection, then bring it back. Check that your deadline and retry behaviour match the UI.</li>
+            <li>Turn off Bluetooth, turn it on again, and switch between two identical devices. Verify that the old device cannot reclaim the active session.</li>
+            <li>Inspect the stored record for gaps or duplicate samples. Repeat while the phone is locked if that is a supported flow.</li>
+          </ul>
+        </section>
+        <nav class="fn-related" aria-label="Related guide">
+          <a href="/ios/storekit-2-subscription-testing/">Test auto-renewable subscriptions with StoreKit 2 →</a>
+        </nav>
+      </article>
+      <nav class="toc" aria-label="On this page">
+        <b>On this page</b>
+        <a href="#intent">Keep connection intent separate from link state</a>
+        <a href="#callbacks">Handle the three connection callbacks</a>
+        <a href="#data">Recover the data as well as the link</a>
+        <a href="#test">Verify on a real iPhone</a>
+      </nav>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><span>© 2026 Oleg Yakushin</span><a href="/insights/">All Insights</a></div>
+  </footer>
+</body>
+</html>

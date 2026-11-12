@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test auto-renewable subscriptions with StoreKit 2 | iOS Field Notes</title>
+  <meta name="description" content="Verify purchase, restore, renewal and expiration across StoreKit Testing in Xcode, Sandbox and TestFlight.">
+  <link rel="canonical" href="https://olegotka.es/ios/storekit-2-subscription-testing/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Test auto-renewable subscriptions with StoreKit 2">
+  <meta property="og:description" content="Verify purchase, restore, renewal and expiration across StoreKit Testing in Xcode, Sandbox and TestFlight.">
+  <meta property="og:url" content="https://olegotka.es/ios/storekit-2-subscription-testing/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <link rel="stylesheet" href="/assets/field-notes.css">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Test auto-renewable subscriptions with StoreKit 2",
+  "description": "Verify purchase, restore, renewal and expiration across StoreKit Testing in Xcode, Sandbox and TestFlight.",
+  "mainEntityOfPage": "https://olegotka.es/ios/storekit-2-subscription-testing/",
+  "datePublished": "2026-11-12",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Oleg Yakushin",
+    "url": "https://olegotka.es/"
+  }
+}
+  </script>
+</head>
+<body class="field-notes">
+  <a class="fn-skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap fn-nav">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav aria-label="Main navigation"><a href="/insights/">Insights</a><a href="/ios/">iOS Field Notes</a></nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <header class="fn-hero fn-article-hero">
+      <a class="fn-back" href="/ios/">← All Field Notes</a>
+      <p class="fn-topic">StoreKit 2</p>
+      <h1>Test auto-renewable subscriptions with StoreKit 2</h1>
+      <p class="lead">Verify purchase, restore, renewal and expiration across StoreKit Testing in Xcode, Sandbox and TestFlight.</p>
+      <div class="meta"><span>Oleg Yakushin</span><time datetime="2026-11-12">12 November 2026</time></div>
+    </header>
+    <div class="article-layout fn-layout">
+      <article>
+        <section aria-labelledby="environment">
+          <h2 id="environment">Pick the environment for the question</h2>
+
+          <dl class="fn-steps">
+            <div><dt>StoreKit Testing in Xcode</dt><dd>Attach a StoreKit configuration to the run scheme. Iterate on the paywall and entitlement logic, and use Xcode’s transaction tools to create repeatable conditions. A local test uses the configuration available to the scheme.</dd></div>
+            <div><dt>Sandbox</dt><dd>Run a device build with the local StoreKit configuration disabled, using products configured in App Store Connect and a Sandbox Apple Account. Verify the real product identifiers, pricing display and renewal behaviour. If you have a backend, verify its sandbox transaction handling too.</dd></div>
+            <div><dt>TestFlight</dt><dd>Install the exact beta build testers will receive and repeat purchase and restore on device. Purchases in TestFlight use Sandbox. Record the build number and the outcome separately from the build's availability.</dd></div>
+          </dl>
+          <p>Keep separate evidence for each environment. This makes it possible to tell whether a failure comes from app logic, product setup or the distributed build. <a href="https://developer.apple.com/documentation/storekit/testing-at-all-stages-of-development-with-xcode-and-the-sandbox">Apple’s test environment comparison</a></p>
+        </section>
+        <section aria-labelledby="access">
+          <h2 id="access">Read verified entitlements before updating access</h2>
+
+          <p>Use a single entitlement state in the app. For a simple app that manages access locally, rebuild the active product set from <code>Transaction.currentEntitlements</code> at startup and after a verified purchase or transaction update. Map that set to your actual tiers. The function below reads only the subscription identifiers your feature accepts.</p>
+          <pre tabindex="0" aria-label="Swift code example"><code class="language-swift">import StoreKit
+
+@available(iOS 15.0, macOS 12.0, *)
+func activeSubscriptionIDs(allowing productIDs: Set&lt;String&gt;) async -&gt; Set&lt;String&gt; {
+    var active = Set&lt;String&gt;()
+
+    for await result in Transaction.currentEntitlements {
+        guard case .verified(let transaction) = result,
+              transaction.productType == .autoRenewable,
+              productIDs.contains(transaction.productID)
+        else { continue }
+
+        active.insert(transaction.productID)
+    }
+
+    return active
+}
+
+@available(iOS 15.0, macOS 12.0, *)
+func restoreSubscriptions(allowing productIDs: Set&lt;String&gt;) async throws -&gt; Set&lt;String&gt; {
+    try await AppStore.sync()
+    return await activeSubscriptionIDs(allowing: productIDs)
+}</code></pre>
+          <p>Call <code>restoreSubscriptions</code> from a user-initiated Restore Purchases action, since <code>AppStore.sync()</code> can prompt for authentication. Normal startup can read current entitlements directly. Show a clear result when the set is empty and a recoverable error if sync fails. <a href="https://developer.apple.com/documentation/storekit/appstore/sync()">Apple’s restore guidance</a></p>
+          <p>Start listening to <code>Transaction.updates</code> when the app launches. Verify each result, deliver the purchase before finishing it, and refresh access through your state owner. Handle a pending purchase as pending and leave access unchanged until a verified transaction arrives. A backend-managed app should reconcile access with its server before treating delivery as complete. <a href="https://developer.apple.com/documentation/storekit/transaction/currententitlements">Apple’s current entitlements API</a></p>
+        </section>
+        <section aria-labelledby="matrix">
+          <h2 id="matrix">Run a small acceptance matrix</h2>
+
+          <ul>
+            <li><strong>Fresh purchase.</strong> Start with an eligible test account. Confirm the product loads with the displayed billing period and price. Complete a purchase, unlock access, then relaunch and confirm the same tier.</li>
+            <li><strong>Cancel and pending.</strong> Dismiss the purchase sheet and check that access stays unchanged. Use a test scenario that produces a pending purchase, then verify that access updates only after approval arrives.</li>
+            <li><strong>Restore.</strong> Reinstall or use a second compatible device with the same test account and active entitlement. Confirm access can be read at launch, then exercise the restore action and verify the resulting tier. Repeat with an account that has nothing to restore.</li>
+            <li><strong>Renewal and cancellation.</strong> Observe an accelerated renewal. Turn off auto-renew and confirm access remains while the subscription is active. Once the period expires, verify that paid features lock when the entitlement is gone.</li>
+            <li><strong>Grace period and revocation.</strong> If you offer a billing grace period, verify the access policy through its end. Test a refund or revocation and confirm that the app refreshes its access state.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="record">
+          <h2 id="record">Record what passed</h2>
+
+          <p>For each run, capture the environment, build, device, OS, product identifier, test account state and expected versus observed access. A TestFlight build marked available is a distribution milestone. Record an actual purchase and restore as separate checks before you call the subscription flow verified.</p>
+          <p>When you're ready to prepare the version for review, continue with the <a href="/insights/app-store-launch-checklist.html">App Store launch checklist</a>.</p>
+        </section>
+        <nav class="fn-related" aria-label="Related guide">
+          <a href="/ios/corebluetooth-reconnect/">Reconnect a Bluetooth LE device on iOS →</a>
+        </nav>
+      </article>
+      <nav class="toc" aria-label="On this page">
+        <b>On this page</b>
+        <a href="#environment">Pick the environment for the question</a>
+        <a href="#access">Read verified entitlements before updating access</a>
+        <a href="#matrix">Run a small acceptance matrix</a>
+        <a href="#record">Record what passed</a>
+      </nav>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><span>© 2026 Oleg Yakushin</span><a href="/insights/">All Insights</a></div>
+  </footer>
+</body>
+</html>
