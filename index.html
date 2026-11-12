@@ -792,7 +792,10 @@
         <a href="#apply" data-project-type="full" class="btn btn-ghost" style="width:100%;justify-content:center" data-i18n="pr3.cta">Request a quote →</a>
       </div>
     </div>
-    <p style="text-align:center;font-family:var(--font-m);font-size:.7rem;color:var(--text-f);margin-top:2rem" data-i18n="price.fine">Fixed price always. No hourly billing surprises.</p>
+    <p class="sec-sub" style="text-align:center;max-width:none;margin-top:2rem">
+      <span data-i18n="price.review">Already have an iOS app? Start with a paid review of its build and release readiness.</span>
+      <a href="#apply" class="insight-link" data-project-type="review" data-i18n="price.reviewCta">Request an audit quote →</a>
+    </p>
   </div>
 </section>
 
@@ -894,8 +897,8 @@
           </select>
         </div>
         <div class="field">
-          <label for="app-stage" data-i18n="form.stage">Current stage</label>
-          <select id="app-stage" name="stage" required>
+          <label for="app-stage" data-i18n="form.stage">Current stage (optional)</label>
+          <select id="app-stage" name="stage">
             <option value="" data-i18n="form.chooseStage">Choose a stage</option>
             <option value="idea" data-i18n="form.idea">Idea / requirements</option>
             <option value="design" data-i18n="form.design">Prototype / design</option>
@@ -916,7 +919,7 @@
         <span data-i18n="form.privacy">I have read the <a href="/privacy-policy.html" target="_blank">privacy notice</a>.</span>
       </label>
       <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send application →</button>
-      <p class="form-note" data-i18n="form.note">Your request is sent directly to hello@olegotka.es. You stay on this page.</p>
+      <p class="form-note" data-i18n="form.note">You can also email <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.</p>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -985,7 +988,8 @@ const T={
     'v3.t':'Native first, always','v3.d':'Swift and SwiftUI only. No cross-platform performance compromises.',
     'v4.t':'Long-term code','v4.d':'Readable, documented, extendable. You own it completely.',
     'price.pre':'how to work together','price.h2a':'Choose your','price.h2b':'engagement.',
-    'price.fine':'Fixed price always. No hourly billing surprises.',
+    'price.review':'Already have an iOS app? Start with a paid review of its build and release readiness.',
+    'price.reviewCta':'Request an audit quote →',
     'pr.popular':'Most popular',
     'pr1.n':'Retainer','pr1.d':'Ongoing development, support, and updates.','pr1.note':'Min. 3 months',
     'pr1.f1':'Weekly progress updates','pr1.f2':'New iOS version support','pr1.f3':'Priority response','pr1.cta':'Request retainer →',
@@ -1005,11 +1009,11 @@ const T={
     'cta.callHint':'Prefer to talk first?','cta.call':'Book a call',
     'form.name':'Your name','form.email':'Work email','form.type':'What do you need?','form.choose':'Choose a project type',
     'form.mvp':'iOS MVP','form.full':'Full iOS app','form.support':'Existing app / support','form.review':'Code or architecture review','form.launch':'App Store launch',
-    'form.stage':'Current stage','form.chooseStage':'Choose a stage','form.idea':'Idea / requirements','form.design':'Prototype / design','form.existing':'Existing app',
+    'form.stage':'Current stage (optional)','form.chooseStage':'Choose a stage','form.idea':'Idea / requirements','form.design':'Prototype / design','form.existing':'Existing app',
     'form.brief':'Project brief','form.briefPlaceholder':'What should the app do, for whom, and what matters most?',
     'form.timeline':'Target timeline (optional)','form.timelinePlaceholder':'For example: launch in October',
     'form.privacy':'I have read the <a href="/privacy-policy.html" target="_blank">privacy notice</a>.',
-    'form.submit':'Send application →','form.note':'Your request is sent directly to hello@olegotka.es. You stay on this page.',
+    'form.submit':'Send application →','form.note':'You can also email <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.',
     'form.sending':'Sending your application…','form.ready':'Application sent. I will reply personally within 24 hours.',
     'form.error':'The application could not be sent. Try again or email hello@olegotka.es.',
     'footer.privacy':'Privacy','footer.copy':'© 2026 Oleg Yakushin. All rights reserved.',
@@ -1052,7 +1056,8 @@ const T={
     'v3.t':'Nativo siempre','v3.d':'Solo Swift y SwiftUI. Sin compromisos de rendimiento multiplataforma.',
     'v4.t':'Código a largo plazo','v4.d':'Legible, documentado, ampliable. Es completamente tuyo.',
     'price.pre':'cómo trabajar juntos','price.h2a':'Elige tu','price.h2b':'modalidad.',
-    'price.fine':'Precio fijo siempre. Sin sorpresas por horas.',
+    'price.review':'¿Ya tienes una app iOS? Empieza con una revisión de pago de la compilación y la preparación para publicar.',
+    'price.reviewCta':'Pedir presupuesto para la auditoría →',
     'pr.popular':'Más popular',
     'pr1.n':'Retainer','pr1.d':'Desarrollo continuo, soporte y actualizaciones.','pr1.note':'Mín. 3 meses',
     'pr1.f1':'Actualizaciones semanales','pr1.f2':'Soporte nuevas versiones iOS','pr1.f3':'Respuesta prioritaria','pr1.cta':'Solicitar retainer →',
@@ -1072,11 +1077,11 @@ const T={
     'cta.callHint':'¿Prefieres hablar primero?','cta.call':'Reservar llamada',
     'form.name':'Tu nombre','form.email':'Email de trabajo','form.type':'¿Qué necesitas?','form.choose':'Elige un tipo de proyecto',
     'form.mvp':'MVP iOS','form.full':'App iOS completa','form.support':'App existente / soporte','form.review':'Revisión de código o arquitectura','form.launch':'Lanzamiento App Store',
-    'form.stage':'Estado actual','form.chooseStage':'Elige una etapa','form.idea':'Idea / requisitos','form.design':'Prototipo / diseño','form.existing':'App existente',
+    'form.stage':'Estado actual (opcional)','form.chooseStage':'Elige una etapa','form.idea':'Idea / requisitos','form.design':'Prototipo / diseño','form.existing':'App existente',
     'form.brief':'Resumen del proyecto','form.briefPlaceholder':'¿Qué debe hacer la app, para quién y qué es lo más importante?',
     'form.timeline':'Plazo objetivo (opcional)','form.timelinePlaceholder':'Por ejemplo: lanzamiento en octubre',
     'form.privacy':'He leído el <a href="/privacy-policy.html" target="_blank">aviso de privacidad</a>.',
-    'form.submit':'Enviar solicitud →','form.note':'Tu solicitud se envía directamente a hello@olegotka.es. Permaneces en esta página.',
+    'form.submit':'Enviar solicitud →','form.note':'También puedes escribir a <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.',
     'form.sending':'Enviando tu solicitud…','form.ready':'Solicitud enviada. Responderé personalmente en 24 horas.',
     'form.error':'No se pudo enviar la solicitud. Inténtalo de nuevo o escribe a hello@olegotka.es.',
     'footer.privacy':'Privacidad','footer.copy':'© 2026 Oleg Yakushin. Todos los derechos reservados.',
@@ -1119,7 +1124,8 @@ const T={
     'v3.t':'Нативный подход всегда','v3.d':'Только Swift и SwiftUI. Без компромиссов.',
     'v4.t':'Код на годы вперёд','v4.d':'Читаемый, задокументированный, расширяемый. Он ваш.',
     'price.pre':'как работать вместе','price.h2a':'Выберите','price.h2b':'формат.',
-    'price.fine':'Всегда фиксированная цена. Никаких сюрпризов по часам.',
+    'price.review':'Уже есть iOS-приложение? Начните с платной проверки сборки и готовности к релизу.',
+    'price.reviewCta':'Запросить стоимость аудита →',
     'pr.popular':'Популярный',
     'pr1.n':'Ретейнер','pr1.d':'Постоянная разработка, поддержка, обновления.','pr1.note':'Мин. 3 месяца',
     'pr1.f1':'Еженедельные обновления','pr1.f2':'Поддержка новых версий iOS','pr1.f3':'Приоритетный отклик','pr1.cta':'Заявка на поддержку →',
@@ -1139,11 +1145,11 @@ const T={
     'cta.callHint':'Удобнее сначала поговорить?','cta.call':'Записаться на звонок',
     'form.name':'Ваше имя','form.email':'Рабочая почта','form.type':'Что вам нужно?','form.choose':'Выберите тип проекта',
     'form.mvp':'iOS MVP','form.full':'Полное iOS-приложение','form.support':'Готовое приложение / поддержка','form.review':'Аудит кода или архитектуры','form.launch':'Запуск в App Store',
-    'form.stage':'Текущий этап','form.chooseStage':'Выберите этап','form.idea':'Идея / требования','form.design':'Прототип / дизайн','form.existing':'Готовое приложение',
+    'form.stage':'Текущий этап (необязательно)','form.chooseStage':'Выберите этап','form.idea':'Идея / требования','form.design':'Прототип / дизайн','form.existing':'Готовое приложение',
     'form.brief':'Кратко о проекте','form.briefPlaceholder':'Что должно делать приложение, для кого и что важнее всего?',
     'form.timeline':'Желаемые сроки (необязательно)','form.timelinePlaceholder':'Например: запуск в октябре',
     'form.privacy':'Я ознакомился с <a href="/privacy-policy.html" target="_blank">уведомлением о конфиденциальности</a>.',
-    'form.submit':'Отправить заявку →','form.note':'Заявка отправляется напрямую на hello@olegotka.es. Вы останетесь на этой странице.',
+    'form.submit':'Отправить заявку →','form.note':'Можно написать на <a href="mailto:hello@olegotka.es">hello@olegotka.es</a>.',
     'form.sending':'Отправляю заявку…','form.ready':'Заявка отправлена. Я лично отвечу в течение 24 часов.',
     'form.error':'Не удалось отправить заявку. Попробуйте ещё раз или напишите на hello@olegotka.es.',
     'footer.privacy':'Конфиденциальность','footer.copy':'© 2026 Олег Якушин. Все права защищены.',
@@ -1197,34 +1203,46 @@ try{const s=localStorage.getItem('concept-lang');if(s&&T[s])applyLang(s);else ap
 
 const applicationForm=document.getElementById('application-form');
 const projectType=document.getElementById('app-type');
+const projectStage=document.getElementById('app-stage');
+const applicationParams=new URLSearchParams(window.location.search);
+const sourcePages=new Set([
+  '/insights/ios-app-development-cost.html',
+  '/insights/ios-mvp-roadmap.html',
+  '/es/guias/cuanto-cuesta-desarrollar-app-ios.html',
+  '/es/guias/roadmap-mvp-ios.html',
+  '/insights/app-store-launch-checklist.html',
+  '/es/guias/checklist-lanzamiento-app-store.html',
+  '/es/desarrollo-app-ios-barcelona.html',
+  '/es/desarrollador-ios-freelance-barcelona.html',
+  '/insights/ios-bluetooth-app-development.html',
+  '/insights/hire-freelance-ios-developer.html',
+  '/insights/ios-app-audit-checklist.html',
+  '/cases/detecfit.html'
+]);
+
+function selectProject(kind){
+  if(!kind || !projectType || !Array.from(projectType.options).some(option=>option.value===kind)) return;
+  projectType.value=kind;
+  if(kind==='review' && projectStage && !projectStage.value) projectStage.value='existing';
+}
+
+if(window.location.hash==='#apply') selectProject(applicationParams.get('project'));
 document.querySelectorAll('[data-project-type]').forEach(link=>{
-  link.addEventListener('click',()=>{
-    if(projectType) projectType.value=link.getAttribute('data-project-type');
-  });
+  link.addEventListener('click',()=>selectProject(link.getAttribute('data-project-type')));
 });
-function trackProjectLead(projectKind){
+
+function getProjectSource(){
+  if(!document.referrer) return '';
+  const referrer=new URL(document.referrer);
+  return referrer.origin===location.origin && sourcePages.has(referrer.pathname) ? referrer.pathname : '';
+}
+
+function trackProjectLead(projectKind,sourcePage){
   try{
     const choice=JSON.parse(localStorage.getItem('olegotka_cookie_consent_v1')||'null');
     if(choice?.analytics===true && typeof window.gtag==='function'){
-      const lead = {project_type: projectKind, form_location: 'homepage'};
-      const sourcePages = new Set([
-        '/insights/ios-app-development-cost.html',
-        '/es/guias/cuanto-cuesta-desarrollar-app-ios.html',
-        '/insights/app-store-launch-checklist.html',
-        '/es/guias/checklist-lanzamiento-app-store.html',
-        '/es/desarrollo-app-ios-barcelona.html',
-        '/es/desarrollador-ios-freelance-barcelona.html',
-        '/insights/ios-bluetooth-app-development.html',
-        '/insights/hire-freelance-ios-developer.html',
-        '/insights/ios-app-audit-checklist.html',
-        '/cases/detecfit.html'
-      ]);
-      if (document.referrer) {
-        const referrer = new URL(document.referrer);
-        if (referrer.origin === location.origin && sourcePages.has(referrer.pathname)) {
-          lead.source_page = referrer.pathname;
-        }
-      }
+      const lead={project_type:projectKind,form_location:'homepage'};
+      if(sourcePage) lead.source_page=sourcePage;
       window.gtag('event','generate_lead',lead);
     }
   }catch(e){}
@@ -1237,14 +1255,14 @@ applicationForm?.addEventListener('submit',async event=>{
   }
   const status=document.getElementById('form-status');
   const submitButton=applicationForm.querySelector('button[type="submit"]');
+  if(submitButton?.disabled) return;
   const data=new FormData(applicationForm);
   const typeLabel=projectType?.selectedOptions[0]?.textContent.trim()||data.get('projectType');
-  const stage=document.getElementById('app-stage');
-  const stageLabel=stage?.selectedOptions[0]?.textContent.trim()||data.get('stage');
+  const sourcePage=getProjectSource();
   data.set('Project type',typeLabel);
-  data.set('Current stage',stageLabel);
+  if(data.get('stage')) data.set('Current stage',projectStage?.selectedOptions[0]?.textContent.trim()||data.get('stage'));
   data.set('Language',lang);
-  data.set('Source page',window.location.href);
+  data.set('Source page',new URL(sourcePage||'/#apply',location.origin).href);
   data.set('_subject',`iOS project request — ${typeLabel}`);
   data.delete('projectType');
   data.delete('stage');
@@ -1263,9 +1281,9 @@ applicationForm?.addEventListener('submit',async event=>{
       headers:{Accept:'application/json'},
       body:data
     });
-    const result=await response.json().catch(()=>({}));
-    if(!response.ok || result.success===false) throw new Error('Submission failed');
-    trackProjectLead(data.get('Project type'));
+    const result=await response.json();
+    if(!response.ok || (result?.success!==true && result?.success!=='true')) throw new Error('Submission failed');
+    trackProjectLead(data.get('Project type'),sourcePage);
     applicationForm.reset();
     if(status) status.textContent=T[lang]['form.ready'];
   }catch(error){
@@ -1281,7 +1299,7 @@ applicationForm?.addEventListener('submit',async event=>{
     }
   }
 });
-if(new URLSearchParams(window.location.search).get('submitted')==='1'){
+if(applicationParams.get('submitted')==='1'){
   const status=document.getElementById('form-status');
   if(status) status.textContent=T[lang]['form.ready'];
   history.replaceState({},'',`${window.location.pathname}#apply`);
