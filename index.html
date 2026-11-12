@@ -1202,7 +1202,23 @@ function trackProjectLead(projectKind){
   try{
     const choice=JSON.parse(localStorage.getItem('olegotka_cookie_consent_v1')||'null');
     if(choice?.analytics===true && typeof window.gtag==='function'){
-      window.gtag('event','generate_lead',{project_type:projectKind,form_location:'homepage'});
+      const lead = {project_type: projectKind, form_location: 'homepage'};
+      const sourcePages = new Set([
+        '/insights/ios-app-development-cost.html',
+        '/es/guias/cuanto-cuesta-desarrollar-app-ios.html',
+        '/insights/app-store-launch-checklist.html',
+        '/es/guias/checklist-lanzamiento-app-store.html',
+        '/es/desarrollo-app-ios-barcelona.html',
+        '/es/desarrollador-ios-freelance-barcelona.html',
+        '/cases/detecfit.html'
+      ]);
+      if (document.referrer) {
+        const referrer = new URL(document.referrer);
+        if (referrer.origin === location.origin && sourcePages.has(referrer.pathname)) {
+          lead.source_page = referrer.pathname;
+        }
+      }
+      window.gtag('event','generate_lead',lead);
     }
   }catch(e){}
 }
