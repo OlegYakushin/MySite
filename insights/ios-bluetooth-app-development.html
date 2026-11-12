@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Plan an iOS App for a Bluetooth Device | olegotka</title>
+  <meta name="description" content="A practical scoping guide for Bluetooth Low Energy on iPhone, with a DetecFit example, a prototype checklist, and tests for reconnecting and recording data.">
+  <link rel="canonical" href="https://olegotka.es/insights/ios-bluetooth-app-development.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Plan an iOS App for a Bluetooth Device">
+  <meta property="og:description" content="A practical scoping guide for Bluetooth Low Energy on iPhone, with a DetecFit example, a prototype checklist, and tests for reconnecting and recording data.">
+  <meta property="og:url" content="https://olegotka.es/insights/ios-bluetooth-app-development.html">
+  <meta property="og:image" content="https://olegotka.es/assets/og-image.png">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Plan an iOS App for a Bluetooth Device",
+    "description": "A practical scoping guide for Bluetooth Low Energy on iPhone, with a DetecFit example, a prototype checklist, and tests for reconnecting and recording data.",
+    "datePublished": "2026-11-12",
+    "inLanguage": "en",
+    "author": {"@type": "Person", "name": "Oleg Yakushin", "url": "https://olegotka.es/"},
+    "mainEntityOfPage": "https://olegotka.es/insights/ios-bluetooth-app-development.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/insights/">Guides</a>
+        <a href="/cases/detecfit.html">DetecFit</a>
+        <a class="button" href="/#apply">Start a project</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>How to Plan an iOS App for a Bluetooth Device</h1>
+      <p class="lead">Start with one task the user needs to finish while connected to the device. That task tells you which commands, readings and failure states the first version needs to handle.</p>
+      <div class="meta"><span>By Oleg Yakushin</span><time datetime="2026-11-12">12 November 2026</time></div>
+    </section>
+    <div class="article-layout">
+      <article>
+        <h2 id="example">What the hardware changes</h2>
+        <p>DetecFit connects an iPhone to custom fitness hardware. The app handles calibration, displays live sensor charts and records workouts. A connection is only one step in that flow. The user also needs to know when the device is ready to measure, when readings are arriving, and whether the session has been saved.</p>
+        <p>The <a href="/cases/detecfit.html">DetecFit case study</a> shows the app screens and describes the CoreBluetooth integration. Use the checklist below to work out what the same kind of product would need from your hardware.</p>
+
+        <h2 id="inputs">What to bring to a first estimate</h2>
+        <ul>
+          <li>A working prototype, its firmware version and instructions for resetting it. Include a second unit if the app needs to distinguish between nearby devices of the same model.</li>
+          <li>The Bluetooth LE protocol for the first user flow. List the relevant services and characteristics, which values the app reads or writes, and which readings the device sends as notifications.</li>
+          <li>Sample packets and their decoded values, with units, byte order and sampling rate. Include a command response and an error response if the protocol defines them.</li>
+          <li>The supported iPhones and iOS versions, plus what you expect when the phone locks or the user switches apps.</li>
+          <li>A firmware contact who can confirm undocumented behaviour and provide a new build when needed.</li>
+        </ul>
+        <p>If the protocol is still changing, scope an initial device test. Confirm that a real iPhone can find the intended device, complete one command or measurement, and recover after the device powers off and returns.</p>
+
+        <h2 id="scope">Decide what the first release must preserve</h2>
+        <p>Write down what happens to a session if the device disappears halfway through. If the hardware buffers readings, agree how the app identifies the missing range and avoids duplicate records after reconnecting. If the hardware cannot recover those readings, agree how the app shows the gap and what it saves.</p>
+        <p>Specify foreground and background behaviour separately. For example, a device may need to continue measuring while the screen is locked. Check which activity must happen on the phone during that time and which data the device can retain until the phone is available. Test the expected behaviour on the iOS versions you support. <a href="https://developer.apple.com/documentation/corebluetooth">Apple’s Core Bluetooth documentation</a></p>
+        <p>Scope cloud sync separately from device communication. If users need their history on another phone, decide which records must sync and how the app behaves offline. The <a href="/insights/ios-app-development-cost.html">iOS development cost guide</a> covers how integrations and backend work affect the estimate.</p>
+
+        <h2 id="tests">Test the awkward moments on real hardware</h2>
+        <ol>
+          <li>Start from a fresh install. Try granting and declining Bluetooth permission, then check what the user sees when Bluetooth is off.</li>
+          <li>Scan with two identical devices nearby. Confirm the user can identify the correct unit before starting a session.</li>
+          <li>Disconnect the device mid-session, reconnect and inspect the saved record for gaps or duplicate readings.</li>
+          <li>Lock the phone, switch apps and return. Compare what happened with the agreed requirements.</li>
+          <li>Run a full-length session at the expected sampling rate. Check that the display stays responsive and that the saved data matches the device output.</li>
+        </ol>
+        <div class="article-cta">
+          <h2>Planning an iPhone companion app?</h2>
+          <p>Send the device model, the firmware or prototype status, and the first task you want a user to complete. I’ll use that to identify what needs testing before we estimate the app.</p>
+          <a class="button" href="/#apply">Discuss your Bluetooth project</a>
+        </div>
+      </article>
+      <aside class="toc" aria-label="In this guide">
+        <b>In this guide</b>
+        <a href="#example">DetecFit example</a>
+        <a href="#inputs">What to bring</a>
+        <a href="#scope">First release scope</a>
+        <a href="#tests">Hardware test checklist</a>
+      </aside>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><a href="/insights/">← All iOS guides</a><a href="mailto:hello@olegotka.es">hello@olegotka.es</a></div>
+  </footer>
+</body>
+</html>
