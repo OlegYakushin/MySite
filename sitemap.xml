@@ -120,6 +120,7 @@
     <loc>https://olegotka.es/insights/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://olegotka.es/insights/ios-app-development-cost.html</loc>
@@ -202,6 +203,14 @@
   </url>
   <url>
     <loc>https://olegotka.es/insights/ios-bluetooth-app-development.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://olegotka.es/insights/hire-freelance-ios-developer.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://olegotka.es/insights/ios-app-audit-checklist.html</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
 </urlset>

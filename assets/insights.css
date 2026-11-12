@@ -34,3 +34,11 @@ a:focus-visible,.table-scroll:focus-visible{outline:2px solid #b8c7ff;outline-of
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.guide{transition:none}}
 
 .article-layout>article{min-width:0}
+
+.guide-article{background:var(--bg)}
+.guide-article .logo span{background:none;color:#a6b7ff}
+.guide-article .hero h1{letter-spacing:-.04em}
+.guide-article .button{background:#3259ce}
+.guide-article .button:hover{background:#3c5ed3}
+.guide-article .note,.guide-article .article-cta{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.guide-article article p a,.guide-article article li a{text-underline-offset:.18em}

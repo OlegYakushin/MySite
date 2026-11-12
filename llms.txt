@@ -14,6 +14,8 @@ Useful resources:
 - iOS app development cost: https://olegotka.es/insights/ios-app-development-cost.html
 - iOS MVP roadmap: https://olegotka.es/insights/ios-mvp-roadmap.html
 - App Store launch checklist: https://olegotka.es/insights/app-store-launch-checklist.html
+- How to hire a freelance iOS developer: https://olegotka.es/insights/hire-freelance-ios-developer.html
+- iOS app audit checklist: https://olegotka.es/insights/ios-app-audit-checklist.html
 - Spanish iOS development page: https://olegotka.es/es/desarrollo-app-ios-barcelona.html
 - Freelance iOS developer in Barcelona: https://olegotka.es/es/desarrollador-ios-freelance-barcelona.html
 - Spanish iOS development guides: https://olegotka.es/es/guias/

@@ -28,6 +28,9 @@ Premium iOS MVP development for startups and growing businesses.
 - [A practical roadmap for an iOS MVP](https://olegotka.es/insights/ios-mvp-roadmap.html)
 - [App Store launch checklist](https://olegotka.es/insights/app-store-launch-checklist.html)
 
+- [How to hire a freelance iOS developer](https://olegotka.es/insights/hire-freelance-ios-developer.html)
+- [iOS app audit checklist](https://olegotka.es/insights/ios-app-audit-checklist.html)
+
 ## Spanish market
 
 - [Desarrollo de apps iOS en Barcelona](https://olegotka.es/es/desarrollo-app-ios-barcelona.html)

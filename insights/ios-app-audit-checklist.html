@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOS App Audit Checklist for an Existing Swift App</title>
+  <meta name="description" content="Audit an existing Swift or SwiftUI app before taking it over. Check the build, App Store access, user flows and data, then plan the next release.">
+  <link rel="canonical" href="https://olegotka.es/insights/ios-app-audit-checklist.html">
+  <meta property="og:title" content="iOS App Audit Checklist for an Existing Swift App">
+  <meta property="og:description" content="A practical checklist for taking over a live iOS app and deciding what to fix first.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://olegotka.es/insights/ios-app-audit-checklist.html">
+  <meta property="og:image" content="https://olegotka.es/assets/og-image.png">
+  <link rel="stylesheet" href="/assets/insights.css?v=20261112">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "iOS App Audit Checklist for an Existing Swift App",
+    "description": "A takeover checklist covering reproducible builds, release access, critical user flows and the next release plan.",
+    "mainEntityOfPage": "https://olegotka.es/insights/ios-app-audit-checklist.html",
+    "datePublished": "2026-11-12",
+    "inLanguage": "en",
+    "author": {"@type": "Person", "name": "Oleg Yakushin", "url": "https://olegotka.es/"}
+  }
+  </script>
+</head>
+<body class="guide-article">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/insights/">Guides</a>
+        <a href="/#work">Work</a>
+        <a class="button" href="/#apply">Start a project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>iOS app audit checklist for an existing Swift app</h1>
+      <p class="lead">Before estimating new features, establish which code is live, whether the team can build it and what could block the next release. This checklist works for SwiftUI, UIKit and projects that use both.</p>
+      <div class="meta"><time datetime="2026-11-12">12 November 2026</time><span>By Oleg Yakushin</span></div>
+    </section>
+
+    <div class="article-layout">
+      <article>
+        <h2 id="build">Match the released app to a buildable checkout</h2>
+        <p>Record the version and build number in App Store Connect and identify the corresponding commit or tag. Then try a clean checkout using the documented Xcode version, package dependencies, scheme and configuration. Build it, run it on a physical iPhone and record the archive result separately.</p>
+        <p>Write down the steps a second developer would need to reproduce the build. If you can run the app in a simulator but an extension or signing configuration blocks a device build, list that issue before scheduling feature work.</p>
+
+        <h2 id="access">Confirm who can ship the next update</h2>
+        <p>List the owners of the repository, App Store Connect record, signing configuration, backend and integrations. Verify the access needed to install a beta, upload a build and submit the release. Record which tasks require the Account Holder or an administrator. <a href="https://developer.apple.com/help/app-store-connect/manage-your-team/overview-of-accounts-and-roles">Apple explains the roles in App Store Connect</a>.</p>
+        <p>If the app is moving to another Apple Developer account, review <a href="https://developer.apple.com/help/app-store-connect/transfer-an-app/overview-of-app-transfer/">Apple’s app transfer requirements</a> before promising a date. List any app capabilities, subscription settings and services that will need work during the transfer.</p>
+
+        <h2 id="flows">Test the flows that can block a release</h2>
+        <p>Choose two or three user journeys based on what the app does. Include the device and iOS version, whether it is a clean install or an upgrade, the steps and the result. Start with recent crash reports and support tickets to decide where to look. <a href="https://developer.apple.com/documentation/xcode/acquiring-crash-reports-and-diagnostic-logs">Apple’s guide to crash reports</a> describes the available diagnostics.</p>
+        <ul>
+          <li><strong>Offline data.</strong> Upgrade from a previous build using test data, reopen the app offline and verify the records are still there. For a travel tracker such as <a href="/cases/days.html">DAY’S</a>, stored trips and date calculations are central to the product.</li>
+          <li><strong>Subscriptions.</strong> Use a test account to complete a purchase and restore access on a clean install. Record whether the build uses Apple’s sandbox, a local StoreKit configuration or another test setup. See <a href="https://developer.apple.com/documentation/storekit/testing-in-app-purchases-with-sandbox">Apple’s sandbox testing guide</a>.</li>
+          <li><strong>Hardware and extensions.</strong> Repeat the most important flow when the connection drops, permission is denied or the app goes to the background. In a hardware companion such as <a href="/cases/detecfit.html">DetecFit</a>, setup and reconnection belong in the release checks.</li>
+        </ul>
+
+        <h2 id="plan">Turn the findings into a release plan</h2>
+        <p>For each issue, write down the affected flow, the evidence, the smallest change that resolves it and the check that will close it. Prioritise anything that prevents a build or risks user data. Then address reproducible defects in the main flow and schedule the remaining changes around the next feature.</p>
+        <div class="note">
+          <p><strong>Example finding</strong></p>
+          <p>A user with saved trips opens the updated build and sees an empty history. The release should wait until a test upgrade retains those trips and the country totals match before and after the upgrade.</p>
+        </div>
+        <p>A useful handover includes the build steps, an access map, results from the device checks and the first release milestone. For the next submission, use the <a href="/insights/app-store-launch-checklist.html">App Store launch checklist</a>. If you are still choosing who will own the work, use the <a href="/insights/hire-freelance-ios-developer.html">freelance iOS hiring guide</a>.</p>
+
+        <div class="article-cta">
+          <h2>Need a review of an existing app?</h2>
+          <p>Share the App Store link, what changed recently and the issue that matters most. Include the next release deadline if there is one.</p>
+          <a class="button" href="/#apply">Request an iOS app review</a>
+        </div>
+      </article>
+
+      <aside class="toc" aria-label="In this guide">
+        <b>In this guide</b>
+        <a href="#build">Reproduce the build</a>
+        <a href="#access">Confirm release access</a>
+        <a href="#flows">Test critical flows</a>
+        <a href="#plan">Plan the next release</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer><div class="wrap footer-row"><a href="/insights/">← All iOS guides</a><a href="mailto:hello@olegotka.es">hello@olegotka.es</a></div></footer>
+</body>
+</html>

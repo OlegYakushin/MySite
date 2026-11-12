@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Hire a Freelance iOS Developer</title>
+  <meta name="description" content="Hire a freelance iOS developer with a clear brief, a practical portfolio review and a TestFlight milestone. Compare proposals and plan the handover.">
+  <link rel="canonical" href="https://olegotka.es/insights/hire-freelance-ios-developer.html">
+  <meta property="og:title" content="How to Hire a Freelance iOS Developer">
+  <meta property="og:description" content="Questions to ask about Swift, TestFlight, project ownership and the first delivery.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://olegotka.es/insights/hire-freelance-ios-developer.html">
+  <meta property="og:image" content="https://olegotka.es/assets/og-image.png">
+  <link rel="stylesheet" href="/assets/insights.css?v=20261112">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Hire a Freelance iOS Developer",
+    "description": "A hiring checklist for evaluating iOS experience, comparing proposals and agreeing on a first TestFlight delivery.",
+    "mainEntityOfPage": "https://olegotka.es/insights/hire-freelance-ios-developer.html",
+    "datePublished": "2026-11-12",
+    "inLanguage": "en",
+    "author": {"@type": "Person", "name": "Oleg Yakushin", "url": "https://olegotka.es/"}
+  }
+  </script>
+</head>
+<body class="guide-article">
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/insights/">Guides</a>
+        <a href="/#work">Work</a>
+        <a class="button" href="/#apply">Start a project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>How to hire a freelance iOS developer</h1>
+      <p class="lead">Describe the first outcome you need, ask for a relevant example of shipped work and agree on a milestone you can test on an iPhone. Use this checklist to compare proposals for a new app or an existing Swift project.</p>
+      <div class="meta"><time datetime="2026-11-12">12 November 2026</time><span>By Oleg Yakushin</span></div>
+    </section>
+
+    <div class="article-layout">
+      <article>
+        <h2 id="brief">Write a brief people can estimate</h2>
+        <p>Explain who the app is for, the main task they need to complete and what already exists. Share the current state of the designs, backend and App Store listing. If a deadline matters, say what happens on that date and which part of the scope can move.</p>
+        <div class="note">
+          <p><strong>Example brief</strong></p>
+          <p>A customer should be able to sign in, find an available appointment and book it on an iPhone. The booking API and designs are ready. The first TestFlight build should cover booking and cancellation. Payments can wait.</p>
+        </div>
+        <p>If the scope is still open, use the <a href="/insights/ios-mvp-roadmap.html">iOS MVP roadmap</a> to choose the first flow before asking several developers to estimate it.</p>
+
+        <h2 id="portfolio">Ask what they shipped and what they owned</h2>
+        <p>Pick one project close to your needs. Ask which parts the developer built, what they tested on real devices and how they handled the hardest failure state. If the app is public, install it and try the flow you discussed.</p>
+        <ul>
+          <li><strong>Hardware and sensors.</strong> Ask what happens when a device disconnects during setup or data capture. <a href="/cases/detecfit.html">The DetecFit case</a> shows how Bluetooth, calibration and live sensor data affect scope.</li>
+          <li><strong>iOS extensions.</strong> Ask how the main app and its extension share state and how the developer tested interruptions. <a href="/cases/clipcast.html">ClipCast Recorder</a> is an example with a ReplayKit broadcast extension.</li>
+          <li><strong>Existing Swift apps.</strong> Ask which screens use UIKit or SwiftUI, how the current release is built and what the developer would check before changing it. Start with the <a href="/insights/ios-app-audit-checklist.html">iOS app audit checklist</a> if build or release ownership is unclear.</li>
+        </ul>
+
+        <h2 id="proposals">Compare proposals against the same scope</h2>
+        <p>Ask each developer to name the screens and integrations included, the dependencies they expect you to supply and the deliverable you will receive. Check who will handle device testing, App Store submission and fixes during the agreed support period.</p>
+        <p>A fixed price fits a bounded deliverable with known inputs. A paid review is easier to estimate when the repository or backend still needs investigation. Ongoing support works for a live app with a backlog that changes week to week. The <a href="/insights/ios-app-development-cost.html">iOS development cost guide</a> includes an example of what goes into a €3,000 MVP estimate.</p>
+
+        <h2 id="milestone">Agree on a first delivery you can verify</h2>
+        <p>For the booking example, the milestone could be a TestFlight build that loads appointment availability, confirms a booking and explains what happened if the network drops. Give testers written steps, name the devices they should use and agree who will resolve issues found in that build.</p>
+        <p>Apple uses TestFlight for beta distribution. If public release is part of the job, put App Store submission and release responsibilities in the proposal as separate deliverables. See <a href="https://developer.apple.com/testflight/">Apple’s TestFlight overview</a> and the <a href="/insights/app-store-launch-checklist.html">App Store launch checklist</a>.</p>
+
+        <h2 id="handover">Set up ownership before development starts</h2>
+        <p>Agree who owns the repository, Apple Developer account, backend and third-party services. Invite collaborators using the roles needed for their work. Check the signing and release responsibilities early, especially when the owner has an individual membership. <a href="https://developer.apple.com/help/app-store-connect/manage-your-team/overview-of-accounts-and-roles">Apple’s account and role overview</a> explains the differences.</p>
+        <p>Ask for a handover that another developer can follow. Include a clean checkout, build instructions, a list of required services, the release process and the location of design assets. Have the owner or another team member try those steps while the developer is still available.</p>
+
+        <div class="article-cta">
+          <h2>Discuss your iOS project</h2>
+          <p>Send the main user flow, the current state of the project and the date you need a build. If you already have an app, include its public App Store link.</p>
+          <a class="button" href="/#apply">Send a project brief</a>
+        </div>
+      </article>
+
+      <aside class="toc" aria-label="In this guide">
+        <b>In this guide</b>
+        <a href="#brief">Write an estimable brief</a>
+        <a href="#portfolio">Review shipped work</a>
+        <a href="#proposals">Compare proposals</a>
+        <a href="#milestone">Set a first milestone</a>
+        <a href="#handover">Plan ownership and handover</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer><div class="wrap footer-row"><a href="/insights/">← All iOS guides</a><a href="mailto:hello@olegotka.es">hello@olegotka.es</a></div></footer>
+</body>
+</html>
