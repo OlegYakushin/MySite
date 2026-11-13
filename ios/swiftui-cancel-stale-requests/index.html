@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancel stale search requests in SwiftUI | iOS Field Notes</title>
+  <meta name="description" content="Debounce search with task(id:), guard UI updates after an async call, and test what happens when responses arrive out of order.">
+  <link rel="canonical" href="https://olegotka.es/ios/swiftui-cancel-stale-requests/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cancel stale search requests in SwiftUI">
+  <meta property="og:description" content="Debounce search with task(id:), guard UI updates after an async call, and test what happens when responses arrive out of order.">
+  <meta property="og:url" content="https://olegotka.es/ios/swiftui-cancel-stale-requests/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <link rel="stylesheet" href="/assets/field-notes.css">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cancel stale search requests in SwiftUI",
+  "description": "Debounce search with task(id:), guard UI updates after an async call, and test what happens when responses arrive out of order.",
+  "mainEntityOfPage": "https://olegotka.es/ios/swiftui-cancel-stale-requests/",
+  "datePublished": "2026-11-13",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Oleg Yakushin",
+    "url": "https://olegotka.es/"
+  }
+}
+  </script>
+</head>
+<body class="field-notes">
+  <a class="fn-skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap fn-nav">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav aria-label="Main navigation"><a href="/insights/">Insights</a><a href="/ios/">iOS Field Notes</a></nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <header class="fn-hero fn-article-hero">
+      <a class="fn-back" href="/ios/">← All Field Notes</a>
+      <p class="fn-topic">SwiftUI</p>
+      <h1>Cancel stale search requests in SwiftUI</h1>
+      <p class="lead">Debounce search with task(id:), guard UI updates after an async call, and test what happens when responses arrive out of order.</p>
+      <div class="meta"><span>Oleg Yakushin</span><time datetime="2026-11-13">13 November 2026</time></div>
+    </header>
+    <div class="article-layout fn-layout">
+      <article>
+        <section aria-labelledby="race">
+          <h2 id="race">Reproduce the race</h2>
+          <p>Search for “bike”, then change the query to “bell” before the first request returns. If “bell” finishes first, the list should keep those results when the older response arrives. The same race can affect a loading spinner or error message.</p>
+        </section>
+        <section aria-labelledby="implementation">
+          <h2 id="implementation">Give each query its own task</h2>
+          <p>Use the normalized query as the ID for <code>.task(id:)</code>. SwiftUI cancels and recreates the task when the ID changes. The delay gives the user time to type. Checking cancellation after the service returns protects the UI even when that service completes work after cancellation. <a href="https://developer.apple.com/documentation/swiftui/view/task(id:priority:_:)">Apple’s task modifier</a></p>
+          <pre tabindex="0" aria-label="Swift code example"><code class="language-swift">import SwiftUI
+
+struct SearchScreen: View {
+    let search: (String) async throws -&gt; [String]
+
+    @State private var query = &quot;&quot;
+    @State private var phase: Phase = .idle
+
+    private enum Phase {
+        case idle, loading, results([String]), failed
+    }
+
+    var body: some View {
+        let term = query.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        VStack {
+            TextField(&quot;Search&quot;, text: $query)
+                .textFieldStyle(.roundedBorder)
+
+            switch phase {
+            case .idle:
+                Text(&quot;Enter a search term&quot;)
+            case .loading:
+                ProgressView()
+            case .results(let matches):
+                if matches.isEmpty {
+                    Text(&quot;No matches&quot;)
+                } else {
+                    Text(matches.joined(separator: &quot;, &quot;))
+                }
+            case .failed:
+                Text(&quot;Search failed. Change your search to try again.&quot;)
+            }
+        }
+        .task(id: term) { @MainActor in
+            guard !Task.isCancelled else { return }
+            guard !term.isEmpty else {
+                phase = .idle
+                return
+            }
+
+            phase = .loading
+            do {
+                try await Task.sleep(nanoseconds: 300_000_000)
+                let matches = try await search(term)
+                try Task.checkCancellation()
+                phase = .results(matches)
+            } catch {
+                guard !Task.isCancelled, !(error is CancellationError) else {
+                    return
+                }
+                phase = .failed
+            }
+        }
+    }
+}</code></pre>
+          <p>The service is injected so you can replace it with a stub. The example keeps results and errors in one phase and updates it on the main actor. For several filters, use an equatable value containing all inputs as the task ID, such as the query, category and sort order.</p>
+        </section>
+        <section aria-labelledby="verification">
+          <h2 id="verification">Test the order of responses</h2>
+          <ol>
+            <li>Inject a stub whose completions you control. Start A, change the query to B, then return B before releasing A. Make the stub ignore cancellation for A so the guard gets exercised.</li>
+            <li>Repeat with A failing after B succeeds. Confirm B remains visible and the old error does not appear.</li>
+            <li>Clear the query during a request and confirm the screen stays idle when the result arrives. Try A → B → A and verify only the final task can publish results.</li>
+            <li>Leave the screen while a request is running. On return, verify the visible screen starts its own load.</li>
+          </ol>
+          <p>If requests live in a shared model outside the view task, give each load a generation token and check it before publishing. Comparing query strings alone can accept an old response when the same query is entered twice.</p>
+        </section>
+        <nav class="fn-related" aria-label="Related guide">
+          <a href="/ios/corebluetooth-reconnect/">Reconnect a Bluetooth LE device on iOS →</a>
+        </nav>
+      </article>
+      <nav class="toc" aria-label="On this page">
+        <b>On this page</b>
+        <a href="#race">Reproduce the race</a>
+        <a href="#implementation">Give each query its own task</a>
+        <a href="#verification">Test the order of responses</a>
+      </nav>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><span>© 2026 Oleg Yakushin</span><a href="/insights/">All Insights</a></div>
+  </footer>
+</body>
+</html>

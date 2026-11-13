@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify an iOS release build in TestFlight | iOS Field Notes</title>
+  <meta name="description" content="Confirm the exact build installs, exercise the production-like user flows and record what passed before submitting to App Review.">
+  <link rel="canonical" href="https://olegotka.es/ios/testflight-release-build-checklist/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Verify an iOS release build in TestFlight">
+  <meta property="og:description" content="Confirm the exact build installs, exercise the production-like user flows and record what passed before submitting to App Review.">
+  <meta property="og:url" content="https://olegotka.es/ios/testflight-release-build-checklist/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/insights.css">
+  <link rel="stylesheet" href="/assets/field-notes.css">
+  <script defer src="/assets/cookie-consent.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Verify an iOS release build in TestFlight",
+  "description": "Confirm the exact build installs, exercise the production-like user flows and record what passed before submitting to App Review.",
+  "mainEntityOfPage": "https://olegotka.es/ios/testflight-release-build-checklist/",
+  "datePublished": "2026-11-13",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Oleg Yakushin",
+    "url": "https://olegotka.es/"
+  }
+}
+  </script>
+</head>
+<body class="field-notes">
+  <a class="fn-skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap fn-nav">
+      <a class="logo" href="/">oleg<span>otka</span></a>
+      <nav aria-label="Main navigation"><a href="/insights/">Insights</a><a href="/ios/">iOS Field Notes</a></nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <header class="fn-hero fn-article-hero">
+      <a class="fn-back" href="/ios/">← All Field Notes</a>
+      <p class="fn-topic">TestFlight</p>
+      <h1>Verify an iOS release build in TestFlight</h1>
+      <p class="lead">Confirm the exact build installs, exercise the production-like user flows and record what passed before submitting to App Review.</p>
+      <div class="meta"><span>Oleg Yakushin</span><time datetime="2026-11-13">13 November 2026</time></div>
+    </header>
+    <div class="article-layout fn-layout">
+      <article>
+        <section aria-labelledby="identify">
+          <h2 id="identify">Identify the build before testing</h2>
+          <p>Pick the version and build number in App Store Connect and confirm the build is available to the intended tester group. Install it through TestFlight on a real device. Put the version and build number in an About or diagnostics screen so screenshots and bug reports point to the correct binary.</p>
+          <pre tabindex="0" aria-label="Swift code example"><code class="language-swift">import Foundation
+
+func buildLabel(for bundle: Bundle = .main) -&gt; String {
+    let version = bundle.object(
+        forInfoDictionaryKey: &quot;CFBundleShortVersionString&quot;
+    ) as? String ?? &quot;?&quot;
+    let build = bundle.object(
+        forInfoDictionaryKey: &quot;CFBundleVersion&quot;
+    ) as? String ?? &quot;?&quot;
+    return &quot;\(version) (\(build))&quot;
+}</code></pre>
+          <p>A processed upload and a tester installation are separate checkpoints. Record the device and iOS version along with the installed build. <a href="https://developer.apple.com/help/app-store-connect/reference/app-uploads/app-build-statuses/">Apple’s build statuses</a></p>
+        </section>
+        <section aria-labelledby="run">
+          <h2 id="run">Exercise the paths most likely to break</h2>
+          <ul>
+            <li><strong>Fresh install.</strong> Launch with a new test account, complete onboarding and reach the first useful screen. Try denying any permission the first flow depends on.</li>
+            <li><strong>Upgrade.</strong> Install the previous relevant build, create representative data, then update in place. Verify existing data opens and the main action still works.</li>
+            <li><strong>Services.</strong> Check that authentication, API calls and universal links reach the intended environment. Toggle connectivity and confirm the app shows a recoverable state.</li>
+            <li><strong>Paid access.</strong> Run purchase and restore on the installed build when applicable. TestFlight purchases use Sandbox. Record each outcome separately. <a href="/ios/storekit-2-subscription-testing/">StoreKit 2 subscription testing</a></li>
+            <li><strong>Release-only behaviour.</strong> Check the flows that depend on signing, capabilities or build configuration, such as push notifications, associated domains or background work.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="decision">
+          <h2 id="decision">Make the release decision from the evidence</h2>
+          <p>Keep one row per check with the build, device, expected behaviour, actual outcome and any issue link. Mark checks that do not apply explicitly. If a fix changes the binary, install the replacement build and rerun the affected flow plus the launch smoke test.</p>
+          <p>Before submitting, compare the verified build number with the one selected for App Review. After publication, confirm the public listing and run a smoke test from an App Store installation. <a href="/insights/app-store-launch-checklist.html">App Store launch checklist</a></p>
+        </section>
+        <nav class="fn-related" aria-label="Related guide">
+          <a href="/ios/storekit-2-subscription-testing/">Test auto-renewable subscriptions with StoreKit 2 →</a>
+        </nav>
+      </article>
+      <nav class="toc" aria-label="On this page">
+        <b>On this page</b>
+        <a href="#identify">Identify the build before testing</a>
+        <a href="#run">Exercise the paths most likely to break</a>
+        <a href="#decision">Make the release decision from the evidence</a>
+      </nav>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-row"><span>© 2026 Oleg Yakushin</span><a href="/insights/">All Insights</a></div>
+  </footer>
+</body>
+</html>

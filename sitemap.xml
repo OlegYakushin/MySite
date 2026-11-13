@@ -215,7 +215,7 @@
   </url>
   <url>
     <loc>https://olegotka.es/ios/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://olegotka.es/ios/corebluetooth-reconnect/</loc>
@@ -224,5 +224,13 @@
   <url>
     <loc>https://olegotka.es/ios/storekit-2-subscription-testing/</loc>
     <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://olegotka.es/ios/swiftui-cancel-stale-requests/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://olegotka.es/ios/testflight-release-build-checklist/</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
 </urlset>
